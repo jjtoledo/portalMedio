@@ -447,7 +447,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_saudes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `saude_id` INT(11) NOT NULL,
+  `orgao_saude_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `saude_id`),
   INDEX `fk_foto_saudes_saudes1_idx` (`saude_id` ASC),
   CONSTRAINT `fk_foto_saudes_saudes1`
