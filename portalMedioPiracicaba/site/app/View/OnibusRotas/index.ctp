@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('OnibusRotas da ' . $empresa_onibus['EmpresaOnibus']['nome']); ?></h2>
+				<h2><?php echo __('Rotas da ' . $empresa_onibus['EmpresaOnibus']['nome']); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->

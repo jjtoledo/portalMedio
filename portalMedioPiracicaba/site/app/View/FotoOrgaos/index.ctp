@@ -21,7 +21,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes'), array('controller' => 'orgaos', 'action' => 'view', $orgao['OrgaoPublico']['id'], $orgao['Cidade']['id']), array('escape' => false)); ?> </li>													
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes'), array('controller' => 'orgaoPublicos', 'action' => 'view', $orgao['OrgaoPublico']['id'], $orgao['Cidade']['id']), array('escape' => false)); ?> </li>													
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novas fotos'), array('action' => 'add', $orgao['OrgaoPublico']['id']), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->

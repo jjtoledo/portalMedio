@@ -37,7 +37,7 @@ class FotoOrgaosController extends AppController {
 	public function index($id = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'FotoOrgao.orgao_id' => $id
+				'FotoOrgao.orgao_publico_id' => $id
 			)
 		);
 		$this->set('fotoOrgaos', $this->Paginator->paginate());
@@ -75,7 +75,7 @@ class FotoOrgaosController extends AppController {
  * @return void
  */
 	public function add($id = null) {
-		$this->request->data['FotoOrgao']['orgao_id'] = $id;
+		$this->request->data['FotoOrgao']['orgao_publico_id'] = $id;
 		
 		$this->loadModel('OrgaoPublico');
 		$options = array('conditions' => array('OrgaoPublico.' . $this->OrgaoPublico->primaryKey => $id));
@@ -85,7 +85,7 @@ class FotoOrgaosController extends AppController {
 		if ($this->request->is('post')) {				
 			for ($i=0; $i < sizeof($this->request->data['FotoOrgao']['fotos']); $i++) { 
 				$photo = array('FotoOrgao' => 
-							array('orgao_id' => $this->request->data['FotoOrgao']['orgao_id'],
+							array('orgao_publico_id' => $this->request->data['FotoOrgao']['orgao_publico_id'],
 									'foto' => $this->request->data['FotoOrgao']['fotos'][$i]));
 				$this->FotoOrgao->create();			
 				if (!$this->FotoOrgao->save($photo)) {
@@ -111,7 +111,7 @@ class FotoOrgaosController extends AppController {
 			throw new NotFoundException(__('Invalid Foto'));
 		}
 
-		$this->request->data['FotoOrgao']['orgao_id'] = $idOrgao;
+		$this->request->data['FotoOrgao']['orgao_publico_id'] = $idOrgao;
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->FotoOrgao->save($this->request->data)) {

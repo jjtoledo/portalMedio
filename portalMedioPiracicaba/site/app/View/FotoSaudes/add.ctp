@@ -20,7 +20,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-							<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $orgao['OrgaoSaude']['id']), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $saude['OrgaoSaude']['id']), array('escape' => false)); ?> </li>
 							</ul>
 						</div>
 					</div>

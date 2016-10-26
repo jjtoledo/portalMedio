@@ -2176,3 +2176,151 @@ Stack Trace:
 #3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PatrimoniosController), Object(CakeRequest))
 #4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2016-10-26 22:00:55 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'FotoOrgao.orgao_id' in 'where clause'
+Request URL: /portalMedio/portalMedioPiracicaba/site/fotoOrgaos/index/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(461): PDOStatement->execute(Array)
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(427): DboSource->_execute('SELECT `FotoOrg...', Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(669): DboSource->execute('SELECT `FotoOrg...', Array, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1118): DboSource->fetchAll('SELECT `FotoOrg...', false)
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): DboSource->read(Object(FotoOrgao), Array)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('all', Array)
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\FotoOrgaosController.php(43): PaginatorComponent->paginate()
+#8 [internal function]: FotoOrgaosController->index('1')
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FotoOrgaosController), Array)
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(FotoOrgaosController), Object(CakeRequest))
+#12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2016-10-26 22:03:03 Error: [MissingControllerException] Controller class OrgaosController could not be found.
+Exception Attributes: array (
+  'class' => 'OrgaosController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/orgaos/view/1/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-10-26 22:03:59 Error: [MissingTableException] Table orgao_saudes for model OrgaoSaude was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'orgao_saudes',
+  'class' => 'OrgaoSaude',
+  'ds' => 'default',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/orgaoSaudes/index/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3653): Model->setSource('orgao_saudes')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): Model->getDataSource()
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('all', Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Component\PaginatorComponent.php(196): Model->find('all', Array)
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\OrgaoSaudesController.php(43): PaginatorComponent->paginate()
+#5 [internal function]: OrgaoSaudesController->index('8')
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(OrgaoSaudesController), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(OrgaoSaudesController), Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2016-10-26 22:06:53 Error: [MissingTableException] Table saudes for model Saude was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'saudes',
+  'class' => 'Saude',
+  'ds' => 'default',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/orgaoSaudes/index/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3653): Model->setSource('saudes')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(2530): Model->schema()
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1770): DboSource->fields(Object(AppModel), 'Saude', '')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1269): DboSource->generateAssociationQuery(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1149): DboSource->queryAssociation(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true, Array, 0, Array)
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): DboSource->read(Object(Cidade), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('first', Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\OrgaoSaudesController.php(47): Model->find('first', Array)
+#9 [internal function]: OrgaoSaudesController->index('8')
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(OrgaoSaudesController), Array)
+#11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(OrgaoSaudesController), Object(CakeRequest))
+#13 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2016-10-26 22:08:07 Error: [MissingTableException] Table saudes for model Saude was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'saudes',
+  'class' => 'Saude',
+  'ds' => 'default',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/cidades/view/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3653): Model->setSource('saudes')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(2530): Model->schema()
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1770): DboSource->fields(Object(AppModel), 'Saude', '')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1269): DboSource->generateAssociationQuery(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1149): DboSource->queryAssociation(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true, Array, 0, Array)
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): DboSource->read(Object(Cidade), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('first', Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\CidadesController.php(52): Model->find('first', Array)
+#9 [internal function]: CidadesController->view('8')
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CidadesController), Array)
+#11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CidadesController), Object(CakeRequest))
+#13 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2016-10-26 22:08:22 Error: [MissingTableException] Table saudes for model Saude was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'saudes',
+  'class' => 'Saude',
+  'ds' => 'default',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/orgaoPublicos/index/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3653): Model->setSource('saudes')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1387): Model->getDataSource()
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(2530): Model->schema()
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1770): DboSource->fields(Object(AppModel), 'Saude', '')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1269): DboSource->generateAssociationQuery(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1149): DboSource->queryAssociation(Object(Cidade), Object(AppModel), 'hasMany', 'Saude', Array, Array, true, Array, 0, Array)
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): DboSource->read(Object(Cidade), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('first', Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\OrgaoPublicosController.php(47): Model->find('first', Array)
+#9 [internal function]: OrgaoPublicosController->index('8')
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(OrgaoPublicosController), Array)
+#11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(OrgaoPublicosController), Object(CakeRequest))
+#13 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#14 {main}
+2016-10-26 22:16:26 Error: [MissingControllerException] Controller class SaudesController could not be found.
+Exception Attributes: array (
+  'class' => 'SaudesController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/saudes/view/1/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-10-26 22:27:31 Error: Fatal Error (4): syntax error, unexpected ';' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Mesadiretoras\index.ctp, line 9]
+2016-10-26 22:27:31 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /portalMedio/portalMedioPiracicaba/site/mesadiretoras/index/index/2
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 9)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 9, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 9, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-10-26 22:28:47 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'camara_id' cannot be null
+Request URL: /portalMedio/portalMedioPiracicaba/site/mesadiretoras/add
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(461): PDOStatement->execute(Array)
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(427): DboSource->_execute('INSERT INTO `po...', Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1024): DboSource->execute('INSERT INTO `po...')
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1933): DboSource->create(Object(Mesadiretora), Array, Array)
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1751): Model->_doSave(Array, Array)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\MesadiretorasController.php(81): Model->save(Array)
+#6 [internal function]: MesadiretorasController->add()
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(MesadiretorasController), Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(MesadiretorasController), Object(CakeRequest))
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}

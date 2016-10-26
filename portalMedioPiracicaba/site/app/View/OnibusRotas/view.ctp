@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __($onibusRota['OnibusRota']['nome']); ?></h2>
+				<h2><?php echo __($onibusRota['OnibusRota']['rota']); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -21,7 +21,7 @@
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Rotas'), array('action' => 'index', $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Rota'), array('action' => 'edit', $id, $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Rota'), array('action' => 'delete', $id, $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes EmpresaOnibus'), array('controller' => 'empresa_onibuses', 'action' => 'view', $empresa_onibus['EmpresaOnibus']['id'], $empresa_onibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Empresa'), array('controller' => 'empresa_onibuses', 'action' => 'view', $empresa_onibus['EmpresaOnibus']['id'], $empresa_onibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -32,30 +32,16 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
 					<tr>
-						<th><?php echo __('Nome'); ?></th>
+						<th><?php echo __('Rota'); ?></th>
 						<td>
-							<?php echo h($onibusRota['OnibusRota']['nome']); ?>
+							<?php echo h($onibusRota['OnibusRota']['rota']); ?>
 							&nbsp;
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('Endereço'); ?></th>
+						<th><?php echo __('Tipo'); ?></th>
 						<td>
-							<?php echo h($onibusRota['OnibusRota']['endereco']); ?>
-							&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<th><?php echo __('Telefone 1'); ?></th>
-						<td>
-							<?php echo h($onibusRota['OnibusRota']['telefone1']); ?>
-							&nbsp;
-						</td>
-					</tr>
-					<tr>
-						<th><?php echo __('Telefone 2'); ?></th>
-						<td>
-							<?php echo h($onibusRota['OnibusRota']['telefone2']); ?>
+							<?php echo h($onibusRota['OnibusRota']['tipo']); ?>
 							&nbsp;
 						</td>
 					</tr>

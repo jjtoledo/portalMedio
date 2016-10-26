@@ -138,6 +138,24 @@
 
 		<div class="col-md-4 menu">
 			
+				<h3><?php echo __('Órgãos públicos'); ?></h3>
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Órgãos'), array('controller' => 'orgaoPublicos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>
+			
+		</div>
+
+		<div class="col-md-4 menu">
+			
+				<h3><?php echo __('Órgãos de saúde'); ?></h3>
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Órgãos'), array('controller' => 'orgaoSaudes', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>
+			
+		</div>		
+
+		<div class="col-md-4 menu">
+			
 				<h3><?php echo __('Documentos'); ?></h3>
 				<div class="actions">
 					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar Documentos'), array('controller' => 'documentos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 

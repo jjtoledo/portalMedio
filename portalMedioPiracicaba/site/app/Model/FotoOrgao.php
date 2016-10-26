@@ -18,7 +18,7 @@ class FotoOrgao extends AppModel {
 	public $belongsTo = array(
 		'OrgaoPublico' => array(
 			'className' => 'OrgaoPublico',
-			'foreignKey' => 'escola_id',
+			'foreignKey' => 'orgao_publico_id',
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''

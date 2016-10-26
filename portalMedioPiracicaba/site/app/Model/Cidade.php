@@ -278,8 +278,8 @@ class Cidade extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
-		'Saude' => array(
-			'className' => 'Saude',
+		'OrgaoSaude' => array(
+			'className' => 'OrgaoSaude',
 			'foreignKey' => 'cidade_id',
 			'dependent' => true,
 			'conditions' => '',

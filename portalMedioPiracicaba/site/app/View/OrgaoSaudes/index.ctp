@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Espaços para eventos de ' . $cidade['Cidade']['nome']); ?></h2>
+				<h2><?php echo __('Órgãos de saúde de ' . $cidade['Cidade']['nome']); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
