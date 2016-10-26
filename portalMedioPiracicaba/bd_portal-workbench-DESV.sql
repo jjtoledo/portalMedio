@@ -13,7 +13,7 @@ DROP SCHEMA IF EXISTS `portalmedio`;
 CREATE SCHEMA IF NOT EXISTS `portalmedio` DEFAULT CHARACTER SET utf8;
 
 DROP USER IF EXISTS `sisPortalMedio`@`localhost`;
-CREATE USER `sisPortalMedio`@`localhost` IDENTIFIED BY 'portalMedio123';
+CREATE USER `sisPortalMedio`@`localhost` IDENTIFIED BY `portalMedio123`;
 GRANT ALL PRIVILEGES ON `portalmedio`.* TO `sisPortalMedio`@`localhost`;
 FLUSH PRIVILEGES;
 
@@ -447,7 +447,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `portalmedio`.`foto_saudes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `saude_id` INT(11) NOT NULL,
+  `orgao_saude_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `saude_id`),
   INDEX `fk_foto_saudes_saudes1_idx` (`saude_id` ASC),
   CONSTRAINT `fk_foto_saudes_saudes1`
@@ -638,7 +638,7 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`politicos` (
   `tipo` INT(11) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   `comissao_id` INT(11) NOT NULL,
-  `mesadiretora_id` INT(11) NOT NULL DEFAULT 0,
+  `mesadiretora_id` INT(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`, `cidade_id`, `comissao_id`, `mesadiretora_id`),
   INDEX `fk_prefeitos_cidades1_idx` (`cidade_id` ASC),
   INDEX `fk_politicos_comissaos1_idx` (`comissao_id` ASC),
@@ -710,11 +710,11 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`rios` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmedio`.`saudes` (
+CREATE TABLE IF NOT EXISTS `portalmedio`.`orgao_saudes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `tipo` VARCHAR(45) NULL DEFAULT NULL,
   `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `localização` VARCHAR(45) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
   `telefone1` VARCHAR(45) NULL DEFAULT NULL,
   `telefone2` VARCHAR(45) NULL DEFAULT NULL,
   `site` VARCHAR(45) NULL DEFAULT NULL,
