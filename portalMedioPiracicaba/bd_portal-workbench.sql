@@ -710,7 +710,7 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`rios` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`saudes` (
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`orgao_saudes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `tipo` VARCHAR(45) NULL DEFAULT NULL,
   `nome` VARCHAR(45) NULL DEFAULT NULL,
