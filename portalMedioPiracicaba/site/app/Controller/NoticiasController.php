@@ -17,6 +17,8 @@ class NoticiasController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
+/* Métodos área admin ********************************************************************************************************** */
+
 	public function afterFilter() {
         $this->autenticarAdmin();
     }

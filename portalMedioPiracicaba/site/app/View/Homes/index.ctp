@@ -48,7 +48,9 @@
 
   <section class="subtitle-intro noticias">
     <div class="container">
-      <h1 class="noticiasHome text-center">Notícias Gerais</h1>
+    	<div class="container-fluid text-center">
+    		<?php echo $this->Html->link('Notícias Gerais&nbsp;&nbsp;<span class="glyphicon glyphicon-plus"></span>', array('action' => 'site_index', 1), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    	</div>
       <div class="row border">
       	<div class="col-lg-9 left">
       		<?php $count = 0; 
@@ -80,7 +82,7 @@
 		    		</div><br>
 		    	</div>	
       	</div>
-	    </div>	    	
+	    </div>
     </div>
   </section>
 

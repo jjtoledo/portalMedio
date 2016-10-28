@@ -68,4 +68,54 @@ class HomesController extends AppController {
 		$content = file_get_contents($url);
 		$this->set(compact('content'));	*/
 	}
+
+/** 
+ * Métodos site **********************************************************************************************************
+ * listar todas as notícias com base no tipo
+ *
+ * @param int $tipo
+ * @return void
+ */	
+
+	public function site_index($tipo = null) {
+		$this->loadModel('Noticia');
+		$options = array(
+			'conditions' => array(
+				'Noticia.tipo' => $tipo
+			),
+			'order' => array(
+				'Noticia.id' => 'DESC'
+			)
+		);
+
+		$noticias = $this->Noticia->find('all', $options);
+		$this->set('noticias', $noticias);
+		$this->set('tipo', $tipo);
+
+		$this->loadModel('Cidade');
+		$this->set('cidades', $this->Cidade->find('all'));
+	}
+
+/** 
+ * 
+ * listar notícia específica
+ *
+ * @param int $tipo, $id
+ * @return void
+ */	
+
+	public function site_view($id = null, $tipo = null) {
+		$this->loadModel('Noticia');
+		if (!$this->Noticia->exists($id)) {
+			throw new NotFoundException(__('Invalid Noticia'));
+		}
+		$options = array('conditions' => array('Noticia.' . $this->Noticia->primaryKey => $id));
+		$this->set('noticia', $this->Noticia->find('first', $options));
+
+		$this->set('id', $id);
+		$this->set('tipo', $tipo);	
+
+		$this->loadModel('Cidade');
+		$this->set('cidade', $this->Cidade->find('all'));
+	}
 }
