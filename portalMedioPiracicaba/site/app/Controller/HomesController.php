@@ -77,7 +77,7 @@ class HomesController extends AppController {
  * @return void
  */	
 
-	public function site_index($tipo = null) {
+	public function site_noticias($tipo = null) {
 		$this->loadModel('Noticia');
 		$options = array(
 			'conditions' => array(
@@ -104,7 +104,7 @@ class HomesController extends AppController {
  * @return void
  */	
 
-	public function site_view($id = null, $tipo = null) {
+	public function site_noticia($id = null, $tipo = null) {
 		$this->loadModel('Noticia');
 		if (!$this->Noticia->exists($id)) {
 			throw new NotFoundException(__('Invalid Noticia'));

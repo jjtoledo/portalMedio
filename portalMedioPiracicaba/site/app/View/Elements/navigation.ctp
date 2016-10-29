@@ -6,7 +6,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>        
       </button>
-      <a href="#"><img class="img-responsive navbar-img imgconfig" src="img/logo_hib.png" alt="site" ></a>
+      <a href="#"><?php echo $this->Html->image('logo_hib.png', array('class' => 'img-responsive navbar-img imgconfig')) ?></a>
     </div>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="nav navbar-nav">
