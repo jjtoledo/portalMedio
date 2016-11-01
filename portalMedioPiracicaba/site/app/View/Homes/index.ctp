@@ -106,7 +106,7 @@
 		    		</div><br>
 		    	</div>
 	    	<?php $count++; } ?>
-				<div class="col-md-12 divNoticia">
+				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
 	    		<div class="noticia prop large">
 	    			<?php 
 		    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
@@ -183,7 +183,7 @@
 		    	</div>
 	    	<?php $count++; } ?>
 	    </div>
-	    <div class="col-md-12 divNoticia">
+	    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
     		<div class="noticia prop large">
     			<?php 
 	    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';

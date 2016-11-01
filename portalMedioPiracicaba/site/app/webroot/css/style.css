@@ -200,7 +200,7 @@ div#listCidades.row > div > a:hover {
 }
 
 .noticia.prop.large {
-  height: 100px;
+  height: 80px;
   margin-top: 80px;
   margin-bottom: 60px;
 }
@@ -281,7 +281,7 @@ div#listCidades.row > div > a:hover {
 
 @media screen and (min-width: 1360px) {
   .noticia.prop.large {
-    height: 120px;
+    height: 95px;
   }
 }
 
