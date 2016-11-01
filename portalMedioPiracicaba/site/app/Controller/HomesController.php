@@ -63,10 +63,6 @@ class HomesController extends AppController {
 		$this->loadModel('Parceiro');
 		$anuncios_large = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('anuncios_large'));
-
-		/*$url = 'http://g1.globo.com/';
-		$content = file_get_contents($url);
-		$this->set(compact('content'));	*/
 	}
 
 /** 
@@ -133,5 +129,33 @@ class HomesController extends AppController {
 
 		$this->loadModel('Cidade');
 		$this->set('cidade', $this->Cidade->find('all'));
+
+		$options = array(
+			'conditions' => array(
+				'Noticia.tipo' => $tipo,
+				'Noticia.id !=' => $id
+			),
+			'order' => array(
+				'Noticia.id' => 'DESC'
+			),
+			'limit' => 5
+		);
+
+		$noticias = $this->Noticia->find('all', $options);
+		$this->set('noticias', $noticias);
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '2')
+			);
+		$this->loadModel('Parceiro');
+		$anuncios_quad = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_quad'));
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '3')
+			);
+		$this->loadModel('Parceiro');
+		$anuncios_large = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_large'));
 	}
 }

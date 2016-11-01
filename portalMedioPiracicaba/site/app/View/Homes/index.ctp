@@ -84,7 +84,7 @@
     </div>
   </section>
 
-  <section class="subtitle-intro noticias agenda" style="background-color:#d4d4d4">
+  <section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
     <div class="container noticias">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda', 1), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
@@ -159,7 +159,7 @@
 	  </div>
   </section>
 
-  <section class="subtitle-intro noticias" style="background-color:#d4d4d4">
+  <section class="subtitle-intro noticias" style="background-color:#e6e6e6">
     <div class="container noticias">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Boas Notícias&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf bigger"></span>', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      

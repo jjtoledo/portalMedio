@@ -29,7 +29,7 @@
 		foreach ($noticias as $noticia) {
 			echo '<div class="col-lg-4 col-md-6 col-sm-6 divNoticia">';
     	echo 	'<div class="noticia">';
-    	echo 		'<a class="noticia_foto" href="'.$noticia['Noticia']['link'].'" target="_blank" escape="false">';
+    	echo 		'<a class="noticia_foto" href="../site_noticia/'.$noticia['Noticia']['id'].'/'. $tipo .'" escape="false">';
     	echo 			$this->Html->image($noticia['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
     	echo 			'<p class="noticia_title">'.$noticia['Noticia']['titulo'].'</p>';
     	echo 		'</a>';
@@ -43,17 +43,21 @@
 			if ($count <= 2) {
 				echo '<div class="col-lg-6 col-md-6 col-sm-6 divNoticia">';
 	    	echo 	'<div class="noticia bigNoticia">';
-	    	echo 		'<a class="noticia_foto" href="'.$noticia['Noticia']['link'].'" target="_blank" escape="false">';
+	    	echo 		'<a class="noticia_foto" href="../site_noticia/'.$noticia['Noticia']['id'].'/'. $tipo .'" escape="false">';
 	    	echo 			$this->Html->image($noticia['Noticia']['foto'], array('width' => '100%', 'height' => '80%'));
 	    	echo 			'<p class="noticia_title bigTitle">'.$noticia['Noticia']['titulo'].'</p>';
 	    	echo 		'</a>';
 	    	echo 	'</div><br>';
 	    	echo '</div>';
+
+	    	/*if ($count == 2) {
+	    		echo '<div class="col-md-12"><hr style="margin-top:-50px; border-top:1px solid #ddd"></div>';
+	    	}*/
 			} else {
 
 				echo '<div class="col-lg-4 col-md-6 col-sm-6 divNoticia">';
 	    	echo 	'<div class="noticia">';
-	    	echo 		'<a class="noticia_foto" href="'.$noticia['Noticia']['link'].'" target="_blank" escape="false">';
+	    	echo 		'<a class="noticia_foto" href="../site_noticia/'.$noticia['Noticia']['id'].'/'. $tipo .'" escape="false">';
 	    	echo 			$this->Html->image($noticia['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
 	    	echo 			'<p class="noticia_title">'.$noticia['Noticia']['titulo'].'</p>';
 	    	echo 		'</a>';

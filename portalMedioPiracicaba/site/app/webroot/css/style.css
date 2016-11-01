@@ -199,6 +199,10 @@ div#listCidades.row > div > a:hover {
   color: #FF6C3B;
 }
 
+.marginTop.noticiasHome.inverse.more {
+  color: #51A8B1;
+}
+
 .noticia.prop.large {
   height: 80px;
   margin-top: 80px;
@@ -250,6 +254,27 @@ div#listCidades.row > div > a:hover {
 
 .noticiasMain {
   margin-top: 120px;
+}
+
+.noticiasMain.lessTop {
+  margin-top: 50px;
+}
+
+.noticiaCorpo {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.noticiaCorpo > p > span {
+  font-size: 18px !important;
+}
+
+.jumbotron.leiaTb {
+  padding: 20px;
+}
+
+.jumbotron.leiaTb > div:hover {
+  text-decoration: underline;
 }
 
 .videoCidadades{
@@ -354,6 +379,11 @@ div#listCidades.row > div > a:hover {
   .noticia.prop.large {
     width: 100%;
     margin-left: 0;
+  }
+
+  .noticiaCorpo {
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
 }
 
