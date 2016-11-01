@@ -10,7 +10,7 @@
 }
 
 #navMain {
-  margin-top: 16px;
+  margin-top: 10px;
 }
 
 .opaque-navbar {
@@ -43,7 +43,7 @@ ul.dropdown-menu {
 
 .navbar-transparente .navbar-nav>li>a {
   color: #fff;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border-bottom: solid white 0px;
   padding-bottom: 8px;
 }
@@ -70,9 +70,17 @@ ul.dropdown-menu {
   text-decoration: none;
 }
 
-span.glyphicon {
-  font-size: 20px;
+.bigger {
+  font-size: 22px;
   top: -2px;
+}
+
+.marginTop {
+  margin-top: 140px;
+}
+
+.container.lessPad {
+  padding: 20px;
 }
 
 .row.border {
@@ -167,6 +175,11 @@ div#listCidades.row > div > a:hover {
   transition: all 0.5s ease 0s;
 }
 
+.noticia.bigNoticia {
+  height: 500px;
+  margin-bottom: 50px;
+}
+
 .noticia:hover {
   transform: scale(1.05);
   z-index: 10;
@@ -195,9 +208,14 @@ div#listCidades.row > div > a:hover {
 .noticia_title {
   font-weight: bold;
   font-size: 15px;
-  color: black;
+  color: #444;
   padding: 15px 10px 10px 10px;
   margin-bottom: 5px;
+}
+
+.noticia_title.bigTitle {
+  font-size: 20px;
+  padding: 30px 10px 10px 20px;
 }
 
 .noticia_foto:hover {
@@ -210,7 +228,7 @@ div#listCidades.row > div > a:hover {
 }
 
 .noticia.prop {
-  height: 440px;
+  height: 400px;
 }
 
 .noticia.prop:hover {
@@ -218,7 +236,7 @@ div#listCidades.row > div > a:hover {
 }
 
 .imgconfig{
-  width: 170px;
+  width: 120px;
   margin-right: 80px;
 }
 
@@ -228,6 +246,10 @@ div#listCidades.row > div > a:hover {
 
 .noticia.agenda{
   padding-bottom: 0px;
+}
+
+.noticiasMain {
+  margin-top: 120px;
 }
 
 .videoCidadades{
@@ -281,8 +303,12 @@ div#listCidades.row > div > a:hover {
     padding-bottom: 20px;
   }
 
+  .noticia.bigNoticia {
+    height: 430px;
+  }
+
   .noticia.prop {
-    height: 350px;
+    height: 330px;
     padding-bottom: 0px;
   }
 }
@@ -292,6 +318,16 @@ div#listCidades.row > div > a:hover {
     width: 80%;
     margin-left: 10%;
   } 
+
+  .noticia.bigNoticia {
+    height: 250px;
+    margin-bottom: 0;
+  }
+
+  .noticia_title.bigTitle {
+    font-size: 12px;
+    padding: 15px 10px 10px 10px;
+  }
 
   .noticia.prop {
     height: 400px;
@@ -327,8 +363,9 @@ div#listCidades.row > div > a:hover {
   }
 
   .noticia.prop.large {
-    height: 55px;
-    margin-top: 65px;
+   visibility: hidden;
+   height: 0;
+   margin-top: -50px;
   }
 
   .noticia {
@@ -441,7 +478,8 @@ div#listCidades.row > div > a:hover {
   }
 
   .imgconfig{
-    width: 150px;
+    width: 120px;
+    margin-left: 20px;
   }
 }
 

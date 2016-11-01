@@ -94,6 +94,22 @@ class HomesController extends AppController {
 
 		$this->loadModel('Cidade');
 		$this->set('cidades', $this->Cidade->find('all'));
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'Noticia.tipo' => $tipo,
+					'Noticia.titulo LIKE' => $search
+				),
+				'order' => array(
+					'Noticia.id' => 'DESC'
+				)
+			);
+
+			$noticias = $this->Noticia->find('all', $options);
+			$this->set('noticias', $noticias);	
+		}
 	}
 
 /** 

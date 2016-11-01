@@ -15,6 +15,8 @@ class HistoriasController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
+	public $helpers = array('Tinymce');
+
 	public function afterFilter() {
         $this->autenticarAdmin();
     }

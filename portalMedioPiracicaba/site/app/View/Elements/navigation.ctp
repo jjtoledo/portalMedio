@@ -1,12 +1,17 @@
 <div class="navbar navbar-transparente navbar-fixed-top opaque-navbar">
-  <div class="container">
+  <div class="container lessPad">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navMain">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>        
       </button>
-      <a href="#"><?php echo $this->Html->image('logo_hib.png', array('class' => 'img-responsive navbar-img imgconfig')) ?></a>
+      <?php 
+      echo $this->Html->link(
+              $this->Html->image('logo_hib.png', array('class' => 'img-responsive navbar-img imgconfig')), 
+                            array('controller' => 'homes', 'action' => 'index'), 
+                            array('escape' => false)); 
+      ?>
     </div>
     <div class="collapse navbar-collapse" id="navMain">
       <ul class="nav navbar-nav">

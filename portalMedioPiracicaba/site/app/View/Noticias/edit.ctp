@@ -37,7 +37,7 @@
 					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Título', 'label' => 'Título', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'label' => 'Descrição'));?>
+					<?php echo $this->Tinymce->input('Noticia.descricao', $options = array(), $tinyoptions = array(), $preset = null); ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto'));?>

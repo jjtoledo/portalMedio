@@ -17,6 +17,9 @@ class NoticiasController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
+	public $helpers = array('Tinymce');
+
+
 /* Métodos área admin ********************************************************************************************************** */
 
 	public function afterFilter() {

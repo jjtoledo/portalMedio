@@ -31,7 +31,7 @@
 			<?php echo $this->Form->create('Historia', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('historia', array('class' => 'form-control', 'placeholder' => 'História', 'label' => 'História'));?>
+					<?php echo $this->Tinymce->input('Historia.historia', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('adocao_nome', array('class' => 'form-control', 'placeholder' => 'Adoção Nome' , 'label' => 'Adoção Nome'));?>

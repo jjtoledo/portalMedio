@@ -10,11 +10,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-
-  	<!-- Latest compiled and minified JavaScript -->
-  	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
+  	
   <?php
     echo $this->Html->meta('icon');
     echo $this->fetch('meta');
@@ -24,9 +23,8 @@
     echo $this->Html->css('style.css');   
     echo $this->Html->css('parceiros.css'); 
     echo $this->Html->css('cards.css'); 
-    echo $this->Html->script('script.js');
-    echo $this->Html->script('jquery.maskedinput.js');
-    echo $this->Html->script('endless_scroll_min.js');
+    echo $this->Html->css('searchbar.css'); 
+
   ?>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -66,3 +64,8 @@
   
   </body>
 </html>
+
+<?php     
+  echo $this->Html->script('script.js');
+  echo $this->Html->script('jquery.maskedinput.js');
+  echo $this->Html->script('endless_scroll_min.js');
