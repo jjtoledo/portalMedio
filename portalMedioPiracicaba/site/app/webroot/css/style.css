@@ -269,6 +269,10 @@ div#listCidades.row > div > a:hover {
   font-size: 18px !important;
 }
 
+.noticiaCorpo > div {
+  font-size: 18px !important;
+}
+
 .jumbotron.leiaTb {
   padding: 20px;
 }
