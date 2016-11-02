@@ -266,11 +266,25 @@ div#listCidades.row > div > a:hover {
 }
 
 .noticiaCorpo > p > span {
+  font-family: calibrilight, Calibri, Verdana, Geneva, sans-serif !important;
   font-size: 18px !important;
+  color: #666 !important;
 }
 
-.noticiaCorpo > div {
+.noticiaCorpo > p[class*="_"] {
+  font-family: calibrilight, Calibri, Verdana, Geneva, sans-serif !important;
   font-size: 18px !important;
+  width: auto !important;
+  display: block !important;
+  color: #666 !important;
+}
+
+.noticiaCorpo > p {
+  font-family: calibrilight, Calibri, Verdana, Geneva, sans-serif !important;
+  font-size: 18px !important;
+  width: auto !important;
+  display: block !important;
+  color: #666 !important;
 }
 
 .jumbotron.leiaTb {

@@ -26,7 +26,7 @@
   			<?php
   			foreach ($noticias as $n) {
   				echo '<div class="col-md-12">';
-					echo 	$this->Html->link($this->Html->image($n['Noticia']['foto'], array('width' => '100%')), array('action' => 'site_noticia', $tipo, $n['Noticia']['id']), array('escape' => false)); 
+					echo 	$this->Html->link($this->Html->image($n['Noticia']['foto'], array('width' => '100%')), array('action' => 'site_noticia', $n['Noticia']['id'], $tipo), array('escape' => false)); 
 				  echo 	'<br><br><div>'. $n['Noticia']['titulo'] .'</div><br><br>';
 				  echo '</div>';
   			}
