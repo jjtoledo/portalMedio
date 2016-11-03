@@ -8,19 +8,19 @@
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner resolucao" role="listbox">
 	    <div class="item active">
-	      <img src="img/img2.jpg" alt="site" width="2000">
+	    	<?php echo $this->Html->image('img2.jpg', array('width' => '2000')) ?>	    	
 	    </div>
 
 	    <div class="item">
-	      <img src="img/img3.jpg" alt="site" width="2000">
+	      <?php echo $this->Html->image('img3.jpg', array('width' => '2000')) ?>
 	    </div>
 
 	    <div class="item">
-	      <img src="img/img4.jpg" alt="site" width="2000">
+	      <?php echo $this->Html->image('img4.jpg', array('width' => '2000')) ?>
 	    </div>
 
 	     <div class="item">
-	      <img src="img/img5.jpg" alt="site" width="2000">
+	      <?php echo $this->Html->image('img5.jpg', array('width' => '2000')) ?>
 	    </div>
 	  </div>
 	</div>
@@ -37,7 +37,7 @@
     	<?php 
     		foreach ($cidades as $c):
     			echo '<div class="col-lg-4 col-sm-6 col-xs-12">';
-    			echo '<a href="#">
+    			echo '<a href="homes/site_cidade/'.$c['Cidade']['id'].'">
     							<span class="glyphicon glyphicon-map-marker"></span> ' . $c['Cidade']['nome'] . '
     						</a><br>';
     			echo '</div>';

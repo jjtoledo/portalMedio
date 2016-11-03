@@ -158,4 +158,55 @@ class HomesController extends AppController {
 		$anuncios_large = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('anuncios_large'));
 	}
+
+/** 
+ * 
+ * listar cidade específica
+ *
+ * @param int $id
+ * @return void
+ */	
+
+	public function site_cidade($id = null) {
+		$this->loadModel('Cidade');
+		if (!$this->Cidade->exists($id)) {
+			throw new NotFoundException(__('Invalid Cidade'));
+		}
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('id', $id);
+
+		$this->loadModel('Foto');
+
+		$options = array(
+			'order' => array(
+				'Foto.id' => 'DESC'
+			),
+			'limit' => 5
+		);
+		$this->set('fotos', $this->Foto->find('all', $options));
+
+		/*Carregamento dos parceiros e anúncios*/
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '1')
+			);
+		$this->loadModel('Parceiro');
+		$parceiros = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('parceiros'));
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '2')
+			);
+		$this->loadModel('Parceiro');
+		$anuncios_quad = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_quad'));
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '3')
+			);
+		$this->loadModel('Parceiro');
+		$anuncios_large = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_large'));
+	}
 }

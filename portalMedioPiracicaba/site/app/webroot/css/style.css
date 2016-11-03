@@ -295,6 +295,16 @@ div#listCidades.row > div > a:hover {
   text-decoration: underline;
 }
 
+.carousel-caption {
+  text-align: left;
+  top: 65%;
+  left: 6%;
+}
+
+.welcome {
+  font-size: 50px;
+}
+
 .videoCidadades{
       position: fixed; 
       right: 0; 
