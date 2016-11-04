@@ -83,7 +83,7 @@
 			  		echo $this->Html->link('&nbsp;&nbsp;&nbsp;&nbsp;Leia mais >>>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		?>
 			  	</div>
-			  	<div class="col-md-4 col-sm-6 divNoticia text-center">
+			  	<div class="col-md-4 col-sm-6 divNoticia center">
 		    		<div class="noticia agenda top">
 		    			<?php 
 		    				echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
@@ -104,29 +104,31 @@
 	 </main>
 
   <section class="subtitle-intro noticias">
-    <div class="container">
-    	<h1 class="noticiasHome text-center">Notícias Gerais</h1>
+    <div class="container noticias">
+      <div class="container-fluid text-center">
+    		<?php echo $this->Html->link('Notícias Regionais&nbsp;&nbsp;<span class="glyphicon glyphicon-plus bigger"></span>', array('action' => 'site_noticias', 2), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    	</div>
       <div class="row border">
-      	<div class="col-lg-9 left">
+      	<div class="col-lg-9">
       		<?php $count = 0; 
       			for ($i=0; $i < 6; $i++) { 
-      				if (count($noticias_gerais) == $count) {
+      				if (count($noticias_reg) == $count) {
       					$count = 0;
       				}
       		?>	
 		    	<div class="col-lg-4 col-md-6 col-sm-6 divNoticia">
 		    		<div class="noticia">
 		    			<?php 
-		    				echo '<a class="noticia_foto" href="'.$noticias_gerais[$count]['Noticia']['link'].'" target="_blank" escape="false">';
-		    				echo $this->Html->image($noticias_gerais[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
-		    				echo '<p class="noticia_title">'.$noticias_gerais[$count]['Noticia']['titulo'].'</p>';
+		    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$noticias_reg[$count]['Noticia']['id'].'/'.$noticias_reg[$count]['Noticia']['tipo'].'" escape="false">';
+		    				echo $this->Html->image($noticias_reg[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
+		    				echo '<p class="noticia_title">'.$noticias_reg[$count]['Noticia']['titulo'].'</p>';
 		    				echo '</a>'
 		    			?>	
 		    		</div><br>
 		    	</div>
 	    	<?php $count++; } ?>
       	</div>
-      	<div class="col-lg-3 right">
+      	<div class="col-lg-3">
       		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 divNoticia p">
 		    		<div class="noticia prop">
 		    			<?php 
@@ -138,6 +140,42 @@
 		    	</div>	
       	</div>
 	    </div>
+	  </div>
+  </section>
+
+  <section class="subtitle-intro noticias" style="background-color:#fff">
+    <div class="container noticias">
+      <div class="container-fluid text-center">
+    		<?php echo $this->Html->link('Boas Notícias&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf bigger"></span>', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    	</div>
+      <div class="row border">
+	    	<?php $count = 0; 
+      			for ($i=0; $i < 4; $i++) { 
+      				if (count($noticias_boas) == $count) {
+      					$count = 0;
+      				}
+      		?>
+		    	<div class="col-md-3 col-sm-6 divNoticia">
+		    		<div class="noticia agenda boas">
+		    			<?php 
+		    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$noticias_boas[$count]['Noticia']['id'].'/'.$noticias_boas[$count]['Noticia']['tipo'].'" escape="false">';
+		    				echo $this->Html->image($noticias_boas[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
+		    				echo '<p class="noticia_title">'.$noticias_boas[$count]['Noticia']['titulo'].'</p>';
+		    				echo '</a>'
+		    			?>	
+		    		</div><br>
+		    	</div>
+	    	<?php $count++; } ?>
+	    </div>
+	    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+    		<div class="noticia prop large">
+    			<?php 
+	    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
+	    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+	    				echo '</a>'
+	    			?>	
+    		</div>
+    	</div>	
     </div>
   </section>
 

@@ -527,9 +527,23 @@ div#listCidades.row > div > a:hover {
     margin-top: 30px;
     margin-bottom: 30px;
   }
+
+  .noticia.agenda.top {
+    margin-top: 50px;
+  }
+
+  .divNoticia.center {
+    text-align: center;
+    left: 25%;
+  }
 }
 
 @media screen and (max-width: 768px){
+  .divNoticia.center {
+    text-align: center;
+    left: 0;
+  }
+
   .arrow {
     bottom: 10%;
   }
