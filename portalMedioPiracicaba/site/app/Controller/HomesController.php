@@ -211,13 +211,6 @@ class HomesController extends AppController {
 
 		/*Carregamento das notícias*/
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '1')
-			);
-		$this->loadModel('Noticia');
-		$noticias_gerais = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_gerais'));
-
-		$conditions = array(
 			'conditions' => array('Noticia.tipo' => '2')
 			);
 		$this->loadModel('Noticia');

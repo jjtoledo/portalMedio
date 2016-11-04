@@ -141,6 +141,18 @@ ul.dropdown-menu {
   text-decoration: none;
 }
 
+.cresce {
+  box-shadow: 1px 1px 5px #ccc; padding: 20px;
+  transition-duration: 500ms;
+  margin-bottom: 30px;
+}
+
+.cresce:hover {
+  transform: scale(1.03);
+  z-index: 10;
+  transition-duration: 500ms;
+}
+
 .bigger {
   font-size: 22px;
   top: -2px;
@@ -254,7 +266,7 @@ div#listCidades.row > div > a:hover {
 } 
 
 .listMenu > span {
-  padding-bottom: 20px;
+  padding-bottom: 25px;
 }
 
 .listMenu:hover {

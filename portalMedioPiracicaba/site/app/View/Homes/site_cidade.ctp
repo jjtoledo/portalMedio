@@ -68,12 +68,12 @@
 	<main style="background-color: #fff">
 		<div class="container">
 			<div class="row" style="margin-bottom:40px">
-		  	<div class="col-md-8 col-md-offset-2">
+		  	<div class="col-md-10 col-md-offset-1">
 		  		<?php echo $this->Element('parceiros'); ?> 
 		  	</div>
-		  	<div class="col-md-8 col-md-offset-2" style="padding: 0">
+		  	<div class="col-md-10 col-md-offset-1" style="padding: 0">
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 40px; margin-bottom: 40px;">
-			  	<div class="col-md-6">
+			  	<div class="col-md-5">
 			  		<?php
 			  		if (strlen($cidade['Historia']['historia']) > 1000) {
 			  			echo substr($cidade['Historia']['historia'], 0, 1000) . '...';
@@ -95,7 +95,7 @@
 		    	</div>
 			  </div>
 			</div>
-		  <div class="col-md-8 col-md-offset-2" style="padding: 0">
+		  <div class="col-md-8 col-md-offset-2 cresce">
 		  	<p class="linkNormal">Saiba mais</p>
 	  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px;">	
 	  		<?php echo $this->Element('menu_cidade'); ?>
