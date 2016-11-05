@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('HttpSocket', 'Network/Http');
 /**
  * Historias Controller
  *
@@ -63,6 +64,8 @@ class HomesController extends AppController {
 		$this->loadModel('Parceiro');
 		$anuncios_large = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('anuncios_large'));
+
+		$this->set('results', $this->clima($cidades));
 	}
 
 /** 
@@ -178,7 +181,6 @@ class HomesController extends AppController {
 		$this->set('id', $id);
 
 		$this->loadModel('Foto');
-
 		$options = array(
 			'order' => array(
 				'Foto.id' => 'DESC'
@@ -223,5 +225,49 @@ class HomesController extends AppController {
 		$this->loadModel('Noticia');
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
+
+		$cidades = $this->Cidade->find('all');
+		$this->set(compact('cidades'));
+		$this->set('results', $this->clima($cidades));
+	}
+
+	public function clima($cidades)	{
+		$cids = 
+		array('0' => array('nome' => 'Alvinópolis', 'cid' => 'BRXX0925'),
+			'1' => array('nome' => 'Barão de Cocais', 'cid' => 'BRXX1122'),
+			'2' => array('nome' => 'Dom Silvério', 'cid' => 'BRXX1737'),
+			'3' => array('nome' => 'Itabira', 'cid' => 'BRXX0571'),
+			'4' => array('nome' => 'João Monlevade', 'cid' => 'BRXX2312'),
+			'5' => array('nome' => 'Nova Era', 'cid' => 'BRXX2711'),
+			'6' => array('nome' => 'Rio Piracicaba', 'cid' => 'BRXX3216'),
+			'7' => array('nome' => 'Santa Bárbara', 'cid' => 'BRXX3283'),
+			'8' => array('nome' => 'Santa Maria de Itabira', 'cid' => 'BRXX3323'),
+			'9' => array('nome' => 'São Domingos do Prata', 'cid' => 'BRXX3411'),
+			'10' => array('nome' => 'São José do Goiabal', 'cid' => 'BRXX3482')
+		);
+
+		$city = rand (0,16);
+		$nome = $cidades[$city]['Cidade']['nome'];
+
+		while ($nome == 'Barão de Cocais' || $nome == 'Bela Vista de Minas' ||
+			   $nome == 'Bom Jesus do Amparo' || $nome == 'Catas Altas' ||
+			   $nome == 'Dionísio' || $nome == 'São Gonçalo do Rio Abaixo' ||
+			   $nome == 'Sem Peixe') {
+			$city = rand (0,16);
+			$nome = $cidades[$city]['Cidade']['nome'];
+		}
+		
+		$this->set(compact('city'));	
+
+		foreach ($cids as $cid) {
+			if ($cid['nome'] == $nome) {
+				$cdg = $cid['cid'];
+			}	
+		}
+
+		$HttpSocket = new HttpSocket();
+		// string query
+		$results = json_decode($HttpSocket->get('https://api.hgbrasil.com/weather/?format=json&cid='.$cdg), true);
+		return $results;
 	}
 }

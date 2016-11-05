@@ -78,6 +78,60 @@
 		    				echo '</a>'
 		    			?>
 		    		</div><br>
+		    		<?php
+		    		echo ' 
+						<div class="weather-wrapper">
+					    <div class="weather-card">
+								<h1>'.$results['results']['temp'].'°</h1>';
+								if ($results['results']['description'] == 'Tempo limpo') {
+									echo '
+									<div class="icon sunny">
+						  			<div class="sun">
+						    			<div class="rays"></div>
+						  			</div>
+									</div><br>';
+								} elseif ($results['results']['description'] == 'Tempo nublado') {
+									echo '
+									<div class="icon cloudy">
+									  <div class="cloud"></div>
+									  <div class="cloud"></div>
+									</div><br>';
+								} elseif ($results['results']['description'] == 'Parcialmente nublado') {
+									echo '
+									<div class="icon sun-shower">
+									  <div class="cloud"></div>
+									  <div class="sun">
+									    <div class="rays"></div>
+									  </div>
+									</div><br>';
+								} elseif ($results['results']['description'] == 'Alguns chuviscos') {
+									echo '
+									<div class="icon rainy">
+									  <div class="cloud"></div>
+									  <div class="rain"></div>
+									</div><br>';
+								} elseif ($results['results']['description'] == 'Tempestades') {
+									echo '
+									<div class="icon thunder-storm">
+									  <div class="cloud"></div>
+									  <div class="lightning">
+									    <div class="bolt"></div>
+									    <div class="bolt"></div>
+									  </div>
+									</div><br>';
+								} else {
+									echo '
+									<div class="icon sunny">
+						  			<div class="sun">
+						    			<div class="rays"></div>
+						  			</div>
+									</div><br>';
+								}
+		  					echo '
+								<hr style="margin:0"><p>'.$cidades[$city]['Cidade']['nome'].'</p>
+					    </div>
+						</div>';
+		    		?>
 		    	</div>	
       	</div>
 	    </div>

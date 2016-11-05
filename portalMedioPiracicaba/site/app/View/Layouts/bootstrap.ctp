@@ -24,6 +24,7 @@
     echo $this->Html->css('parceiros.css'); 
     echo $this->Html->css('cards.css'); 
     echo $this->Html->css('searchbar.css'); 
+    echo $this->Html->css('clima.css'); 
 
   ?>
 

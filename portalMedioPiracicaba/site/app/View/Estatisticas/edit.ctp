@@ -41,7 +41,7 @@
 					<?php echo $this->Form->input('eleitores', array('class' => 'form-control', 'placeholder' => 'Eleitores', 'min' => 0, 'max' => 100000000));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('secoes', array('class' => 'form-control', 'placeholder' => 'Seções', 'min' => 0, 'label' => 'Seções'));?>
+					<?php echo $this->Form->input('secoes', array('class' => 'form-control', 'placeholder' => 'Seções', 'min' => 0, 'label' => 'Seções Eleitorais'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('indice_pluviometrico', array('class' => 'form-control', 'placeholder' => 'Índice Pluviométrico', 'min' => 0, 'label' => 'Índice Pluviométrico'));?>
