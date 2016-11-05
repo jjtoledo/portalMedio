@@ -207,6 +207,29 @@
 		    				echo '</a>'
 		    			?>
 		    		</div><br>
+		    		<div class="panel panel-info" style="margin-top: 20px;">
+						  <div class="panel-heading">
+						    <h3 class="panel-title">Cotações</h3>
+						  </div>
+						  <div class="panel-body noPadding">
+						  	<ul class="list-group">
+								  <li class="list-group-item noHr">
+								    <span class="badge"><?php echo '$'.number_format($moedas['valores']['USD']['valor'], 2, '.', ',') ?></span>
+								    <span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;Dólar
+								  </li>
+								  <hr style="margin:0; border-top: 1px solid #999;">
+								  <li class="list-group-item noHr">
+								    <span class="badge"><?php echo '$'.number_format($moedas['valores']['EUR']['valor'], 2, '.', ',') ?></span>
+								    <span class="glyphicon glyphicon-eur"></span>&nbsp;&nbsp;Euro
+								  </li>
+								  <hr style="margin:0; border-top: 1px solid #999;">
+								  <li class="list-group-item noHr">
+								    <span class="badge"><?php echo '$'.number_format($moedas['valores']['GBP']['valor'], 2, '.', ',') ?></span>
+								    <span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;Libra
+								  </li>
+								</ul>
+						  </div>
+						</div>
 		    	</div>	
       	</div>
 	    </div>

@@ -66,6 +66,7 @@ class HomesController extends AppController {
 		$this->set(compact('anuncios_large'));
 
 		$this->set('results', $this->clima($cidades));
+		$this->set('moedas', $this->moeda());
 	}
 
 /** 
@@ -268,6 +269,13 @@ class HomesController extends AppController {
 		$HttpSocket = new HttpSocket();
 		// string query
 		$results = json_decode($HttpSocket->get('https://api.hgbrasil.com/weather/?format=json&cid='.$cdg), true);
+		return $results;
+	}
+
+	public function moeda()	{
+		$HttpSocket = new HttpSocket();
+		// string query
+		$results = json_decode($HttpSocket->get('http://api.promasters.net.br/cotacao/v1/valores'), true);
 		return $results;
 	}
 }

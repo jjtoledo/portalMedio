@@ -423,6 +423,14 @@ div#listCidades.row > div > a:hover {
   font-size: 50px;
 }
 
+.panel-body.noPadding {
+  padding: 0;
+}
+
+.list-group-item.noHr {
+  border: none;
+}
+
 .videoCidadades{
       position: fixed; 
       right: 0; 
@@ -483,7 +491,7 @@ div#listCidades.row > div > a:hover {
   }
 
   .noticia.prop {
-    height: 330px;
+    height: 310px;
     padding-bottom: 0px;
   }
 }
@@ -520,6 +528,10 @@ div#listCidades.row > div > a:hover {
 
   .weather-card {
     display: none;
+  }
+
+  .panel.panel-info {
+    margin: 40px;
   }
 }
 
