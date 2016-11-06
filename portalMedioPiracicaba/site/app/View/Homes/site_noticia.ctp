@@ -21,8 +21,8 @@
 		  echo '</div>';
 		  ?>
 		</div>
-		<div class="col-md-3 col-md-offset-0 col-xs-6 col-xs-offset-3 right jumbotron leiaTb">
-  			<h4>Leia também</h4><hr>
+		<div class="col-md-3 col-md-offset-0 col-xs-12 right jumbotron leiaTb">
+  			<h4 class="blue">Leia também</h4><hr>
   			<?php
   			foreach ($noticias as $n) {
   				echo '<div class="col-md-12">';
