@@ -270,6 +270,12 @@
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Leis'), array('controller' => 'leis', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Prefeitos'), array('controller' => 'politicos', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
 	</div>
 
 	<div class="row" style="margin-bottom: 20px">
@@ -279,11 +285,11 @@
 		</div>
 
 		<div class="col-md-3 menu">
-				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Câmaras'), array('controller' => 'camaras', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-				</div>			
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Vereadores'), array('controller' => 'politicos', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
 		</div>
-
+		
 		<div class="col-md-3 menu">
 				<div class="actions">
 					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Comissões Permanentes'), array('controller' => 'comissaos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 

@@ -286,36 +286,6 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`eventos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmedio`.`camaras` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `cidade_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `cidade_id`),
-  INDEX `fk_camaras_cidades1_idx` (`cidade_id` ASC),
-  CONSTRAINT `fk_camras_cidades1`
-    FOREIGN KEY (`cidade_id`)
-    REFERENCES `portalmedio`.`cidades` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmedio`.`foto_camaras` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `camara_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `camara_id`),
-  INDEX `fk_fotocamaras_camaras1_idx` (`camara_id` ASC),
-  CONSTRAINT `fk_foto_camaras_camara1`
-    FOREIGN KEY (`camara_id`)
-    REFERENCES `portalmedio`.`camaras` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
 CREATE TABLE IF NOT EXISTS `portalmedio`.`fotos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
@@ -638,11 +608,10 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`politicos` (
   `tipo` INT(11) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   `comissao_id` INT(11) NOT NULL DEFAULT 0,
-  `mesadiretora_id` INT(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`, `cidade_id`, `comissao_id`, `mesadiretora_id`),
+  `mesadiretora` INT(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`, `cidade_id`, `comissao_id`),
   INDEX `fk_prefeitos_cidades1_idx` (`cidade_id` ASC),
   INDEX `fk_politicos_comissaos1_idx` (`comissao_id` ASC),
-  INDEX `fk_politicos_mesadiretora1_idx` (`mesadiretora_id` ASC),
   CONSTRAINT `fk_prefeitos_cidades1`
     FOREIGN KEY (`cidade_id`)
     REFERENCES `portalmedio`.`cidades` (`id`)
@@ -651,11 +620,6 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`politicos` (
   CONSTRAINT `fk_politicos_comissaos1`
     FOREIGN KEY (`comissao_id`)
     REFERENCES `portalmedio`.`comissaos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_politicos_mesadiretora1`
-    FOREIGN KEY (`mesadiretora_id`)
-    REFERENCES `portalmedio`.`mesadiretoras` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -755,23 +719,6 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`comissaos` (
   CONSTRAINT `fk_comissaos_cidades1`
     FOREIGN KEY (`cidade_id`)
     REFERENCES `portalmedio`.`cidades` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmedio`.`mesadiretoras` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `ano_inicio` INT(11) NULL DEFAULT NULL,
-  `ano_termino` INT(11) NULL DEFAULT NULL,
-  `camara_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `camara_id`),
-  INDEX `fk_mesadiretora_camaras1_idx` (`camara_id` ASC),
-  CONSTRAINT `fk_mesadiretora_camaras1`
-    FOREIGN KEY (`camara_id`)
-    REFERENCES `portalmedio`.`camaras` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

@@ -12,10 +12,10 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 DROP SCHEMA IF EXISTS `portalmediopir`;
 CREATE SCHEMA IF NOT EXISTS `portalmediopir` DEFAULT CHARACTER SET utf8;
 
-/*DROP USER IF EXISTS `sisPortalMedio`@`localhost`;
+DROP USER IF EXISTS `sisPortalMedio`@`localhost`;
 CREATE USER `sisPortalMedio`@`localhost` IDENTIFIED BY `portalMedio123`;
 GRANT ALL PRIVILEGES ON `portalmediopir`.* TO `sisPortalMedio`@`localhost`;
-FLUSH PRIVILEGES;*/
+FLUSH PRIVILEGES;
 
 USE `portalmediopir`; 
 
@@ -286,14 +286,15 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`eventos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`camaras` (
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`fotos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(100) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `tipo` INT(11) NULL DEFAULT NULL,
+  `descricao` VARCHAR(100) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
-  INDEX `fk_camaras_cidades1_idx` (`cidade_id` ASC),
-  CONSTRAINT `fk_camras_cidades1`
+  INDEX `fk_fotosaereas_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_fotosaereas_cidades1`
     FOREIGN KEY (`cidade_id`)
     REFERENCES `portalmediopir`.`cidades` (`id`)
     ON DELETE NO ACTION
@@ -301,16 +302,127 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`camaras` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_camaras` (
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_atrativos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `camara_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `camara_id`),
-  INDEX `fk_fotocamaras_camaras1_idx` (`camara_id` ASC),
-  CONSTRAINT `fk_foto_camaras_camara1`
-    FOREIGN KEY (`camara_id`)
-    REFERENCES `portalmediopir`.`camaras` (`id`)
+  `atrativo_turistico_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `atrativo_turistico_id`),
+  INDEX `fk_foto_atrativos_atrativo_turisticos1_idx` (`atrativo_turistico_id` ASC),
+  CONSTRAINT `fk_foto_atrativos_atrativo_turisticos1`
+    FOREIGN KEY (`atrativo_turistico_id`)
+    REFERENCES `portalmediopir`.`atrativo_turisticos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_distritos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `distrito_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `distrito_id`),
+  INDEX `fk_foto_distritos_distritos1_idx` (`distrito_id` ASC),
+  CONSTRAINT `fk_foto_distritos_distritos1`
+    FOREIGN KEY (`distrito_id`)
+    REFERENCES `portalmediopir`.`distritos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_escolas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `escola_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `escola_id`),
+  INDEX `fk_foto_escolas_escolas1_idx` (`escola_id` ASC),
+  CONSTRAINT `fk_foto_escolas_escolas1`
+    FOREIGN KEY (`escola_id`)
+    REFERENCES `portalmediopir`.`escolas` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_espacos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `espaco_evento_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `espaco_evento_id`),
+  INDEX `fk_foto_espacos_espaco_eventos1_idx` (`espaco_evento_id` ASC),
+  CONSTRAINT `fk_foto_espacos_espaco_eventos1`
+    FOREIGN KEY (`espaco_evento_id`)
+    REFERENCES `portalmediopir`.`espaco_eventos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_eventos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `evento_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `evento_id`),
+  INDEX `fk_foto_eventos_eventos1_idx` (`evento_id` ASC),
+  CONSTRAINT `fk_foto_eventos_eventos1`
+    FOREIGN KEY (`evento_id`)
+    REFERENCES `portalmediopir`.`eventos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_orgaos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `orgao_publico_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `orgao_publico_id`),
+  INDEX `fk_foto_orgaos_orgao_publicos1_idx` (`orgao_publico_id` ASC),
+  CONSTRAINT `fk_foto_orgaos_orgao_publicos1`
+    FOREIGN KEY (`orgao_publico_id`)
+    REFERENCES `portalmediopir`.`orgao_publicos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_politicos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `politico_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `politico_id`),
+  INDEX `fk_fotosprefeitos_prefeitos1_idx` (`politico_id` ASC),
+  CONSTRAINT `fk_fotosprefeitos_prefeitos1`
+    FOREIGN KEY (`politico_id`)
+    REFERENCES `portalmediopir`.`politicos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_rios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `rio_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `rio_id`),
+  INDEX `fk_foto_rios_rios1_idx` (`rio_id` ASC),
+  CONSTRAINT `fk_foto_rios_rios1`
+    FOREIGN KEY (`rio_id`)
+    REFERENCES `portalmediopir`.`rios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_saudes` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `orgao_saude_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `saude_id`),
+  INDEX `fk_foto_saudes_saudes1_idx` (`saude_id` ASC),
+  CONSTRAINT `fk_foto_saudes_saudes1`
+    FOREIGN KEY (`saude_id`)
+    REFERENCES `portalmediopir`.`saudes` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -493,14 +605,13 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`politicos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NULL DEFAULT NULL,
   `partido` VARCHAR(45) NULL DEFAULT NULL,
-  `tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `tipo` INT(11) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   `comissao_id` INT(11) NOT NULL DEFAULT 0,
-  `mesadiretora_id` INT(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`, `cidade_id`, `comissao_id`, `mesadiretora_id`),
+  `mesadiretora` INT(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`, `cidade_id`, `comissao_id`),
   INDEX `fk_prefeitos_cidades1_idx` (`cidade_id` ASC),
   INDEX `fk_politicos_comissaos1_idx` (`comissao_id` ASC),
-  INDEX `fk_politicos_mesadiretora1_idx` (`mesadiretora_id` ASC),
   CONSTRAINT `fk_prefeitos_cidades1`
     FOREIGN KEY (`cidade_id`)
     REFERENCES `portalmediopir`.`cidades` (`id`)
@@ -509,11 +620,6 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`politicos` (
   CONSTRAINT `fk_politicos_comissaos1`
     FOREIGN KEY (`comissao_id`)
     REFERENCES `portalmediopir`.`comissaos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_politicos_mesadiretora1`
-    FOREIGN KEY (`mesadiretora_id`)
-    REFERENCES `portalmediopir`.`mesadiretoras` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -613,23 +719,6 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`comissaos` (
   CONSTRAINT `fk_comissaos_cidades1`
     FOREIGN KEY (`cidade_id`)
     REFERENCES `portalmediopir`.`cidades` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`mesadiretoras` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `descricao` TEXT NULL DEFAULT NULL,
-  `ano_inicio` INT(11) NULL DEFAULT NULL,
-  `ano_termino` INT(11) NULL DEFAULT NULL,
-  `camara_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `camara_id`),
-  INDEX `fk_mesadiretora_camaras1_idx` (`camara_id` ASC),
-  CONSTRAINT `fk_mesadiretora_camaras1`
-    FOREIGN KEY (`camara_id`)
-    REFERENCES `portalmediopir`.`camaras` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -736,197 +825,6 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`noticias` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`fotos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `tipo` INT(11) NULL DEFAULT NULL,
-  `descricao` VARCHAR(100) NULL DEFAULT NULL,
-  `cidade_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `cidade_id`),
-  INDEX `fk_fotosaereas_cidades1_idx` (`cidade_id` ASC),
-  CONSTRAINT `fk_fotosaereas_cidades1`
-    FOREIGN KEY (`cidade_id`)
-    REFERENCES `portalmediopir`.`cidades` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_atrativos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `atrativo_turistico_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `atrativo_turistico_id`),
-  INDEX `fk_foto_atrativos_atrativo_turisticos1_idx` (`atrativo_turistico_id` ASC),
-  CONSTRAINT `fk_foto_atrativos_atrativo_turisticos1`
-    FOREIGN KEY (`atrativo_turistico_id`)
-    REFERENCES `portalmediopir`.`atrativo_turisticos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_distritos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `distrito_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `distrito_id`),
-  INDEX `fk_foto_distritos_distritos1_idx` (`distrito_id` ASC),
-  CONSTRAINT `fk_foto_distritos_distritos1`
-    FOREIGN KEY (`distrito_id`)
-    REFERENCES `portalmediopir`.`distritos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_escolas` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `escola_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `escola_id`),
-  INDEX `fk_foto_escolas_escolas1_idx` (`escola_id` ASC),
-  CONSTRAINT `fk_foto_escolas_escolas1`
-    FOREIGN KEY (`escola_id`)
-    REFERENCES `portalmediopir`.`escolas` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_espacos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `espaco_evento_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `espaco_evento_id`),
-  INDEX `fk_foto_espacos_espaco_eventos1_idx` (`espaco_evento_id` ASC),
-  CONSTRAINT `fk_foto_espacos_espaco_eventos1`
-    FOREIGN KEY (`espaco_evento_id`)
-    REFERENCES `portalmediopir`.`espaco_eventos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_eventos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `evento_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `evento_id`),
-  INDEX `fk_foto_eventos_eventos1_idx` (`evento_id` ASC),
-  CONSTRAINT `fk_foto_eventos_eventos1`
-    FOREIGN KEY (`evento_id`)
-    REFERENCES `portalmediopir`.`eventos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_orgaos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `orgao_publico_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `orgao_publico_id`),
-  INDEX `fk_foto_orgaos_orgao_publicos1_idx` (`orgao_publico_id` ASC),
-  CONSTRAINT `fk_foto_orgaos_orgao_publicos1`
-    FOREIGN KEY (`orgao_publico_id`)
-    REFERENCES `portalmediopir`.`orgao_publicos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_politicos` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `politico_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `politico_id`),
-  INDEX `fk_fotosprefeitos_prefeitos1_idx` (`politico_id` ASC),
-  CONSTRAINT `fk_fotosprefeitos_prefeitos1`
-    FOREIGN KEY (`politico_id`)
-    REFERENCES `portalmediopir`.`politicos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_rios` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `rio_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `rio_id`),
-  INDEX `fk_foto_rios_rios1_idx` (`rio_id` ASC),
-  CONSTRAINT `fk_foto_rios_rios1`
-    FOREIGN KEY (`rio_id`)
-    REFERENCES `portalmediopir`.`rios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_saudes` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `orgao_saude_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `orgao_saude_id`),
-  INDEX `fk_foto_saudes_saudes1_idx` (`orgao_saude_id` ASC),
-  CONSTRAINT `fk_foto_saudes_saudes1`
-    FOREIGN KEY (`orgao_saude_id`)
-    REFERENCES `portalmediopir`.`orgao_saudes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-INSERT INTO `cidades` (`id`, `nome`, `descricao`) VALUES
-(3, 'BarÃ£o de Cocais', ''),
-(4, 'Bela Vista de Minas', ''),
-(5, 'Bom Jesus do Amparo', ''),
-(6, 'Catas Altas', ''),
-(7, 'DionÃ­sio', ''),
-(8, 'Dom SilvÃ©rio', ''),
-(9, 'Itabira', ''),
-(10, 'JoÃ£o Monlevade', ''),
-(11, 'Nova Era', ''),
-(12, 'Rio Piracicaba', ''),
-(13, 'Santa BÃ¡rbara', ''),
-(14, 'Santa Maria de Itabira', ''),
-(15, 'SÃ£o Domingos do Prata', ''),
-(16, 'SÃ£o GonÃ§alo do Rio Abaixo', ''),
-(17, 'SÃ£o JosÃ© do Goiabal', ''),
-(18, 'Sem Peixe', ''),
-(19, 'AlvinÃ³polis', '');
-
-INSERT INTO `eventos` (`id`, `descricao`, `local`, `horario`, `data`, `foto_anuncio`, `cidade_id`) VALUES
-(1, 'evento', 'Itabira', '12:00', '12/12/2016', 'banner-barramares-2015-3.jpg', 9),
-(2, 'Evento teste', 'Itabira', '13:00', '12/12/2016', 'img-20150812-wa0104-3.jpg', 9);
-
-INSERT INTO `noticias` (`id`, `titulo`, `descricao`, `foto`, `link`, `tipo`) VALUES
-(2, 'PF liga codinome \'amigo\' em planilhas da Lava Jato a Lula', '', 'untitled-2.jpg', 'http://g1.globo.com/pr/parana/noticia/2016/10/pf-liga-codinome-amigo-em-planilhas-da-lava-jato-lula.html', 1),
-(3, 'Revista divulga Ã¡udio em que Crivella diz que foi preso em \'cela lotada\'', '', 'veja-crivella.jpg', 'http://g1.globo.com/rio-de-janeiro/eleicoes/2016/noticia/2016/10/revista-divulga-audio-em-que-crivella-diz-que-foi-preso-em-cela-lotada.html', 1),
-(4, 'Maia oferece coquetel a Temer e Ã  base para articular votaÃ§Ã£o de PEC', '', 'foto-coquetel-maia-e-temer.jpg', 'http://g1.globo.com/politica/noticia/2016/10/rodrigo-maia-reune-deputados-para-articular-votacao-da-pec-241.html', 1),
-(5, 'Embraer admite propina e faz acordo de US$ 206 milhÃµes no Brasil e EUA', '', 'img-combat-supertucano-origin-zoom-nuqknub.jpg', 'http://g1.globo.com/economia/negocios/noticia/2016/10/embraer-admite-que-pagou-propina-e-faz-acordo-de-r-64-mi-com-cvm.html', 1),
-(6, 'Dicas prÃ¡ticas para o uso de repelentes', '', 'exposis.jpg', 'http://g1.globo.com/bemestar/blog/doutora-ana-responde/post/dicas-praticas-para-o-uso-de-repelentes.html', 1),
-(8, 'Uemg abre inscriÃ§Ãµes para vestibular tradicional; 160 vagas sÃ£o ofertadas em Monlevade ', '', 'diminuator.jpg', '', 2),
-(10, 'Corrida rÃºstica marca semana de prevenÃ§Ã£o de acidentes no HNSD', '', 'aa.jpg', '', 2),
-(11, 'Itabiranos sÃ£o convocados para disputa da Copa do Brasil de Taekwondo', '', 'diminuato.jpg', '', 2),
-(13, 'Menina de 4 anos lÃª e fala 7 lÃ­nguas: gÃªnio?', '', 'menina-poliglota-close.jpg', '', 3),
-(14, 'PaÃ­s vai ensinar alunos a desconstruir estereÃ³tipos de gÃªnero', '', 'escolas-genero-close.jpg', '', 3),
-(15, 'Grande chuva de estrelas cadentes iluminou a madrugada', '', 'estrelas-cadentes-close.jpg', '', 3),
-(16, 'Morre Carlos Alberto Torres, o capitÃ£o do tri', '', 'carlos-alberto-torres.jpg', 'http://veja.abril.com.br/esporte/morre-carlos-alberto-torres-o-capitao-do-tri/', 1),
-(17, 'MÃ£e desconfia de filho e descobre o que fazia escondido: caridade', '', 'menino-lanche-mae-close-0.jpg', 'http://www.sonoticiaboa.com.br/2016/10/24/mae-desconfia-de-filho-e-descobre-o-que-ele-fazia-escondido-caridade/', 3),
-(18, 'Acimon promove CafÃ© Empresarial em sua sede', '', 'not-g-5181-5281.jpg', 'http://www.anoticiaregional.com.br/noticia.asp?id=5181', 2),
-(19, 'AlvinÃ³polis recebe 36Âª ediÃ§Ã£o do Festival da CanÃ§Ã£o', '', 'not-g-5179-5279.jpg', 'http://www.anoticiaregional.com.br/noticia.asp?id=5179', 2);
-
-INSERT INTO `parceiros` (`id`, `site`, `tipo`, `foto`) VALUES
-(1, 'www', 1, 'bmw-2-2.jpeg'),
-(2, 'eee', 1, 'bk-2-2.png'),
-(3, 'ddd', 1, 'ge-2.jpg'),
-(4, 'fdsfs', 2, 'banner-anuncie-sou-noticia-2.gif'),
-(5, 'gfd', 3, 'banner-anuncie-aqui-large-3.jpg');
-
-
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
