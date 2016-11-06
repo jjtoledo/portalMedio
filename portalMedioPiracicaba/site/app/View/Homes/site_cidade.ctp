@@ -175,7 +175,7 @@
 		    	<div class="col-lg-4 col-md-6 col-sm-6 divNoticia">
 		    		<div class="noticia">
 		    			<?php 
-		    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$noticias_reg[$count]['Noticia']['id'].'/'.$noticias_reg[$count]['Noticia']['tipo'].'" escape="false">';
+		    				echo '<a class="noticia_foto" href="../site_noticia/'.$noticias_reg[$count]['Noticia']['id'].'/'.$noticias_reg[$count]['Noticia']['tipo'].'" escape="false">';
 		    				echo $this->Html->image($noticias_reg[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
 		    				echo '<p class="noticia_title">'.$noticias_reg[$count]['Noticia']['titulo'].'</p>';
 		    				echo '</a>'
@@ -214,7 +214,7 @@
 		    	<div class="col-md-3 col-sm-6 divNoticia">
 		    		<div class="noticia agenda boas">
 		    			<?php 
-		    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$noticias_boas[$count]['Noticia']['id'].'/'.$noticias_boas[$count]['Noticia']['tipo'].'" escape="false">';
+		    				echo '<a class="noticia_foto" href="../site_noticia/'.$noticias_boas[$count]['Noticia']['id'].'/'.$noticias_boas[$count]['Noticia']['tipo'].'" escape="false">';
 		    				echo $this->Html->image($noticias_boas[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
 		    				echo '<p class="noticia_title">'.$noticias_boas[$count]['Noticia']['titulo'].'</p>';
 		    				echo '</a>'
