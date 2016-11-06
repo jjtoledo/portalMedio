@@ -247,19 +247,33 @@ class HomesController extends AppController {
 			'10' => array('nome' => 'São José do Goiabal', 'cid' => 'BRXX3482')
 		);
 
-		$city = rand (0,16);
-		$nome = $cidades[$city]['Cidade']['nome'];
+		$cityArray = array();
+		foreach ($cidades as $c) {
+			array_push($cityArray, $c['Cidade']['id']);
+		}
+
+		$city = mt_rand ($cityArray[0],end($cityArray));
+
+		foreach ($cidades as $c) {
+			if ($c['Cidade']['id'] == $city) {
+				$nome = $c['Cidade']['nome'];
+			}
+		}
 
 		while ($nome == 'Barão de Cocais' || $nome == 'Bela Vista de Minas' ||
 			   $nome == 'Bom Jesus do Amparo' || $nome == 'Catas Altas' ||
 			   $nome == 'Dionísio' || $nome == 'São Gonçalo do Rio Abaixo' ||
 			   $nome == 'Sem Peixe') {
-			$city = rand (0,16);
-			$nome = $cidades[$city]['Cidade']['nome'];
+			$city = mt_rand ($cityArray[0],end($cityArray));
+			foreach ($cidades as $c) {
+				if ($c['Cidade']['id'] == $city) {
+					$nome = $c['Cidade']['nome'];
+				}
+			}
 		}
-		
-		$this->set(compact('city'));	
 
+		$this->set('city', $nome);
+		
 		foreach ($cids as $cid) {
 			if ($cid['nome'] == $nome) {
 				$cdg = $cid['cid'];

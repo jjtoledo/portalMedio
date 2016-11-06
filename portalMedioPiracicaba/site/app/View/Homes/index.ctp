@@ -128,7 +128,7 @@
 									</div><br>';
 								}
 		  					echo '
-								<hr style="margin:0"><p>'.$cidades[$city]['Cidade']['nome'].'</p>
+								<hr style="margin:0"><p>'.$city.'</p>
 					    </div>
 						</div>';
 		    		?>
