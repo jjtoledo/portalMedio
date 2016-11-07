@@ -3,9 +3,21 @@
 
 <script type="text/javascript">
 	jQuery(function($){
-	   $("#EscolaTelefone1").mask("(99)9999-9999");
-	   $("#EscolaTelefone2").mask("(99)9999-9999");
-	});
+		$("#EscolaTelefone1").mask("(99)99999-9999",{autoclear: false});  	
+		$("#EscolaTelefone2").mask("(99)99999-9999",{autoclear: false});  	
+	 
+		$('#EscolaTelefone1').blur(function() {
+		  if ($('#EscolaTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#EscolaTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});
+
+		$('#EscolaTelefone2').blur(function() {
+		  if ($("#EscolaTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#EscolaTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});	  
+  });
 </script>
 
 <div class="container escolas form">

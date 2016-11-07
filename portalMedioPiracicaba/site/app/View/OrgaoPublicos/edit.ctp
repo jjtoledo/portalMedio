@@ -3,9 +3,21 @@
 
 <script type="text/javascript">
 	jQuery(function($){
-	   $("#OrgaoPublicoTelefone1").mask("(99)9999-9999");
-	   $("#OrgaoPublicoTelefone2").mask("(99)9999-9999");
-	});
+		$("#OrgaoPublicoTelefone1").mask("(99)99999-9999",{autoclear: false});  	
+		$("#OrgaoPublicoTelefone2").mask("(99)99999-9999",{autoclear: false});  	
+	 
+		$('#OrgaoPublicoTelefone1').blur(function() {
+		  if ($('#OrgaoPublicoTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#OrgaoPublicoTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});
+
+		$('#OrgaoPublicoTelefone2').blur(function() {
+		  if ($("#OrgaoPublicoTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#OrgaoPublicoTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});	  
+  });
 </script>
 
 <div class="container orgaoPublicos form">

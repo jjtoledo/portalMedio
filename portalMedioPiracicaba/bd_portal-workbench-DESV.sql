@@ -21,7 +21,7 @@ USE `portalmedio`;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`admins` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `email` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(120) NOT NULL,
   `senha` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -48,7 +48,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`cidades` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(120) NOT NULL,
   `descricao` LONGTEXT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
@@ -56,7 +56,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`bairros` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(120) NOT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_bairros_cidade_idx` (`cidade_id` ASC),
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`mapas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `descricao` TEXT NULL DEFAULT NULL,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `link` VARCHAR(45) NULL DEFAULT NULL,
+  `link` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_mapas_cidade_idx` (`cidade_id` ASC),
@@ -86,10 +86,10 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`cursos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `periodos` INT(11) NULL DEFAULT NULL,
-  `descricao` VARCHAR(45) NULL DEFAULT NULL,
-  `area` VARCHAR(45) NULL DEFAULT NULL,
+  `descricao` VARCHAR(120) NULL DEFAULT NULL,
+  `area` VARCHAR(120) NULL DEFAULT NULL,
   `escola_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `escola_id`),
   INDEX `fk_cursos_escolas1_idx` (`escola_id` ASC),
@@ -103,7 +103,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`denominacaos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `denominacao` VARCHAR(45) NULL DEFAULT NULL,
+  `denominacao` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_denominacoes_cidade_idx` (`cidade_id` ASC),
@@ -117,7 +117,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`distritos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(120) NOT NULL,
   `descricao` VARCHAR(100) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -132,11 +132,11 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`documentos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `tipo_documento` VARCHAR(45) NULL DEFAULT NULL,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `tipo_documento` VARCHAR(120) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `descricao` TEXT NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
   `localizacao` VARCHAR(100) NULL DEFAULT NULL,
   `email` VARCHAR(80) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -152,7 +152,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`economias` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `subtitulo` VARCHAR(45) NULL DEFAULT NULL,
+  `subtitulo` VARCHAR(120) NULL DEFAULT NULL,
   `descricao` TEXT NULL DEFAULT NULL,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -168,10 +168,10 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`empresa_onibuses` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_empresasonibuses_cidades1_idx` (`cidade_id` ASC),
@@ -185,9 +185,9 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`enderecos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `rua` VARCHAR(45) NULL DEFAULT NULL,
-  `cep` VARCHAR(45) NULL DEFAULT NULL,
-  `bairro` VARCHAR(45) NULL DEFAULT NULL,
+  `rua` VARCHAR(120) NULL DEFAULT NULL,
+  `cep` VARCHAR(120) NULL DEFAULT NULL,
+  `bairro` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_enderecos_cidades1_idx` (`cidade_id` ASC),
@@ -201,13 +201,13 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`escolas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `descricao` VARCHAR(45) NULL DEFAULT NULL,
-  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `descricao` VARCHAR(120) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(120) NULL DEFAULT NULL,
   `tipo` INT(11) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
   `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -222,11 +222,11 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`espaco_eventos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `descricao` VARCHAR(255) NULL DEFAULT NULL,
   `localizacao` VARCHAR(255) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
   `site` VARCHAR(255) NULL DEFAULT NULL,
   `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -243,7 +243,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `portalmedio`.`estatisticas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `area_territorial` INT NULL DEFAULT NULL,
-  `micro_regiao` VARCHAR(45) NULL DEFAULT NULL,
+  `micro_regiao` VARCHAR(120) NULL DEFAULT NULL,
   `eleitores` INT(11) NULL DEFAULT NULL,
   `secoes` INT(11) NULL DEFAULT NULL,
   `indice_pluviometrico` INT(11) NULL DEFAULT NULL,
@@ -253,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`estatisticas` (
   `relevo_plano` DOUBLE NULL DEFAULT NULL,
   `relevo_ondulado` DOUBLE NULL DEFAULT NULL,
   `relevo_montanhoso` DOUBLE NULL DEFAULT NULL,
-  `clima` VARCHAR(45) NULL DEFAULT NULL,
+  `clima` VARCHAR(120) NULL DEFAULT NULL,
   `temp_anual` DOUBLE NULL DEFAULT NULL,
   `temp_max` DOUBLE NULL DEFAULT NULL,
   `temp_min` DOUBLE NULL DEFAULT NULL,
@@ -431,7 +431,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `portalmedio`.`frequencias` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `horario` VARCHAR(5) NULL DEFAULT NULL,
-  `frequencia` VARCHAR(45) NULL DEFAULT NULL,
+  `frequencia` VARCHAR(120) NULL DEFAULT NULL,
   `onibus_rota_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `onibus_rota_id`),
   INDEX `fk_frequencias_onibus_rotas1_idx` (`onibus_rota_id` ASC),
@@ -445,7 +445,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`fundadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NOT NULL,
+  `nome` VARCHAR(120) NOT NULL,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
   `biografia` TEXT NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -464,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`historias` (
   `historia` LONGTEXT NOT NULL,
   `adocao_nome` LONGTEXT NULL DEFAULT NULL,
   `emancipacao` LONGTEXT NULL DEFAULT NULL,
-  `adjetivo_patrio` VARCHAR(45) NULL DEFAULT NULL,
+  `adjetivo_patrio` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_historias_cidades1_idx` (`cidade_id` ASC),
@@ -479,9 +479,9 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `portalmedio`.`leis` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `descricao` LONGTEXT NULL DEFAULT NULL,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `referencia` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `referencia` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_leis_cidades1_idx` (`cidade_id` ASC),
@@ -495,8 +495,8 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`mandatos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `ano_inicio` VARCHAR(45) NULL DEFAULT NULL,
-  `ano_termino` VARCHAR(45) NULL DEFAULT NULL,
+  `ano_inicio` VARCHAR(120) NULL DEFAULT NULL,
+  `ano_termino` VARCHAR(120) NULL DEFAULT NULL,
   `politico_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `politico_id`),
   INDEX `fk_mandatos_prefeitos1_idx` (`politico_id` ASC),
@@ -510,11 +510,11 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`medicos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `endereco` VARCHAR(45) NULL DEFAULT NULL,
-  `especialidade` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `endereco` VARCHAR(120) NULL DEFAULT NULL,
+  `especialidade` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_medicos_cidades1_idx` (`cidade_id` ASC),
@@ -528,8 +528,8 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`onibus_rotas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `rota` VARCHAR(45) NULL DEFAULT NULL,
-  `tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `rota` VARCHAR(120) NULL DEFAULT NULL,
+  `tipo` VARCHAR(120) NULL DEFAULT NULL,
   `empresa_onibus_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `empresa_onibus_id`),
   INDEX `fk_onibus_rotas_empresa_onibuses1_idx` (`empresa_onibus_id` ASC),
@@ -543,12 +543,12 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`orgao_publicos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
-  `tipo` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
+  `tipo` VARCHAR(120) NULL DEFAULT NULL,
   `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -563,11 +563,11 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`empresas` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
   `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -591,8 +591,8 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`patrimonios` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(45) NULL DEFAULT NULL,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `tipo` VARCHAR(120) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `ano` INT(4) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -622,8 +622,8 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`politicos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `partido` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `partido` VARCHAR(120) NULL DEFAULT NULL,
   `tipo` INT(11) NULL DEFAULT NULL,
   `mesa_diretora` int(11) NOT NULL DEFAULT '0',
   `presidente` int(11) NOT NULL DEFAULT '0',
@@ -647,11 +647,11 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`prestadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `especialidade` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `apelido` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `especialidade` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `apelido` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_prestadors_cidades1_idx` (`cidade_id` ASC),
@@ -682,7 +682,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`rios` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_rios_cidades1_idx` (`cidade_id` ASC),
@@ -696,12 +696,12 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`orgao_saudes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `tipo` VARCHAR(45) NULL DEFAULT NULL,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `tipo` VARCHAR(120) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
+  `site` VARCHAR(120) NULL DEFAULT NULL,
   `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -731,7 +731,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`comissaos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `descricao` TEXT NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
@@ -746,9 +746,9 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`juizs` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `vara` VARCHAR(45) NULL DEFAULT NULL,
-  `tipo_justica` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `vara` VARCHAR(120) NULL DEFAULT NULL,
+  `tipo_justica` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_juizs_cidades1_idx` (`cidade_id` ASC),
@@ -762,9 +762,9 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`forums` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `endereco` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
+  `endereco` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_foruns_cidades1_idx` (`cidade_id` ASC),
@@ -778,8 +778,8 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`promotors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `vara` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `vara` VARCHAR(120) NULL DEFAULT NULL,
   `ano_inicio` INT(11) NULL DEFAULT NULL,
   `ano_termino` INT(11) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -795,7 +795,7 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`socials` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
   `descricao` TEXT NULL DEFAULT NULL,
   `foto` VARCHAR(255) NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
@@ -811,10 +811,10 @@ DEFAULT CHARACTER SET = utf8;
 
 CREATE TABLE IF NOT EXISTS `portalmedio`.`assistentes` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `nome` VARCHAR(45) NULL DEFAULT NULL,
-  `endereco` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
-  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
+  `nome` VARCHAR(120) NULL DEFAULT NULL,
+  `endereco` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(120) NULL DEFAULT NULL,
   `social_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `social_id`),
   INDEX `fk_assistentes_socials1_idx` (`social_id` ASC),
@@ -823,15 +823,6 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`assistentes` (
     REFERENCES `portalmedio`.`socials` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-CREATE TABLE IF NOT EXISTS `portalmedio`.`anuncios` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `descricao` VARCHAR(45) NULL DEFAULT NULL,
-  `foto` VARCHAR(255) NULL DEFAULT NULL,
-  `site` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
