@@ -561,6 +561,25 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`orgao_publicos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`empresas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `localizacao` VARCHAR(45) NULL DEFAULT NULL,
+  `telefone1` VARCHAR(45) NULL DEFAULT NULL,
+  `telefone2` VARCHAR(45) NULL DEFAULT NULL,
+  `site` VARCHAR(45) NULL DEFAULT NULL,
+  `foto_anuncio` VARCHAR(255) NULL DEFAULT NULL,
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_empresas_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_empresas_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmediopir`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`parceiros` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `site` VARCHAR(255) NULL DEFAULT NULL,
@@ -606,9 +625,10 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`politicos` (
   `nome` VARCHAR(45) NULL DEFAULT NULL,
   `partido` VARCHAR(45) NULL DEFAULT NULL,
   `tipo` INT(11) NULL DEFAULT NULL,
+  `mesa_diretora` int(11) NOT NULL DEFAULT '0',
+  `presidente` int(11) NOT NULL DEFAULT '0',
   `cidade_id` INT(11) NOT NULL,
   `comissao_id` INT(11) NOT NULL DEFAULT 0,
-  `mesadiretora` INT(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`, `cidade_id`, `comissao_id`),
   INDEX `fk_prefeitos_cidades1_idx` (`cidade_id` ASC),
   INDEX `fk_politicos_comissaos1_idx` (`comissao_id` ASC),

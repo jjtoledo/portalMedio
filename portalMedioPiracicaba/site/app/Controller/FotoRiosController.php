@@ -17,7 +17,7 @@ class FotoRiosController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
-public function afterFilter() {
+	public function afterFilter() {
         $this->autenticarAdmin();
     }
 

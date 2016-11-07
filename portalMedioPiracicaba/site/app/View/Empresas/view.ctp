@@ -1,11 +1,11 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<div class="container empresaOnibuss view">
+<div class="container empresas view">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Empresa: ' . $empresaOnibus['EmpresaOnibus']['nome']); ?></h2>
+				<h2><?php echo __('Empresa: ' . $empresa['Empresa']['nome']); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -22,7 +22,6 @@
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Empresa'), array('action' => 'edit', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Empresa'), array('action' => 'delete', $id, $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-road"></span>&nbsp&nbsp;Rotas'), array('controller' => 'onibusRotas', 'action' => 'index', $empresaOnibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -35,42 +34,42 @@
 					<tr>
 							<th><?php echo __('Nome do local'); ?></th>
 							<td>
-								<?php echo h($empresaOnibus['EmpresaOnibus']['nome']); ?>
+								<?php echo h($empresa['Empresa']['nome']); ?>
 								&nbsp;
 							</td>
 					</tr>
 					<tr>
 							<th><?php echo __('Telefone1'); ?></th>
 							<td>
-								<?php echo h($empresaOnibus['EmpresaOnibus']['telefone1']); ?>
+								<?php echo h($empresa['Empresa']['telefone1']); ?>
 								&nbsp;
 							</td>
 					</tr>
 					<tr>
 							<th><?php echo __('Telefone2'); ?></th>
 							<td>
-								<?php echo h($empresaOnibus['EmpresaOnibus']['telefone2']); ?>
+								<?php echo h($empresa['Empresa']['telefone2']); ?>
 								&nbsp;
 							</td>
 					</tr>
 					<tr>
 							<th><?php echo __('Site'); ?></th>
 							<td>
-								<?php echo h($empresaOnibus['EmpresaOnibus']['site']); ?>
+								<?php echo h($empresa['Empresa']['site']); ?>
 								&nbsp;
 							</td>
 					</tr>
 					<tr>
 							<th><?php echo __('Cidade'); ?></th>
 							<td>
-								<?php echo $this->Html->link($empresaOnibus['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $empresaOnibus['Cidade']['id'])); ?>
+								<?php echo $this->Html->link($empresa['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $empresa['Cidade']['id'])); ?>
 								&nbsp;
 							</td>
 					</tr>
 					<tr>
 							<th><?php echo __('Foto Anúncio'); ?></th>
 							<td>
-								<?php echo $this->Html->image($empresaOnibus['EmpresaOnibus']['foto_anuncio'], array('height' => '50%')); ?>
+								<?php echo $this->Html->image($empresa['Empresa']['foto_anuncio'], array('height' => '50%')); ?>
 								&nbsp;
 							</td>
 					</tr>

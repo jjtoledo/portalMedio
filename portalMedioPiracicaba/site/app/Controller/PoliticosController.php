@@ -43,6 +43,8 @@ class PoliticosController extends AppController {
 		);
 		$this->set('politicos', $this->Paginator->paginate());
 
+		$this->set('tipo', $tipo);
+
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
@@ -77,11 +79,12 @@ class PoliticosController extends AppController {
  */
 	public function add($id = null, $tipo = null) {
 		$this->request->data['Politico']['cidade_id'] = $id;
+		$this->request->data['Politico']['tipo'] = $tipo;
+		
+		if ($tipo == 1) {
+			$this->request->data['Politico']['comissao_id'] = 6;
+		}
 
-		$tipos = array('1' => 'Prefeito', 
-						'2' => 'Vereador'
-				);
-		$this->set('tipos', $tipos);
 		$this->set('tipo', $tipo);
 
 		$this->loadModel('Comissao');
@@ -96,23 +99,11 @@ class PoliticosController extends AppController {
 		);
 		$this->set('comissaos', $this->Comissao->find('list', $options));
 
-		$this->loadModel('Mesadiretora');
-		$options = array(
-			'conditions' => array(
-				'Mesadiretora.cidade_id' => $id
-			),
-			'fields' => array(
-				'Mesadiretora.id',
-				'Mesadiretora.nome'
-			)
-		);
-		$this->set('mesadiretoras', $this->Mesadiretora->find('list', $options));
-
 		if ($this->request->is('post')) {
 			$this->Politico->create();
 			if ($this->Politico->save($this->request->data)) {
 				$this->Session->setFlash(__('The Politico has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
+				return $this->redirect(array('action' => 'index', $id, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Politico could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -130,22 +121,31 @@ class PoliticosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idCity = null) {
+	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Politico->exists($id)) {
 			throw new NotFoundException(__('Invalid Politico'));
 		}
 
+		$this->set(compact('tipo'));
+
 		$this->request->data['Politico']['cidade_id'] = $idCity;
 
-		$tipos = array('1' => 'Prefeito', 
-						'2' => 'Vereador'
-				);
-		$this->set('tipos', $tipos);
+		$this->loadModel('Comissao');
+		$options = array(
+			'conditions' => array(
+				'Comissao.cidade_id' => $idCity
+			),
+			'fields' => array(
+				'Comissao.id',
+				'Comissao.nome'
+			)
+		);
+		$this->set('comissaos', $this->Comissao->find('list', $options));
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Politico->save($this->request->data)) {
 				$this->Session->setFlash(__('The Politico has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idCity));
+				return $this->redirect(array('action' => 'index', $idCity, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Politico could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -168,7 +168,7 @@ class PoliticosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idCity = null) {
+	public function delete($id = null, $idCity = null, $tipo = null) {
 		$this->Politico->id = $id;
 		if (!$this->Politico->exists()) {
 			throw new NotFoundException(__('Invalid Politico'));
@@ -179,6 +179,6 @@ class PoliticosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The Politico could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index', $idCity));
+		return $this->redirect(array('action' => 'index', $idCity, $tipo));
 	}
 }

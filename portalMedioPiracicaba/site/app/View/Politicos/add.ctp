@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>
+				<h2>
 				<?php 
 				if ($tipo == 1) {
 					echo __('Adicionar Prefeito'); 
@@ -14,7 +14,7 @@
 					echo __('Adicionar Vereador'); 
 				}
 				?>					
-				</h1>
+				</h2>
 			</div>
 		</div>
 	</div>
@@ -38,19 +38,30 @@
 			<?php echo $this->Form->create('Politico', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome'));?>
+					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('partido', array('class' => 'form-control', 'placeholder' => 'Partido'));?>
+					<?php echo $this->Form->input('partido', array('class' => 'form-control', 'placeholder' => 'Partido', 'required' => 'true'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->radio('tipo', $tipos, array('legend' => '', 'separator' => '&nbsp;&nbsp;&nbsp;&nbsp;'));?>
+				
+				<div id="mesa" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de Mesa Diretora?</label><br>
+						<?php echo $this->Form->radio('mesa_diretora', array('0' => 'Não', '1' => 'Sim'), array('legend' => '', 'value' => '0', 'separator' => '&nbsp;&nbsp;&nbsp;&nbsp;'));?>
+					</div>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('comissao_id', array('class' => 'form-control', 'label' => 'Faz parte de Comissão?', 'empty' => 'Não'));?>
+				
+				<div id="presidente" hidden="true">
+					<div class="form-group">
+						<label>É presidente?</label><br>
+						<?php echo $this->Form->radio('presidente', array('0' => 'Não', '1' => 'Sim'), array('legend' => '', 'value' => '0', 'separator' => '&nbsp;&nbsp;&nbsp;&nbsp;'));?>
+					</div>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('mesadiretora_id', array('class' => 'form-control', 'label' => 'Faz parte de Mesa Diretora?', 'empty' => 'Não'));?>
+
+				<div id="comissao" hidden="true">
+					<div class="form-group">
+						<?php echo $this->Form->input('comissao_id', array('class' => 'form-control', 'label' => 'Faz parte de Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>
@@ -61,3 +72,23 @@
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
 </div>
+
+<script type="text/javascript">
+	var mesa       = document.getElementById('mesa');
+	var mesaNao    = document.getElementById('PoliticoMesaDiretora0');
+	var presidente = document.getElementById('presidente');
+	var comissao   = document.getElementById('comissao');
+
+	if (<?php echo $tipo ?> == 2) {
+		mesa.removeAttribute('hidden');			
+		comissao.removeAttribute('hidden');
+	}
+
+	mesa.addEventListener("change", function() {
+		if (mesaNao.checked) {
+			presidente.setAttribute('hidden', 'true');
+		} else {
+			presidente.removeAttribute('hidden');			
+		}
+	});
+</script>
