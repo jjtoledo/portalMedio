@@ -34,8 +34,6 @@
 				<thead>
 					<tr>
 						<th nowrap><?php echo $this->Paginator->sort('ano'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('icms'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('outras'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('total'); ?></th>
 						<th class="actions"></th>
 					</tr>
@@ -44,8 +42,6 @@
 				<?php foreach ($receitas as $receita): ?>
 					<tr>
 						<td nowrap><?php echo h($receita['Receita']['ano']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($receita['Receita']['icms']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($receita['Receita']['outras']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($receita['Receita']['total']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $receita['Receita']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>

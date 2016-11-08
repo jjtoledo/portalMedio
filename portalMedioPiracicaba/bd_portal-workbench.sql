@@ -34,7 +34,7 @@ INSERT INTO `admins` (`id`, `email`, `senha`) VALUES
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`atrativo_turisticos` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(50) NULL DEFAULT NULL,
-  `descricao` VARCHAR(255) NULL DEFAULT NULL,
+  `descricao` text NULL DEFAULT NULL,
   `cidade_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`, `cidade_id`),
   INDEX `fk_atrativosturisticos_cidades1_idx` (`cidade_id` ASC),

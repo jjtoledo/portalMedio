@@ -4,7 +4,10 @@
 <script type="text/javascript">
 	jQuery(function($){
 		$("#OrgaoPublicoTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#OrgaoPublicoTelefone2").mask("(99)99999-9999",{autoclear: false});  	
+		$("#OrgaoPublicoTelefone2").mask("(99)99999-9999",{autoclear: false}); 
+
+		$("#OrgaoPublicoHorarioIni").mask("99:99",{autoclear: false});  	
+		$("#OrgaoPublicoHorarioFim").mask("99:99",{autoclear: false});  	 	
 	 
 		$('#OrgaoPublicoTelefone1').blur(function() {
 		  if ($('#OrgaoPublicoTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
@@ -62,6 +65,12 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('telefone2', array('class' => 'form-control', 'placeholder' => 'Telefone secundário'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_ini', array('class' => 'form-control', 'label' => 'Abre às:'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_fim', array('class' => 'form-control', 'label' => 'Fecha às:'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('site', array('class' => 'form-control', 'placeholder' => 'Site'));?>

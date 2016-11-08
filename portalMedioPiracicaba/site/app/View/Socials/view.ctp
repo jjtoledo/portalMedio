@@ -47,6 +47,13 @@
 							</td>
 					</tr>
 					<tr>
+							<th><?php echo __('Funcionamento'); ?></th>
+							<td>
+								<?php echo h($social['Social']['horario_ini'] . " às " . $social['Social']['horario_fim']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
 							<th><?php echo __('Cidade'); ?></th>
 							<td>
 								<?php echo $this->Html->link($social['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $social['Cidade']['id'])); ?>

@@ -68,6 +68,13 @@
 							</td>
 					</tr>
 					<tr>
+							<th><?php echo __('Funcionamento'); ?></th>
+							<td>
+								<?php echo h($orgaoPublico['OrgaoPublico']['horario_ini'] . " às " . $orgaoPublico['OrgaoPublico']['horario_fim']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
 							<th><?php echo __('Site'); ?></th>
 							<td>
 								<?php echo h($orgaoPublico['OrgaoPublico']['site']); ?>

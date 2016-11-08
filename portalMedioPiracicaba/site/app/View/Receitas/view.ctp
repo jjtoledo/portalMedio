@@ -46,9 +46,93 @@
 							</td>
 					</tr>
 					<tr>
-							<th><?php echo __('Outras'); ?></th>
+							<th><?php echo __('IPI'); ?></th>
 							<td>
-								<?php echo h($receita['Receita']['outras']); ?>
+								<?php echo h($receita['Receita']['ipi']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('IPVA'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['ipva']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('FPM'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['fpm']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('Royalties'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['royalties']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('ITR'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['itr']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('CIDE'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['cide']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('Fundeb'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['fundeb']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('Lei Kandir'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['lei_kandir']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('FEX'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['fex']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('AFM/AFE'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['afm_afe']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('IPTU'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['iptu']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('ISS'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['iss']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('IRRF'); ?></th>
+							<td>
+								<?php echo h($receita['Receita']['irrf']); ?>
 								&nbsp;
 							</td>
 					</tr>

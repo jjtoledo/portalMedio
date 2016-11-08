@@ -106,7 +106,7 @@ class AtrativoTuristicosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->AtrativoTuristico->save($this->request->data)) {
 				$this->Session->setFlash(__('The atrativo turistico has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
+				return $this->redirect(array('action' => 'index', $idCity));
 			} else {
 				$this->Session->setFlash(__('The atrativo turistico could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}

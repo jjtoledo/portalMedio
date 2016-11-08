@@ -53,6 +53,13 @@
 							</td>
 					</tr>
 					<tr>
+							<th><?php echo __('Funcionamento'); ?></th>
+							<td>
+								<?php echo h($empresa['Empresa']['horario_ini'] . " às " . $empresa['Empresa']['horario_fim']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
 							<th><?php echo __('Site'); ?></th>
 							<td>
 								<?php echo h($empresa['Empresa']['site']); ?>

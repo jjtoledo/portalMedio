@@ -1,6 +1,13 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
+<script type="text/javascript">
+	jQuery(function($){ 
+		$("#SocialHorarioIni").mask("99:99",{autoclear: false});  	
+		$("#SocialHorarioFim").mask("99:99",{autoclear: false});  	 	  
+  });
+</script>
+
 <div class="container socials form">
 
 	<div class="row">
@@ -39,6 +46,12 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_ini', array('class' => 'form-control', 'label' => 'Abre às:'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_fim', array('class' => 'form-control', 'label' => 'Fecha às:'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto'));?>

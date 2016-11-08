@@ -5,6 +5,9 @@
 	jQuery(function($){
 		$("#EmpresaTelefone1").mask("(99)99999-9999",{autoclear: false});  	
 		$("#EmpresaTelefone2").mask("(99)99999-9999",{autoclear: false});  	
+
+		$("#EmpresaHorarioIni").mask("99:99",{autoclear: false});  	
+		$("#EmpresaHorarioFim").mask("99:99",{autoclear: false});  	
 	 
 		$('#EmpresaTelefone1').blur(function() {
 		  if ($('#EmpresaTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
@@ -59,6 +62,12 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('telefone2', array('class' => 'form-control', 'label' => 'Telefone 2'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_ini', array('class' => 'form-control', 'label' => 'Abre às:'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('horario_fim', array('class' => 'form-control', 'label' => 'Fecha às:'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('site', array('class' => 'form-control', 'placeholder' => 'Site'));?>

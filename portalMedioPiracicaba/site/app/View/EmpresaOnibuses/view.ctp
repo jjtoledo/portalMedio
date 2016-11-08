@@ -67,13 +67,6 @@
 								&nbsp;
 							</td>
 					</tr>
-					<tr>
-							<th><?php echo __('Foto Anúncio'); ?></th>
-							<td>
-								<?php echo $this->Html->image($empresaOnibus['EmpresaOnibus']['foto_anuncio'], array('height' => '50%')); ?>
-								&nbsp;
-							</td>
-					</tr>
 				</tbody>
 			</table>
 

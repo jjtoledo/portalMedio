@@ -67,6 +67,13 @@
 							</td>
 					</tr>
 					<tr>
+							<th><?php echo __('Funcionamento'); ?></th>
+							<td>
+								<?php echo h($documento['Documento']['horario_ini'] . " às " . $documento['Documento']['horario_fim']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
 							<th><?php echo __('Localização'); ?></th>
 							<td>
 								<?php echo h($documento['Documento']['localizacao']); ?>

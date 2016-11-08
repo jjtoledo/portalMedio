@@ -12627,3 +12627,35 @@ Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
 Stack Trace:
 #0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2016-11-08 20:56:01 Error: Fatal Error (4): syntax error, unexpected '$documento' (T_VARIABLE) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Documentos\view.ctp, line 72]
+2016-11-08 20:56:01 Error: [FatalErrorException] syntax error, unexpected '$documento' (T_VARIABLE)
+Request URL: /portalMedio/portalMedioPiracicaba/site/documentos/view/3/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 72)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 72, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 72, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-11-08 21:46:50 Error: [MissingActionException] Action ReceitasController::delete() could not be found.
+Exception Attributes: array (
+  'controller' => 'ReceitasController',
+  'action' => 'delete',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/receitas/delete/1/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ReceitasController), Object(CakeRequest))
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2016-11-08 21:46:55 Error: [MissingActionException] Action ReceitasController::view() could not be found.
+Exception Attributes: array (
+  'controller' => 'ReceitasController',
+  'action' => 'view',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/receitas/view/8/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(ReceitasController), Object(CakeRequest))
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
