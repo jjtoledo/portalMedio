@@ -15,7 +15,7 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Cursos'), array('action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>

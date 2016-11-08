@@ -14,9 +14,18 @@
       ?>
     </div>
     <div class="collapse navbar-collapse" id="navMain">
-      <ul class="nav navbar-nav">
-        <li><a href="#">Início</a></li>
-        <li><a href="#">Cidades</a></li>
+      <ul class="nav navbar-nav col-md-8">
+        <li><?php echo $this->Html->link('Início', array('action' => 'index')) ?></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Cidades <span class="caret" style="color: white"></span>
+          </a>
+          <ul class="dropdown-menu white">
+            <?php foreach ($cidades as $c) {
+              echo '<li>'. $this->Html->link($c['Cidade']['nome'], array('action' => 'site_cidade', $c['Cidade']['id'])) .'</li>';
+            } ?>
+          </ul>
+        </li>
         <li><a href="#">Contato</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">

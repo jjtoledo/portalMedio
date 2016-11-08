@@ -108,10 +108,6 @@ body {
         box-shadow: 0 4px 4px -2px #222;
 }
 
-ul.dropdown-menu {
-    background-color: black;
-}
-
 .navbar-transparente .navbar-nav>li>a {
   color: #fff;
   font-size: 1.2em;
@@ -575,6 +571,10 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 768px){
+  .dropdown-menu.white > li > a {
+    color: white;
+  }
+
   .divNoticia.center {
     text-align: center;
     left: 0;

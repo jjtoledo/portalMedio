@@ -1,12 +1,12 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<div class="container cursos index">
+<div class="container mandatos index">
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Cursos da ' . $escola['Escola']['nome']); ?></h2>
+				<h2><?php echo __('Mandatos de: ' . $politico['Politico']['nome']); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -21,8 +21,8 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Faculdade'), array('controller' => 'escolas', 'action' => 'view', $escola['Escola']['id'], $escola['Escola']['cidade_id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo curso'), array('action' => 'add', $escola['Escola']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Político'), array('controller' => 'politicos', 'action' => 'view', $politico['Politico']['id'], $politico['Politico']['cidade_id']), array('escape' => false)); ?> </li>													
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo Mandato'), array('action' => 'add', $politico['Politico']['id']), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -33,22 +33,20 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th nowrap><?php echo $this->Paginator->sort('nome'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('periodos'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('area'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('ano_inicio'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('ano_termino'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
-				<?php foreach ($cursos as $curso): ?>
+				<?php foreach ($mandatos as $mandato): ?>
 					<tr>
-						<td nowrap><?php echo h($curso['Curso']['nome']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($curso['Curso']['periodos']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($curso['Curso']['area']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($mandato['Mandato']['ano_inicio']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($mandato['Mandato']['ano_termino']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $mandato['Mandato']['id'], $politico['Politico']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $mandato['Mandato']['id'], $politico['Politico']['id']), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $mandato['Mandato']['id'], $politico['Politico']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $mandato['Mandato']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

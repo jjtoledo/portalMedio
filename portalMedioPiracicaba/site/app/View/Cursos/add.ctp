@@ -17,12 +17,10 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Actions'); ?></div>
+					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>
-							</ul>
 							</ul>
 						</div>
 					</div>
