@@ -181,6 +181,9 @@ class HomesController extends AppController {
 			'order' => array(
 				'Foto.id' => 'DESC'
 			),
+			'conditions' => array(
+				'Foto.cidade_id' => $id
+			),
 			'limit' => 5
 		);
 		$this->set('fotos', $this->Foto->find('all', $options));
