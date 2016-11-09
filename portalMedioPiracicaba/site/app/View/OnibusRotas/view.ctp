@@ -22,6 +22,7 @@
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Rota'), array('action' => 'edit', $id, $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Rota'), array('action' => 'delete', $id, $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Empresa'), array('controller' => 'empresa_onibuses', 'action' => 'view', $empresa_onibus['EmpresaOnibus']['id'], $empresa_onibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-calendar"></span>&nbsp&nbsp;Horários'), array('controller' => 'frequencias', 'action' => 'index', $id), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
