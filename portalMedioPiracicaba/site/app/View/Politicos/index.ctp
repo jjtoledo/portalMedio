@@ -52,6 +52,8 @@
 						<td nowrap><?php echo h($politico['Politico']['nome']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($politico['Politico']['partido']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-briefcase"></span>'), array('controller' => 'mandatos', 'action' => 'index', $politico['Politico']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoPoliticos', 'action' => 'index', $politico['Politico']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $politico['Politico']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $politico['Politico']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $politico['Politico']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $politico['Politico']['nome'])); ?>

@@ -22,6 +22,7 @@
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Atrativo'), array('action' => 'edit', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Atrativo'), array('action' => 'delete', $id), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>&nbsp&nbsp;Fotos'), array('controller' => 'fotoAtrativos', 'action' => 'index', $atrativoTuristico['AtrativoTuristico']['id']), array('escape' => false))?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -57,24 +58,5 @@
 
 		</div><!-- end col md 9 -->
 
-	</div>
-</div>
-
-<div class="container related row">
-	<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3 divNoticia">
-		<div class="card">
-			<header class="cardHeader">
-				<?php echo $this->Html->image(
-									'gallery.png', array('alt' => 'chart', 
-																					'class' => 'cardImg')); ?>
-			</header>	  			
-			<div class="cardBody">
-				<?php echo $this->Html->link(__(
-					'<span class="glyphicon glyphicon-camera"></span>&nbsp&nbsp;Fotos Atrativos'), 
-					array('controller' => 'fotoAtrativos', 
-					'action' => 'index', $atrativoTuristico['AtrativoTuristico']['id']), 
-					array('escape' => false, 'class' => 'cardText cardPho')); ?>
-			</div>
-		</div><br>
 	</div>
 </div>

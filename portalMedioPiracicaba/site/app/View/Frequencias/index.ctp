@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Frequências'); ?></h2>
+				<h2><?php echo __('Horários'); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->

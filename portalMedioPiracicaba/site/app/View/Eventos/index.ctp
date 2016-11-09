@@ -48,6 +48,7 @@
 						<td nowrap><?php echo h($evento['Evento']['horario']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($evento['Evento']['data']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoEventos', 'action' => 'index', $evento['Evento']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $evento['Evento']['id'])); ?>

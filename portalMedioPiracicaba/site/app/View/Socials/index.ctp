@@ -42,6 +42,7 @@
 					<tr>
 						<td nowrap><?php echo h($social['Social']['nome']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-user"></span>'), array('controller' => 'assistentes', 'action' => 'index', $social['Social']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $social['Social']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $social['Social']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $social['Social']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $social['Social']['nome'])); ?>

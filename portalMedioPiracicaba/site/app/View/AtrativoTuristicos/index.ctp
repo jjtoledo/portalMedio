@@ -34,7 +34,6 @@
 				<thead>
 					<tr>
 						<th nowrap><?php echo $this->Paginator->sort('nome'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('descricao'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -42,8 +41,8 @@
 				<?php foreach ($atrativoTuristicos as $atrativoTuristico): ?>
 					<tr>
 						<td nowrap><?php echo h($atrativoTuristico['AtrativoTuristico']['nome']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($atrativoTuristico['AtrativoTuristico']['descricao']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoAtrativos', 'action' => 'index', $atrativoTuristico['AtrativoTuristico']['id']), array('escape' => false))?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', 
 												array('action' => 'view', 
 														$atrativoTuristico['AtrativoTuristico']['id'], 

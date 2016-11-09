@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Fotos dos Distritos'); ?></h2>
+				<h2><?php echo __('Fotos de ' . $distrito['Distrito']['nome']); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -21,7 +21,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Distritos'), array('controller' => 'distritos', 'action' => 'view', $distrito['Distrito']['id'], $distrito['Cidade']['id']), array('escape' => false)); ?> </li>													
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Distrito'), array('controller' => 'distritos', 'action' => 'view', $distrito['Distrito']['id'], $distrito['Cidade']['id']), array('escape' => false)); ?> </li>													
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novas fotos'), array('action' => 'add', $distrito['Distrito']['id']), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->

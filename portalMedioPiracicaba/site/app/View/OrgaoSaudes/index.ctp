@@ -46,6 +46,7 @@
 						<td nowrap><?php echo h($orgaoSaude['OrgaoSaude']['telefone1']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($orgaoSaude['OrgaoSaude']['site']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoSaudes', 'action' => 'index', $orgaoSaude['OrgaoSaude']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $orgaoSaude['OrgaoSaude']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $orgaoSaude['OrgaoSaude']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $orgaoSaude['OrgaoSaude']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $orgaoSaude['OrgaoSaude']['id'])); ?>
