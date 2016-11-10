@@ -47,7 +47,7 @@
   </div>
 
   <section class="subtitle-intro noticias">
-    <div class="container">
+    <div class="container responsive-large">
     	<h1 class="noticiasHome text-center">Notícias Gerais</h1>
       <div class="row border">
       	<div class="col-lg-9 left">
@@ -70,7 +70,7 @@
 	    	<?php $count++; } ?>
       	</div>
       	<div class="col-lg-3 right">
-      		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 divNoticia p">
+      		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 divNoticia p">
 		    		<div class="noticia prop">
 		    			<?php 
 		    				echo '<a href="'.$anuncios_quad['0']['Parceiro']['site'].'" target="_blank" escape="false">';
@@ -139,7 +139,7 @@
   </section>
 
   <section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
-    <div class="container noticias">
+    <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda', 1), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
     	</div>
@@ -153,8 +153,17 @@
 		    	<div class="col-md-3 col-sm-6 divNoticia">
 		    		<div class="noticia agenda">
 		    			<?php 
-		    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" target="_blank" escape="false">';
-		    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+		    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
+		    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
+			    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+		    				} else {
+		    					echo '<div class="config-padding col-md-12 text-center">';
+		    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
+		    					echo '<hr class="config-margin-hr">';
+		    					echo '</div>';
+		    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+		    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$eventos[$count]['Evento']['data'].'</p>';
+		    				}
 		    				echo '</a>'
 		    			?>	
 		    		</div><br>
@@ -174,7 +183,7 @@
   </section>
 
   <section class="subtitle-intro noticias">
-    <div class="container noticias">
+    <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Notícias Regionais&nbsp;&nbsp;<span class="glyphicon glyphicon-plus bigger"></span>', array('action' => 'site_noticias', 2), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
     	</div>
@@ -237,7 +246,7 @@
   </section>
 
   <section class="subtitle-intro noticias" style="background-color:#e6e6e6">
-    <div class="container noticias">
+    <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Boas Notícias&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf bigger"></span>', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
     	</div>

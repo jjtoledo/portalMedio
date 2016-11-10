@@ -75,6 +75,8 @@
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 40px; margin-bottom: 40px;">
 			  	<div class="col-md-5">
 			  		<?php
+			  		echo $this->Html->link('História&nbsp;&nbsp;<span class="glyphicon glyphicon-book"></span>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
+			  		echo '<hr class="config-margin-hr">';
 			  		if (strlen($cidade['Historia']['historia']) > 1000) {
 			  			echo substr($cidade['Historia']['historia'], 0, 1000) . '...';
 			  		} else {
@@ -86,12 +88,36 @@
 			  	<div class="col-md-4 col-sm-6 divNoticia center">
 		    		<div class="noticia agenda top">
 		    			<?php 
-		    				echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
-		    				echo $this->Html->image($cidade['Evento']['0']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
-		    				echo '</a>'
+		    				if (empty($cidade['Evento'])) {
+		    					echo '<div class="config-padding col-md-12 text-center">';
+		    					echo $this->Html->image('evento.png', array('width' => '35%', 'height' => '45%'));
+		    					echo '<hr class="config-margin-hr">';
+		    					echo '</div>';
+		    					echo '<h3 class="text-center menor">Oops..</h3>';
+		    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">Ainda não temos eventos</p>';
+		    				} else {
+		    					echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
+			    				if ($cidade['Evento']['0']['foto_anuncio'] != null) {
+				    				echo $this->Html->image($cidade['Evento']['0']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+			    				} else {
+			    					echo '<div class="config-padding col-md-12 text-center">';
+			    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
+			    					echo '<hr class="config-margin-hr">';
+			    					echo '</div>';
+			    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+			    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$eventos[$count]['Evento']['data'].'</p>';
+			    				}
+			    				echo '</a>';
+			    			}
 		    			?>	
 		    		</div><br>
-		    		<?php echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_eventos', $id), array('class' => 'linkNormal', 'escape' => false)) ?>
+		    		<?php 
+		    			if (empty($cidade['Evento'])) {
+	    					echo '';
+	    				} else {
+		    				echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_eventos', $id), array('class' => 'linkNormal', 'escape' => false));
+		    			}
+		    		?>
 		    	</div>
 		    	<div class="col-md-3 noRight">
 		    		<?php
@@ -160,7 +186,7 @@
 	 </main>
 
   <section class="subtitle-intro noticias">
-    <div class="container noticias">
+    <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Notícias Regionais&nbsp;&nbsp;<span class="glyphicon glyphicon-plus bigger"></span>', array('action' => 'site_noticias', 2), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
     	</div>
@@ -200,7 +226,7 @@
   </section>
 
   <section class="subtitle-intro noticias" style="background-color:#fff">
-    <div class="container noticias">
+    <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Boas Notícias&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf bigger"></span>', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
     	</div>

@@ -46,6 +46,22 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`atrativo_turisticos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmedio`.`exvereadors` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `ano_inicio` int(4) not NULL,
+  `ano_fim` int(4) not NULL,
+  `nomes` Text NULL DEFAULT NULL,
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_vereadors_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_vereadors_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmedio`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmedio`.`cidades` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(120) NOT NULL,

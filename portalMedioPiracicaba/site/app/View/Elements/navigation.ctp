@@ -14,7 +14,7 @@
       ?>
     </div>
     <div class="collapse navbar-collapse" id="navMain">
-      <ul class="nav navbar-nav col-md-8">
+      <ul class="nav navbar-nav">
         <li><?php echo $this->Html->link('Início', array('action' => 'index')) ?></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

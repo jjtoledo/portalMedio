@@ -10,7 +10,7 @@
 	</div>
 </div>
 
-<div class="container noticiasMain lessTop">
+<div class="container noticiasMain lessTop responsive-large">
 	<div class="row">
 		<div class="col-md-9">
 			<?php

@@ -68,5 +68,6 @@
 
 <?php     
   echo $this->Html->script('script.js');
+  echo $this->Html->script('container-fluid.js');
   echo $this->Html->script('jquery.maskedinput.js');
   echo $this->Html->script('endless_scroll_min.js');
