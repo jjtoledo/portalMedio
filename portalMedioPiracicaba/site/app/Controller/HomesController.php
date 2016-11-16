@@ -192,7 +192,8 @@ class HomesController extends AppController {
 			throw new NotFoundException(__('Invalid Cidade'));
 		}
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
-		$this->set('cidade', $this->Cidade->find('first', $options));
+		$cidade = $this->Cidade->find('first', $options);
+		$this->set('cidade', $cidade);
 
 		$this->set('id', $id);
 
@@ -254,7 +255,7 @@ class HomesController extends AppController {
 
 		$cidades = $this->Cidade->find('all');
 		$this->set(compact('cidades'));
-		$this->set('results', $this->clima($cidades));
+		$this->set('results', $this->clima_cidade($cidade));
 	}
 
 	public function site_historia($id = null) {
@@ -364,6 +365,24 @@ class HomesController extends AppController {
 				}
 			}
 		}
+
+		$this->set('city', $nome);		
+
+		$HttpSocket = new HttpSocket();
+		// string query
+		if ($nome == 'Santa Bárbara') {
+			$results = json_decode($HttpSocket->get('https://api.hgbrasil.com/weather/?format=json&cid=BRXX3283'), true);
+			return $results;
+		}
+
+		$query = 'https://api.hgbrasil.com/weather/?format=json&city_name='.$nome.'&key=0d949cbb';
+		$results = json_decode($HttpSocket->get($query), true);
+		return $results;
+	}
+
+	public function clima_cidade($cidade = null) {
+
+		$nome = $cidade['Cidade']['nome'];
 
 		$this->set('city', $nome);		
 

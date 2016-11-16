@@ -14759,3 +14759,62 @@ Stack Trace:
 #10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
 #11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #12 {main}
+2016-11-16 20:21:02 Error: Fatal Error (1): Cannot use object of type Cidade as array in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php, line 380]
+2016-11-16 20:21:02 Error: [FatalErrorException] Cannot use object of type Cidade as array
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_cidade/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Cannot use obje...', 'C:\\wamp\\www\\por...', 380)
+#1 [internal function]: ErrorHandler::handleError(1, 'Cannot use obje...', 'C:\\wamp\\www\\por...', 380, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Cannot use obje...', 'C:\\wamp\\www\\por...', 380, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-11-16 20:22:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-11-16 20:25:49 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\basics.php, line 120]
+2016-11-16 20:25:49 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_cidade/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-11-16 20:27:38 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\basics.php, line 120]
+2016-11-16 20:27:38 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_cidade/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-11-16 20:28:22 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\basics.php, line 120]
+2016-11-16 20:28:22 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_cidade/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-11-16 20:28:26 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\basics.php, line 120]
+2016-11-16 20:28:26 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 62914560 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_cidade/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 120, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
