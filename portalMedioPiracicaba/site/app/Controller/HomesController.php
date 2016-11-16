@@ -15,6 +15,30 @@ class HomesController extends AppController {
 		$cidades = $this->Cidade->find('all', $options);
 		$this->set(compact('cidades'));
 
+		/*Carregamento das fotos antigas e atuais */
+		$this->loadModel('Foto');
+		$options = array(
+			'order' => array(
+				'Foto.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Foto.tipo' => 3
+			),
+			'limit' => 8
+		);
+		$this->set('fotos_aereas', $this->Foto->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Foto.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Foto.tipo' => 2
+			),
+			'limit' => 8
+		);
+		$this->set('fotos_atuais', $this->Foto->find('all', $options));
+
 		/* Agenda */
 		$this->loadModel('Evento');
 		$options = array('order' => 'Evento.data');
@@ -176,17 +200,31 @@ class HomesController extends AppController {
 
 		$this->set('id', $id);
 
+		/*Carregamento das fotos antigas e atuais */
 		$this->loadModel('Foto');
 		$options = array(
 			'order' => array(
 				'Foto.id' => 'DESC'
 			),
 			'conditions' => array(
+				'Foto.tipo' => 3,
 				'Foto.cidade_id' => $id
 			),
-			'limit' => 5
+			'limit' => 8
 		);
-		$this->set('fotos', $this->Foto->find('all', $options));
+		$this->set('fotos_aereas', $this->Foto->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Foto.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Foto.tipo' => 2,
+				'Foto.cidade_id' => $id
+			),
+			'limit' => 8
+		);
+		$this->set('fotos_atuais', $this->Foto->find('all', $options));
 
 		/*Carregamento dos parceiros e anúncios*/
 		$conditions = array(

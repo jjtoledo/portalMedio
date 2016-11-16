@@ -52,6 +52,8 @@ body {
 }
 
 .arrow {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
   position: fixed;
   bottom: 15%;
   left: 50%;
@@ -415,13 +417,14 @@ div#listCidades.row > div > a:hover {
 }
 
 .carousel-caption {
-  text-align: left;
-  top: 52%;
-  left: 6%;
+  top: 60%;
 }
 
 .welcome {
   font-size: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 5px;
 }
 
 .panel-body.noPadding {

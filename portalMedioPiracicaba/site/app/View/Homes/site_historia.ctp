@@ -8,10 +8,10 @@
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner resolucao" role="listbox">
 	  	<?php 
-  		if (!empty($fotos)) {
+  		if (!empty($fotos_atuais)) {
   			$count = 0;
   			$active = '';
-		  	foreach ($fotos as $foto) {
+		  	foreach ($fotos_atuais as $foto) {
   				if ($count == 0) {
   					$active = 'active';
   				} else {
@@ -151,7 +151,7 @@
 		    		foreach ($distritos as $c):		
 		    			echo '<div class="col-md-12">';
 		    			if (!empty($c['FotoDistrito'])) {
-			    			echo '<div class="col-md-2 noticia_foto">';
+			    			echo '<div class="col-md-2 noticia_foto" style="padding-left:0">';
 								echo $this->Html->image($c['FotoDistrito']['0']['foto'], array('width' => '100%')); 
 							  echo '</div>';
 		    			}
@@ -175,13 +175,14 @@
 		    	<?php 
 		    		foreach ($cidade['Simbolo'] as $c):
 		    			echo '<div class="row">';
+		    			echo '<div class="col-md-12">';
 		    			if (!empty($c['imagem'])) {
 			    			echo '<div class="col-md-6 noticia_foto">';
 								echo $this->Html->image($c['imagem'], array('width' => '100%')); 
 							  echo '</div>';
 		    			}
 		    			echo $c['descricao'];
-		    			echo '<hr></div><br><br>';
+		    			echo '<hr></div></div><br><br>';
 		    		endforeach;
 		    	?>
 			  </div>

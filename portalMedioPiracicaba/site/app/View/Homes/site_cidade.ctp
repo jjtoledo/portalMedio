@@ -8,10 +8,10 @@
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner resolucao" role="listbox">
 	  	<?php 
-  		if (!empty($fotos)) {
+  		if (!empty($fotos_aereas)) {
   			$count = 0;
   			$active = '';
-		  	foreach ($fotos as $foto) {
+		  	foreach ($fotos_aereas as $foto) {
   				if ($count == 0) {
   					$active = 'active';
   				} else {
@@ -28,6 +28,26 @@
 
 	    		$count++;
 		  	}
+  		} else if (!empty($fotos_atuais)) {
+  			$count = 0;
+  			$active = '';
+		  	foreach ($fotos_atuais as $foto) {
+  				if ($count == 0) {
+  					$active = 'active';
+  				} else {
+  					$active = '';
+  				}
+
+  				echo '<div class="item '.$active.'">';
+  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
+	      	echo 	'<div class="carousel-caption">';
+	    		echo 		'<h1 class="welcome">Seja bem-vindo à '.$cidade['Cidade']['nome'].'</h1>';
+	    		echo 		'<div class="arrow bounce"></div>';
+	    		echo 	'</div>';
+	    		echo '</div>';
+
+	    		$count++;
+	    	}
   		} else {
   		?>
 	    <div class="item active">

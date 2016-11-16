@@ -7,6 +7,41 @@
 
 	  <!-- Wrapper for slides -->
 	  <div class="carousel-inner resolucao" role="listbox">
+	  	<?php 
+  		if (!empty($fotos_aereas)) {
+  			$count = 0;
+  			$active = '';
+		  	foreach ($fotos_aereas as $foto) {
+  				if ($count == 0) {
+  					$active = 'active';
+  				} else {
+  					$active = '';
+  				}
+
+  				echo '<div class="item '.$active.'">';
+  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
+	    		echo '</div>';
+
+	    		$count++;
+		  	}
+  		} else if (!empty($fotos_atuais)) {
+  			$count = 0;
+  			$active = '';
+		  	foreach ($fotos_atuais as $foto) {
+  				if ($count == 0) {
+  					$active = 'active';
+  				} else {
+  					$active = '';
+  				}
+
+  				echo '<div class="item '.$active.'">';
+  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
+	    		echo '</div>';
+
+	    		$count++;
+	    	}
+  		} else {
+  		?>
 	    <div class="item active">
 	    	<?php echo $this->Html->image('img2.jpg', array('width' => '2000')) ?>	    	
 	    </div>
@@ -22,6 +57,7 @@
 	     <div class="item">
 	      <?php echo $this->Html->image('img5.jpg', array('width' => '2000')) ?>
 	    </div>
+	    <?php } ?>
 	  </div>
 	</div>
 </div> 
