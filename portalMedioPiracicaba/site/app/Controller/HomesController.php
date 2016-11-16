@@ -18,24 +18,20 @@ class HomesController extends AppController {
 		/*Carregamento das fotos antigas e atuais */
 		$this->loadModel('Foto');
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 3
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_aereas', $this->Foto->find('all', $options));
 
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 2
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_atuais', $this->Foto->find('all', $options));
 
@@ -203,26 +199,22 @@ class HomesController extends AppController {
 		/*Carregamento das fotos antigas e atuais */
 		$this->loadModel('Foto');
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 3,
 				'Foto.cidade_id' => $id
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_aereas', $this->Foto->find('all', $options));
 
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 2,
 				'Foto.cidade_id' => $id
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_atuais', $this->Foto->find('all', $options));
 
@@ -278,26 +270,22 @@ class HomesController extends AppController {
 		/*Carregamento das fotos antigas e atuais */
 		$this->loadModel('Foto');
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 1,
 				'Foto.cidade_id' => $id
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_antigas', $this->Foto->find('all', $options));
 
 		$options = array(
-			'order' => array(
-				'Foto.id' => 'DESC'
-			),
+			'order' => 'rand()',
 			'conditions' => array(
 				'Foto.tipo' => 2,
 				'Foto.cidade_id' => $id
 			),
-			'limit' => 8
+			'limit' => 4
 		);
 		$this->set('fotos_atuais', $this->Foto->find('all', $options));
 
