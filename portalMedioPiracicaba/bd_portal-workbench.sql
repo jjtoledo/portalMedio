@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`exvereadors` (
   INDEX `fk_vereadors_cidades1_idx` (`cidade_id` ASC),
   CONSTRAINT `fk_vereadors_cidades1`
     FOREIGN KEY (`cidade_id`)
-    REFERENCES `portalmedio`.`cidades` (`id`)
+    REFERENCES `portalmediopir`.`cidades` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

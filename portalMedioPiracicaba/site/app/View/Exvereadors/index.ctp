@@ -1,12 +1,12 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<div class="container simbolos index">
+<div class="container exvereadors index">
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Símbolos em ' . $cidade['Cidade']['nome']); ?></h2>
+				<h1><?php echo __('Ex Vereadores'); ?></h1>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -18,11 +18,11 @@
 		<div class="col-md-3">
 			<div class="actions">
 				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Ações'); ?></div>
+					<div class="panel-heading"><?php echo __('Actions'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo símbolo'), array('action' => 'add', $cidade['Cidade']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo bloco'), array('action' => 'add', $cidade['Cidade']['id']), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -33,18 +33,20 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th nowrap><?php echo $this->Paginator->sort('imagem'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('ano_inicio'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('ano_fim'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
-				<?php foreach ($simbolos as $simbolo): ?>
+				<?php foreach ($exvereadors as $exvereador): ?>
 					<tr>
-						<td nowrap><?php echo h($simbolo['Simbolo']['imagem']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($exvereador['Exvereador']['ano_inicio']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($exvereador['Exvereador']['ano_fim']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $simbolo['Simbolo']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $simbolo['Simbolo']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $simbolo['Simbolo']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $simbolo['Simbolo']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $exvereador['Exvereador']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $exvereador['Exvereador']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $exvereador['Exvereador']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $exvereador['Exvereador']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

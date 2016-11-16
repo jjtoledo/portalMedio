@@ -90,7 +90,8 @@ class PoliticosController extends AppController {
 		$this->loadModel('Comissao');
 		$options = array(
 			'conditions' => array(
-				'Comissao.cidade_id' => $id
+				'Comissao.cidade_id' => $id,
+				'Comissao.id !=' => 6
 			),
 			'fields' => array(
 				'Comissao.id',
@@ -133,7 +134,8 @@ class PoliticosController extends AppController {
 		$this->loadModel('Comissao');
 		$options = array(
 			'conditions' => array(
-				'Comissao.cidade_id' => $idCity
+				'Comissao.cidade_id' => $idCity,
+				'Comissao.id !=' => 6
 			),
 			'fields' => array(
 				'Comissao.id',

@@ -1,14 +1,14 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * Comissaos Controller
+ * Exvereadors Controller
  *
- * @property Comissao $Comissao
+ * @property Exvereador $Exvereador
  * @property PaginatorComponent $Paginator
  * @property FlashComponent $Flash
  * @property SessionComponent $Session
  */
-class ComissaosController extends AppController {
+class ExvereadorsController extends AppController {
 
 /**
  * Components
@@ -37,11 +37,10 @@ class ComissaosController extends AppController {
 	public function index($id = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'Comissao.cidade_id' => $id,
-				'Comissao.id !=' => 6
+				'Exvereador.cidade_id' => $id
 			)
 		);
-		$this->set('comissaos', $this->Paginator->paginate());
+		$this->set('exvereadors', $this->Paginator->paginate());
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
@@ -57,11 +56,11 @@ class ComissaosController extends AppController {
  * @return void
  */
 	public function view($id = null, $idCity = null) {
-		if (!$this->Comissao->exists($id)) {
-			throw new NotFoundException(__('Invalid Comissao'));
+		if (!$this->Exvereador->exists($id)) {
+			throw new NotFoundException(__('Invalid Exvereador'));
 		}
-		$options = array('conditions' => array('Comissao.' . $this->Comissao->primaryKey => $id));
-		$this->set('comissao', $this->Comissao->find('first', $options));
+		$options = array('conditions' => array('Exvereador.' . $this->Exvereador->primaryKey => $id));
+		$this->set('exvereador', $this->Exvereador->find('first', $options));
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
@@ -76,15 +75,15 @@ class ComissaosController extends AppController {
  * @return void
  */
 	public function add($id = null) {
-		$this->request->data['Comissao']['cidade_id'] = $id;
+		$this->request->data['Exvereador']['cidade_id'] = $id;
 
 		if ($this->request->is('post')) {
-			$this->Comissao->create();
-			if ($this->Comissao->save($this->request->data)) {
-				$this->Session->setFlash(__('The Comissao has been saved.'), 'default', array('class' => 'alert alert-success'));
+			$this->Exvereador->create();
+			if ($this->Exvereador->save($this->request->data)) {
+				$this->Session->setFlash(__('The Exvereador has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $id));
 			} else {
-				$this->Session->setFlash(__('The Comissao could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The Exvereador could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 		
@@ -101,22 +100,22 @@ class ComissaosController extends AppController {
  * @return void
  */
 	public function edit($id = null, $idCity = null) {
-		if (!$this->Comissao->exists($id)) {
-			throw new NotFoundException(__('Invalid Comissao'));
+		if (!$this->Exvereador->exists($id)) {
+			throw new NotFoundException(__('Invalid Exvereador'));
 		}
 
-		$this->request->data['Comissao']['cidade_id'] = $idCity;
+		$this->request->data['Exvereador']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->Comissao->save($this->request->data)) {
-				$this->Session->setFlash(__('The Comissao has been saved.'), 'default', array('class' => 'alert alert-success'));
+			if ($this->Exvereador->save($this->request->data)) {
+				$this->Session->setFlash(__('The Exvereador has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
 			} else {
-				$this->Session->setFlash(__('The Comissao could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The Exvereador could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
-			$options = array('conditions' => array('Comissao.' . $this->Comissao->primaryKey => $id));
-			$this->request->data = $this->Comissao->find('first', $options);
+			$options = array('conditions' => array('Exvereador.' . $this->Exvereador->primaryKey => $id));
+			$this->request->data = $this->Exvereador->find('first', $options);
 		}
 		
 		$this->loadModel('Cidade');
@@ -134,15 +133,15 @@ class ComissaosController extends AppController {
  * @return void
  */
 	public function delete($id = null, $idCity = null) {
-		$this->Comissao->id = $id;
-		if (!$this->Comissao->exists()) {
-			throw new NotFoundException(__('Invalid Comissao'));
+		$this->Exvereador->id = $id;
+		if (!$this->Exvereador->exists()) {
+			throw new NotFoundException(__('Invalid Exvereador'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->Comissao->delete()) {
-			$this->Session->setFlash(__('The Comissao has been deleted.'), 'default', array('class' => 'alert alert-success'));
+		if ($this->Exvereador->delete()) {
+			$this->Session->setFlash(__('The Exvereador has been deleted.'), 'default', array('class' => 'alert alert-success'));
 		} else {
-			$this->Session->setFlash(__('The Comissao could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			$this->Session->setFlash(__('The Exvereador could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
 	}

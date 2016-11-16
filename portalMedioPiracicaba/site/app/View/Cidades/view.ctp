@@ -295,6 +295,12 @@
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Vereadores'), array('controller' => 'politicos', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Ex Vereadores'), array('controller' => 'exvereadors', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
 		
 		<div class="col-md-3 menu">
 				<div class="actions">

@@ -244,7 +244,8 @@ class HomesController extends AppController {
 				'Foto.id' => 'DESC'
 			),
 			'conditions' => array(
-				'Foto.tipo' => 1
+				'Foto.tipo' => 1,
+				'Foto.cidade_id' => $id
 			),
 			'limit' => 8
 		);
@@ -255,7 +256,8 @@ class HomesController extends AppController {
 				'Foto.id' => 'DESC'
 			),
 			'conditions' => array(
-				'Foto.tipo' => 2
+				'Foto.tipo' => 2,
+				'Foto.cidade_id' => $id
 			),
 			'limit' => 8
 		);
@@ -280,6 +282,18 @@ class HomesController extends AppController {
 			);
 		$anuncios_large = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('anuncios_large'));
+
+		/*Carregamento das fotos dos distritos */
+		$this->loadModel('Distrito');
+		$options = array(
+			'order' => array(
+				'Distrito.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Distrito.cidade_id' => $id
+			)
+		);
+		$this->set('distritos', $this->Distrito->find('all', $options));
 
 		/*Carregamento das notícias*/
 		$conditions = array(

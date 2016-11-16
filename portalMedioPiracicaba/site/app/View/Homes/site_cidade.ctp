@@ -82,7 +82,7 @@
 			  		} else {
 			  			echo substr($cidade['Historia']['historia'], 0, 1000);
 			  		}
-			  		echo $this->Html->link('&nbsp;&nbsp;&nbsp;&nbsp;Leia mais >>>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
+			  		echo $this->Html->link('<br>Leia mais >>>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		?>
 			  	</div>
 			  	<div class="col-md-4 col-sm-6 divNoticia center">
@@ -104,8 +104,8 @@
 			    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
 			    					echo '<hr class="config-margin-hr">';
 			    					echo '</div>';
-			    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-			    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$eventos[$count]['Evento']['data'].'</p>';
+			    					echo '<h3 class="text-center menor">'.$cidade['Evento']['0']['titulo'].'</h3>';
+			    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$cidade['Evento']['0']['data'].'</p>';
 			    				}
 			    				echo '</a>';
 			    			}
