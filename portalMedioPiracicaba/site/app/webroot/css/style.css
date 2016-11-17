@@ -605,6 +605,10 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 768px){
+  #receitas {
+    display: none;
+  }
+
   .menor {
     margin-top: 20%;
   }
@@ -748,6 +752,14 @@ div#listCidades.row > div > a:hover {
 
   .noticia.agenda.top {
     margin-top: 50px;
+  }
+
+  .container {
+    padding: 10px !important;
+  }
+
+  main {
+    margin-top: 80px;
   }
 }
 
