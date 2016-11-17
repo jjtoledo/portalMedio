@@ -6,7 +6,21 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Escolas de ' . $cidade['Cidade']['nome']); ?></h2>
+				<h2>
+					<?php 
+					switch ($tipo) {
+						case 0:
+							echo __('Escolas Municipais de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 1:
+							echo __('Escolas Estaduais de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 2:
+							echo __('Escolas Federais de ' . $cidade['Cidade']['nome']); 							
+							break;
+					}
+					?>						
+				</h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -22,7 +36,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova escola'), array('action' => 'add', $cidade['Cidade']['id'], 0), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova escola'), array('action' => 'add', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -48,10 +62,10 @@
 						<td nowrap><?php echo h($escola['Escola']['telefone2']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($escola['Escola']['site']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $escola['Escola']['id'])); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $escola['Escola']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $escola['Escola']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $escola['Escola']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $escola['Escola']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

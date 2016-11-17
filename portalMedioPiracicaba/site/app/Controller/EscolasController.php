@@ -34,22 +34,17 @@ class EscolasController extends AppController {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'Escola.cidade_id' => $id,
-				'NOT' => array(
-					'Escola.tipo' => array(3,4)
-				)
+				'Escola.tipo' => $tipo
 			)
 		);
+
 		$this->set('escolas', $this->Paginator->paginate());
 
-		$tipos = array('0' => 'Escola municipal', 
-						'1' => 'Escola estadual',
-						'2' => 'Escola federal'
-				);
-		$this->set('tipos', $tipos);
+		$this->set('tipo', $tipo);
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
@@ -92,7 +87,7 @@ class EscolasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null, $idCity = null) {
+	public function view($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Escola->exists($id)) {
 			throw new NotFoundException(__('Invalid escola'));
 		}
@@ -106,6 +101,7 @@ class EscolasController extends AppController {
 						'4' => 'Faculdade privada'
 				);
 		$this->set('tipos', $tipos);
+		$this->set('tipo', $tipo);
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
@@ -122,34 +118,31 @@ class EscolasController extends AppController {
 	public function add($id = null, $tipo = null) {
 		$this->request->data['Escola']['cidade_id'] = $id;
 
+		if ($tipo == 3) {
+			$tipos = array('3' => 'Faculdade federal',
+						'4' => 'Faculdade privada'
+					);
+		} else {
+			$this->request->data['Escola']['tipo'] = $tipo;
+		}
+		
+		$this->set('tipos', $tipos);
+
+		$this->set('tipo', $tipo);
+
 		if ($this->request->is('post')) {
 			$this->Escola->create();
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
 				if ($this->request->data['Escola']['tipo'] < 3) {
-					return $this->redirect(array('action' => 'index', $id));
+					return $this->redirect(array('action' => 'index', $id, $tipo));
 				} else {
 					return $this->redirect(array('action' => 'index_fac', $id));
 				}
 			} else {
 				$this->Session->setFlash(__('The escola could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		}
-		
-		if ($tipo == 0) {
-			$tipos = array('0' => 'Escola municipal', 
-						'1' => 'Escola estadual',
-						'2' => 'Escola privada'
-					);
-		} else {
-			$tipos = array('3' => 'Faculdade federal',
-						'4' => 'Faculdade privada'
-					);
-		}
-		
-		$this->set('tipos', $tipos);
-
-		$this->set('tipo', $tipo);
+		}		
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
@@ -163,37 +156,37 @@ class EscolasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idCity = null) {
+	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Escola->exists($id)) {
 			throw new NotFoundException(__('Invalid escola'));
 		}
 
 		$this->request->data['Escola']['cidade_id'] = $idCity;
 
+		if ($this->request->data['Escola']['tipo'] > 2) {
+			$tipos = array('3' => 'Faculdade federal',
+						'4' => 'Faculdade privada'
+					);
+			$this->set('tipos', $tipos);
+		} 
+		
+		$this->set('tipo', $tipo);
+
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idCity));
+				if ($this->request->data['Escola']['tipo'] < 3) {
+					return $this->redirect(array('action' => 'index', $idCity, $tipo));
+				} else {
+					return $this->redirect(array('action' => 'index', $idCity));
+				}
 			} else {
 				$this->Session->setFlash(__('The escola could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		} else {
 			$options = array('conditions' => array('Escola.' . $this->Escola->primaryKey => $id));
 			$this->request->data = $this->Escola->find('first', $options);
-		}
-
-		if ($this->request->data['Escola']['tipo'] < 3) {
-			$tipos = array('0' => 'Escola municipal', 
-						'1' => 'Escola estadual',
-						'2' => 'Escola privada'						
-					);
-		} else {
-			$tipos = array('3' => 'Faculdade federal',
-						'4' => 'Faculdade privada'
-					);
-		}
-		
-		$this->set('tipos', $tipos);
+		}		
 		
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
@@ -209,7 +202,7 @@ class EscolasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idCity = null) {
+	public function delete($id = null, $idCity = null, $tipo = null) {
 		$this->Escola->id = $id;
 		if (!$this->Escola->exists()) {
 			throw new NotFoundException(__('Invalid escola'));
@@ -226,7 +219,7 @@ class EscolasController extends AppController {
 		}
 
 		if ($tipo < 3) {
-			return $this->redirect(array('action' => 'index', $idCity));
+			return $this->redirect(array('action' => 'index', $idCity, $tipo));
 		} else {
 			return $this->redirect(array('action' => 'index_fac', $idCity));
 		}

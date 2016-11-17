@@ -184,7 +184,19 @@
 
 		<div class="col-md-3 menu">
 			<div class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Municipais'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 0), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Estaduais'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Federais'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
 

@@ -44,9 +44,9 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<?php if ($this->data['Escola']['tipo'] < 3) { ?>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Escola'), array('action' => 'view', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Escolas'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-									<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Escola.id'), $cidade['Cidade']['id']), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Escola.id'))); ?></li>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Escola'), array('action' => 'view', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
+									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Escolas'), array('action' => 'index', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
+									<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Escola.id'), $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Escola.id'))); ?></li>
 								<?php } else { ?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Faculdade'), array('action' => 'view', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Faculdades'), array('action' => 'index_fac', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
@@ -74,12 +74,14 @@
 				</div>
 				<div class="form-group">
 					<?php 
-							echo $this->Form->input(
-							    'tipo',
-							    array('options' => $tipos, 'required' => 'true',
-							    			'class' => 'form-control'
-							    )
-							);
+							if ($tipo == 3) {
+								echo $this->Form->input(
+								    'tipo',
+								    array('options' => $tipos, 'empty' => 'Selecione um tipo', 'required' => 'true',
+								    			'class' => 'form-control'
+								    )
+								);
+							}
 					?>
 				</div>
 				<div class="form-group">

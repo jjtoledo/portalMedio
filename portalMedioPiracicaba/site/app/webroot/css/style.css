@@ -562,6 +562,10 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 992px){
+  #receitas {
+    display: none;
+  }
+
   .menor {
     font-size: 24px;
     margin-top: 25%;
@@ -605,10 +609,6 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 768px){
-  #receitas {
-    display: none;
-  }
-
   .menor {
     margin-top: 20%;
   }

@@ -34,13 +34,15 @@ class FotoEscolasController extends AppController {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoEscola.escola_id' => $id
 			)
 		);
 		$this->set('fotoEscolas', $this->Paginator->paginate());
+
+		$this->set('tipo', $tipo);
 
 		$this->loadModel('Escola');
 		$options = array('conditions' => array('Escola.' . $this->Escola->primaryKey => $id));
@@ -74,12 +76,14 @@ class FotoEscolasController extends AppController {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null, $tipo = null) {
 		$this->request->data['FotoEscola']['escola_id'] = $id;
 		
 		$this->loadModel('Escola');
 		$options = array('conditions' => array('Escola.' . $this->Escola->primaryKey => $id));
 		$this->set('escola', $this->Escola->find('first', $options));
+
+		$this->set('tipo', $tipo);
 
 		$photo = array();
 		if ($this->request->is('post')) {				
