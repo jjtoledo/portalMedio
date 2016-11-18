@@ -97,6 +97,7 @@ class HomesController extends AppController {
 
 	public function site_cidade($id = null) {		
 		$this->common($id, 'title');
+		$this->set('active', '');
 	}
 
 	public function site_historia($id = null) {
