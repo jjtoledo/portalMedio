@@ -96,237 +96,92 @@ class HomesController extends AppController {
  */	
 
 	public function site_cidade($id = null) {		
-		$this->loadModel('Cidade');
-		if (!$this->Cidade->exists($id)) {
-			throw new NotFoundException(__('Invalid Cidade'));
-		}
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
-		$cidade = $this->Cidade->find('first', $options);
-		$this->set('cidade', $cidade);
-
-		$this->set('title_for_layout', $cidade['Cidade']['nome']);
-
-		$this->set('id', $id);
-
-		/*Carregamento das fotos antigas e atuais */
-		$this->loadModel('Foto');
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 3,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_aereas', $this->Foto->find('all', $options));
-
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 2,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_atuais', $this->Foto->find('all', $options));
-
-		/*Carregamento dos parceiros e anúncios*/
-		$this->loadModel('Parceiro');
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '1')
-			);
-		$parceiros = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('parceiros'));
-
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '2')
-			);
-		$anuncios_quad = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_quad'));
-
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '3')
-			);
-		$anuncios_large = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_large'));
-
-		/*Carregamento das notícias*/
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '2')
-			);
-		$this->loadModel('Noticia');
-		$noticias_reg = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_reg'));
-
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '3')
-			);
-		$noticias_boas = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_boas'));
-
-		$cidades = $this->Cidade->find('all');
-		$this->set(compact('cidades'));
-		$this->set('results', $this->clima_cidade($cidade));
+		$this->common($id, 'title');
 	}
 
 	public function site_historia($id = null) {
 		$this->set('title_for_layout', 'História');
-
-		$this->loadModel('Cidade');
-		if (!$this->Cidade->exists($id)) {
-			throw new NotFoundException(__('Invalid Cidade'));
-		}
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
-		$cidade = $this->Cidade->find('first', $options);
-		$this->set('cidade', $cidade);
-
-		$this->set('id', $id);
-
-		/*Carregamento das fotos antigas e atuais */
-		$this->loadModel('Foto');
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 1,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_antigas', $this->Foto->find('all', $options));
-
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 2,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_atuais', $this->Foto->find('all', $options));
-
-		/*Carregamento dos parceiros e anúncios*/
-		$this->loadModel('Parceiro');
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '1')
-			);
-		$parceiros = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('parceiros'));
-
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '2')
-			);
-		$anuncios_quad = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_quad'));
-
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '3')
-			);
-		$anuncios_large = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_large'));
-
-		/*Carregamento das fotos dos distritos */
-		$this->loadModel('Distrito');
-		$options = array(
-			'order' => array(
-				'Distrito.id' => 'DESC'
-			),
-			'conditions' => array(
-				'Distrito.cidade_id' => $id
-			)
-		);
-		$this->set('distritos', $this->Distrito->find('all', $options));
-
-		/*Carregamento das notícias*/
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '2')
-			);
-		$this->loadModel('Noticia');
-		$noticias_reg = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_reg'));
-
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '3')
-			);
-		$noticias_boas = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_boas'));
-
-		$cidades = $this->Cidade->find('all');
-		$this->set(compact('cidades'));
-		$this->set('results', $this->clima_cidade($cidade));
+		$this->common($id);
 	}
 
 	public function site_estatistica($id = null) {
 		$this->set('title_for_layout', 'Estatísticas');
+		$this->common($id);
+	}
 
-		$this->loadModel('Cidade');
-		if (!$this->Cidade->exists($id)) {
-			throw new NotFoundException(__('Invalid Cidade'));
-		}
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
-		$cidade = $this->Cidade->find('first', $options);
-		$this->set('cidade', $cidade);
+	public function site_mapas($id = null) {
+		$this->set('title_for_layout', 'Mapas');		
+		$this->common($id, 'title');
+	}
 
-		$this->set('id', $id);
+	public function site_fotos($id = null) {
+		$this->set('title_for_layout', 'Fotos');
+		$this->common($id);
+	}
 
-		/*Carregamento das fotos antigas e atuais */
-		$this->loadModel('Foto');
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 3,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_aereas', $this->Foto->find('all', $options));
+	public function site_turismo($id = null) {
+		$this->set('title_for_layout', 'Turismo');
+		$this->common($id);
+	}
 
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 2,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_atuais', $this->Foto->find('all', $options));
+	public function site_educacao($id = null) {
+		$this->set('title_for_layout', 'Educação');
+		$this->common($id);
+	}
 
-		/*Carregamento dos parceiros e anúncios*/
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '1')
-			);
-		$this->loadModel('Parceiro');
-		$parceiros = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('parceiros'));
+	public function site_transporte($id = null) {
+		$this->set('title_for_layout', 'Transporte');
+		$this->common($id);
+	}
 
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '2')
-			);
-		$anuncios_quad = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_quad'));
+	public function site_economia($id = null) {
+		$this->set('title_for_layout', 'Economia');		
+		$this->common($id, 'title');
+	}
 
-		$conditions = array(
-			'conditions' => array('Parceiro.tipo' => '3')
-			);
-		$anuncios_large = $this->Parceiro->find('all', $conditions);
-		$this->set(compact('anuncios_large'));
+	public function site_saude($id = null) {
+		$this->set('title_for_layout', 'Saúde');
+		$this->common($id);
+	}
 
-		/*Carregamento das notícias*/
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '2')
-			);
-		$this->loadModel('Noticia');
-		$noticias_reg = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_reg'));
+	public function site_prestadores($id = null) {
+		$this->set('title_for_layout', 'Prestadores de serviços');
+		$this->common($id);
+	}
 
-		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '3')
-			);
-		$noticias_boas = $this->Noticia->find('all', $conditions);
-		$this->set(compact('noticias_boas'));
+	public function site_executivo($id = null) {
+		$this->set('title_for_layout', 'Poder Executivo');
+		$this->common($id);
+	}
 
-		$cidades = $this->Cidade->find('all');
-		$this->set(compact('cidades'));
-		$this->set('results', $this->clima_cidade($cidade));
+	public function site_legislativo($id = null) {
+		$this->set('title_for_layout', 'Poder Legislativ');
+		$this->common($id);
+	}
+
+	public function site_judiciario($id = null) {
+		$this->set('title_for_layout', 'Poder Judiciário');
+		$this->common($id);
+	}
+
+	public function site_documentos($id = null) {
+		$this->set('title_for_layout', 'Retirada de Documentos');
+		$this->common($id);
+	}
+
+	public function site_orgaos($id = null) {
+		$this->set('title_for_layout', 'Órgãos Públicos');		
+		$this->common($id, 'title');
+	}
+
+	public function site_social($id = null) {
+		$this->set('title_for_layout', 'Assistências Sociais');
+		$this->common($id);
+	}
+
+	public function site_enderecos($id = null) {
+		$this->set('title_for_layout', 'Endereços');
+		$this->common($id);
 	}
 
 /** 
@@ -488,5 +343,92 @@ class HomesController extends AppController {
 		// string query
 		$results = json_decode($HttpSocket->get('http://api.promasters.net.br/cotacao/v1/valores'), true);
 		return $results;
+	}
+
+	public function common($id = null, $title = null) {
+		$this->loadModel('Cidade');
+		if (!$this->Cidade->exists($id)) {
+			throw new NotFoundException(__('Invalid Cidade'));
+		}
+
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+		$cidade = $this->Cidade->find('first', $options);
+		$this->set('cidade', $cidade);
+
+		if ($title != null) {
+			$this->set('title_for_layout', $cidade['Cidade']['nome']);
+		}
+
+		$this->set('id', $id);
+
+		/*Carregamento das fotos */
+		$this->loadModel('Foto');
+		$options = array(
+			'order' => 'rand()',
+			'conditions' => array(
+				'Foto.tipo' => 3,
+				'Foto.cidade_id' => $id
+			),
+			'limit' => 4
+		);
+		$this->set('fotos_aereas', $this->Foto->find('all', $options));
+
+		$options = array(
+			'order' => 'rand()',
+			'conditions' => array(
+				'Foto.tipo' => 2,
+				'Foto.cidade_id' => $id
+			),
+			'limit' => 4
+		);
+		$this->set('fotos_atuais', $this->Foto->find('all', $options));
+
+		$options = array(
+			'order' => 'rand()',
+			'conditions' => array(
+				'Foto.tipo' => 1,
+				'Foto.cidade_id' => $id
+			),
+			'limit' => 4
+		);
+		$this->set('fotos_antigas', $this->Foto->find('all', $options));
+
+		/*Carregamento dos parceiros e anúncios*/
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '1')
+			);
+		$this->loadModel('Parceiro');
+		$parceiros = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('parceiros'));
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '2')
+			);
+		$anuncios_quad = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_quad'));
+
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '3')
+			);
+		$anuncios_large = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_large'));
+
+		/*Carregamento das notícias*/
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '2')
+			);
+		$this->loadModel('Noticia');
+		$noticias_reg = $this->Noticia->find('all', $conditions);
+		$this->set(compact('noticias_reg'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '3')
+			);
+		$noticias_boas = $this->Noticia->find('all', $conditions);
+		$this->set(compact('noticias_boas'));
+
+		$cidades = $this->Cidade->find('all');
+		$this->set(compact('cidades'));
+		$this->set('results', $this->clima_cidade($cidade));
 	}
 }
