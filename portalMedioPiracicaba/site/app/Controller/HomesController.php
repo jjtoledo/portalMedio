@@ -102,86 +102,103 @@ class HomesController extends AppController {
 	public function site_historia($id = null) {
 		$this->set('title_for_layout', 'História');
 		$this->common($id);
+		$this->set('active', 'historia');
 	}
 
 	public function site_estatistica($id = null) {
 		$this->set('title_for_layout', 'Estatísticas');
 		$this->common($id);
+		$this->set('active', 'estatistica');
 	}
 
 	public function site_mapas($id = null) {
 		$this->set('title_for_layout', 'Mapas');		
-		$this->common($id, 'title');
+		$this->common($id);
+		$this->set('active', 'mapas');
 	}
 
 	public function site_fotos($id = null) {
 		$this->set('title_for_layout', 'Fotos');
 		$this->common($id);
+		$this->set('active', 'fotos');
 	}
 
 	public function site_turismo($id = null) {
 		$this->set('title_for_layout', 'Turismo');
 		$this->common($id);
+		$this->set('active', 'turismo');
 	}
 
 	public function site_educacao($id = null) {
 		$this->set('title_for_layout', 'Educação');
 		$this->common($id);
+		$this->set('active', 'educacao');
 	}
 
 	public function site_transporte($id = null) {
 		$this->set('title_for_layout', 'Transporte');
 		$this->common($id);
+		$this->set('active', 'transporte');
 	}
 
 	public function site_economia($id = null) {
 		$this->set('title_for_layout', 'Economia');		
-		$this->common($id, 'title');
+		$this->common($id);
+		$this->set('active', 'economia');
 	}
 
 	public function site_saude($id = null) {
 		$this->set('title_for_layout', 'Saúde');
 		$this->common($id);
+		$this->set('active', 'saude');
 	}
 
 	public function site_prestadores($id = null) {
 		$this->set('title_for_layout', 'Prestadores de serviços');
 		$this->common($id);
+		$this->set('active', 'prestadores');
 	}
 
 	public function site_executivo($id = null) {
 		$this->set('title_for_layout', 'Poder Executivo');
 		$this->common($id);
+		$this->set('active', 'executivo');
 	}
 
 	public function site_legislativo($id = null) {
 		$this->set('title_for_layout', 'Poder Legislativ');
 		$this->common($id);
+		$this->set('active', 'legislativo');
 	}
 
 	public function site_judiciario($id = null) {
 		$this->set('title_for_layout', 'Poder Judiciário');
 		$this->common($id);
+		$this->set('active', 'judiciario');
 	}
 
 	public function site_documentos($id = null) {
 		$this->set('title_for_layout', 'Retirada de Documentos');
 		$this->common($id);
+		$this->set('active', 'documentos');
 	}
 
 	public function site_orgaos($id = null) {
 		$this->set('title_for_layout', 'Órgãos Públicos');		
-		$this->common($id, 'title');
+		$this->common($id);
+		$this->set('active', 'orgaos');
 	}
 
 	public function site_social($id = null) {
 		$this->set('title_for_layout', 'Assistências Sociais');
 		$this->common($id);
+		$this->set('active', 'social');
 	}
 
 	public function site_enderecos($id = null) {
 		$this->set('title_for_layout', 'Endereços');
 		$this->common($id);
+		$this->set('active', 'enderecos');
 	}
 
 /** 

@@ -267,6 +267,7 @@ div#listCidades.row > div > a:hover {
 .listMenu {  
   color: #555;
   padding-bottom: 5px;
+  padding-right: 4px;
   margin-left: 0;
   border-bottom: 1px solid #d4d4d4;
   transition-duration: 200ms;
@@ -281,6 +282,13 @@ div#listCidades.row > div > a:hover {
   color: #FF6C3B;
   box-shadow: 0 -3px 0 0 #FF6C3B inset;
   border-bottom: 1px solid #FF6C3B;
+}
+
+.listMenu.active {
+  text-decoration: none;
+  color: #51A8B1;
+  box-shadow: 0 -2px 0 0 #51A8B1 inset;
+  border-bottom: 1px solid #51A8B1;
 }
 
 .noticias {
@@ -477,12 +485,20 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 1600px) {
+  .welcome {
+    font-size: 45px;
+  }
+
   .config-padding {
     padding-top: 40px;
   }
 }
 
 @media screen and (max-width: 1400px) {
+  .welcome {
+    font-size: 35px;
+  }
+
   .config-padding {
     padding-top: 20px;
   }
@@ -562,6 +578,10 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 992px){
+  .welcome {
+    font-size: 28px;
+  }
+
   #receitas {
     display: none;
   }
