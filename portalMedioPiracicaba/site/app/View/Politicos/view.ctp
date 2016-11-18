@@ -41,13 +41,6 @@
 						</td>
 				</tr>
 				<tr>
-						<th><?php echo __('Partido'); ?></th>
-						<td>
-							<?php echo h($politico['Politico']['partido']); ?>
-							&nbsp;
-						</td>
-				</tr>
-				<tr>
 						<th><?php echo __('Mesa Diretora'); ?></th>
 						<td>
 							<?php 
@@ -77,11 +70,23 @@
 						<th><?php echo __('Comissão'); ?></th>
 						<td>
 							<?php 
-							if ($politico['Politico']['comissao_id'] != 6) { 
-								echo $politico['Comissao']['nome'] ;
-							} else {
-								echo 'Não';
-							}
+								$comissao = array();
+								foreach ($comissaos as $c) {
+									if ($c['Comissao']['id'] == $politico['Politico']['comissao_id'] ||
+											$c['Comissao']['id'] == $politico['Politico']['comissao_id1'] ||
+											$c['Comissao']['id'] == $politico['Politico']['comissao_id2'] ||
+											$c['Comissao']['id'] == $politico['Politico']['comissao_id3']) {
+										array_push($comissao, $c['Comissao']['nome']);
+									}
+								}
+								for ($i=0; $i < count($comissao); $i++) { 
+									if ($i == count($comissao)-1) {
+										echo $comissao[$i];
+									} else {
+										echo $comissao[$i] . ', ';
+									}
+								}
+
 							?>
 							&nbsp;
 						</td>

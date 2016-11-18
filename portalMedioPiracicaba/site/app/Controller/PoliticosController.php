@@ -69,6 +69,10 @@ class PoliticosController extends AppController {
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
+		$this->loadModel('Comissao');
+		$options = array('conditions' => array('Comissao.cidade_id' => $idCity));
+		$this->set('comissaos', $this->Comissao->find('all', $options));		
+
 		$this->set('id', $id);	
 	}
 

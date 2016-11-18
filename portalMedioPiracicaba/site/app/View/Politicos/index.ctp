@@ -42,7 +42,6 @@
 				<thead>
 					<tr>
 						<th nowrap><?php echo $this->Paginator->sort('nome'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('partido'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -50,7 +49,6 @@
 				<?php foreach ($politicos as $politico): ?>
 					<tr>
 						<td nowrap><?php echo h($politico['Politico']['nome']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($politico['Politico']['partido']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-briefcase"></span>'), array('controller' => 'mandatos', 'action' => 'index', $politico['Politico']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoPoliticos', 'action' => 'index', $politico['Politico']['id']), array('escape' => false)); ?>

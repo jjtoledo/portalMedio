@@ -45,9 +45,6 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome', 'required' => 'true'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('partido', array('class' => 'form-control', 'placeholder' => 'Partido', 'required' => 'true'));?>
-				</div>
 				
 				<div id="mesa" hidden="true">
 					<div class="form-group">
@@ -68,6 +65,51 @@
 						<?php echo $this->Form->input('comissao_id', array('class' => 'form-control', 'label' => 'Faz parte de Comissão?', 'empty' => array('6' => 'Não')));?>
 					</div>
 				</div>
+
+				<div id="btn" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>				
+
+				<div id="comissao1" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id1', $comissaos, array('class' => 'form-control', 'label' => '', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
+				<div id="btn1" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao2" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id2', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
+				<div id="btn2" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao3" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id3', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
 				</div>
@@ -79,27 +121,91 @@
 </div>
 
 <script type="text/javascript">
-	var mesa       = document.getElementById('mesa');
-	var mesaNao    = document.getElementById('PoliticoMesaDiretora0');
-	var presidente = document.getElementById('presidente');
-	var comissao   = document.getElementById('comissao');
+	var mesa         = document.getElementById('mesa');
+	var mesaNao      = document.getElementById('PoliticoMesaDiretora0');
+	var presidente   = document.getElementById('presidente');
+	var comissao     = document.getElementById('comissao');
+	var comissao1    = document.getElementById('comissao1');
+	var comissao2    = document.getElementById('comissao2');
+	var comissao3    = document.getElementById('comissao3');
+	var comissao_id  = document.getElementById('PoliticoComissaoId');
+	var comissao_id1 = document.getElementById('PoliticoComissaoId1');
+	var comissao_id2 = document.getElementById('PoliticoComissaoId2');
+	var comissao_id3 = document.getElementById('PoliticoComissaoId3');
+ 	var btn          = document.getElementById('btn');
+ 	var btn1         = document.getElementById('btn1');
+ 	var btn2         = document.getElementById('btn2');
 
 	if (<?php echo $tipo ?> == 2) {
 		mesa.removeAttribute('hidden');			
 		comissao.removeAttribute('hidden');
 	}
 
-	if (mesaNao.checked) {
-		presidente.setAttribute('hidden', 'true');
-	} else {
-		presidente.removeAttribute('hidden');			
-	}
-		
 	mesa.addEventListener("change", function() {
 		if (mesaNao.checked) {
 			presidente.setAttribute('hidden', 'true');
 		} else {
 			presidente.removeAttribute('hidden');			
 		}
+	});
+
+	if (comissao_id.options[comissao_id.selectedIndex].value != 6) {
+		btn.removeAttribute('hidden');			
+	} 
+
+	if (comissao_id1.options[comissao_id1.selectedIndex].value != 6) {
+		btn.setAttribute('hidden', 'true');
+		btn1.removeAttribute('hidden');			
+		comissao1.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id2.options[comissao_id2.selectedIndex].value != 6) {
+		btn1.setAttribute('hidden', 'true');
+		btn2.removeAttribute('hidden');			
+		comissao2.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id3.options[comissao_id3.selectedIndex].value != 6) {
+		btn2.setAttribute('hidden', 'true');
+		comissao3.removeAttribute('hidden');		
+	} 
+
+	comissao_id.addEventListener("change", function() {
+		if (comissao_id.options[comissao_id.selectedIndex].value != 6) {
+			btn.removeAttribute('hidden');			
+		} else {			
+			btn.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn.addEventListener("click", function() {
+		btn.setAttribute('hidden', 'true');		
+		comissao1.removeAttribute('hidden');		
+	});
+
+	comissao_id1.addEventListener("change", function() {
+		if (comissao_id1.options[comissao_id1.selectedIndex].value != 6) {
+			btn1.removeAttribute('hidden');			
+		} else {			
+			btn1.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn1.addEventListener("click", function() {
+		btn1.setAttribute('hidden', 'true');		
+		comissao2.removeAttribute('hidden');	
+	});
+
+	comissao_id2.addEventListener("change", function() {
+		if (comissao_id2.options[comissao_id2.selectedIndex].value != 6) {
+			btn2.removeAttribute('hidden');			
+		} else {			
+			btn2.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn2.addEventListener("click", function() {
+		btn2.setAttribute('hidden', 'true');		
+		comissao3.removeAttribute('hidden');	
 	});
 </script>
