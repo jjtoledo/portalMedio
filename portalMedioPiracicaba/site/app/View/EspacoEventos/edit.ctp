@@ -3,9 +3,21 @@
 
 <script type="text/javascript">
 	jQuery(function($){
-	   $("#EspacoEventoTelefone1").mask("(99)9999-9999");
-	   $("#EspacoEventoTelefone2").mask("(99)9999-9999");
-	});
+		$("#EspacoEventoTelefone1").mask("(99)99999-9999",{autoclear: false});  	
+		$("#EspacoEventoTelefone2").mask("(99)99999-9999",{autoclear: false});  	
+		
+		$('#EspacoEventoTelefone1').blur(function() {
+		  if ($('#EspacoEventoTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#EspacoEventoTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});
+
+		$('#EspacoEventoTelefone2').blur(function() {
+		  if ($("#EspacoEventoTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
+		  	$("#EspacoEventoTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
+		  }
+		});	  
+  });
 </script>
 
 <div class="container espacoEventos form">

@@ -161,6 +161,19 @@ class Cidade extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Endereco' => array(
+			'className' => 'Endereco',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Foto' => array(
 			'className' => 'Foto',
 			'foreignKey' => 'cidade_id',

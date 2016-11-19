@@ -30,10 +30,10 @@
 			<?php echo $this->Form->create('Mandato', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('ano_inicio', array('class' => 'form-control', 'placeholder' => 'Ano Inicio', 'min' => 1970));?>
+					<?php echo $this->Form->input('ano_inicio', array('class' => 'form-control', 'placeholder' => 'Ano Inicio', 'min' => 0));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('ano_termino', array('class' => 'form-control', 'placeholder' => 'Ano Termino', 'min' => 1970));?>
+					<?php echo $this->Form->input('ano_termino', array('class' => 'form-control', 'placeholder' => 'Ano Termino', 'min' => 0));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>

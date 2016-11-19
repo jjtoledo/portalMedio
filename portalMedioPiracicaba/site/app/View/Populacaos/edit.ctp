@@ -38,7 +38,7 @@
 					<?php echo $this->Form->input('quantidade', array('class' => 'form-control', 'placeholder' => 'Quantidade', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('ano', array('class' => 'form-control', 'placeholder' => 'Ano', 'min' => 1970, 'required' => 'true'));?>
+					<?php echo $this->Form->input('ano', array('class' => 'form-control', 'placeholder' => 'Ano', 'min' => 0, 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

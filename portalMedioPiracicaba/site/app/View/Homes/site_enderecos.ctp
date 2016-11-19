@@ -75,7 +75,31 @@
 		  	</div>
 	  	</div>
 	  	
-			
+			<?php 
+			debug($cidade['Endereco']);
+			if (!empty($cidade['Endereco'])) { ?>
+				<div class="container">
+					<div class="col-md-12 text-center">
+						<?php echo '<h1 class="noticiasHome">Endereços Úteis</h1><br><hr style="margin-top:0">' ?>			
+					</div>
+
+					<div class="col-md-8 col-md-offset-2">
+						<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover">								
+							<tbody>
+								<thead>
+									<th>teste</th>
+								</thead>
+							<?php foreach ($cidade['Patrimonio'] as $pat) { ?>
+								<tr>
+									<td width="60%"><?php echo h($pat['nome']); ?>&nbsp;</td>
+									<?php if($pat['ano'] != '') { echo '<td width="40%">'.$pat['ano'].'&nbsp;</td>'; } ?>											
+								</tr>
+							<?php	} ?>
+							</tbody>
+						</table>	
+				  </div>
+				</div>
+			<?php } ?>
 	  </div>
 	</main>
 

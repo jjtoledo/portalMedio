@@ -104,6 +104,13 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'História');
 		$this->common($id);
 		$this->set('active', 'historia');
+
+		$this->loadModel('Distrito');
+		$options = array(
+			'Distrito.cidade_id' => $id
+ 		);
+		$distritos = $this->Distrito->find('all', $options);
+		$this->set('distritos', $distritos);
 	}
 
 	public function site_estatistica($id = null) {
@@ -126,8 +133,24 @@ class HomesController extends AppController {
 
 	public function site_turismo($id = null) {
 		$this->set('title_for_layout', 'Turismo');
-		$this->common($id);
+		$cidade = $this->common($id);
 		$this->set('active', 'turismo');
+
+		$this->loadModel('AtrativoTuristico');
+		$options = array(
+			'AtrativoTuristico.cidade_id' => $id
+ 		);
+		$atrativos = $this->AtrativoTuristico->find('all', $options);
+		$this->set('atrativos', $atrativos);
+
+		$this->loadModel('Patrimonio');
+		$options = array(
+			'fields' => array(
+				'DISTINCT Patrimonio.tipo'
+			)
+ 		);
+ 		$patrimonios = $this->Patrimonio->find('all', $options);
+		$this->set('patrimonios', $patrimonios);
 	}
 
 	public function site_educacao($id = null) {
@@ -411,6 +434,17 @@ class HomesController extends AppController {
 		);
 		$this->set('fotos_antigas', $this->Foto->find('all', $options));
 
+		/* Agenda */
+		$this->loadModel('Evento');
+		$options = array(
+			'order' => 'Evento.data',
+			'conditions' => array(
+				'Evento.cidade_id' => $id
+			)
+		);
+		$eventos = $this->Evento->find('all', $options);
+		$this->set(compact('eventos'));
+
 		/*Carregamento dos parceiros e anúncios*/
 		$conditions = array(
 			'conditions' => array('Parceiro.tipo' => '1')
@@ -448,5 +482,7 @@ class HomesController extends AppController {
 		$cidades = $this->Cidade->find('all');
 		$this->set(compact('cidades'));
 		$this->set('results', $this->clima_cidade($cidade));
+
+		return $cidade;
 	}
 }
