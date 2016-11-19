@@ -435,6 +435,11 @@ div#listCidades.row > div > a:hover {
   padding: 5px;
 }
 
+.panel-info > .panel-heading {
+  color: white;
+  background-color: #51A8B1;
+}
+
 .panel-body.noPadding {
   padding: 0;
 }
