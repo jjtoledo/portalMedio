@@ -244,7 +244,7 @@
 	    	<?php $count++; } ?>
       	</div>
       	<div class="col-lg-3">
-      		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 divNoticia p">
+      		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 divNoticia p">
 		    		<div class="noticia prop">
 		    			<?php 
 		    				echo '<a href="'.$anuncios_quad['0']['Parceiro']['site'].'" target="_blank" escape="false">';

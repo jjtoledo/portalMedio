@@ -593,6 +593,10 @@ div#listCidades.row > div > a:hover {
 }
 
 @media screen and (max-width: 992px){
+  div#cidades.container {
+    margin-top: -120px;
+  }
+
   .welcome {
     font-size: 28px;
   }
@@ -614,6 +618,11 @@ div#listCidades.row > div > a:hover {
     bottom: 1%;
     width: 20px;
     height: 20px;
+  }
+  
+  #pLogo {
+    width: 60px;
+    height: 60px;
   }
 
   .noticia {
