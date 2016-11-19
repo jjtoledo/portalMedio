@@ -175,8 +175,8 @@ body {
 
 #pLogo {
   padding: 10px;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
 }
 
 .resolucao{
@@ -703,8 +703,8 @@ div#listCidades.row > div > a:hover {
   }
 
   #pLogo {
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
   }
 
   div#myCarousel.carousel.slide {

@@ -26,6 +26,8 @@
             } ?>
           </ul>
         </li>
+        <li><?php echo $this->Html->link('Notícias Regionais', array('action' => 'site_noticias', 2)) ?></li>
+        <li><?php echo $this->Html->link('Boas Notícias', array('action' => 'site_noticias', 3)) ?></li>
         <li><a href="#">Contato</a></li> 
       </ul>
       <ul class="nav navbar-nav navbar-right">
