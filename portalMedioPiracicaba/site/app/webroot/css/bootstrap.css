@@ -6274,6 +6274,16 @@ button.close {
   }
 }
 
+@media (max-width: 1000px) {
+  .carousel-inner {
+    max-height: 600px !important;
+  }
+
+  .carousel-inner > .item {
+    max-height: 600px; 
+  }
+}
+
 .carousel-inner > .item {
   position: relative;
   display: none;
