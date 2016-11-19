@@ -11,7 +11,7 @@ mousestop: true }); //if set to true the scrolling stops when the mouse is over 
 
 <div id="s1" class="is">
   <?php $count = 0;
-    for ($i=0; $i < 12; $i++) {  
+    for ($i=0; $i < 15; $i++) {  
       if (count($parceiros) == $count) {
         $count = 0;
       }
