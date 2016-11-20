@@ -109,7 +109,7 @@
 	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
 	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
 	      				} else {
-	      					echo '<div class="col-md-6">'.$this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')).'</div>';
+	      					echo '<div class="col-md-6 text-center">'.$this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')).'</div>';
 	      				}
 		      				echo '<div class="col-md-6"><b>'
 		    						.$cidade['Empresa'][$count]['nome'].'</b><br><br>'

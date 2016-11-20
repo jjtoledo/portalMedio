@@ -147,10 +147,13 @@ class HomesController extends AppController {
 		$options = array(
 			'fields' => array(
 				'DISTINCT Patrimonio.tipo'
+			),
+			'conditions' => array(
+				'Patrimonio.cidade_id' => $id
 			)
  		);
  		$patrimonios = $this->Patrimonio->find('all', $options);
-		$this->set('patrimonios', $patrimonios);
+		$this->set('patrimonios', $patrimonios);		
 	}
 
 	public function site_educacao($id = null) {
@@ -175,12 +178,51 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Saúde');
 		$this->common($id);
 		$this->set('active', 'saude');
+
+		$this->loadModel('OrgaoSaude');
+		$options = array(
+			'fields' => array(
+				'DISTINCT OrgaoSaude.tipo',
+			),
+			'group' => 'OrgaoSaude.tipo',
+			'conditions' => array(
+				'OrgaoSaude.cidade_id' => $id
+			)
+ 		);
+ 		$tipos = $this->OrgaoSaude->find('all', $options);
+		$this->set('tipos', $tipos);
+
+		$this->loadModel('Medico');
+		$options = array(
+			'fields' => array(
+				'DISTINCT Medico.especialidade',
+			),
+			'group' => 'Medico.especialidade',
+			'conditions' => array(
+				'Medico.cidade_id' => $id
+			)
+ 		);
+ 		$especialidades = $this->Medico->find('all', $options);
+		$this->set('especialidades', $especialidades);
 	}
 
 	public function site_prestadores($id = null) {
 		$this->set('title_for_layout', 'Prestadores de serviços');
 		$this->common($id);
 		$this->set('active', 'prestadores');
+
+		$this->loadModel('Prestador');
+		$options = array(
+			'fields' => array(
+				'DISTINCT Prestador.especialidade',
+			),
+			'group' => 'Prestador.especialidade',
+			'conditions' => array(
+				'Prestador.cidade_id' => $id
+			)
+ 		);
+ 		$especialidades = $this->Prestador->find('all', $options);
+		$this->set('especialidades', $especialidades);
 	}
 
 	public function site_executivo($id = null) {

@@ -52,7 +52,7 @@
 					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('tipo', array('class' => 'form-control', 'placeholder' => 'Tipo'));?>
+					<?php echo $this->Form->input('tipo', array('class' => 'form-control', 'placeholder' => 'Tipo', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('localizacao', array('class' => 'form-control', 'placeholder' => 'Localização', 'label' => 'Localização'));?>

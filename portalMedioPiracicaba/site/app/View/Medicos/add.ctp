@@ -49,7 +49,7 @@
 			<?php echo $this->Form->create('Medico', array('role' => 'form')); ?>
 
 				<div class="form-group">
-					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome'));?>
+					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('telefone1', array('class' => 'form-control', 'placeholder' => 'Telefone1'));?>
@@ -61,7 +61,7 @@
 					<?php echo $this->Form->input('endereco', array('class' => 'form-control', 'placeholder' => 'Endereco'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('especialidade', array('class' => 'form-control', 'placeholder' => 'Especialidade'));?>
+					<?php echo $this->Form->input('especialidade', array('class' => 'form-control', 'placeholder' => 'Especialidade', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>
