@@ -369,6 +369,19 @@ class Cidade extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Social' => array(
+			'className' => 'Social',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Exvereador' => array(
 			'className' => 'Exvereador',
 			'foreignKey' => 'cidade_id',

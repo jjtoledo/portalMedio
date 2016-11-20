@@ -75,7 +75,36 @@
 		  	</div>
 	  	</div>
 	  	
-			
+			<?php if (!empty($cidade['OrgaoPublico'])) { ?>
+				<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">Órgãos Públicos</h1><br><hr style="margin-top:0">' ?>			
+				</div>
+
+				<div class="col-md-12">
+					<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover">								
+						<tbody>
+							<thead>
+								<tr>
+									<th>Nome</th>
+									<th>Telefone</th>
+									<th>Funcionamento</th>
+									<th>Site</th>
+									<th>Endereço</th>
+								</tr>
+							</thead>
+						<?php foreach ($cidade['OrgaoPublico'] as $o) { ?>
+							<tr>
+								<td width="30%"><?php echo h($o['nome']); ?>&nbsp;</td>
+								<td width="17%"><?php echo h($o['telefone1']); ?>&nbsp;</td>
+								<td width="10%"><?php if(!empty($o['horario_ini']) && !empty($o['horario_fim'])) { echo h($o['horario_ini'].' às '.$o['horario_fim']); } ?>&nbsp;</td>
+								<td width="15%"><?php echo h($o['site']); ?>&nbsp;</td>
+								<td width="28%"><?php echo h($o['localizacao']); ?>&nbsp;</td>
+							</tr>
+						<?php	} ?>
+						</tbody>
+					</table>	
+			  </div>
+			<?php } ?>
 	  </div>
 	</main>
 
