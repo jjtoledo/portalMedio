@@ -109,6 +109,19 @@ class Cidade extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Documento' => array(
+			'className' => 'Documento',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'EmpresaOnibus' => array(
 			'className' => 'EmpresaOnibus',
 			'foreignKey' => 'cidade_id',
