@@ -48,10 +48,10 @@
 						<td nowrap><?php echo h($escola['Escola']['telefone2']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($escola['Escola']['site']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-book"></span>'), array('controller' => 'cursos', 'action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id'], $escola['Escola']['tipo']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-book"></span>'), array('controller' => 'cursos', 'action' => 'index', $escola['Escola']['id'], $escola['Escola']['tipo']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $escola['Escola']['id'], $cidade['Cidade']['id'], $escola['Escola']['tipo']), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $escola['Escola']['id'], $cidade['Cidade']['id'], $escola['Escola']['tipo']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $escola['Escola']['id'])); ?>
 						</td>
 					</tr>

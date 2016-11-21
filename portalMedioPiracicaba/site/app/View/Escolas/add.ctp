@@ -25,7 +25,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<?php if ($tipo < 3) { ?>
+				<?php if ($tipo < 3 || $tipo > 4) { ?>
 					<h2><?php echo __('Adicionar escola em ' . $cidade['Cidade']['nome']); ?></h2>
 				<?php } else { ?>
 					<h2><?php echo __('Adicionar faculdade em ' . $cidade['Cidade']['nome']); ?></h2>
@@ -43,7 +43,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<?php if ($tipo < 3) { ?>
+								<?php if ($tipo < 3 || $tipo > 4) { ?>
 									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 								<?php } else { ?>
 									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index_fac', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>

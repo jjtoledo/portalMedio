@@ -34,13 +34,15 @@ class CursosController extends AppController {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'Curso.escola_id' => $id
 			)
 		);
 		$this->set('cursos', $this->Paginator->paginate());
+		
+		$this->set('tipo', $tipo);
 
 		$this->loadModel('Escola');
 		$options = array('conditions' => array('Escola.' . $this->Escola->primaryKey => $id));
@@ -54,7 +56,7 @@ class CursosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null, $idEsc = null) {
+	public function view($id = null, $idEsc = null, $tipo = null) {
 		if (!$this->Curso->exists($id)) {
 			throw new NotFoundException(__('Invalid curso'));
 		}
@@ -66,6 +68,7 @@ class CursosController extends AppController {
 		$this->set('escola', $this->Escola->find('first', $options));
 
 		$this->set('id', $id);
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -73,14 +76,16 @@ class CursosController extends AppController {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null, $tipo = null) {
 		$this->request->data['Curso']['escola_id'] = $id;
+
+		$this->set('tipo', $tipo);
 
 		if ($this->request->is('post')) {
 			$this->Curso->create();
 			if ($this->Curso->save($this->request->data)) {
 				$this->Session->setFlash(__('The curso has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
+				return $this->redirect(array('action' => 'index', $id, $tipo));
 			} else {
 				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -103,7 +108,7 @@ class CursosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idEsc = null) {
+	public function edit($id = null, $idEsc = null, $tipo = null) {
 		if (!$this->Curso->exists($id)) {
 			throw new NotFoundException(__('Invalid curso'));
 		}
@@ -113,7 +118,7 @@ class CursosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Curso->save($this->request->data)) {
 				$this->Session->setFlash(__('The curso has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idEsc));
+				return $this->redirect(array('action' => 'index', $idEsc, $tipo));
 			} else {
 				$this->Session->setFlash(__('The curso could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -132,6 +137,7 @@ class CursosController extends AppController {
 		$this->set('periodos', $periodos);
 
 		$this->set('id', $id);
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -141,7 +147,7 @@ class CursosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idEsc = null) {
+	public function delete($id = null, $idEsc = null, $tipo = null) {
 		$this->Curso->id = $id;
 		if (!$this->Curso->exists()) {
 			throw new NotFoundException(__('Invalid curso'));
@@ -152,6 +158,6 @@ class CursosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The curso could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index', $idEsc));
+		return $this->redirect(array('action' => 'index', $idEsc, $tipo));
 	}
 }

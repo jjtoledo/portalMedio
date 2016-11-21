@@ -98,7 +98,7 @@ class FotoEscolasController extends AppController {
 				}
 			}
 			$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => '	alert alert-success'));
-			return $this->redirect(array('action' => 'index', $id));
+			return $this->redirect(array('action' => 'index', $id, $tipo));
 		}
 
 	}

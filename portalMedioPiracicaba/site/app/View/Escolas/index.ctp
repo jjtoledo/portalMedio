@@ -18,6 +18,21 @@
 						case 2:
 							echo __('Escolas Federais de ' . $cidade['Cidade']['nome']); 							
 							break;
+						case 5:
+							echo __('Escolas Particulares de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 6:
+							echo __('Escolas Profissionalizantes de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 7:
+							echo __('Escolas de Idiomas de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 8:
+							echo __('Pré Vestibulares de ' . $cidade['Cidade']['nome']); 							
+							break;
+						case 9:
+							echo __('Escolas Especializadas de ' . $cidade['Cidade']['nome']); 							
+							break;
 					}
 					?>						
 				</h2>

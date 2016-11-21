@@ -20,9 +20,9 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Curso'), array('action' => 'view', $id, $escola['Escola']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Cursos'), array('action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Curso.id'), $escola['Escola']['id']), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Curso.id'))); ?></li>
+							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Curso'), array('action' => 'view', $id, $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Cursos'), array('action' => 'index', $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Curso.id'), $escola['Escola']['id'], $tipo), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Curso.id'))); ?></li>
 							</ul>
 						</div>
 					</div>

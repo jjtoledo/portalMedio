@@ -18,25 +18,21 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<?php if ($escola['Escola']['tipo'] < 3) { ?>
+								<?php if ($tipo < 3 || $tipo > 4) { ?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Escolas'), array('action' => 'index', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Escola'), array('action' => 'edit', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 									<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Escola'), array('action' => 'delete', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<?php } else { ?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Faculdades'), array('action' => 'index_fac', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Faculdade'), array('action' => 'edit', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-									<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Faculdade'), array('action' => 'delete', $id, $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Faculdade'), array('action' => 'edit', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
+									<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Faculdade'), array('action' => 'delete', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<?php } ?>
-								<?php if ($escola['Escola']['tipo'] > 2) { ?>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;Listar Cursos'), array('controller' => 'cursos', 'action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>
+								<?php if ($tipo == 3 || $tipo == 4) { ?>
+									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;Listar Cursos'), array('controller' => 'cursos', 'action' => 'index', $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
 								<?php } ?>
-								<?php if ($escola['Escola']['tipo'] < 3) { ?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;Fotos'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
-								<?php } else { ?>
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>&nbsp;&nbsp;Fotos'), array('controller' => 'foto_escolas', 'action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>
-								<?php } ?>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->

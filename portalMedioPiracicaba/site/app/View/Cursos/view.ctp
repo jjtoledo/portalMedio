@@ -18,10 +18,10 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Cursos'), array('action' => 'index', $escola['Escola']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Curso'), array('action' => 'edit', $id, $escola['Escola']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Curso'), array('action' => 'delete', $id, $escola['Escola']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Escola'), array('controller' => 'escolas', 'action' => 'view', $escola['Escola']['id'], $escola['Escola']['cidade_id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Cursos'), array('action' => 'index', $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Curso'), array('action' => 'edit', $id, $escola['Escola']['id'], $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Curso'), array('action' => 'delete', $id, $escola['Escola']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Escola'), array('controller' => 'escolas', 'action' => 'view', $escola['Escola']['id'], $escola['Escola']['cidade_id'], $tipo), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->

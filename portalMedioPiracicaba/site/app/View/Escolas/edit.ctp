@@ -25,7 +25,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<?php if ($this->data['Escola']['tipo'] < 3) { ?>
+				<?php if ($tipo < 3 || $tipo > 4) { ?>
 					<h2><?php echo __('Editar escola'); ?></h2>
 				<?php } else { ?>
 					<h2><?php echo __('Editar faculdade'); ?></h2>
@@ -43,7 +43,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<?php if ($this->data['Escola']['tipo'] < 3) { ?>
+								<?php if ($tipo < 3 || $tipo > 4) { ?>
 									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Escola'), array('action' => 'view', $id, $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Escolas'), array('action' => 'index', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 									<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Escola.id'), $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Escola.id'))); ?></li>

@@ -61,7 +61,7 @@ class EscolasController extends AppController {
 			'conditions' => array(
 				'Escola.cidade_id' => $id,
 				'NOT' => array(
-					'Escola.tipo' => array(0,1,2)
+					'Escola.tipo' => array(0,1,2,5,6,7,8,9)
 				)
 			)
 		);
@@ -98,8 +98,14 @@ class EscolasController extends AppController {
 						'1' => 'Escola estadual',
 						'2' => 'Escola privada',
 						'3' => 'Faculdade federal',
-						'4' => 'Faculdade privada'
+						'4' => 'Faculdade privada',
+						'5' => 'Escolas Particulares',
+						'6' => 'Escolas Profissionalizantes',
+						'7' => 'Escolas de Idiomas',
+						'8' => 'Pré Vestibulares',
+						'9' => 'Escolas Especializadas'
 				);
+	
 		$this->set('tipos', $tipos);
 		$this->set('tipo', $tipo);
 
@@ -134,7 +140,7 @@ class EscolasController extends AppController {
 			$this->Escola->create();
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
-				if ($this->request->data['Escola']['tipo'] < 3) {
+				if ($this->request->data['Escola']['tipo'] < 3 || $this->request->data['Escola']['tipo'] > 4) {
 					return $this->redirect(array('action' => 'index', $id, $tipo));
 				} else {
 					return $this->redirect(array('action' => 'index_fac', $id));
@@ -163,7 +169,7 @@ class EscolasController extends AppController {
 
 		$this->request->data['Escola']['cidade_id'] = $idCity;
 
-		if ($this->request->data['Escola']['tipo'] > 2) {
+		if ($tipo == 3 || $tipo == 4) {
 			$tipos = array('3' => 'Faculdade federal',
 						'4' => 'Faculdade privada'
 					);
@@ -175,7 +181,7 @@ class EscolasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
-				if ($this->request->data['Escola']['tipo'] < 3) {
+				if ($tipo < 3 || $tipo > 4) {
 					return $this->redirect(array('action' => 'index', $idCity, $tipo));
 				} else {
 					return $this->redirect(array('action' => 'index', $idCity));

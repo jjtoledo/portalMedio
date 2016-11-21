@@ -21,8 +21,8 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Faculdade'), array('controller' => 'escolas', 'action' => 'view', $escola['Escola']['id'], $escola['Escola']['cidade_id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo curso'), array('action' => 'add', $escola['Escola']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Faculdade'), array('controller' => 'escolas', 'action' => 'view', $escola['Escola']['id'], $escola['Escola']['cidade_id'], $tipo), array('escape' => false)); ?> </li>													
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo curso'), array('action' => 'add', $escola['Escola']['id'], $tipo), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -46,9 +46,9 @@
 						<td nowrap><?php echo h($curso['Curso']['periodos']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($curso['Curso']['area']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $curso['Curso']['id'], $escola['Escola']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $curso['Curso']['id'], $escola['Escola']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $curso['Curso']['id'], $escola['Escola']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $curso['Curso']['id'], $escola['Escola']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $curso['Curso']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

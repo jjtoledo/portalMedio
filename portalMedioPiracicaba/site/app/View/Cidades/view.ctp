@@ -202,6 +202,36 @@
 
 		<div class="col-md-3 menu">
 			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Particulares'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 5), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Profissionalizantes'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 6), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas de Idiomas'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 7), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Pré Vestibulares'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 8), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Escolas Especializadas'), array('controller' => 'escolas', 'action' => 'index', $cidade['Cidade']['id'], 9), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp; Faculdades'), array('controller' => 'escolas', 'action' => 'index_fac', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
