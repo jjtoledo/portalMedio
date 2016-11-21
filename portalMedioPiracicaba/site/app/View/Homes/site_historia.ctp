@@ -180,19 +180,35 @@
 						<?php echo '<h1 class="noticiasHome">Símbolos Municipais</h1><br><hr style="margin-top:0">' ?>			
 					</div>
 
-		    	<?php 
+		    	<div class="col-md-12">;
+		    	<?php $count = 0; $b = 0; 
 		    		foreach ($cidade['Simbolo'] as $c):
-		    			echo '<div class="row">';
-		    			echo '<div class="col-md-12">';
-		    			if (!empty($c['imagem'])) {
-			    			echo '<div class="col-md-6 noticia_foto">';
-								echo $this->Html->image($c['imagem'], array('width' => '100%')); 
-							  echo '</div>';
-		    			}
-		    			echo $c['descricao'];
-		    			echo '<hr></div></div><br><br>';
+		    			if ($b == 2) {	
+		      				$b = 0;	      				
+		      				echo '</div>';
+		      			}
+	      			
+	      			if ($count % 2 == 0) {	
+	      				echo '<div class="row">';
+	      			}
+		    			
+		    			echo '<div class="col-md-6" style="margin-bottom: 50px">';
+			    			if (!empty($c['imagem'])) {
+				    			echo '<div class="col-md-4 noticia_foto">';
+									echo $this->Html->image($c['imagem'], array('width' => '100%')); 
+								  echo '</div>';
+			    				echo '<div class="col-md-8 text-justify">';
+			    			} else {
+			    				echo '<div class="col-md-8 col-md-offset-2 text-justify">';
+			    			}
+			    			echo $c['descricao'];
+								echo '</div>';	
+							echo '</div>';
+							$b++;
+		      		$count++;	    			
 		    		endforeach;
 		    	?>
+		    	</div>
 			  </div>
 			</section>
 		<?php } ?>
