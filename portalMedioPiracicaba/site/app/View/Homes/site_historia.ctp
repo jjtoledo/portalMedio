@@ -100,24 +100,70 @@
 					echo '<hr>';
 					if (!empty($fotos_antigas)) {
 						$count = 0; 
+						$slide = 1; 
 			    	echo '<div class="row">';
       			for ($i=0; $i < 4; $i++) { 
       				if (count($fotos_antigas) == $count) {
       					$count = 0;
-      				} ?>
-			    			<?php 
-			    				echo '<div class="col-sm-6 col-md-3">';
-									echo '<div class="thumbnail">';
-									echo $this->Html->image($fotos_antigas[$count]['Foto']['foto'], array('class' => ' foto'));								
-									echo '</div>';
-									echo '</div>';
-			    			?>	
-		    		<?php $count++; 
+      				}
+	    				echo '<div class="col-sm-6 col-md-3">';
+							echo '<div class="thumbnail">';
+							echo $this->Html->image($fotos_antigas[$count]['Foto']['foto'], array('class' => ' foto', 'onclick' => 'openModal();currentSlide('.$slide.')'));								
+							echo '</div>';
+							echo '</div>';
+	    			  $count++; 
+	    			  $slide++;
 		    		}
 			    	echo '</div><br>';
 					}
 				?>
 			</div>
+
+			<?php if (!empty($fotos_antigas)) { ?>
+			<div id="myModal" class="modal">
+			  <span class="close cursor" onclick="closeModal()">&times;</span>
+			  <div class="modal-content">
+
+			  	<?php			  		
+						$count = 0; 
+						$slide = 1; 
+      			for ($i=0; $i < 4; $i++) { 
+      				if (count($fotos_antigas) == $count) {
+      					$count = 0;
+      				}
+	    				echo '<div class="mySlides">';
+							echo '<div class="numbertext">'.$slide.' / 4</div>';
+							echo $this->Html->image($fotos_antigas[$count]['Foto']['foto'], array('width' => '100%'));								
+							echo '</div>';
+	    			  $count++;
+	    			  $slide++; 
+		    		}
+					?>
+			    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+			    <div class="caption-container">
+			      <p id="caption"></p>
+			    </div>
+
+			    <?php			  		
+						$count = 0;
+						$slide = 1; 
+      			for ($i=0; $i < 4; $i++) { 
+      				if (count($fotos_antigas) == $count) {
+      					$count = 0;
+      				}							
+	    				echo '<div class="col-md-3">';
+							echo '<div class="numbertext">'.$slide.' / 4</div>';
+							echo $this->Html->image($fotos_antigas[$count]['Foto']['foto'], array('width' => '100%', 'class' => 'demo', 'onclick' => 'openModal();currentSlide('.$slide.')'));								
+							echo '</div>';
+	    			  $count++; 
+	    			  $slide++;
+		    		}
+					?>
+			  </div>
+			</div>
+			<?php } ?>
 	  </div>
 	</main>
 
