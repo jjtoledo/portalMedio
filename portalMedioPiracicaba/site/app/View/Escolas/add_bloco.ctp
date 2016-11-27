@@ -137,7 +137,10 @@
 				telefone2.value = bloco.value.substring(bars[0]+2, lines[2]);				
 			}			
 
-			site.value = bloco.value.substring(lines[2]+1, lines[3]);
+			if (lies.length > 2) {
+				site.value = bloco.value.substring(lines[2]+1);	
+			}
+			
 		} else {			
 			descricao.value = bloco.value.substring(lines[0]+1, lines[1]);
 			localizacao.value = bloco.value.substring(lines[1]+1, lines[2]);
@@ -149,7 +152,9 @@
 				telefone2.value = bloco.value.substring(bars[0]+2, lines[3]);				
 			}	
 
-			site.value = bloco.value.substring(lines[3]+1, lines[4]);
+			if (lines.length > 3) {
+				site.value = bloco.value.substring(lines[3]+1);	
+			}
 		}
 	}
 </script>

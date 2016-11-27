@@ -119,7 +119,9 @@
 				telefone2.value = bloco.value.substring(bars[0]+2, lines[3]);				
 			}			
 
-			site.value = bloco.value.substring(lines[3]+1, lines[4]);
+			if (lines.length > 3) {
+				site.value = bloco.value.substring(lines[3]+1);	
+			}
 		} else {						
 			if (bars.length == 0) {
 				telefone1.value = bloco.value.substring(lines[1]+1, lines[2]);
@@ -128,7 +130,9 @@
 				telefone2.value = bloco.value.substring(bars[0]+2, lines[2]);				
 			}	
 
-			site.value = bloco.value.substring(lines[2]+1, lines[3]);
+			if (lines.length > 2) {
+				site.value = bloco.value.substring(lines[2]+1);	
+			}
 		}
 	}
 </script>
