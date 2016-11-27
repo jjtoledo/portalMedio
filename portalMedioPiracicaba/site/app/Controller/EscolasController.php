@@ -128,11 +128,48 @@ class EscolasController extends AppController {
 			$tipos = array('3' => 'Faculdade federal',
 						'4' => 'Faculdade privada'
 					);
+			$this->set('tipos', $tipos);
 		} else {
 			$this->request->data['Escola']['tipo'] = $tipo;
-		}
-		
-		$this->set('tipos', $tipos);
+		}		
+
+		$this->set('tipo', $tipo);
+
+		if ($this->request->is('post')) {
+			$this->Escola->create();
+			if ($this->Escola->save($this->request->data)) {
+				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
+				if ($this->request->data['Escola']['tipo'] < 3 || $this->request->data['Escola']['tipo'] > 4) {
+					return $this->redirect(array('action' => 'index', $id, $tipo));
+				} else {
+					return $this->redirect(array('action' => 'index_fac', $id));
+				}
+			} else {
+				$this->Session->setFlash(__('The escola could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		}		
+
+		$this->loadModel('Cidade');
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+	}
+
+/**
+ * add bloco method
+ *
+ * @return void
+ */
+	public function add_bloco($id = null, $tipo = null) {
+		$this->request->data['Escola']['cidade_id'] = $id;
+
+		if ($tipo == 3) {
+			$tipos = array('3' => 'Faculdade federal',
+						'4' => 'Faculdade privada'
+					);
+			$this->set('tipos', $tipos);
+		} else {
+			$this->request->data['Escola']['tipo'] = $tipo;
+		}		
 
 		$this->set('tipo', $tipo);
 

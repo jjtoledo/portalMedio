@@ -93,6 +93,29 @@ class EnderecosController extends AppController {
 	}
 
 /**
+ * add method
+ *
+ * @return void
+ */
+	public function add_bloco($id = null) {
+		$this->request->data['Endereco']['cidade_id'] = $id;
+
+		if ($this->request->is('post')) {
+			$this->Endereco->create();
+			if ($this->Endereco->save($this->request->data)) {
+				$this->Session->setFlash(__('The Endereco has been saved.'), 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('action' => 'index', $id));
+			} else {
+				$this->Session->setFlash(__('The Endereco could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		}
+		
+		$this->loadModel('Cidade');
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+	}
+
+/**
  * edit method
  *
  * @throws NotFoundException

@@ -93,6 +93,29 @@ class PrestadorsController extends AppController {
 	}
 
 /**
+ * add method
+ *
+ * @return void
+ */
+	public function add_bloco($id = null) {
+		$this->request->data['Prestador']['cidade_id'] = $id;
+
+		if ($this->request->is('post')) {
+			$this->Prestador->create();
+			if ($this->Prestador->save($this->request->data)) {
+				$this->Session->setFlash(__('The Prestador has been saved.'), 'default', array('class' => 'alert alert-success'));
+				return $this->redirect(array('action' => 'index', $id));
+			} else {
+				$this->Session->setFlash(__('The Prestador could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+			}
+		}
+		
+		$this->loadModel('Cidade');
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+	}
+
+/**
  * edit method
  *
  * @throws NotFoundException

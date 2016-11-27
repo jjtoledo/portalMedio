@@ -239,7 +239,7 @@
 
 	<div class="row" style="margin-bottom: 20px">
 		<div class="col-md-12">
-			<h3><?php echo __('Transporte'); ?></h3>
+			<h3><?php echo __('Horários de Ônibus'); ?></h3>
 			<hr style="border-bottom: 1px solid #ddd">
 		</div>
 

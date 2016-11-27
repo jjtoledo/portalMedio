@@ -35,10 +35,13 @@
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('tipo', array('class' => 'form-control', 'placeholder' => 'Ex: Intermunicipal'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('rota', array('class' => 'form-control', 'placeholder' => 'Rota'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('tipo', array('class' => 'form-control', 'placeholder' => 'Tipo'));?>
+					<?php echo $this->Form->input('frequencia', array('class' => 'form-control', 'placeholder' => "Ex: Diariamente: 18:00, 19:00\nDomingos e feriados: 12:00, 00:00"));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
