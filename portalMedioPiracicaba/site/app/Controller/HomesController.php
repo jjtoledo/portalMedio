@@ -107,7 +107,9 @@ class HomesController extends AppController {
 
 		$this->loadModel('Distrito');
 		$options = array(
-			'Distrito.cidade_id' => $id
+			'conditions' => array(
+				'Distrito.cidade_id' => $id
+			)
  		);
 		$distritos = $this->Distrito->find('all', $options);
 		$this->set('distritos', $distritos);
@@ -138,7 +140,9 @@ class HomesController extends AppController {
 
 		$this->loadModel('AtrativoTuristico');
 		$options = array(
-			'AtrativoTuristico.cidade_id' => $id
+			'conditions' => array(
+				'AtrativoTuristico.cidade_id' => $id
+			)
  		);
 		$atrativos = $this->AtrativoTuristico->find('all', $options);
 		$this->set('atrativos', $atrativos);

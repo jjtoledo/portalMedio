@@ -191,16 +191,16 @@
 		    			<?php 
 		    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
 		    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
-			    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+			    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 		    				} else {
 		    					echo '<div class="config-padding col-md-12 text-center">';
 		    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
 		    					echo '<hr class="config-margin-hr">';
 		    					echo '</div>';
-		    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-		    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$eventos[$count]['Evento']['data'].'</p>';
 		    				}
-		    				echo '</a>'
+		    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
+		    				echo '</a>';
 		    			?>	
 		    		</div><br>
 		    	</div>

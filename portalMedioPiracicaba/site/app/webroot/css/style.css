@@ -480,9 +480,19 @@ div#listCidades.row > div > a:hover {
 
 .menor {
   color: #51A8B1; 
-  margin-top: 0;
+  margin-top: 10px;
   padding-right: 10px;
   padding-left: 10px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.menor.margin {
+  margin-top: 20px;
+}
+
+.menor_detalhe {
+  font-size: 16px;
 }
 
 @media screen and (min-width: 1360px) {
@@ -503,7 +513,11 @@ div#listCidades.row > div > a:hover {
 
 @media screen and (max-width: 1400px) {
   .menor {
-    font-size: 20px;
+    font-size: 17px;
+  }
+
+  .menor_detalhe {
+    font-size: 15px;
   }
 
   .welcome {
@@ -551,7 +565,11 @@ div#listCidades.row > div > a:hover {
 
 @media screen and (max-width: 1200px){
   .menor {
-    font-size: 18px;
+    font-size: 16px;
+  }
+
+  .menor_detalhe {
+    font-size: 14px;
   }
 
   .arrow {
@@ -610,6 +628,14 @@ div#listCidades.row > div > a:hover {
     margin-top: 25%;
   }
 
+  .menor_detalhe {
+    font-size: 18px;
+  }
+
+  .hiding_event {
+    display: none;
+  }
+
   .config-padding {
     display: none;
   }
@@ -657,7 +683,7 @@ div#listCidades.row > div > a:hover {
 
 @media screen and (max-width: 768px){
   .menor {
-    margin-top: 20%;
+    margin-top: 18%;
   }
 
   .dropdown-menu.white > li > a {
@@ -812,7 +838,7 @@ div#listCidades.row > div > a:hover {
 
 @media screen and (max-width: 480px){
   .menor {
-    margin-top: 30%;
+    margin-top: 26%;
   }
 
   .noticia {
@@ -829,6 +855,7 @@ div#listCidades.row > div > a:hover {
 @media screen and (max-width: 360px){
   .menor {
     font-size: 18px;
+    margin-top: 20%;
   }
 
   #pLogo {

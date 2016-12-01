@@ -33,7 +33,7 @@
 					<?php echo $this->Form->input('imagem', array('type' => 'file', 'label' => 'Imagem'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'label' => 'Descrição'));?>
+					<?php echo $this->Tinymce->input('Simbolo.descricao', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>

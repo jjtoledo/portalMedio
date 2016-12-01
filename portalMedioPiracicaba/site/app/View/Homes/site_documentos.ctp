@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 cresce">
+			<div class="col-md-10 cresce" style="margin-left: 8.7%">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -98,7 +98,7 @@
 		      				echo '<div class="col-md-4">'.$this->Html->image('docs.png', array('width' => '100%', 'height' => '100%')).'</div>';
 		      				
 		      				echo '<div class="col-md-8"><b>'
-		    						.$doc['nome'].' '.$doc['tipo_documento'].'</b><br><br>';
+		    						.$doc['tipo_documento'].' '.$doc['nome'].'</b><br><br>';
 		    						if ($doc['telefone1'] != '') {
 		    							echo 'Telefone: '.$doc['telefone1'];
 		    						}

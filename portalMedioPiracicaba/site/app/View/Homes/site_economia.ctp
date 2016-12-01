@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 cresce">
+			<div class="col-md-10 cresce" style="margin-left: 8.7%">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -99,12 +99,8 @@
 		    	</div>
 		      <div class="row border">
 		      	<div class="col-md-12">
-		      	<?php $count = 0; 
-	      			for ($i=0; $i < 6; $i++) { 		      				
-	      				if (count($cidade['Empresa']) == $count) {
-	      					$count = 0;
-	      				}
-
+		      	<?php $count = 0;
+	      			for ($i=0; $i < count($cidade['Empresa']); $i++) { 		      				
 	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
 	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
 	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
@@ -130,7 +126,7 @@
 	      				echo '</div>';
 	      		?>
 				    	
-			    	<?php $count++; } ?>	
+			    	<?php $count++; if($count == 20) { break; } } ?>	
 			    	</div>					
 			    </div>
 		    </div>

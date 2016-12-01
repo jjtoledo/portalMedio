@@ -33,7 +33,7 @@
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
-						<th nowrap><?php echo $this->Paginator->sort('descricao'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('titulo'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('local'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('horario'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('data'); ?></th>
@@ -43,7 +43,7 @@
 				<tbody>
 				<?php foreach ($eventos as $evento): ?>
 					<tr>
-						<td nowrap><?php echo h($evento['Evento']['descricao']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($evento['Evento']['titulo']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($evento['Evento']['local']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($evento['Evento']['horario']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($evento['Evento']['data']); ?>&nbsp;</td>

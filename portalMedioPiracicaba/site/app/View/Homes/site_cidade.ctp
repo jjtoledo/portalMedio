@@ -97,11 +97,19 @@
 			  		<?php
 			  		echo $this->Html->link('História&nbsp;&nbsp;<span class="glyphicon glyphicon-book"></span>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		echo '<hr class="config-margin-hr">';
-			  		if (strlen($cidade['Historia']['historia']) > 1000) {
-			  			echo substr($cidade['Historia']['historia'], 0, 1000) . '...';
+			  		if (empty($cidade['Cidade']['descricao'])) {
+			  			if (strlen($cidade['Historia']['historia']) > 1000) {
+				  			echo substr($cidade['Historia']['historia'], 0, 1000) . '...';
+				  		} else {
+				  			echo substr($cidade['Historia']['historia'], 0, 1000);
+				  		}
 			  		} else {
-			  			echo substr($cidade['Historia']['historia'], 0, 1000);
-			  		}
+			  			if (strlen($cidade['Cidade']['descricao']) > 1000) {
+				  			echo substr($cidade['Cidade']['descricao'], 0, 1000) . '...';
+				  		} else {
+				  			echo substr($cidade['Cidade']['descricao'], 0, 1000);
+				  		}
+			  		}			  		
 			  		echo $this->Html->link('<br>Leia mais >>>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		?>
 			  	</div>
@@ -118,15 +126,15 @@
 		    				} else {
 		    					echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
 			    				if ($cidade['Evento']['0']['foto_anuncio'] != null) {
-				    				echo $this->Html->image($cidade['Evento']['0']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+				    				echo $this->Html->image($cidade['Evento']['0']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 			    				} else {
 			    					echo '<div class="config-padding col-md-12 text-center">';
 			    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
 			    					echo '<hr class="config-margin-hr">';
 			    					echo '</div>';
-			    					echo '<h3 class="text-center menor">'.$cidade['Evento']['0']['titulo'].'</h3>';
-			    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$cidade['Evento']['0']['data'].'</p>';
 			    				}
+			    					echo '<h3 class="text-center menor">'.$cidade['Evento']['0']['titulo'].'</h3>';
+			    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$cidade['Evento']['0']['data']. ' - ' .$cidade['Evento']['0']['horario'].'</p>';
 			    				echo '</a>';
 			    			}
 		    			?>	
@@ -195,7 +203,7 @@
 		    	</div>
 			  </div>
 			</div>
-		  <div class="col-md-8 col-md-offset-2 cresce">
+		  <div class="col-md-10 cresce" style="margin-left: 8.7%">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	

@@ -73,9 +73,9 @@
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'prestadores') {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Prestadores', array('action' => 'site_prestadores', $id), array('class' => 'listMenu active', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Prestadores de Serviços', array('action' => 'site_prestadores', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Prestadores', array('action' => 'site_prestadores', $id), array('class' => 'listMenu', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Prestadores de Serviços', array('action' => 'site_prestadores', $id), array('class' => 'listMenu', 'escape' => false));
 	}
 	echo '</div>';
 
@@ -105,9 +105,9 @@
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'documentos') {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Documentos', array('action' => 'site_documentos', $id), array('class' => 'listMenu active', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Onde Fazer', array('action' => 'site_documentos', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Documentos', array('action' => 'site_documentos', $id), array('class' => 'listMenu', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Onde Fazer', array('action' => 'site_documentos', $id), array('class' => 'listMenu', 'escape' => false));
 	}
 	echo '</div>';
 
@@ -121,9 +121,9 @@
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'social') {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Assistências Sociais', array('action' => 'site_social', $id), array('class' => 'listMenu active', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Órgãos Assistenciais', array('action' => 'site_social', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Assistências Sociais', array('action' => 'site_social', $id), array('class' => 'listMenu', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Órgãos Assistenciais', array('action' => 'site_social', $id), array('class' => 'listMenu', 'escape' => false));
 	}
 	echo '</div>';
 

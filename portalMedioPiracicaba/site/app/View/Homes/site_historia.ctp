@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 cresce">
+			<div class="col-md-10 cresce" style="margin-left: 8.7%">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -245,7 +245,6 @@
 								  echo '</div>';
 			    				echo '<div class="col-md-8 text-justify">';
 			    			} else {
-			    				echo '<div class="col-md-8 col-md-offset-2 text-justify">';
 			    			}
 			    			echo $c['descricao'];
 								echo '</div>';	

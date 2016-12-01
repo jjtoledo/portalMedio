@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-8 col-md-offset-2 cresce">
+			<div class="col-md-10 cresce" style="margin-left: 8.7%">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -96,15 +96,15 @@
 				    			<?php 
 				    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
 				    				if ($atrativos[$count]['FotoAtrativo'] != null) {
-					    				echo $this->Html->image($atrativos[$count]['FotoAtrativo']['0']['foto'], array('width' => '100%', 'height' => '100%'));
+					    				echo $this->Html->image($atrativos[$count]['FotoAtrativo']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 				    				} else {
 				    					echo '<div class="config-padding col-md-12 text-center">';
-				    					echo $this->Html->image('turismo.png', array('width' => '40%', 'height' => '50%'));
-				    					echo '<hr class="config-margin-hr">';
+				    					echo $this->Html->image('turismo.png', array('width' => '45%', 'height' => '60%'));
+				    					echo '<hr style="margin-top: 30px">';
 				    					echo '</div>';
-				    					echo '<h3 class="text-center menor">'.$atrativos[$count]['AtrativoTuristico']['nome'].'</h3>';
 				    				}
-				    				echo '</a>'
+				    					echo '<h3 class="text-center menor margin">'.$atrativos[$count]['AtrativoTuristico']['nome'].'</h3>';
+				    				echo '</a>';
 				    			?>	
 				    		</div><br>
 				    	</div>
@@ -133,16 +133,16 @@
 				    			<?php 
 				    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
 				    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
-					    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+					    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 				    				} else {
 				    					echo '<div class="config-padding col-md-12 text-center">';
 				    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
 				    					echo '<hr class="config-margin-hr">';
 				    					echo '</div>';
-				    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-				    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$eventos[$count]['Evento']['data'].'</p>';
 				    				}
-				    				echo '</a>'
+				    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+				    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
+				    				echo '</a>';
 				    			?>	
 				    		</div><br>
 				    	</div>
@@ -180,15 +180,15 @@
 				    			<?php 
 				    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
 				    				if ($cidade['EspacoEvento'][$count]['foto_anuncio'] != null) {
-					    				echo $this->Html->image($cidade['EspacoEvento'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%'));
+					    				echo $this->Html->image($cidade['EspacoEvento'][$count]['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 				    				} else {
 				    					echo '<div class="config-padding col-md-12 text-center">';
-				    					echo $this->Html->image('espaco_evento.png', array('width' => '40%', 'height' => '50%'));
+				    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
 				    					echo '<hr class="config-margin-hr">';
 				    					echo '</div>';
-				    					echo '<h3 class="text-center menor">'.$cidade['EspacoEvento'][$count]['nome'].'</h3>';
-				    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">'.$cidade['EspacoEvento'][$count]['telefone1'].'</p>';
 				    				}
+				    					echo '<h3 class="text-center menor">'.$cidade['EspacoEvento'][$count]['nome'].'</h3>';
+				    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$cidade['EspacoEvento'][$count]['telefone1'].'</p>';
 				    				echo '</a>'
 				    			?>	
 				    		</div><br>
