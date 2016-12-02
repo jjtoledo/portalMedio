@@ -30,10 +30,10 @@
 		</div><!-- end col md 3 -->
 
 		<div class="col-md-9">
-			<?php //debug($fotos) 
+			<?php
 				echo '<div class="row">';
 				if (count($fotos > 0)) {
-					for ($i=0; $i < count($fotos); $i++) { 
+					for ($i=0; $i < count($fotos); $i++) { 						
 						echo '<div class="col-sm-6 col-md-4">';
 						echo '<div class="thumbnail">';
 						echo $this->Html->image($fotos[$i]['Foto']['foto'], array('class' => ' foto'));

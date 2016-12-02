@@ -525,7 +525,8 @@ class HomesController extends AppController {
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
 
-		$cidades = $this->Cidade->find('all');
+		$options = array('order' => 'Cidade.nome');
+		$cidades = $this->Cidade->find('all', $options);
 		$this->set(compact('cidades'));
 		$this->set('results', $this->clima_cidade($cidade));
 

@@ -245,6 +245,7 @@
 								  echo '</div>';
 			    				echo '<div class="col-md-8 text-justify">';
 			    			} else {
+			    				echo '<div class="col-md-12 text-justify">';
 			    			}
 			    			echo $c['descricao'];
 								echo '</div>';	

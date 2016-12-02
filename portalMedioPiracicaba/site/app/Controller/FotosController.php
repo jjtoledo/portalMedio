@@ -35,13 +35,14 @@ class FotosController extends AppController {
  * @return void
  */
 	public function index($id = null, $tipo = null) {
-		$this->Paginator->settings = array(
+		$options = array(
 			'conditions' => array(
 				'Foto.cidade_id' => $id,
 				'Foto.tipo' => $tipo
 			)
 		);
-		$this->set('fotos', $this->Paginator->paginate());
+		$fotos = $this->Foto->find('all', $options);
+		$this->set(compact('fotos'));
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
