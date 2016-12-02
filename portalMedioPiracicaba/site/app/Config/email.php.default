@@ -53,7 +53,7 @@ class EmailConfig {
 		'password' => 'secret',
 		'client' => null,
 		'log' => false,
-		//'charset' => 'utf-8',
+		'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
 	);
 

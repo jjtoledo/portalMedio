@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('HttpSocket', 'Network/Http');
+
 /**
  * Historias Controller
  *
@@ -8,6 +9,8 @@ App::uses('HttpSocket', 'Network/Http');
  * @property PaginatorComponent $Paginator
  */
 class HomesController extends AppController {
+
+	var $components = array('Email');
 
 	public function index() {
 		$this->set('title_for_layout', 'Home');
@@ -271,6 +274,38 @@ class HomesController extends AppController {
 		$this->set('active', 'enderecos');
 	}
 
+	public function site_contato($id = null) {
+		$this->set('title_for_layout', 'Contato');
+		$this->common($id);
+
+		if ($this->request->is('post')) {
+			$name = $this->data['Contato']['nome'];
+	        $from = $this->data['Contato']['email'];
+	        $subject = $this->data['Contato']['assunto'];
+	        $msg = $this->data['Contato']['mensagem'];
+
+	        $this->Email->sendAs = 'both'; // html, text, both
+	        $this->set('conteudo', $msg); // especifica variavel da mensagem para o template
+	        //$this->Email->layout = 'contact'; // views/elements/email/html/contact.ctp
+	        //$this->Email->template = 'contact';
+
+	        // set view variables as normal
+	        $this->set('from', $name);
+	        $this->set('msg', $msg);
+
+			$this->Email->to = 'contato@portalmediopiracicaba.com';
+			$this->Email->subject = $subject;
+			$this->Email->from = $name . '<' . $from .'>';
+
+			if ( $this->Email->send($msg) ) {
+			   $this->Session->setFlash('E-mail enviado');
+			} else {
+			   $this->Session->setFlash('E-mail nao enviado');
+			}
+			$this->redirect('action', 'site_contato');
+		}		
+	}
+
 /** 
  * Métodos site **********************************************************************************************************
  * listar todas as notícias com base no tipo
@@ -434,62 +469,6 @@ class HomesController extends AppController {
 
 	public function common($id = null, $title = null) {
 		$this->loadModel('Cidade');
-		if (!$this->Cidade->exists($id)) {
-			throw new NotFoundException(__('Invalid Cidade'));
-		}
-
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
-		$cidade = $this->Cidade->find('first', $options);
-		$this->set('cidade', $cidade);
-
-		if ($title != null) {
-			$this->set('title_for_layout', $cidade['Cidade']['nome']);
-		}
-
-		$this->set('id', $id);
-
-		/*Carregamento das fotos */
-		$this->loadModel('Foto');
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 3,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_aereas', $this->Foto->find('all', $options));
-
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 2,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_atuais', $this->Foto->find('all', $options));
-
-		$options = array(
-			'order' => 'rand()',
-			'conditions' => array(
-				'Foto.tipo' => 1,
-				'Foto.cidade_id' => $id
-			),
-			'limit' => 4
-		);
-		$this->set('fotos_antigas', $this->Foto->find('all', $options));
-
-		/* Agenda */
-		$this->loadModel('Evento');
-		$options = array(
-			'order' => 'Evento.data',
-			'conditions' => array(
-				'Evento.cidade_id' => $id
-			)
-		);
-		$eventos = $this->Evento->find('all', $options);
-		$this->set(compact('eventos'));
 
 		/*Carregamento dos parceiros e anúncios*/
 		$conditions = array(
@@ -527,9 +506,68 @@ class HomesController extends AppController {
 
 		$options = array('order' => 'Cidade.nome');
 		$cidades = $this->Cidade->find('all', $options);
-		$this->set(compact('cidades'));
-		$this->set('results', $this->clima_cidade($cidade));
+		$this->set(compact('cidades'));		
 
-		return $cidade;
+		if ($id != null) {			
+			if (!$this->Cidade->exists($id)) {
+				throw new NotFoundException(__('Invalid Cidade'));
+			}
+
+			$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
+			$cidade = $this->Cidade->find('first', $options);
+			$this->set('cidade', $cidade);
+			$this->set('results', $this->clima_cidade($cidade));
+
+			if ($title != null) {
+				$this->set('title_for_layout', $cidade['Cidade']['nome']);
+			}
+
+			$this->set('id', $id);
+
+			/*Carregamento das fotos */
+			$this->loadModel('Foto');
+			$options = array(
+				'order' => 'rand()',
+				'conditions' => array(
+					'Foto.tipo' => 3,
+					'Foto.cidade_id' => $id
+				),
+				'limit' => 4
+			);
+			$this->set('fotos_aereas', $this->Foto->find('all', $options));
+
+			$options = array(
+				'order' => 'rand()',
+				'conditions' => array(
+					'Foto.tipo' => 2,
+					'Foto.cidade_id' => $id
+				),
+				'limit' => 4
+			);
+			$this->set('fotos_atuais', $this->Foto->find('all', $options));
+
+			$options = array(
+				'order' => 'rand()',
+				'conditions' => array(
+					'Foto.tipo' => 1,
+					'Foto.cidade_id' => $id
+				),
+				'limit' => 4
+			);
+			$this->set('fotos_antigas', $this->Foto->find('all', $options));
+
+			/* Agenda */
+			$this->loadModel('Evento');
+			$options = array(
+				'order' => 'Evento.data',
+				'conditions' => array(
+					'Evento.cidade_id' => $id
+				)
+			);
+			$eventos = $this->Evento->find('all', $options);
+			$this->set(compact('eventos'));
+
+			return $cidade;
+		}
 	}
 }

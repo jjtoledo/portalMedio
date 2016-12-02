@@ -44,25 +44,6 @@
 
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $this->fetch('content'); ?>
-
-  <!--<footer  style="background-color:#FF6C3B">
-    <nav>
-    <h2>Navegue no site</h2>
-    <ul>
-    <li><a href="#">Home</a></li> 
-    <li><a href="#">História das cidades</a></li>
-    <li><a href="#">Seja um colaborarador</a></li>
-    <li><a href="#">Quem somos</a></li>
-    </ul>
-    </nav>
-    <nav>
-    <h2>Fique conectado !</h2>
-    <ul>
-    <li><a href="#">Email</a></li>
-    </ul>
-    </nav>
-    <small>Copyright © 2010 </small>
-  </footer> -->
   
   </body>
 </html>
