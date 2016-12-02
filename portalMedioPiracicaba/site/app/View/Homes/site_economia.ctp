@@ -99,8 +99,17 @@
 		    	</div>
 		      <div class="row border">
 		      	<div class="col-md-12">
-		      	<?php $count = 0;
+		      	<?php $count = 0; $b = 0;
 	      			for ($i=0; $i < count($cidade['Empresa']); $i++) { 		      				
+	      				
+	      				if ($b == 2) {	
+		      				$b = 0;	      				
+		      				echo '</div>';
+		      			}
+		      			if ($count % 2 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
 	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
 	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
 	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					

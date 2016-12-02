@@ -113,9 +113,9 @@
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'orgaos') {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Órgãos Públicos', array('action' => 'site_orgaos', $id), array('class' => 'listMenu active', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Onde Fica', array('action' => 'site_orgaos', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Órgãos Públicos', array('action' => 'site_orgaos', $id), array('class' => 'listMenu', 'escape' => false));
+		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Onde Fica', array('action' => 'site_orgaos', $id), array('class' => 'listMenu', 'escape' => false));
 	}
 	echo '</div>';
 
