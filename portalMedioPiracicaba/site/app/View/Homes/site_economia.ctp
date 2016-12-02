@@ -135,7 +135,7 @@
 	      				echo '</div>';
 	      		?>
 				    	
-			    	<?php $count++; if($count == 20) { break; } } ?>	
+			    	<?php $count++; $b++; if($count == 20) { break; } } ?>	
 			    	</div>					
 			    </div>
 		    </div>
