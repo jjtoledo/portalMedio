@@ -39,6 +39,9 @@
 
   				echo '<div class="item '.$active.'">';
   				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
+  				echo 	'<div class="carousel-caption">';
+	    		echo 		'<div class="arrow bounce"></div>';
+	    		echo 	'</div>';
 	    		echo '</div>';
 
 	    		$count++;

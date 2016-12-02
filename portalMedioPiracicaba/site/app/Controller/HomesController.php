@@ -10,7 +10,7 @@ App::uses('HttpSocket', 'Network/Http');
  */
 class HomesController extends AppController {
 
-	var $components = array('Email');
+	var $components = array('Flash', 'Email');
 
 	public function index() {
 		$this->set('title_for_layout', 'Home');
@@ -283,7 +283,8 @@ class HomesController extends AppController {
 	        $from = $this->data['Contato']['email'];
 	        $subject = $this->data['Contato']['assunto'];
 	        $msg = $this->data['Contato']['mensagem'];
-
+	        
+	        $this->Email->delivery = 'smtp';
 	        $this->Email->sendAs = 'both'; // html, text, both
 	        $this->set('conteudo', $msg); // especifica variavel da mensagem para o template
 	        //$this->Email->layout = 'contact'; // views/elements/email/html/contact.ctp
