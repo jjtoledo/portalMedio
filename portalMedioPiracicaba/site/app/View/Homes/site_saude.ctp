@@ -82,14 +82,23 @@
 
 				<?php foreach ($tipos as $t) { ?>
 					<div class="col-md-12 text-justify">
-		      	<p class="linkNormal" style="margin-top: 20px"><?php echo $t['OrgaoSaude']['tipo'] ?></p>
+		      	<!--<p class="linkNormal" style="margin-top: 20px"><?php echo $t['OrgaoSaude']['tipo'] ?></p>-->
 	  				<hr style="border-top: 1px solid #ddd; margin-top: 10px; margin-bottom: 15px; width: auto">	
-						<?php $count = 0; 
+						<?php $count = 0; $b = 0;
 	      			foreach ($cidade['OrgaoSaude'] as $orgao) {
-	      				if ($count == 4) {
+	      				if ($count == 20) {
 	      					break;
 	      				}
-	      				if ($t['OrgaoSaude']['tipo'] == $orgao['tipo']) {	      				
+
+	      				if ($b == 2) {	
+		      				$b = 0;	      				
+		      				echo '</div>';
+		      			}
+		      			if ($count % 2 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
+	      				//if ($t['OrgaoSaude']['tipo'] == $orgao['tipo']) {	      				
 		      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
 		      				if ($orgao['foto_anuncio'] != null) {
 		      					echo '<div class="col-md-6">'.$this->Html->image($orgao['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
@@ -112,8 +121,10 @@
 			    						}
 			    					echo '</div>';
 		      				echo '</div>';
+
+		      				$b++;
 		      				$count++;
-		      			}		      			
+		      			//}		      			
 		      		}		      	
 		      	?>						
 				</div>
