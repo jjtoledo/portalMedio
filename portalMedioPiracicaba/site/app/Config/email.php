@@ -50,6 +50,7 @@ class EmailConfig {
 		'port' => 587,
 		'timeout' => 30,
 		'username' => 'contato@portalmediopiracicaba.com',
+		'password' => 'sneika51',
 		'client' => null,
 		'log' => false,
 		'charset' => 'utf-8',
