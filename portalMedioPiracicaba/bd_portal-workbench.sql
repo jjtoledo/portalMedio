@@ -54,6 +54,23 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`cidades` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`camaras` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  `descricao` text NULL DEFAULT NULL,
+  `endereco` varchar(200) NULL DEFAULT NULL,
+  `telefone1` varchar(20) NULL DEFAULT NULL,
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_camaras_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_camaras_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmediopir`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`exvereadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `ano_inicio` int(4) not NULL,
@@ -327,6 +344,20 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_atrativos` (
   CONSTRAINT `fk_foto_atrativos_atrativo_turisticos1`
     FOREIGN KEY (`atrativo_turistico_id`)
     REFERENCES `portalmediopir`.`atrativo_turisticos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_camaras` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `camara_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `camara_id`),
+  INDEX `fk_foto_cidade_distritos1_idx` (`camara_id` ASC),
+  CONSTRAINT `fk_foto_cidade_distritos1`
+    FOREIGN KEY (`camara_id`)
+    REFERENCES `portalmediopir`.`camaras` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB

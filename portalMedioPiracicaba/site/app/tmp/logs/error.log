@@ -18732,3 +18732,79 @@ Stack Trace:
 #8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
 #9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2016-12-03 14:52:16 Error: [MissingActionException] Action FotoCamarasController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'FotoCamarasController',
+  'action' => 'index',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/fotoCamaras
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(FotoCamarasController), Object(CakeRequest))
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2016-12-03 23:21:35 Error: [MissingConnectionException] Database connection "Mysql" is missing, or could not be created.
+Exception Attributes: array (
+  'class' => 'Mysql',
+  'message' => 'SQLSTATE[HY000] [2002] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+',
+  'enabled' => true,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(260): Mysql->connect()
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\ConnectionManager.php(105): DboSource->__construct(Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3626): ConnectionManager::getDataSource('default')
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1155): Model->setDataSource('default')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3653): Model->setSource('cidades')
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3031): Model->getDataSource()
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(3003): Model->_readDataSource('all', Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(20): Model->find('all', Array)
+#8 [internal function]: HomesController->index()
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#13 {main}
+2016-12-03 23:24:31 Error: [NotFoundException] Invalid camara
+Request URL: /portalMedio/portalMedioPiracicaba/site/camaras/view/id/8
+Stack Trace:
+#0 [internal function]: CamarasController->view('id', '8')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CamarasController), Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CamarasController), Object(CakeRequest))
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2016-12-03 23:28:23 Error: [NotFoundException] Invalid camara
+Request URL: /portalMedio/portalMedioPiracicaba/site/camaras/delete/8/8
+Stack Trace:
+#0 [internal function]: CamarasController->delete('8', '8')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(CamarasController), Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(CamarasController), Object(CakeRequest))
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2016-12-03 23:50:20 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+Request URL: /portalMedio/portalMedioPiracicaba/site/fotoCamaras/add/3
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(461): PDOStatement->execute(Array)
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(427): DboSource->_execute('INSERT INTO `po...', Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Datasource\DboSource.php(1024): DboSource->execute('INSERT INTO `po...')
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1933): DboSource->create(Object(FotoCamara), Array, Array)
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Model\Model.php(1751): Model->_doSave(Array, Array)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\FotoCamarasController.php(91): Model->save(Array)
+#6 [internal function]: FotoCamarasController->add('3')
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FotoCamarasController), Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(FotoCamarasController), Object(CakeRequest))
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2016-12-03 23:52:06 Error: [NotFoundException] Invalid Foto
+Request URL: /portalMedio/portalMedioPiracicaba/site/fotoCamaras/view/3
+Stack Trace:
+#0 [internal function]: FotoCamarasController->view('3')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(FotoCamarasController), Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(FotoCamarasController), Object(CakeRequest))
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}

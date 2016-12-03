@@ -48,6 +48,13 @@ class Cidade extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Camara' => array(
+			'className' => 'Camara',
+			'foreignKey' => 'cidade_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 
