@@ -114,22 +114,14 @@ class FotoSaudesController extends AppController {
 		$this->request->data['FotoSaude']['orgao_saude_id'] = $idSaude;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoSaude->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idSaude));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoSaude.' . $this->FotoSaude->primaryKey => $id));
-			$this->request->data = $this->FotoSaude->find('first', $options);
 		}
-		
-		$this->loadModel('OrgaoSaude');
-		$options = array('conditions' => array('OrgaoSaude.' . $this->OrgaoSaude->primaryKey => $idSaude));
-		$this->set('saude', $this->OrgaoSaude->find('first', $options));
-
-		$this->set('id', $id);
 	}
 
 /**

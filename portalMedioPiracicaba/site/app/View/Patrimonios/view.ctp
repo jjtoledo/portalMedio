@@ -53,9 +53,23 @@
 							</td>
 					</tr>
 					<tr>
+							<th><?php echo __('Descrição'); ?></th>
+							<td>
+								<?php echo h($patrimonio['Patrimonio']['descricao']); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
 							<th><?php echo __('Cidade'); ?></th>
 							<td>
 								<?php echo $this->Html->link($patrimonio['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $patrimonio['Cidade']['id'])); ?>
+								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('Foto'); ?></th>
+							<td>
+								<?php echo $this->Html->image($patrimonio['Patrimonio']['foto'], array('height' => '50%')); ?>
 								&nbsp;
 							</td>
 					</tr>

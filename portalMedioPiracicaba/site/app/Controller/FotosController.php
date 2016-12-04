@@ -116,30 +116,20 @@ class FotosController extends AppController {
  */
 	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Foto->exists($id)) {
-			throw new NotFoundException(__('Invalid Foto'));
+			throw new NotFoundException(__('Invalid Receita'));
 		}
 
 		$this->request->data['Foto']['cidade_id'] = $idCity;
-		$this->request->data['Foto']['tipo'] = $tipo;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->Foto->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('Foto.' . $this->Foto->primaryKey => $id));
-			$this->request->data = $this->Foto->find('first', $options);
-		}
-		
-		$this->loadModel('Cidade');
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
-		$this->set('cidade', $this->Cidade->find('first', $options));
-
-		$this->set('id', $id);
-		$this->set('tipo', $tipo);
+		} 
 	}
 
 /**

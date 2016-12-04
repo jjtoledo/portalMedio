@@ -114,22 +114,14 @@ class FotoDistritosController extends AppController {
 		$this->request->data['FotoDistrito']['distrito_id'] = $idDist;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoDistrito->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idDist));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoDistrito.' . $this->FotoDistrito->primaryKey => $id));
-			$this->request->data = $this->FotoDistrito->find('first', $options);
-		}
-		
-		$this->loadModel('Distrito');
-		$options = array('conditions' => array('Distrito.' . $this->Distrito->primaryKey => $idDist));
-		$this->set('distrito', $this->Distrito->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

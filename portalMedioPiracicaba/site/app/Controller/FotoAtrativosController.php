@@ -114,22 +114,14 @@ class FotoAtrativosController extends AppController {
 		$this->request->data['FotoAtrativo']['atrativo_turistico_id'] = $idDist;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoAtrativo->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idDist));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoAtrativo.' . $this->FotoAtrativo->primaryKey => $id));
-			$this->request->data = $this->FotoAtrativo->find('first', $options);
-		}
-		
-		$this->loadModel('AtrativoTuristico');
-		$options = array('conditions' => array('AtrativoTuristico.' . $this->AtrativoTuristico->primaryKey => $idDist));
-		$this->set('atrativo', $this->AtrativoTuristico->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

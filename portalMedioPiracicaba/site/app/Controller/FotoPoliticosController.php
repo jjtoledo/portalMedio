@@ -114,22 +114,14 @@ class FotoPoliticosController extends AppController {
 		$this->request->data['FotoPolitico']['politico_id'] = $idPolitico;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoPolitico->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idPolitico));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoPolitico.' . $this->FotoPolitico->primaryKey => $id));
-			$this->request->data = $this->FotoPolitico->find('first', $options);
 		}
-		
-		$this->loadModel('Politico');
-		$options = array('conditions' => array('Politico.' . $this->Politico->primaryKey => $idPolitico));
-		$this->set('politico', $this->Politico->find('first', $options));
-
-		$this->set('id', $id);
 	}
 
 /**

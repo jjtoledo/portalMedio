@@ -114,22 +114,14 @@ public function afterFilter() {
 		$this->request->data['FotoEspaco']['espaco_evento_id'] = $idEspaco;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoEspaco->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idEspaco));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoEspaco.' . $this->FotoEspaco->primaryKey => $id));
-			$this->request->data = $this->FotoEspaco->find('first', $options);
-		}
-		
-		$this->loadModel('EspacoEvento');
-		$options = array('conditions' => array('EspacoEvento.' . $this->EspacoEvento->primaryKey => $idEspaco));
-		$this->set('espaco', $this->EspacoEvento->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

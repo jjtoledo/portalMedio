@@ -114,22 +114,14 @@ class FotoRiosController extends AppController {
 		$this->request->data['FotoRio']['rio_id'] = $idRio;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoRio->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idRio));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoRio.' . $this->FotoRio->primaryKey => $id));
-			$this->request->data = $this->FotoRio->find('first', $options);
 		}
-		
-		$this->loadModel('Rio');
-		$options = array('conditions' => array('Rio.' . $this->Rio->primaryKey => $idRio));
-		$this->set('rio', $this->Rio->find('first', $options));
-
-		$this->set('id', $id);
 	}
 
 /**

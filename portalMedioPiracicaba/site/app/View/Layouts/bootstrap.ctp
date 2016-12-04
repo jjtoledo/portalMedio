@@ -25,7 +25,6 @@
     echo $this->Html->css('cards.css'); 
     echo $this->Html->css('searchbar.css'); 
     echo $this->Html->css('clima.css'); 
-    echo $this->Html->css('modal.css'); 
 
   ?>
 
@@ -65,7 +64,6 @@
 
 <?php     
   echo $this->Html->script('script.js');
-  echo $this->Html->script('modal.js');
   echo $this->Html->script('container-fluid.js');
   echo $this->Html->script('jquery.maskedinput.js');
   echo $this->Html->script('endless_scroll_min.js');

@@ -110,7 +110,7 @@ class FotoEscolasController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idEscola = null) {
+	public function edit($id = null, $idEscola = null, $tipo = null) {
 		if (!$this->FotoEscola->exists($id)) {
 			throw new NotFoundException(__('Invalid Foto'));
 		}
@@ -118,22 +118,14 @@ class FotoEscolasController extends AppController {
 		$this->request->data['FotoEscola']['escola_id'] = $idEscola;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoEscola->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idEscola));
+				return $this->redirect(array('action' => 'index', $idEscola, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoEscola.' . $this->FotoEscola->primaryKey => $id));
-			$this->request->data = $this->FotoEscola->find('first', $options);
-		}
-		
-		$this->loadModel('Escola');
-		$options = array('conditions' => array('Escola.' . $this->Escola->primaryKey => $idEscola));
-		$this->set('escola', $this->Escola->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

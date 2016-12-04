@@ -29,7 +29,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Patrimonio', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Patrimonio', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
@@ -42,6 +42,12 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('ano', array('class' => 'form-control', 'placeholder' => 'Ano', 'min' => 0));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'label' => 'Descrição'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('foto', array('class' => 'form-', 'type' => 'file'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

@@ -114,22 +114,14 @@ class FotoCamarasController extends AppController {
 		$this->request->data['FotoCamara']['camara_id'] = $idCam;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoCamara->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCam));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoCamara.' . $this->FotoCamara->primaryKey => $id));
-			$this->request->data = $this->FotoCamara->find('first', $options);
-		}
-		
-		$this->loadModel('Camara');
-		$options = array('conditions' => array('Camara.' . $this->Camara->primaryKey => $idCam));
-		$this->set('camara', $this->Camara->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

@@ -114,22 +114,14 @@ class FotoOrgaosController extends AppController {
 		$this->request->data['FotoOrgao']['orgao_publico_id'] = $idOrgao;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoOrgao->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idOrgao));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoOrgao.' . $this->FotoOrgao->primaryKey => $id));
-			$this->request->data = $this->FotoOrgao->find('first', $options);
-		}
-		
-		$this->loadModel('OrgaoPublico');
-		$options = array('conditions' => array('OrgaoPublico.' . $this->OrgaoPublico->primaryKey => $idOrgao));
-		$this->set('orgao', $this->OrgaoPublico->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

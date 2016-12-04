@@ -78,6 +78,9 @@
 					<?php echo $this->Form->input('site', array('class' => 'form-control', 'placeholder' => 'Site'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Tinymce->input('Empresa.historico', $options = array(), $tinyoptions = array(), $preset = null) ?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('foto_anuncio', array('type' => 'file', 'label' => 'Foto Anúncio'));?>
 				</div>
 				<div class="form-group">

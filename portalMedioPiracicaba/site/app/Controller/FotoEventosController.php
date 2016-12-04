@@ -114,22 +114,14 @@ class FotoEventosController extends AppController {
 		$this->request->data['FotoEvento']['evento_id'] = $idEvento;
 
 		if ($this->request->is(array('post', 'put'))) {
+			debug($this->request->data);
 			if ($this->FotoEvento->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idEvento));
 			} else {
 				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('FotoEvento.' . $this->FotoEvento->primaryKey => $id));
-			$this->request->data = $this->FotoEvento->find('first', $options);
-		}
-		
-		$this->loadModel('Evento');
-		$options = array('conditions' => array('Evento.' . $this->Evento->primaryKey => $idEvento));
-		$this->set('evento', $this->Evento->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**
