@@ -77,6 +77,15 @@
 					<?php echo $this->Form->input('temp_min', array('class' => 'form-control', 'placeholder' => 'Temperatura Mínima', 'min' => -20, 'label' => 'Temperatura Mínima'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('limitrofes', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Municípios Limítrofes', 'label' => 'Municípios Limítrofes'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('centros', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Distância principais Centros', 'label' => 'Distância principais Centros'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('vias', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Vias de Acesso', 'label' => 'Vias de Acesso'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
 				</div>
 
