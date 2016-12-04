@@ -71,6 +71,21 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`camaras` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`presidente_camaras` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `foto` VARCHAR(255) NULL DEFAULT NULL,
+  `descricao` text NULL DEFAULT NULL,
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_presidente_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_presidente_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmediopir`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`exvereadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `ano_inicio` int(4) not NULL,

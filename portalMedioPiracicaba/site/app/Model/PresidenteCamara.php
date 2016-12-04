@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Historia Model
+ * PresidenteCamara Model
  *
  * @property Cidade $Cidade
  */
-class Historia extends AppModel {
+class PresidenteCamara extends AppModel {
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -27,10 +27,10 @@ class Historia extends AppModel {
 
 	public function beforeSave($options = array()) {
 		//debug($this->data);
-		if(!empty($this->data['Historia']['foto']['name'])) {
-	        $this->data['Historia']['foto'] = $this->upload($this->data['Historia']['foto']);
+		if(!empty($this->data['PresidenteCamara']['foto']['name'])) {
+	        $this->data['PresidenteCamara']['foto'] = $this->upload($this->data['PresidenteCamara']['foto']);
 	    } else {
-	        unset($this->data['Historia']['foto']);
+	        unset($this->data['PresidenteCamara']['foto']);
 	    }
 	}
 
