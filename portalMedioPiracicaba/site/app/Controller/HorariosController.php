@@ -37,7 +37,7 @@ class HorariosController extends AppController {
  * @return void
  */
 	public function add($id = null, $idEmpresa = null, $idCity = null) {
-		if ($id != null && $idEmpresa != null) {
+		if ($id != null && $idEmpresa != null && $idCity != null) {
 			$this->redirect(array('action' => 'edit', $id, $idEmpresa, $idCity));
 		}
 
