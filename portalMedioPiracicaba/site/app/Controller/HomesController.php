@@ -48,20 +48,23 @@ class HomesController extends AppController {
 
 		/*Carregamento das notícias*/
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '1')
+			'conditions' => array('Noticia.tipo' => '1'),
+			'order' => array('Noticia.id' => 'DESC')
 			);
 		$this->loadModel('Noticia');
 		$noticias_gerais = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_gerais'));
 
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '2')
+			'conditions' => array('Noticia.tipo' => '2'),
+			'order' => array('Noticia.id' => 'DESC')
 			);
 		$noticias_reg = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_reg'));
 
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '3')
+			'conditions' => array('Noticia.tipo' => '3'),
+			'order' => array('Noticia.id' => 'DESC')
 			);
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
@@ -167,6 +170,20 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Educação');
 		$this->common($id);
 		$this->set('active', 'educacao');
+
+		$tipos = 
+			array('0' => 'Escola municipal', 
+					'1' => 'Escola estadual',
+					'2' => 'Escola privada',
+					'5' => 'Escolas Particulares',
+					'6' => 'Escolas Profissionalizantes',
+					'7' => 'Escolas de Idiomas',
+					'8' => 'Pré Vestibulares',
+					'9' => 'Escolas Especializadas',
+					'4' => 'Faculdade privada',
+					'3' => 'Faculdade federal'
+			);
+		$this->set('tipos', $tipos);
 	}
 
 	public function site_transporte($id = null) {

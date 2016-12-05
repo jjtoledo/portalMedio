@@ -113,10 +113,12 @@
 		    						}
 		    						if ($doc['localizacao'] != '') {
 		    							echo '<br>Endereço: '.$doc['localizacao'];
-		    						}	    						
-		    						if ($doc['descricao'] != '') {
+		    						}	
+		    						if ($doc['descricao'] != '' && $doc['localizacao'] == '') {
+		    							echo '<p class="text-justify">'.$doc['descricao'].'<br></p>';
+		    						} else if ($doc['descricao'] != '' && $doc['localizacao'] != '') {
 		    							echo '<br><br><p class="text-justify">'.$doc['descricao'].'<br></p>';
-		    						}
+		    						}    	
 		    					echo '</div>';
       					echo '</div>';      					
 
