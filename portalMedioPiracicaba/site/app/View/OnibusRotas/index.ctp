@@ -38,6 +38,7 @@
 						echo '<div class="thumbnail">';
 						echo $this->Html->image('pdf-icon.png', array('class' => ' foto'));
 						echo '<div class="caption foto">';
+						echo '<p class="text-center">'.$onibusRotas[$i]['OnibusRota']['pdf'].'</p>';
 						echo $this->Form->end(); ?>
 						<?php echo $this->Form->postLink('<span class="btn btn-danger" role="button">Excluir</span>', array('action' => 'delete', $onibusRotas[$i]['OnibusRota']['id'], $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false), __('Tem certeza que deseja escluir?'));						
 						echo '&nbsp;&nbsp;<span class="btn btn-info edit" id="edit'.$onibusRotas[$i]['OnibusRota']['id'].'" value="'.$onibusRotas[$i]['OnibusRota']['id'].'">Linha</span>';

@@ -75,7 +75,25 @@
 		  	</div>
 	  	</div>
 	  	
-			
+	  	<div class="col-md-12 text-center">
+				<?php echo '<h1 class="noticiasHome text-center">Mapa de ' . $cidade['Cidade']['nome'] .'</h1><br><hr style="margin-top:0">' ?>
+			</div>
+
+	  	<div class="col-md-12" style="margin-top: 20px">	  		
+				<div id="map" style="width:100%;height:700px;background:yellow"></div>
+			</div>
+
+			<script>
+			function myMap() {
+			  var mapCanvas = document.getElementById("map");
+			  var mapOptions = {
+			    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+			  };
+			  var map = new google.maps.Map(mapCanvas, mapOptions);
+			}
+			</script>
+
+			<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB2INtyANYWGb0xiWV0yXfEnXzhnw8fwq8&callback=myMap" type="text/javascript"></script>
 	  </div>
 	</main>
 
