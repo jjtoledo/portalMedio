@@ -44,7 +44,8 @@
 						<td nowrap><?php echo h($empresaOnibus['EmpresaOnibus']['nome']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($empresaOnibus['EmpresaOnibus']['telefone1']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-road"></span>'), array('controller' => 'onibusRotas', 'action' => 'index', $empresaOnibus['EmpresaOnibus']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-save-file"></span>'), array('controller' => 'onibusRotas', 'action' => 'index', $empresaOnibus['EmpresaOnibus']['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-file"></span>'), array('controller' => 'horarios', 'action' => 'add', $empresaOnibus['Horario']['id'], $empresaOnibus['EmpresaOnibus']['id'], $empresaOnibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $empresaOnibus['EmpresaOnibus']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $empresaOnibus['EmpresaOnibus']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $empresaOnibus['EmpresaOnibus']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $empresaOnibus['EmpresaOnibus']['nome'])); ?>
