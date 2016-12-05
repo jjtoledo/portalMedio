@@ -45,6 +45,7 @@
 					    echo $this->Form->create('FotoPolitico', array('type' => 'post', 'class' => 'search-form', 'url' => 'edit/'.$fotoPoliticos[$i]['FotoPolitico']['id'].'/'.$fotoPoliticos[$i]['FotoPolitico']['politico_id']));
 					    echo $this->Form->input('id', array('id' => 'FotoId'.$fotoPoliticos[$i]['FotoPolitico']['id']));	
 					    echo $this->Form->input('descricao', array('type' => 'textarea', 'label' => false, 'class' => 'form-control', 'placeholder' => 'Adicione a descrição', 'default' => $fotoPoliticos[$i]['FotoPolitico']['descricao']));	
+					    echo $this->Form->end();
 					    ?>
 					    <div class="submit" style="margin-top: 10px">
 					    	<input type="submit" value="Salvar" class="btn btn-success">&nbsp;

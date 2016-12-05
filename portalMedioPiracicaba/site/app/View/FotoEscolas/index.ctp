@@ -45,6 +45,7 @@
 					    echo $this->Form->create('FotoEscola', array('type' => 'post', 'class' => 'search-form', 'url' => 'edit/'.$fotoEscolas[$i]['FotoEscola']['id'].'/'.$fotoEscolas[$i]['FotoEscola']['escola_id'].'/'.$tipo));
 					    echo $this->Form->input('id', array('id' => 'FotoId'.$fotoEscolas[$i]['FotoEscola']['id']));	
 					    echo $this->Form->input('descricao', array('type' => 'textarea', 'label' => false, 'class' => 'form-control', 'placeholder' => 'Adicione a descrição', 'default' => $fotoEscolas[$i]['FotoEscola']['descricao']));	
+					    echo $this->Form->end();
 					    ?>
 					    <div class="submit" style="margin-top: 10px">
 					    	<input type="submit" value="Salvar" class="btn btn-success">&nbsp;
