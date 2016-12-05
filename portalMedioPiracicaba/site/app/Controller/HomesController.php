@@ -510,14 +510,16 @@ class HomesController extends AppController {
 
 		/*Carregamento das notícias*/
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '2')
+			'conditions' => array('Noticia.tipo' => '2'),
+			'order' => array('Noticia.id' => 'DESC')
 			);
 		$this->loadModel('Noticia');
 		$noticias_reg = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_reg'));
 
 		$conditions = array(
-			'conditions' => array('Noticia.tipo' => '3')
+			'conditions' => array('Noticia.tipo' => '3'),
+			'order' => array('Noticia.id' => 'DESC')
 			);
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
