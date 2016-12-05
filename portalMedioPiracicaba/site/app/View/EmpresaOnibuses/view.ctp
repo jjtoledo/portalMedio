@@ -22,7 +22,8 @@
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Empresa'), array('action' => 'edit', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Empresa'), array('action' => 'delete', $id, $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-road"></span>&nbsp&nbsp;Rotas'), array('controller' => 'onibusRotas', 'action' => 'index', $empresaOnibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-save-file"></span>&nbsp&nbsp;Linhas (PDF)'), array('controller' => 'onibusRotas', 'action' => 'index', $empresaOnibus['EmpresaOnibus']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-file"></span>&nbsp&nbsp;Linhas (Word)'), array('controller' => 'horarios', 'action' => 'add', $empresaOnibus['Horario']['id'], $empresaOnibus['EmpresaOnibus']['id'], $empresaOnibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->

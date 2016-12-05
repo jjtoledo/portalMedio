@@ -37,7 +37,8 @@
 						echo '<div class="col-sm-6 col-md-4">';
 						echo '<div class="thumbnail">';
 						echo $this->Html->image($fotoDistritos[$i]['FotoDistrito']['foto'], array('class' => ' foto'));
-						echo '<div class="caption foto">'; ?>
+						echo '<div class="caption foto">';
+						echo $this->Form->end(); ?>
 						<?php echo $this->Form->postLink('<span class="btn btn-danger" role="button">Excluir</span>', array('action' => 'delete', $fotoDistritos[$i]['FotoDistrito']['id'], $fotoDistritos[$i]['FotoDistrito']['distrito_id']), array('escape' => false), __('Tem certeza que deseja escluir?'));
 						echo '&nbsp;&nbsp;<span class="btn btn-info edit" id="edit'.$fotoDistritos[$i]['FotoDistrito']['id'].'" value="'.$fotoDistritos[$i]['FotoDistrito']['id'].'">Descrição</span>';
 						echo '<span style="display:none" class="btn btn-default cancel" id="cancel'.$fotoDistritos[$i]['FotoDistrito']['id'].'" value="'.$fotoDistritos[$i]['FotoDistrito']['id'].'">Cancelar</span>';
@@ -45,7 +46,6 @@
 					    echo $this->Form->create('FotoDistrito', array('type' => 'post', 'class' => 'search-form', 'url' => 'edit/'.$fotoDistritos[$i]['FotoDistrito']['id'].'/'.$fotoDistritos[$i]['FotoDistrito']['distrito_id']));
 					    echo $this->Form->input('id', array('id' => 'FotoId'.$fotoDistritos[$i]['FotoDistrito']['id']));	
 					    echo $this->Form->input('descricao', array('type' => 'textarea', 'label' => false, 'class' => 'form-control', 'placeholder' => 'Adicione a descrição', 'default' => $fotoDistritos[$i]['FotoDistrito']['descricao']));	
-					    echo $this->Form->end();
 					    ?>
 					    <div class="submit" style="margin-top: 10px">
 					    	<input type="submit" value="Salvar" class="btn btn-success">&nbsp;

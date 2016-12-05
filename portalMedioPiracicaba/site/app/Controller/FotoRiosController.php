@@ -114,7 +114,6 @@ class FotoRiosController extends AppController {
 		$this->request->data['FotoRio']['rio_id'] = $idRio;
 
 		if ($this->request->is(array('post', 'put'))) {
-			debug($this->request->data);
 			if ($this->FotoRio->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idRio));

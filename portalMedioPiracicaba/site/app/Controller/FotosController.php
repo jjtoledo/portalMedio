@@ -101,7 +101,7 @@ class FotosController extends AppController {
 					$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 				}
 			}
-			$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => '	alert alert-success'));
+			$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 			return $this->redirect(array('action' => 'index', $id, $tipo));
 		}
 
@@ -122,7 +122,6 @@ class FotosController extends AppController {
 		$this->request->data['Foto']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			debug($this->request->data);
 			if ($this->Foto->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity, $tipo));

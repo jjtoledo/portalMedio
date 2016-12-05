@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Rotas da ' . $empresa_onibus['EmpresaOnibus']['nome']); ?></h2>
+				<h2><?php echo __('Linhas da ' . $empresa_onibus['EmpresaOnibus']['nome']); ?></h2>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -22,54 +22,67 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Empresa'), array('controller' => 'empresa_onibuses', 'action' => 'view', $empresa_onibus['EmpresaOnibus']['id'], $empresa_onibus['EmpresaOnibus']['cidade_id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova Rota'), array('action' => 'add', $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Adicionar PDFs'), array('action' => 'add', $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
 
-		<div class="col-md-9">
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
-				<thead>
-					<tr>
-						<th nowrap><?php echo $this->Paginator->sort('rota'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('tipo'); ?></th>
-						<th class="actions"></th>
-					</tr>
-				</thead>
-				<tbody>
-				<?php foreach ($onibusRotas as $onibusRota): ?>
-					<tr>
-						<td nowrap><?php echo h($onibusRota['OnibusRota']['rota']); ?>&nbsp;</td>
-						<td nowrap><?php echo h($onibusRota['OnibusRota']['tipo']); ?>&nbsp;</td>
-						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $onibusRota['OnibusRota']['id'], $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $onibusRota['OnibusRota']['id'], $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $onibusRota['OnibusRota']['id'], $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $onibusRota['OnibusRota']['id'])); ?>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-				</tbody>
-			</table>
-
-			<p>
-				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
-			</p>
-
+		<div class="col-md-9">			
 			<?php
-			$params = $this->Paginator->params();
-			if ($params['pageCount'] > 1) {
+				echo '<div class="row">';
+				if (count($onibusRotas > 0)) {
+					for ($i=0; $i < count($onibusRotas); $i++) { 						
+						echo '<div class="col-sm-6 col-md-4">';
+						echo '<div class="thumbnail">';
+						echo $this->Html->image('pdf-icon.png', array('class' => ' foto'));
+						echo '<div class="caption foto">';
+						echo $this->Form->end(); ?>
+						<?php echo $this->Form->postLink('<span class="btn btn-danger" role="button">Excluir</span>', array('action' => 'delete', $onibusRotas[$i]['OnibusRota']['id'], $empresa_onibus['EmpresaOnibus']['id']), array('escape' => false), __('Tem certeza que deseja escluir?'));						
+						echo '&nbsp;&nbsp;<span class="btn btn-info edit" id="edit'.$onibusRotas[$i]['OnibusRota']['id'].'" value="'.$onibusRotas[$i]['OnibusRota']['id'].'">Linha</span>';
+						echo '<span style="display:none" class="btn btn-default cancel" id="cancel'.$onibusRotas[$i]['OnibusRota']['id'].'" value="'.$onibusRotas[$i]['OnibusRota']['id'].'">Cancelar</span>';
+						echo '<div style="margin-top: 10px" hidden="true" id="'.$onibusRotas[$i]['OnibusRota']['id'].'">';
+					    echo $this->Form->create('OnibusRota', array('type' => 'post', 'class' => 'search-form', 'url' => 'edit/'.$onibusRotas[$i]['OnibusRota']['id'].'/'.$onibusRotas[$i]['OnibusRota']['empresa_onibus_id']));
+					    echo $this->Form->input('id', array('id' => 'OnibusRotaId'.$onibusRotas[$i]['OnibusRota']['id']));	
+					    echo $this->Form->input('linha', array('type' => 'text', 'label' => false, 'class' => 'form-control', 'placeholder' => 'Ex: Linha 152', 'default' => $onibusRotas[$i]['OnibusRota']['linha']));						    
+					    ?>
+					    <div class="submit" style="margin-top: 10px">
+					    	<input type="submit" value="Salvar" class="btn btn-success">&nbsp;
+					    </div>
+				    </div>
+				    <?php
+						echo '</div>';
+						echo '</div>';
+						echo '</div>';
+					}
+				}
+				echo '</div>';
 			?>
-			<ul class="pagination pagination-sm">
-				<?php
-					echo $this->Paginator->prev('&larr; Previous', array('class' => 'prev','tag' => 'li','escape' => false), '<a onclick="return false;">&larr; Previous</a>', array('class' => 'prev disabled','tag' => 'li','escape' => false));
-					echo $this->Paginator->numbers(array('separator' => '','tag' => 'li','currentClass' => 'active','currentTag' => 'a'));
-					echo $this->Paginator->next('Next &rarr;', array('class' => 'next','tag' => 'li','escape' => false), '<a onclick="return false;">Next &rarr;</a>', array('class' => 'next disabled','tag' => 'li','escape' => false));
-				?>
-			</ul>
-			<?php } ?>
+		</div> <!-- end col md 9 -->
+	</div><!-- end row -->
 
+	<script type="text/javascript">
+		$(document).on("click", ".edit", function () {
+	    // Use $(this) to reference the clicked button
+	    var id = $(this).attr("value");
+	   	$(this).toggle(300);
+	   	$('#cancel'+id).toggle(300);
+	    $("#"+id).toggle(300);
+	    $("#OnibusRotaId"+id).attr('value', id);
+		});
+
+		$(document).on("click", ".cancel", function () {
+	    // Use $(this) to reference the clicked button
+	    var id = $(this).attr("value");
+	   	$(this).toggle(300);
+	   	$('#edit'+id).toggle(300);
+	    $("#"+id).toggle(300);
+		});
+	</script>
+
+</div><!-- end containing of content -->
+							
 		</div> <!-- end col md 9 -->
 	</div><!-- end row -->
 

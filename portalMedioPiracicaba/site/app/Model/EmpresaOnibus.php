@@ -24,4 +24,20 @@ class EmpresaOnibus extends AppModel {
 			'order' => ''
 		)
 	);
+
+/**
+ * hasOne associations
+ *
+ * @var array
+ */
+	public $hasOne = array(
+		'Horario' => array(
+			'className' => 'Horario',
+			'foreignKey' => 'empresa_onibus_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
+
 }

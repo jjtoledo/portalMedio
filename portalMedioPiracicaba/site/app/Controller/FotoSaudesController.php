@@ -114,7 +114,6 @@ class FotoSaudesController extends AppController {
 		$this->request->data['FotoSaude']['orgao_saude_id'] = $idSaude;
 
 		if ($this->request->is(array('post', 'put'))) {
-			debug($this->request->data);
 			if ($this->FotoSaude->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idSaude));

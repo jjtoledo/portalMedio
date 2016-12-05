@@ -490,21 +490,6 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`foto_saudes` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
-CREATE TABLE IF NOT EXISTS `portalmediopir`.`frequencias` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `horario` VARCHAR(5) NULL DEFAULT NULL,
-  `frequencia` VARCHAR(120) NULL DEFAULT NULL,
-  `onibus_rota_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`, `onibus_rota_id`),
-  INDEX `fk_frequencias_onibus_rotas1_idx` (`onibus_rota_id` ASC),
-  CONSTRAINT `fk_frequencias_onibus_rotas1`
-    FOREIGN KEY (`onibus_rota_id`)
-    REFERENCES `portalmediopir`.`onibus_rotas` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`fundadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(120) NOT NULL,
@@ -596,6 +581,20 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`onibus_rotas` (
   PRIMARY KEY (`id`, `empresa_onibus_id`),
   INDEX `fk_onibus_rotas_empresa_onibuses1_idx` (`empresa_onibus_id` ASC),
   CONSTRAINT `fk_onibus_rotas_empresa_onibuses1`
+    FOREIGN KEY (`empresa_onibus_id`)
+    REFERENCES `portalmediopir`.`empresa_onibuses` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`horarios` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `texto` text NULL DEFAULT NULL,
+  `empresa_onibus_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `empresa_onibus_id`),
+  INDEX `fk_horarios_empresa_onibuses1_idx` (`empresa_onibus_id` ASC),
+  CONSTRAINT `fk_horarios_empresa_onibuses1`
     FOREIGN KEY (`empresa_onibus_id`)
     REFERENCES `portalmediopir`.`empresa_onibuses` (`id`)
     ON DELETE NO ACTION

@@ -114,7 +114,6 @@ class FotoOrgaosController extends AppController {
 		$this->request->data['FotoOrgao']['orgao_publico_id'] = $idOrgao;
 
 		if ($this->request->is(array('post', 'put'))) {
-			debug($this->request->data);
 			if ($this->FotoOrgao->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idOrgao));

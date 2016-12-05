@@ -35,12 +35,12 @@ class OnibusRotasController extends AppController {
  * @return void
  */
 	public function index($id = null) {
-		$this->Paginator->settings = array(
+		$options = array(
 			'conditions' => array(
 				'OnibusRota.empresa_onibus_id' => $id
 			)
 		);
-		$this->set('onibusRotas', $this->Paginator->paginate());
+		$this->set('onibusRotas', $this->OnibusRota->find('all', $options));
 
 		$this->loadModel('EmpresaOnibus');
 		$options = array('conditions' => array('EmpresaOnibus.' . $this->EmpresaOnibus->primaryKey => $id));
@@ -76,19 +76,26 @@ class OnibusRotasController extends AppController {
 	public function add($id = null) {
 		$this->request->data['OnibusRota']['empresa_onibus_id'] = $id;
 
-		if ($this->request->is('post')) {
-			$this->OnibusRota->create();
-			if ($this->OnibusRota->save($this->request->data)) {
-				$this->Session->setFlash(__('The onibusRota has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
-			} else {
-				$this->Session->setFlash(__('The onibusRota could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		
 		$this->loadModel('EmpresaOnibus');
 		$options = array('conditions' => array('EmpresaOnibus.' . $this->EmpresaOnibus->primaryKey => $id));
 		$this->set('empresa_onibus', $this->EmpresaOnibus->find('first', $options));
+
+		$pdf = array();
+		if ($this->request->is('post')) {				
+			debug($this->request->data['OnibusRota']['pdfs']);
+			for ($i=0; $i < sizeof($this->request->data['OnibusRota']['pdfs']); $i++) { 
+				$pdf = array('OnibusRota' => 
+							array('empresa_onibus_id' => $this->request->data['OnibusRota']['empresa_onibus_id'],
+									'pdf' => $this->request->data['OnibusRota']['pdfs'][$i]));
+				$this->OnibusRota->create();			
+				if (!$this->OnibusRota->save($pdf)) {
+					debug($this->request->data['OnibusRota']['pdfs']);
+					$this->Session->setFlash(__('The OnibusRota could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				}
+			}
+			$this->Session->setFlash(__('The OnibusRota has been saved.'), 'default', array('class' => 'alert alert-success'));
+			return $this->redirect(array('action' => 'index', $id));
+		}		
 	}
 
 /**
@@ -107,21 +114,12 @@ class OnibusRotasController extends AppController {
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->OnibusRota->save($this->request->data)) {
-				$this->Session->setFlash(__('The onibusRota has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('The OnibusRota has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idEsc));
 			} else {
-				$this->Session->setFlash(__('The onibusRota could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The OnibusRota could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('OnibusRota.' . $this->OnibusRota->primaryKey => $id));
-			$this->request->data = $this->OnibusRota->find('first', $options);
-		}
-		
-		$this->loadModel('EmpresaOnibus');
-		$options = array('conditions' => array('EmpresaOnibus.' . $this->EmpresaOnibus->primaryKey => $idEsc));
-		$this->set('empresa_onibus', $this->EmpresaOnibus->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**
