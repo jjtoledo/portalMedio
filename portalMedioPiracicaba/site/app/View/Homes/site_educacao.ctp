@@ -95,7 +95,11 @@
 			            <div class="panel-body">
 			              <?php foreach ($cidade['Escola'] as $escola) {			              	
 				              if ($escola['tipo'] == $i) {
-					      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
+				              	if ($count < 2) {
+				              		echo '<div class="col-md-6" style="margin-top: 10px">';
+				              	} else {
+					      					echo '<div class="col-md-6" style="margin-top: 50px">';
+					      				}
 						      				echo '<div class="col-md-4">'.$this->Html->image('escola-img.png', array('width' => '100%', 'height' => '100%')).'</div>';
 						      				
 						      				echo '<div class="col-md-8"><b>'
