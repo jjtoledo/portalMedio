@@ -199,6 +199,15 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Transporte');
 		$this->common($id);
 		$this->set('active', 'transporte');
+
+		$this->loadModel('EmpresaOnibus');
+		$options = array(
+			'conditions' => array(
+				'EmpresaOnibus.cidade_id' => $id
+			)
+ 		);
+ 		$empresas = $this->EmpresaOnibus->find('all', $options);
+		$this->set('empresas', $empresas);		
 	}
 
 	public function site_economia($id = null) {

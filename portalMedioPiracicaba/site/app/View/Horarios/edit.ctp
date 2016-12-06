@@ -31,6 +31,9 @@
 			<?php echo $this->Form->create('Horario', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
+					<?php echo $this->Form->input('id') ?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Tinymce->input('Horario.texto', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">

@@ -40,4 +40,18 @@ class EmpresaOnibus extends AppModel {
 		)
 	);
 
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'OnibusRota' => array(
+			'className' => 'OnibusRota',
+			'foreignKey' => 'empresa_onibus_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		)
+	);
 }

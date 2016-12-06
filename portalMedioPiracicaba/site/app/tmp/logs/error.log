@@ -21850,3 +21850,166 @@ Stack Trace:
 #3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(FotoBairrosController), Object(CakeRequest))
 #4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #5 {main}
+2016-12-06 22:13:02 Error: [SocketException] stream_socket_client(): SSL: Handshake timed out
+stream_socket_client(): Failed to enable crypto
+stream_socket_client(): unable to connect to ssl://api.hgbrasil.com:443 (Unknown error)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\CakeSocket.php(347): CakeSocket->connect()
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(377): CakeSocket->write('GET /weather/?f...')
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(466): HttpSocket->request(Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(495): HttpSocket->get('https://api.hgb...')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(557): HomesController->clima_cidade(Array)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(200): HomesController->common('8')
+#6 [internal function]: HomesController->site_transporte('8')
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#10 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#11 {main}
+2016-12-06 22:20:36 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 148]
+2016-12-06 22:20:36 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 148)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 148, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 148, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:21:50 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 146]
+2016-12-06 22:21:50 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 146)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 146, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 146, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:23:41 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 144]
+2016-12-06 22:23:41 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:26:54 Error: Fatal Error (4): syntax error, unexpected 'endif' (T_ENDIF) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 144]
+2016-12-06 22:26:54 Error: [FatalErrorException] syntax error, unexpected 'endif' (T_ENDIF)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:27:10 Error: Fatal Error (4): syntax error, unexpected 'endif' (T_ENDIF) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 144]
+2016-12-06 22:27:10 Error: [FatalErrorException] syntax error, unexpected 'endif' (T_ENDIF)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:27:38 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 144]
+2016-12-06 22:27:38 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 144, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:29:39 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 102]
+2016-12-06 22:29:39 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:30:23 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_transporte.ctp, line 102]
+2016-12-06 22:30:23 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_transporte/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 102, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-06 22:32:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-06 23:00:28 Error: [NotFoundException] Invalid horario
+Request URL: /portalMedio/portalMedioPiracicaba/site/horarios/edit/1/2/8
+Stack Trace:
+#0 [internal function]: HorariosController->edit('1', '2', '8')
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HorariosController), Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HorariosController), Object(CakeRequest))
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2016-12-06 23:13:14 Error: [SocketException] stream_socket_client(): SSL: Handshake timed out
+stream_socket_client(): Failed to enable crypto
+stream_socket_client(): unable to connect to ssl://api.hgbrasil.com:443 (Unknown error)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\CakeSocket.php(347): CakeSocket->connect()
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(377): CakeSocket->write('GET /weather/?f...')
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(466): HttpSocket->request(Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(477): HttpSocket->get('https://api.hgb...')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(92): HomesController->clima(Array)
+#5 [internal function]: HomesController->index()
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2016-12-06 23:14:09 Error: [SocketException] stream_socket_client(): SSL: Handshake timed out
+stream_socket_client(): Failed to enable crypto
+stream_socket_client(): unable to connect to ssl://api.hgbrasil.com:443 (Unknown error)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\CakeSocket.php(347): CakeSocket->connect()
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(377): CakeSocket->write('GET /weather/?f...')
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(466): HttpSocket->request(Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(477): HttpSocket->get('https://api.hgb...')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(92): HomesController->clima(Array)
+#5 [internal function]: HomesController->index()
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2016-12-06 23:16:33 Error: [SocketException] stream_socket_client(): SSL: Handshake timed out
+stream_socket_client(): Failed to enable crypto
+stream_socket_client(): unable to connect to ssl://api.hgbrasil.com:443 (Unknown error)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\CakeSocket.php(347): CakeSocket->connect()
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(377): CakeSocket->write('GET /weather/?f...')
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Http\HttpSocket.php(466): HttpSocket->request(Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(477): HttpSocket->get('https://api.hgb...')
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(92): HomesController->clima(Array)
+#5 [internal function]: HomesController->index()
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
