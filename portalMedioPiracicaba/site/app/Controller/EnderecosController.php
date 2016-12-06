@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::import('Vendor', 'PHPExcel', array('file' => 'PHPExcel.php'));
 /**
  * Enderecos Controller
  *
@@ -74,12 +75,33 @@ class EnderecosController extends AppController {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null) {		 
 		$this->request->data['Endereco']['cidade_id'] = $id;
 
 		if ($this->request->is('post')) {
 			$this->Endereco->create();
 			if ($this->Endereco->save($this->request->data)) {
+				$last_id = $this->Endereco->getLastInsertId();		
+				$endereco = $this->Endereco->findById($last_id);
+				$this->Endereco->delete();
+				/** Load $inputFileName to a PHPExcel Object  **/
+				$objPHPExcel = PHPExcel_IOFactory::load('files/'.$endereco['Endereco']['excel']);
+				$sheetData = $objPHPExcel->getActiveSheet()->toArray(null,true,true,true);
+				//var_dump($sheetData);
+				foreach ($sheetData as $e) {
+					if ($e['C'] != 'Cidade' && $e['C'] != null) {
+						$end = array('Endereco' => 
+							array('cidade_id' => $id,
+									'rua' => $e['A'],
+									'bairro' => $e['B'],
+									'cep' => $e['D']));
+						$this->Endereco->create();			
+						if (!$this->Endereco->save($end)) {
+							$this->Session->setFlash(__('The Endereco could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+						}
+					}
+				}
+				
 				$this->Session->setFlash(__('The Endereco has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $id));
 			} else {

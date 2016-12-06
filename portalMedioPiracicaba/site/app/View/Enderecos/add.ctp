@@ -33,16 +33,9 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Endereco', array('role' => 'form')); ?>
-
+			<?php echo $this->Form->create('Endereco', array('role' => 'form', 'type' => 'file')); ?>
 				<div class="form-group">
-					<?php echo $this->Form->input('rua', array('class' => 'form-control', 'placeholder' => 'Rua', 'label' => 'Rua', 'required' => 'true'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('cep', array('class' => 'form-control', 'placeholder' => 'CEP', 'required' => 'true'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('bairro', array('class' => 'form-control', 'placeholder' => 'Bairro', 'label' => 'Bairro'));?>
+					<?php echo $this->Form->input('excel', array('type' => 'file', 'placeholder' => 'Rua', 'label' => 'Excel', 'required' => 'true'));?>					
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>

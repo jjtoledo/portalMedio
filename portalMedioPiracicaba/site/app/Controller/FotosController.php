@@ -97,7 +97,6 @@ class FotosController extends AppController {
 									'foto' => $this->request->data['Foto']['fotos'][$i]));
 				$this->Foto->create();			
 				if (!$this->Foto->save($photo)) {
-					debug($this->request->data['Foto']['fotos']);
 					$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 				}
 			}
