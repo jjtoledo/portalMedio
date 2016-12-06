@@ -38,7 +38,7 @@ class AtrativoTuristico extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoAtrativo.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

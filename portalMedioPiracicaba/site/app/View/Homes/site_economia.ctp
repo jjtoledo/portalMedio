@@ -91,58 +91,6 @@
 	</main>
 
 	<?php 
-		if (!empty($cidade['Empresa'])) { ?>
-			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
-		    <div class="container noticias responsive-large">
-		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Principais Empresas', array('action' => 'site_empresas', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
-		    	</div>
-		      <div class="row border">
-		      	<div class="col-md-12">
-		      	<?php $count = 0; $b = 0;
-	      			for ($i=0; $i < count($cidade['Empresa']); $i++) { 		      				
-	      				
-	      				if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-		      			if ($count % 2 == 0) {	
-		      				echo '<div class="row">';
-		      			}
-
-	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
-	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
-	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
-	      				} else {
-	      					echo '<div class="col-md-6 text-center">'.$this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')).'</div>';
-	      				}
-		      				echo '<div class="col-md-6"><b>'
-		    						.$cidade['Empresa'][$count]['nome'].'</b><br><br>'
-		    						.'Telefone Principal: '.$cidade['Empresa'][$count]['telefone1'].'<br>';
-		    						if ($cidade['Empresa'][$count]['telefone2'] != '') {
-		    							echo 'Telefone: '.$cidade['Empresa'][$count]['telefone2'].'<br>';
-		    						}
-		    						if ($cidade['Empresa'][$count]['horario_ini'] != null && $cidade['Empresa'][$count]['horario_fim'] != null) {
-		    							echo 'Funcionamento: '.$cidade['Empresa'][$count]['horario_ini'].' às '. $cidade['Empresa'][$count]['horario_fim'].'<br>';
-		    						}
-		    						if ($cidade['Empresa'][$count]['site'] != '') {
-		    							echo 'Site: '.$cidade['Empresa'][$count]['site'].'<br>';
-		    						}
-		    						if ($cidade['Empresa'][$count]['localizacao'] != '') {
-		    							echo 'Endereço: '.$cidade['Empresa'][$count]['localizacao'].'<br>';
-		    						}
-		    					echo '</div>';
-	      				echo '</div>';
-	      		?>
-				    	
-			    	<?php $count++; $b++; if($count == 20) { break; } } ?>	
-			    	</div>					
-			    </div>
-		    </div>
-		  </section>
-	<?php	}	?>
-
-	<?php 
 		if (!empty($cidade['Receita'])) { ?>
 			<section style="background-color: #fff" id="receitas">
 				<div class="container">
@@ -196,11 +144,66 @@
 							} ?>
 							</tbody>
 						</table>
-						<b><i style="font-size: 12px">* Outras = FPM, Royalties, ITR, CIDE, Fundeb, Lei Kandir, FEX, AFM/AFE, ISS e IRRF</i></b>
+						<b><i style="font-size: 12px">* Outras = FPM, Royalties, ITR, CIDE, Fundeb, Lei Kandir, FEX, AFM/AFE, ISS</i></b>
 					</div>
 			  </div>
 			</section>
 		<?php } ?>
+
+	<?php 
+		if (!empty($cidade['Empresa'])) { ?>
+			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
+		    <div class="container noticias responsive-large">
+		      <div class="container-fluid text-center">
+		    		<?php echo $this->Html->link('Principais Empresas', array('action' => 'site_empresas', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    	</div>
+		      <div class="row border">
+		      	<div class="col-md-12">
+		      	<?php $count = 0; $b = 0;
+	      			for ($i=0; $i < count($cidade['Empresa']); $i++) { 		      				
+	      				
+	      				if ($b == 2) {	
+		      				$b = 0;	      				
+		      				echo '</div>';
+		      			}
+		      			if ($count % 2 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
+	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
+	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
+	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
+	      				} else {
+	      					echo '<div class="col-md-6 text-center">'.$this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')).'</div>';
+	      				}
+		      				echo '<div class="col-md-6"><b>'
+		    						.$cidade['Empresa'][$count]['nome'].'</b><br><br>'
+		    						.'Telefone Principal: '.$cidade['Empresa'][$count]['telefone1'].'<br>';
+		    						if ($cidade['Empresa'][$count]['telefone2'] != '') {
+		    							echo 'Telefone: '.$cidade['Empresa'][$count]['telefone2'].'<br>';
+		    						}
+		    						if ($cidade['Empresa'][$count]['horario_ini'] != null && $cidade['Empresa'][$count]['horario_fim'] != null) {
+		    							echo 'Funcionamento: '.$cidade['Empresa'][$count]['horario_ini'].' às '. $cidade['Empresa'][$count]['horario_fim'].'<br>';
+		    						}
+		    						if ($cidade['Empresa'][$count]['site'] != '') {
+		    							echo 'Site: '.$cidade['Empresa'][$count]['site'].'<br>';
+		    						}
+		    						if ($cidade['Empresa'][$count]['localizacao'] != '') {
+		    							echo 'Endereço: '.$cidade['Empresa'][$count]['localizacao'].'<br>';
+		    						}
+		    						if ($cidade['Empresa'][$count]['historico'] != '') {
+		    							echo 'Detalhes: '.$cidade['Empresa'][$count]['historico'].'<br>';
+		    						}
+		    					echo '</div>';
+	      				echo '</div>';
+	      		?>
+				    	
+			    	<?php $count++; $b++; if($count == 20) { break; } } ?>	
+			    	</div>					
+			    </div>
+		    </div>
+		  </section>
+	<?php	}	?>
 
 	<?php echo $this->Element('footer'); ?>
   

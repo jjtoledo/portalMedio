@@ -38,7 +38,7 @@ class EspacoEvento extends AppModel {
 			'dependent' => false,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoEspaco.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

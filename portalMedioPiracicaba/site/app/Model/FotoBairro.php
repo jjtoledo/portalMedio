@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * FotoDistrito Model
+ * FotoBairro Model
  *
- * @property Distrito $Distrito
+ * @property Bairro $Bairro
  */
-class FotoDistrito extends AppModel {
+class FotoBairro extends AppModel {
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -16,8 +16,8 @@ class FotoDistrito extends AppModel {
  * @var array
  */
 	public $belongsTo = array(
-		'Distrito' => array(
-			'className' => 'Distrito',
+		'Bairro' => array(
+			'className' => 'Bairro',
 			'foreignKey' => 'distrito_id',
 			'conditions' => '',
 			'fields' => '',
@@ -27,10 +27,10 @@ class FotoDistrito extends AppModel {
 
 	public function beforeSave($options = array()) {
 		//debug($this->data);
-		if(!empty($this->data['FotoDistrito']['foto']['name'])) {
-	        $this->data['FotoDistrito']['foto'] = $this->upload($this->data['FotoDistrito']['foto']);
+		if(!empty($this->data['FotoBairro']['foto']['name'])) {
+	        $this->data['FotoBairro']['foto'] = $this->upload($this->data['FotoBairro']['foto']);
 	    } else {
-	        unset($this->data['FotoDistrito']['foto']);
+	        unset($this->data['FotoBairro']['foto']);
 	    }
 	}
 

@@ -38,7 +38,7 @@ class OrgaoPublico extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoOrgao.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

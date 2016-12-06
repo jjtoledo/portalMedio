@@ -141,6 +141,10 @@
 					if (!empty($cidade['Estatistica']['temp_min'])) {
 						echo '<p><b>Temperatura Mínima: </b>' . $cidade['Estatistica']['temp_min'] . '°C</p>'; 
 					}
+
+					if (!empty($cidade['Estatistica']['vias'])){
+						echo '<b>Vias de Acesso: </b><br>'.$cidade['Estatistica']['vias'];
+					}
 				?>
 				</div>
 				<div class="col-md-6">
@@ -159,7 +163,7 @@
 							foreach ($populacao as $p) { ?>
 								<tr>
 									<td nowrap><?php echo h($p['ano']); ?>&nbsp;</td>
-									<td nowrap><?php echo h(number_format($p['quantidade'], 0, ',', '.')); ?>&nbsp;</td>
+									<td nowrap><?php echo h($p['quantidade']); ?>&nbsp;</td>
 								</tr>
 							<?php 
 							} ?>
@@ -168,80 +172,29 @@
 					<?php
 					}
 					?>
+
+					<?php if (!empty($cidade['Estatistica']['limitrofes'])){
+						echo '<b>Municípios Limítrofes: </b><br>'.$cidade['Estatistica']['limitrofes'];
+					} 
+
+					if (!empty($cidade['Estatistica']['centros'])){
+						echo '<br><b>Distância dos Principais Centros: </b><br>'.$cidade['Estatistica']['centros'];
+					} 					 
+					?>
 				</div>
 			</div>			
 	  </div>
 	</main>
 
-	<?php 
-		if (!empty($cidade['Receita'])) { ?>
-			<section style="background-color: #e6e6e6" id="receitas">
-				<div class="container">
-					<div class="col-md-12 text-center">
-						<?php echo '<h1 class="noticiasHome">Receitas Municipais</h1><br><hr style="margin-top:0">' ?>			
-					</div>
-
-					<div class="col-md-12">
-						<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover">
-							<thead>
-								<tr>
-									<th nowrap><?php echo 'Ano' ?></th>
-									<th nowrap><?php echo 'ICMS' ?></th>
-									<th nowrap><?php echo 'IPI' ?></th>
-									<th nowrap><?php echo 'IPVA' ?></th>
-									<th nowrap><?php echo 'IPTU' ?></th>
-									<th nowrap><?php echo 'Outras *' ?></th>
-									<th nowrap><?php echo 'Total' ?></th>
-								</tr>
-							</thead>
-							<tbody>
-							<?php 
-							$receita = $cidade['Receita'];
-							foreach ($receita as $r) { 
-								$fpm        = str_replace(",", ".", str_replace(".", "", substr($r['fpm'], 3)));
-								$royalties  = str_replace(",", ".", str_replace(".", "", substr($r['royalties'], 3)));
-								$itr        = str_replace(",", ".", str_replace(".", "", substr($r['itr'], 3)));
-								$cide       = str_replace(",", ".", str_replace(".", "", substr($r['cide'], 3)));
-								$fundeb     = str_replace(",", ".", str_replace(".", "", substr($r['fundeb'], 3)));
-								$lei_kandir = str_replace(",", ".", str_replace(".", "", substr($r['lei_kandir'], 3)));
-								$fex        = str_replace(",", ".", str_replace(".", "", substr($r['fex'], 3)));
-								$afm_afe    = str_replace(",", ".", str_replace(".", "", substr($r['afm_afe'], 3)));
-								$iss        = str_replace(",", ".", str_replace(".", "", substr($r['iss'], 3)));
-								$irrf       = str_replace(",", ".", str_replace(".", "", substr($r['irrf'], 3)));
-								
-								$outras = $fpm + $royalties + $itr + $cide + $fundeb + $lei_kandir + $fex + $afm_afe + $iss + $irrf; 
-								$outras = number_format($outras, 2, ',', '.');
-
-								$outras = 'R$ ' . $outras; 
-							?>
-								<tr>
-									<td nowrap><?php echo h($r['ano']); ?>&nbsp;</td>
-									<td nowrap><?php echo h($r['icms']); ?>&nbsp;</td>
-									<td nowrap><?php echo h($r['ipi']); ?>&nbsp;</td>
-									<td nowrap><?php echo h($r['ipva']); ?>&nbsp;</td>
-									<td nowrap><?php echo h($r['iptu']); ?>&nbsp;</td>
-									<td nowrap><?php echo h($outras); ?>&nbsp;</td>
-									<td nowrap><?php echo h($r['total']); ?>&nbsp;</td>
-								</tr>
-							<?php 
-							} ?>
-							</tbody>
-						</table>
-						<b><i style="font-size: 12px">* Outras = FPM, Royalties, ITR, CIDE, Fundeb, Lei Kandir, FEX, AFM/AFE, ISS e IRRF</i></b>
-					</div>
-			  </div>
-			</section>
-		<?php } ?>
-
-		<?php if(!empty($cidade['Bairro'])) { ?>
+		<?php if(!empty($cidade['Distrito'])) { ?>
 			<section style="background-color: #fff">
 				<div class="container">
 					<div class="col-md-8 col-md-offset-2 cresce" style="margin-bottom: 50px; margin-top: 50px">
 				  	<div class="row">
-					  	<p class="linkNormal">Relação de bairros e povoados</p>
+					  	<p class="linkNormal">Relação de distritos e povoados</p>
 				  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
 				    	<?php 
-				    		$bairro = $cidade['Bairro'];
+				    		$bairro = $cidade['Distrito'];
 				    		foreach ($bairro as $b):
 				    			echo '<div class="col-lg-4 col-sm-6 col-xs-12">';
 				    			echo '<a href="#" class="listMenu">
@@ -255,6 +208,51 @@
 				</div>
 			</section>
 		<?php } ?>
+
+		<?php if (!empty($rios)): ?>
+			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
+		    <div class="container noticias responsive-large">
+		      <div class="container-fluid text-center">
+		    		<?php echo $this->Html->link('Principaos Rios&nbsp;&nbsp;<span class="glyphicon glyphicon-tint bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    	</div>
+		      <div class="row border">
+		      	<?php $count = 0; 
+		      			for ($i=0; $i < 4; $i++) { 
+		      				if (count($rios) == $count) {
+		      					$count = 0;
+		      				}
+		      		?>
+				    	<div class="col-md-3 col-sm-6 divNoticia">
+				    		<div class="noticia agenda">
+				    			<?php 
+				    				echo '<a class="noticia_foto" href="#'./*$rios[$count]['Rio']['link'].*/'" escape="false">';
+				    				if ($rios[$count]['FotoRio'] != null) {
+				    					echo $this->Html->image($rios[$count]['FotoRio']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+				    				} else {
+				    					echo '<div class="config-padding col-md-12 text-center">';
+				    					echo $this->Html->image('rio-icon.gif', array('width' => '50%', 'height' => '50%'));
+				    					echo '<hr class="config-margin-hr">';
+				    					echo '</div>';
+				    				}
+				    					echo '<h3 class="text-center menor">'.$rios[$count]['Rio']['nome'].'</h3>';
+				    				echo '</a>';
+				    			?>	
+				    		</div><br>
+				    	</div>
+			    	<?php $count++; } ?>
+						<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+			    		<div class="noticia prop large">
+			    			<?php 
+				    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
+				    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+				    				echo '</a>'
+				    			?>	
+			    		</div>
+			    	</div>	
+			    </div>    	
+		    </div>
+		  </section>
+		<?php endif; ?>
 
 	<?php echo $this->Element('footer'); ?>
   

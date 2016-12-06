@@ -37,7 +37,7 @@ class Evento extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoEvento.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

@@ -37,7 +37,7 @@ class Camara extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoCamara.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

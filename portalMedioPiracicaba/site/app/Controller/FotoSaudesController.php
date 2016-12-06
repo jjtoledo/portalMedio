@@ -38,6 +38,9 @@ class FotoSaudesController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoSaude.orgao_saude_id' => $id
+			),
+			'order' => array(
+				'FotoSaude.id' => 'DESC'
 			)
 		);
 		$this->set('fotoSaudes', $this->Paginator->paginate());

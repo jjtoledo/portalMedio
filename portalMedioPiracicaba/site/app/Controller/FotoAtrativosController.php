@@ -38,6 +38,9 @@ class FotoAtrativosController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoAtrativo.atrativo_turistico_id' => $id
+			),
+			'order' => array(
+				'FotoAtrativo.id' => 'DESC'
 			)
 		);
 		$this->set('fotoAtrativos', $this->Paginator->paginate());

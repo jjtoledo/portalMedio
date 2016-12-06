@@ -81,7 +81,12 @@
 
 			<div class="col-md-12 text-justify">
 				<?php
-					echo $cidade['Historia']['historia'];
+					if (!empty($cidade['Historia']['foto'])) {
+						echo '<div class="col-md-3 noticia_foto">';
+						echo $this->Html->image($cidade['Historia']['foto'], array('width' => '100%')); 
+					  echo '</div>';
+					}
+				  echo '<div class="noticiaCorpo">'.$cidade['Historia']['historia'];
 					echo '<p><b>Adoção do nome: </b>' . $cidade['Historia']['adocao_nome'] . '</p>';
 					echo '<br><p><b>Emancipação: </b>' . $cidade['Historia']['emancipacao'] . '</p>';
 					echo '<br><p><b>Adjetivo pátrio: </b>' . $cidade['Historia']['adjetivo_patrio'] . '</p>';
@@ -193,28 +198,26 @@
 			</section>
 		<?php } ?>
 
-		<?php 
-		if (!empty($cidade['Distrito'])) { ?>
+		<?php if(!empty($cidade['Bairro'])) { ?>
 			<section style="background-color: #fff">
 				<div class="container">
-					<div class="col-md-12 text-center">
-						<?php echo '<h1 class="noticiasHome">Distritos</h1><br><hr style="margin-top:0">' ?>			
-					</div>
-
-		    	<?php 
-		    		foreach ($distritos as $c):		
-		    			echo '<div class="col-md-12">';
-		    			if (!empty($c['FotoDistrito'])) {
-			    			echo '<div class="col-md-2 noticia_foto" style="padding-left:0">';
-								echo $this->Html->image($c['FotoDistrito']['0']['foto'], array('width' => '100%')); 
-							  echo '</div>';
-		    			}
-		    			echo '<b>' . $c['Distrito']['nome'] . '</b><br><br>';
-		    			echo $c['Distrito']['descricao'] . '<br><br>';
-		    			echo '</div>';
- 		    		endforeach;
-		    	?>
-			  </div>
+					<div class="col-md-8 col-md-offset-2 cresce" style="margin-bottom: 50px; margin-top: 50px">
+				  	<div class="row">
+					  	<p class="linkNormal">Bairros</p>
+				  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
+				    	<?php 
+				    		$bairro = $cidade['Bairro'];
+				    		foreach ($bairro as $b):
+				    			echo '<div class="col-lg-4 col-sm-6 col-xs-12">';
+				    			echo '<a href="#" class="listMenu">
+				    							<span class="glyphicon glyphicon-map-marker"></span> ' . $b['nome'] . '
+				    						</a><br>';
+				    			echo '</div>';
+				    		endforeach;
+				    	?>
+				    </div> 
+				  </div>
+				</div>
 			</section>
 		<?php } ?>
 

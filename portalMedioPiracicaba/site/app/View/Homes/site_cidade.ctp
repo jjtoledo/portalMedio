@@ -125,8 +125,10 @@
 		    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">Ainda não temos eventos</p>';
 		    				} else {
 		    					echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
-			    				if ($cidade['Evento']['0']['foto_anuncio'] != null) {
-				    				echo $this->Html->image($cidade['Evento']['0']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+			    				if ($eventos['0']['Evento']['foto_anuncio'] != null) {
+			    					echo $this->Html->image($eventos['0']['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+			    				} else if ($eventos[$count]['FotoEvento'] != null) {
+			    					echo $this->Html->image($eventos['0']['FotoEvento']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 			    				} else {
 			    					echo '<div class="config-padding col-md-12 text-center">';
 			    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));

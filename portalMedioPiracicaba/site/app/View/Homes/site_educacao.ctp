@@ -100,8 +100,11 @@
 				              	} else {
 					      					echo '<div class="col-md-6" style="margin-top: 50px">';
 					      				}
-						      				echo '<div class="col-md-4">'.$this->Html->image('escola-img.png', array('width' => '100%', 'height' => '100%')).'</div>';
-						      				
+					      				if ($escola['foto_anuncio'] != null) {
+					      					echo '<div class="col-md-4">'.$this->Html->image($escola['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';
+					      				} else {
+						      				echo '<div class="col-md-4">'.$this->Html->image('escola-img.png', array('width' => '80%', 'height' => '100%')).'</div>';
+						      			}
 						      				echo '<div class="col-md-8"><b>'
 						    						.$escola['nome'].'</b><br><br>';
 						    						if ($escola['telefone1'] != '') {

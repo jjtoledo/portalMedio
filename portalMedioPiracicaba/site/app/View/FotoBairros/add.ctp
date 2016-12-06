@@ -20,14 +20,14 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-							<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $distrito['Distrito']['id']), array('escape' => false)); ?> </li>
+							<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $bairro['Bairro']['id']), array('escape' => false)); ?> </li>
 							</ul>
 						</div>
 					</div>
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('FotoDistrito', array('type' => 'file')); ?>
+			<?php echo $this->Form->create('FotoBairro', array('type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('fotos.', array('type' => 'file', 'multiple', 'label' => 'Fotos', 'required' => 'true'));?>

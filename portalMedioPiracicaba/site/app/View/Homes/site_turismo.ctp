@@ -115,8 +115,46 @@
 	<?php	}	?>
 
 	<?php 
-		if (!empty($eventos)) { ?>
+		if (!empty($cidade['Patrimonio'])) { ?>
 			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
+		    <div class="container noticias responsive-large">
+		      <div class="container-fluid text-center">
+		    		<?php echo $this->Html->link('Patrimônios Históricos e Culturais&nbsp;&nbsp;<span class="glyphicon glyphicon-globe bigger"></span>', array('action' => 'site_patrimonios', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    	</div>
+		    	<div class="row border">
+		      	<?php $count = 0; 
+		      			for ($i=0; $i < 4; $i++) { 		      				
+		      				if (count($cidade['Patrimonio']) == $count) {
+		      					$count = 0;
+		      				}
+		      		?>
+				    	<div class="col-md-3 col-sm-6 divNoticia">
+				    		<div class="noticia agenda">
+				    			<?php 
+				    				echo '<a class="noticia_foto" href="#'./*$cidade['Patrimonio'][$count]['link'].*/'" escape="false">';
+				    				if ($cidade['Patrimonio'][$count]['foto'] != null) {
+					    				echo $this->Html->image($cidade['Patrimonio'][$count]['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+				    				} else {
+				    					echo '<div class="config-padding col-md-12 text-center">';
+				    					echo $this->Html->image('cristo-icon.png', array('width' => '48%', 'height' => '50%'));
+				    					echo '<hr class="config-margin-hr">';
+				    					echo '</div>';
+				    				}
+				    					echo '<h3 class="text-center menor">'.$cidade['Patrimonio'][$count]['nome'].'</h3>';
+				    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$cidade['Patrimonio'][$count]['ano'].'</p>';
+				    				echo '</a>';
+				    			?>	
+				    		</div><br>
+				    	</div>
+			    	<?php $count++; } ?>						
+			    </div>    	
+		    </div>
+		  </section>
+	<?php	}	?>
+
+	<?php 
+		if (!empty($eventos)) { ?>
+			<section class="subtitle-intro noticias agenda" style="background-color:#fff">
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
 		    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
@@ -157,74 +195,6 @@
 		    			?>	
 		    		</div>
 		    	</div>
-		    </div>
-		  </section>
-	<?php	}	?>
-
-	<?php 
-		if (!empty($cidade['EspacoEvento'])) { ?>
-			<section class="subtitle-intro noticias agenda" style="background-color:#fff">
-		    <div class="container noticias responsive-large">
-		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Espaços para Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker bigger"></span>', array('action' => 'site_espacos_eventos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
-		    	</div>
-		      <div class="row border">
-		      	<?php $count = 0; 
-		      			for ($i=0; $i < 4; $i++) { 		      				
-		      				if (count($cidade['EspacoEvento']) == $count) {
-		      					$count = 0;
-		      				}
-		      		?>
-				    	<div class="col-md-3 col-sm-6 divNoticia">
-				    		<div class="noticia agenda">
-				    			<?php 
-				    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
-				    				if ($cidade['EspacoEvento'][$count]['foto_anuncio'] != null) {
-					    				echo $this->Html->image($cidade['EspacoEvento'][$count]['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
-				    				} else {
-				    					echo '<div class="config-padding col-md-12 text-center">';
-				    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
-				    					echo '<hr class="config-margin-hr">';
-				    					echo '</div>';
-				    				}
-				    					echo '<h3 class="text-center menor">'.$cidade['EspacoEvento'][$count]['nome'].'</h3>';
-				    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$cidade['EspacoEvento'][$count]['telefone1'].'</p>';
-				    				echo '</a>'
-				    			?>	
-				    		</div><br>
-				    	</div>
-			    	<?php $count++; } ?>						
-			    </div>    				    
-		    </div>
-		  </section>
-	<?php	}	?>
-
-		<?php 
-		if (!empty($cidade['Patrimonio'])) { ?>
-			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
-		    <div class="container noticias responsive-large">
-		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Patrimônios Históricos e Culturais&nbsp;&nbsp;<span class="glyphicon glyphicon-globe bigger"></span>', array('action' => 'site_patrimonios', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
-		    	</div>
-		    	<?php foreach ($patrimonios as $p) { ?>
-			      <div class="col-md-8 col-md-offset-2">
-			      	<p class="linkNormal" style="margin-top: 20px"><?php echo $p['Patrimonio']['tipo'] ?></p>
-		  				<hr style="border-top: 1px solid #ddd; margin-top: 10px; margin-bottom: 15px; width: auto">	
-			      	<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover">								
-								<tbody>
-								<?php foreach ($cidade['Patrimonio'] as $pat) { 
-									if ($pat['tipo'] == $p['Patrimonio']['tipo']) { ?>										
-										<tr>
-											<td width="60%"><?php echo h($pat['nome']); ?>&nbsp;</td>
-											<?php if($pat['ano'] != '') { echo '<td width="40%">'.$pat['ano'].'&nbsp;</td>'; } ?>											
-										</tr>
-								<?php	
-									}
-								} ?>
-								</tbody>
-							</table>						
-				    </div>    	
-			    <?php } ?>
 		    </div>
 		  </section>
 	<?php	}	?>

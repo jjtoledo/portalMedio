@@ -38,6 +38,9 @@ class FotoPoliticosController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoPolitico.politico_id' => $id
+			),
+			'order' => array(
+				'FotoPolitico.id' => 'DESC'
 			)
 		);
 		$this->set('fotoPoliticos', $this->Paginator->paginate());

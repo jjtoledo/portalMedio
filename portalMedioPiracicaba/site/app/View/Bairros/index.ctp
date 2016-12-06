@@ -42,6 +42,7 @@
 					<tr>
 						<td nowrap><?php echo h($bairro['Bairro']['nome']); ?>&nbsp;</td>
 						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoBairros', 'action' => 'index', $bairro['Bairro']['id']), array('escape' => false))?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $bairro['Bairro']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $bairro['Bairro']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $bairro['Bairro']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $bairro['Bairro']['nome'])); ?>

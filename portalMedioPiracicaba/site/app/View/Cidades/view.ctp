@@ -78,7 +78,7 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Bairros e Povoados'), array('controller' => 'bairros', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Distritos e Povoados'), array('controller' => 'distritos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
 	</div>
@@ -109,7 +109,7 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Distritos'), array('controller' => 'distritos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Bairros'), array('controller' => 'bairros', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
 

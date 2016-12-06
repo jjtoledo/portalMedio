@@ -38,6 +38,9 @@ class FotoEscolasController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoEscola.escola_id' => $id
+			),
+			'order' => array(
+				'FotoEscola.id' => 'DESC'
 			)
 		);
 		$this->set('fotoEscolas', $this->Paginator->paginate());

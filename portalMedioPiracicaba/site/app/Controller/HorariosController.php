@@ -52,14 +52,14 @@ class HorariosController extends AppController {
 			if ($this->Horario->save($this->request->data)) {
 				$this->Session->setFlash(__('The horario has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'empresaOnibuses', 
-											'action' => 'view', $id, $idCity));
+											'action' => 'view', $id, $idEmpresa));
 			} else {
 				$this->Session->setFlash(__('The horario could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
 		}
 
-		$this->set('id', $idEmpresa);
-		$this->set('idCity', $idCity);
+		$this->set('id', $id);
+		$this->set('idCity', $idEmpresa);
 	}
 
 /**

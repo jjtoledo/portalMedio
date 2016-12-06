@@ -24,4 +24,26 @@ class Bairro extends AppModel {
 			'order' => ''
 		)
 	);
+
+
+/**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'FotoBairro' => array(
+			'className' => 'FotoBairro',
+			'foreignKey' => 'distrito_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => 'FotoBairro.id DESC',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		)
+	);
 }

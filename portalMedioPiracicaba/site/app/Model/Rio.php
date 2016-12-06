@@ -37,7 +37,7 @@ class Rio extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoRio.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

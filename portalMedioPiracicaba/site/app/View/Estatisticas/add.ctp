@@ -79,13 +79,13 @@
 					<?php echo $this->Form->input('temp_min', array('class' => 'form-control', 'placeholder' => 'Temperatura Mínima', 'min' => -20, 'label' => 'Temperatura Mínima'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('limitrofes', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Municípios Limítrofes', 'label' => 'Municípios Limítrofes'));?>
+					<?php echo $this->Tinymce->input('Estatistica.limitrofes', $options = array('label' => 'Municípios Limítrofes'), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('centros', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Distância principais Centros', 'label' => 'Distância principais Centros'));?>
+					<?php echo $this->Tinymce->input('Estatistica.centros', $options = array('label' => 'Distância principais Centros'), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('vias', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Vias de Acesso', 'label' => 'Vias de Acesso'));?>
+					<?php echo $this->Tinymce->input('Estatistica.vias', $options = array('label' => 'Vias de Acesso'), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

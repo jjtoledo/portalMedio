@@ -226,7 +226,7 @@ class Cidade extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'Foto.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

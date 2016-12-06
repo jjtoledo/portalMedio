@@ -99,9 +99,9 @@
 						</td>
 					</tr>
 					<tr>
-						<th><?php echo __('Foto Anuncio'); ?></th>
+						<th><?php echo __('Foto Anúncio'); ?></th>
 						<td>
-							<?php echo h($escola['Escola']['foto_anuncio']); ?>
+							<?php echo $this->Html->image($escola['Escola']['foto_anuncio'], array('height' => '50%')); ?>
 							&nbsp;
 						</td>
 					</tr>

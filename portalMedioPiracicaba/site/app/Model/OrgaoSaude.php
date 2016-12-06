@@ -38,7 +38,7 @@ class OrgaoSaude extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoSaude.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

@@ -42,7 +42,7 @@ class HomesController extends AppController {
 
 		/* Agenda */
 		$this->loadModel('Evento');
-		$options = array('order' => 'Evento.data');
+		$options = array('order' => 'Evento.id DESC');
 		$eventos = $this->Evento->find('all', $options);
 		$this->set(compact('eventos'));
 
@@ -125,6 +125,15 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Estatísticas');
 		$this->common($id);
 		$this->set('active', 'estatistica');
+
+		$this->loadModel('Rio');
+		$options = array(
+			'conditions' => array(
+				'Rio.cidade_id' => $id
+			)
+		);
+		$rios = $this->Rio->find('all', $options);
+		$this->set(compact('rios'));
 	}
 
 	public function site_mapas($id = null) {
@@ -579,7 +588,7 @@ class HomesController extends AppController {
 			/* Agenda */
 			$this->loadModel('Evento');
 			$options = array(
-				'order' => 'Evento.data',
+				'order' => 'Evento.id DESC',
 				'conditions' => array(
 					'Evento.cidade_id' => $id
 				)

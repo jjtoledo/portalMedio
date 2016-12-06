@@ -51,7 +51,7 @@ class Escola extends AppModel {
 			'dependent' => true,
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
+			'order' => 'FotoEscola.id DESC',
 			'limit' => '',
 			'offset' => '',
 			'exclusive' => '',

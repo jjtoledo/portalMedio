@@ -198,6 +198,8 @@
 		    				echo '<a class="noticia_foto" href="#'./*$eventos[$count]['Evento']['link'].*/'" escape="false">';
 		    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
 			    				echo $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+		    				} else if ($eventos[$count]['FotoEvento'] != null) {
+		    					echo $this->Html->image($eventos[$count]['FotoEvento']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 		    				} else {
 		    					echo '<div class="config-padding col-md-12 text-center">';
 		    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));

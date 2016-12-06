@@ -38,6 +38,9 @@ class FotoEventosController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoEvento.evento_id' => $id
+			),
+			'order' => array(
+				'FotoEvento.id' => 'DESC'
 			)
 		);
 		$this->set('fotoEventos', $this->Paginator->paginate());

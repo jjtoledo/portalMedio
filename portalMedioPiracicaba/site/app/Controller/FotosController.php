@@ -39,6 +39,9 @@ class FotosController extends AppController {
 			'conditions' => array(
 				'Foto.cidade_id' => $id,
 				'Foto.tipo' => $tipo
+			),
+			'order' => array(
+				'Foto.id' => 'DESC'
 			)
 		);
 		$fotos = $this->Foto->find('all', $options);

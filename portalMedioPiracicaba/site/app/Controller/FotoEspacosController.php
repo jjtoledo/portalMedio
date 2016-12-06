@@ -38,6 +38,9 @@ public function afterFilter() {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoEspaco.espaco_evento_id' => $id
+			),
+			'order' => array(
+				'FotoEspaco.id' => 'DESC'
 			)
 		);
 		$this->set('fotoEspacos', $this->Paginator->paginate());

@@ -38,6 +38,9 @@ class FotoRiosController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoRio.rio_id' => $id
+			),
+			'order' => array(
+				'FotoRio.id' => 'DESC'
 			)
 		);
 		$this->set('fotoRios', $this->Paginator->paginate());

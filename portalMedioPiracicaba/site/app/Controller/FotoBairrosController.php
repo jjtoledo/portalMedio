@@ -1,14 +1,14 @@
 <?php
 App::uses('AppController', 'Controller');
 /**
- * FotoDistritos Controller
+ * FotoBairros Controller
  *
- * @property FotoDistrito $FotoDistrito
+ * @property FotoBairro $FotoBairro
  * @property PaginatorComponent $Paginator
  * @property FlashComponent $Flash
  * @property SessionComponent $Session
  */
-class FotoDistritosController extends AppController {
+class FotoBairrosController extends AppController {
 
 /**
  * Components
@@ -37,14 +37,17 @@ class FotoDistritosController extends AppController {
 	public function index($id = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'FotoDistrito.distrito_id' => $id
+				'FotoBairro.distrito_id' => $id
+			),
+			'order' => array(
+				'FotoBairro.id' => 'DESC'
 			)
 		);
-		$this->set('fotoDistritos', $this->Paginator->paginate());
+		$this->set('fotoBairros', $this->Paginator->paginate());
 
-		$this->loadModel('Distrito');
-		$options = array('conditions' => array('Distrito.' . $this->Distrito->primaryKey => $id));
-		$this->set('distrito', $this->Distrito->find('first', $options));
+		$this->loadModel('Bairro');
+		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id));
+		$this->set('bairro', $this->Bairro->find('first', $options));
 	}
 
 
@@ -56,15 +59,15 @@ class FotoDistritosController extends AppController {
  * @return void
  */
 	public function view($id = null, $idDist = null) {
-		if (!$this->FotoDistrito->exists($id)) {
+		if (!$this->FotoBairro->exists($id)) {
 			throw new NotFoundException(__('Invalid Foto'));
 		}
-		$options = array('conditions' => array('FotoDistrito.' . $this->FotoDistrito->primaryKey => $id));
-		$this->set('fotoDistrito', $this->FotoDistrito->find('first', $options));
+		$options = array('conditions' => array('FotoBairro.' . $this->FotoBairro->primaryKey => $id));
+		$this->set('fotoBairro', $this->FotoBairro->find('first', $options));
 
-		$this->loadModel('Distrito');
-		$options = array('conditions' => array('Distrito.' . $this->Distrito->primaryKey => $idDist));
-		$this->set('distrito', $this->Distrito->find('first', $options));
+		$this->loadModel('Bairro');
+		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $idDist));
+		$this->set('bairro', $this->Bairro->find('first', $options));
 
 		$this->set('id', $id);
 	}
@@ -75,21 +78,21 @@ class FotoDistritosController extends AppController {
  * @return void
  */
 	public function add($id = null) {
-		$this->request->data['FotoDistrito']['distrito_id'] = $id;
+		$this->request->data['FotoBairro']['distrito_id'] = $id;
 		
-		$this->loadModel('Distrito');
-		$options = array('conditions' => array('Distrito.' . $this->Distrito->primaryKey => $id));
-		$this->set('distrito', $this->Distrito->find('first', $options));
+		$this->loadModel('Bairro');
+		$options = array('conditions' => array('Bairro.' . $this->Bairro->primaryKey => $id));
+		$this->set('bairro', $this->Bairro->find('first', $options));
 
 		$photo = array();
 		if ($this->request->is('post')) {				
-			for ($i=0; $i < sizeof($this->request->data['FotoDistrito']['fotos']); $i++) { 
-				$photo = array('FotoDistrito' => 
-							array('distrito_id' => $this->request->data['FotoDistrito']['distrito_id'],
-									'foto' => $this->request->data['FotoDistrito']['fotos'][$i]));
-				$this->FotoDistrito->create();			
-				if (!$this->FotoDistrito->save($photo)) {
-					//debug($this->request->data['FotoDistrito']['fotos']);
+			for ($i=0; $i < sizeof($this->request->data['FotoBairro']['fotos']); $i++) { 
+				$photo = array('FotoBairro' => 
+							array('distrito_id' => $this->request->data['FotoBairro']['distrito_id'],
+									'foto' => $this->request->data['FotoBairro']['fotos'][$i]));
+				$this->FotoBairro->create();			
+				if (!$this->FotoBairro->save($photo)) {
+					//debug($this->request->data['FotoBairro']['fotos']);
 					$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 				}
 			}
@@ -107,15 +110,15 @@ class FotoDistritosController extends AppController {
  * @return void
  */
 	public function edit($id = null, $idDist = null) {
-		if (!$this->FotoDistrito->exists($id)) {
+		if (!$this->FotoBairro->exists($id)) {
 			throw new NotFoundException(__('Invalid Foto'));
 		}
 
-		$this->request->data['FotoDistrito']['distrito_id'] = $idDist;
+		$this->request->data['FotoBairro']['distrito_id'] = $idDist;
 
 		if ($this->request->is(array('post', 'put'))) {
 			debug($this->request->data);
-			if ($this->FotoDistrito->save($this->request->data)) {
+			if ($this->FotoBairro->save($this->request->data)) {
 				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idDist));
 			} else {
@@ -132,12 +135,12 @@ class FotoDistritosController extends AppController {
  * @return void
  */
 	public function delete($id = null, $idDist = null) {
-		$this->FotoDistrito->id = $id;
-		if (!$this->FotoDistrito->exists()) {
+		$this->FotoBairro->id = $id;
+		if (!$this->FotoBairro->exists()) {
 			throw new NotFoundException(__('Invalid Foto'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->FotoDistrito->delete()) {
+		if ($this->FotoBairro->delete()) {
 			$this->Session->setFlash(__('The Foto has been deleted.'), 'default', array('class' => 'alert alert-success'));
 		} else {
 			$this->Session->setFlash(__('The Foto could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));

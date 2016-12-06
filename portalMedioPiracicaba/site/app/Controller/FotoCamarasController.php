@@ -38,6 +38,9 @@ class FotoCamarasController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoCamara.camara_id' => $id
+			),
+			'order' => array(
+				'FotoCamara.id' => 'DESC'
 			)
 		);
 		$this->set('fotoCamaras', $this->Paginator->paginate());
