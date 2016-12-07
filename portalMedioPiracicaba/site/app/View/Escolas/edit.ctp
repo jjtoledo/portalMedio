@@ -95,6 +95,19 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto_anuncio', array('type' => 'file', 'label' => 'Foto Anúncio'));?>
+					<p><?php if ($this->data['Escola']['foto_anuncio'] != null) {
+						echo $this->data['Escola']['foto_anuncio'];
+					} else {
+						echo "Sem foto";
+					}	?>						
+					</p>
+				</div>
+				<div class="form-group">
+					<label>Excluir foto?</label>
+					<?php $options = array('0' => 'Não', '1' => 'Sim');
+						$attributes = array('legend' => false, 'separator' => '&nbsp;&nbsp;&nbsp;', 'value' => '0');
+						echo $this->Form->radio('delete', $options, $attributes); 
+					?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

@@ -219,7 +219,7 @@
 		      	<?php $count = 0; 
 		      			for ($i=0; $i < 4; $i++) { 
 		      				if (count($rios) == $count) {
-		      					$count = 0;
+		      					break;
 		      				}
 		      		?>
 				    	<div class="col-md-3 col-sm-6 divNoticia">

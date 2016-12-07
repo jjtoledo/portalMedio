@@ -22013,3 +22013,79 @@ Stack Trace:
 #8 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
 #9 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #10 {main}
+2016-12-07 19:19:39 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-07 19:19:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-07 19:19:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-07 19:20:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-07 19:20:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2016-12-07 19:22:07 Error: [MissingActionException] Action PrefeiturasController::index() could not be found.
+Exception Attributes: array (
+  'controller' => 'PrefeiturasController',
+  'action' => 'index',
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/prefeituras/index/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(PrefeiturasController), Object(CakeRequest))
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2016-12-07 19:24:36 Error: Fatal Error (4): syntax error, unexpected ')', expecting ',' or ';' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Prefeituras\edit.ctp, line 53]
+2016-12-07 19:24:36 Error: [FatalErrorException] syntax error, unexpected ')', expecting ',' or ';'
+Request URL: /portalMedio/portalMedioPiracicaba/site/prefeituras/edit/1/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 53)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 53, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 53, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-07 19:27:37 Error: Fatal Error (4): syntax error, unexpected '}', expecting ',' or ';' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Prefeituras\edit.ctp, line 73]
+2016-12-07 19:27:37 Error: [FatalErrorException] syntax error, unexpected '}', expecting ',' or ';'
+Request URL: /portalMedio/portalMedioPiracicaba/site/prefeituras/edit/1/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 73)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 73, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 73, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

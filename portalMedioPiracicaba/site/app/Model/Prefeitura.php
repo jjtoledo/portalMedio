@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Fundador Model
+ * Prefeitura Model
  *
  * @property Cidade $Cidade
  */
-class Fundador extends AppModel {
+class Prefeitura extends AppModel {
 
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -27,10 +27,10 @@ class Fundador extends AppModel {
 
 	public function beforeSave($options = array()) {
 		//debug($this->data);
-		if(!empty($this->data['Fundador']['foto']['name'])) {
-	        $this->data['Fundador']['foto'] = $this->upload($this->data['Fundador']['foto']);
+		if(!empty($this->data['Prefeitura']['foto']['name'])) {
+	        $this->data['Prefeitura']['foto'] = $this->upload($this->data['Prefeitura']['foto']);
 	    } else {
-	        $this->data['Fundador']['foto'] = '';
+	        $this->data['Prefeitura']['foto'] = '';
 	    }
 	}
 

@@ -30,7 +30,7 @@ class Empresa extends AppModel {
 		if(!empty($this->data['Empresa']['foto_anuncio']['name'])) {
 	        $this->data['Empresa']['foto_anuncio'] = $this->upload($this->data['Empresa']['foto_anuncio']);
 	    } else {
-	        unset($this->data['Empresa']['foto_anuncio']);
+	        $this->data['Empresa']['foto_anuncio'] = '';
 	    }
 	}
 

@@ -324,6 +324,12 @@
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Prefeitos'), array('controller' => 'politicos', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Prefeitura'), array('controller' => 'prefeituras', 'action' => 'add', $cidade['Prefeitura']['id'], $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>
+		</div>
 	</div>
 
 	<div class="row" style="margin-bottom: 20px">

@@ -49,6 +49,14 @@ class Cidade extends AppModel {
 			'fields' => '',
 			'order' => ''
 		),
+		'Prefeitura' => array(
+			'className' => 'Prefeitura',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
+		),
 		'Camara' => array(
 			'className' => 'Camara',
 			'foreignKey' => 'cidade_id',

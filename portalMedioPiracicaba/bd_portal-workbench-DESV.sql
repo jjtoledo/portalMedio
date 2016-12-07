@@ -706,6 +706,23 @@ CREATE TABLE IF NOT EXISTS `portalmedio`.`politicos` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmedio`.`prefeituras` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `descricao` text NULL DEFAULT NULL,
+  `enredeco` VARCHAR(120) NULL DEFAULT NULL,
+  `telefone1` INT(20) NULL DEFAULT NULL,
+  `telefone2` int(20) NOT NULL DEFAULT '0',
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_prefeituras_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_prefeituras_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmedio`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmedio`.`prestadors` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(120) NULL DEFAULT NULL,

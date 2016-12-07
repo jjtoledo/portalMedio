@@ -77,12 +77,12 @@
 	  	
 			<?php if (!empty($cidade['Economia'])) { ?>
 				<div class="col-md-12 text-center">
-					<?php echo '<h1 class="noticiasHome">Economia de ' . $cidade['Cidade']['nome'] .'</h1><br><hr style="margin-top:0">' ?>			
+					<?php echo '<h1 class="noticiasHome">Economia de ' . $cidade['Cidade']['nome'] .'</h1><br><hr style="margin-top:0; margin-bottom: 10px">' ?>			
 				</div>
 
 				<div class="col-md-12 text-justify">
 					<?php foreach ($cidade['Economia'] as $economia) {
-						echo '<h3 class="linkNormal" style="margin-top:0; padding-left:15px; color: #54A9B2">'.$economia['subtitulo'].'</h3>';
+						echo '<h3 class="linkNormal" style="margin-top:10px; padding-left:15px; color: #54A9B2">'.$economia['subtitulo'].'</h3>';
 						echo $economia['descricao'];
 					} ?>
 				</div>
@@ -190,9 +190,6 @@
 		    						}
 		    						if ($cidade['Empresa'][$count]['localizacao'] != '') {
 		    							echo 'Endereço: '.$cidade['Empresa'][$count]['localizacao'].'<br>';
-		    						}
-		    						if ($cidade['Empresa'][$count]['historico'] != '') {
-		    							echo 'Detalhes: '.$cidade['Empresa'][$count]['historico'].'<br>';
 		    						}
 		    					echo '</div>';
 	      				echo '</div>';
