@@ -127,7 +127,7 @@
 		    					echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
 			    				if ($eventos['0']['Evento']['foto_anuncio'] != null) {
 			    					echo $this->Html->image($eventos['0']['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
-			    				} else if ($eventos[$count]['FotoEvento'] != null) {
+			    				} else if ($eventos['0']['FotoEvento'] != null) {
 			    					echo $this->Html->image($eventos['0']['FotoEvento']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
 			    				} else {
 			    					echo '<div class="config-padding col-md-12 text-center">';
