@@ -216,6 +216,10 @@ class EscolasController extends AppController {
 		$this->set('tipo', $tipo);
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Escola']['delete'] == '1') {
+				$this->request->data['Escola']['foto_anuncio'] = '';
+			}
+
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
 				if ($tipo < 3 || $tipo > 4) {

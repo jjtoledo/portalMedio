@@ -107,6 +107,10 @@ class SocialsController extends AppController {
 		$this->request->data['Social']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Social']['delete'] == '1') {
+				$this->request->data['Social']['foto'] = '';
+			}
+
 			if ($this->Social->save($this->request->data)) {
 				$this->Session->setFlash(__('The social has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

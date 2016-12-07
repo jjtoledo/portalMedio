@@ -106,6 +106,10 @@ class EspacoEventosController extends AppController {
 		$this->request->data['EspacoEvento']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['EspacoEvento']['delete'] == '1') {
+				$this->request->data['EspacoEvento']['foto_anuncio'] = '';
+			}
+
 			if ($this->EspacoEvento->save($this->request->data)) {
 				$this->Session->setFlash(__('The EspacoEvento has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

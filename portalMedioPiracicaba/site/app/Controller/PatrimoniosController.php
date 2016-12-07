@@ -107,6 +107,10 @@ class PatrimoniosController extends AppController {
 		$this->request->data['Patrimonio']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Patrimonio']['delete'] == '1') {
+				$this->request->data['Patrimonio']['foto'] = '';
+			}
+
 			if ($this->Patrimonio->save($this->request->data)) {
 				$this->Session->setFlash(__('The Patrimonio has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

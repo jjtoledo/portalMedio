@@ -106,6 +106,10 @@ class OrgaoPublicosController extends AppController {
 		$this->request->data['OrgaoPublico']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['OrgaoPublico']['delete'] == '1') {
+				$this->request->data['OrgaoPublico']['foto_anuncio'] = '';
+			}
+
 			if ($this->OrgaoPublico->save($this->request->data)) {
 				$this->Session->setFlash(__('The OrgaoPublico has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

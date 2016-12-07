@@ -107,6 +107,10 @@ class FundadorsController extends AppController {
 		$this->request->data['Fundador']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Fundador']['delete'] == '1') {
+				$this->request->data['Fundador']['foto'] = '';
+			}
+
 			if ($this->Fundador->save($this->request->data)) {
 				$this->Session->setFlash(__('The fundador has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

@@ -106,6 +106,10 @@ public function afterFilter() {
 		$this->request->data['Economia']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Economia']['delete'] == '1') {
+				$this->request->data['Economia']['foto'] = '';
+			}
+
 			if ($this->Economia->save($this->request->data)) {
 				$this->Session->setFlash(__('The Economia has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

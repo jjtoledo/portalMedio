@@ -74,6 +74,10 @@ class HistoriasController extends AppController {
 		$this->request->data['Historia']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Historia']['delete'] == '1') {
+				$this->request->data['Historia']['foto'] = '';
+			}
+
 			if ($this->Historia->save($this->request->data)) {
 				$this->Session->setFlash(__('The historia has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('controller' => 'cidades', 

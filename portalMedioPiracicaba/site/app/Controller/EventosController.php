@@ -106,6 +106,10 @@ class EventosController extends AppController {
 		$this->request->data['Evento']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Evento']['delete'] == '1') {
+				$this->request->data['Evento']['foto_anuncio'] = '';
+			}
+
 			if ($this->Evento->save($this->request->data)) {
 				$this->Session->setFlash(__('The evento has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

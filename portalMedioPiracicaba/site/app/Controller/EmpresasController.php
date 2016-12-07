@@ -109,6 +109,10 @@ class EmpresasController extends AppController {
 		$this->request->data['Empresa']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Empresa']['delete'] == '1') {
+				$this->request->data['Empresa']['foto_anuncio'] = '';
+			}
+
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('The Empresa has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

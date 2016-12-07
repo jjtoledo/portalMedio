@@ -109,6 +109,10 @@ class SimbolosController extends AppController {
 		$this->request->data['Simbolo']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['Simbolo']['delete'] == '1') {
+				$this->request->data['Simbolo']['imagem'] = '';
+			}
+
 			if ($this->Simbolo->save($this->request->data)) {
 				$this->Session->setFlash(__('The Simbolo has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));

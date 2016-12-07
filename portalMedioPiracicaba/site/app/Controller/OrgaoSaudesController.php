@@ -129,6 +129,10 @@ class OrgaoSaudesController extends AppController {
 		$this->request->data['OrgaoSaude']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
+			if ($this->request->data['OrgaoSaude']['delete'] == '1') {
+				$this->request->data['OrgaoSaude']['foto_anuncio'] = '';
+			}
+
 			if ($this->OrgaoSaude->save($this->request->data)) {
 				$this->Session->setFlash(__('The OrgaoSaude has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
