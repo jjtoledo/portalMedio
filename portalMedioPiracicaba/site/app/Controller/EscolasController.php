@@ -218,6 +218,9 @@ class EscolasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Escola']['delete'] == '1') {
 				$this->request->data['Escola']['foto_anuncio'] = '';
+			} else if ($this->request->data['Escola']['foto_anuncio']['name'] == '') {
+				$x = $this->Escola->findById($id);
+				$this->request->data['Escola']['foto_anuncio'] = $x['Escola']['foto_anuncio'];
 			}
 
 			if ($this->Escola->save($this->request->data)) {

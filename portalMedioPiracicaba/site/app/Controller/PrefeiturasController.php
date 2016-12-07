@@ -76,6 +76,9 @@ class PrefeiturasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Prefeitura']['delete'] == '1') {
 				$this->request->data['Prefeitura']['foto'] = '';
+			} else if ($this->request->data['Prefeitura']['foto']['name'] == '') {
+				$x = $this->Prefeitura->findById($id);
+				$this->request->data['Prefeitura']['foto'] = $x['Prefeitura']['foto'];
 			}
 
 			if ($this->Prefeitura->save($this->request->data)) {

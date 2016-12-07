@@ -271,6 +271,32 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Poder Executivo');
 		$this->common($id);
 		$this->set('active', 'executivo');
+
+		$this->loadModel('Politico');
+		$options = array(
+			'conditions' => array(
+				'Politico.cidade_id' => $id,
+				'Politico.tipo' => 1
+			),
+			'order' => array(
+				'Politico.id' => 'DESC'
+			)
+ 		);
+ 		$prefeitos = $this->Politico->find('all', $options);
+
+ 		$ano = date("Y");
+ 		$prefeito = array();
+		for ($i=0; $i < count($prefeitos); $i++) {
+			foreach ($prefeitos[$i]['Mandato'] as $mandato) {
+				if ($mandato['ano_termino'] >= $ano) {
+					array_push($prefeito, $prefeitos[$i]);
+					unset($prefeitos[$i]);
+				}		
+			}
+		}
+
+		$this->set('prefeitos', $prefeitos);	
+		$this->set('prefeito', $prefeito);	
 	}
 
 	public function site_legislativo($id = null) {

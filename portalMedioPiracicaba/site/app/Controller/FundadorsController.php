@@ -109,6 +109,9 @@ class FundadorsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Fundador']['delete'] == '1') {
 				$this->request->data['Fundador']['foto'] = '';
+			} else if ($this->request->data['Fundador']['foto']['name'] == '') {
+				$x = $this->Fundador->findById($id);
+				$this->request->data['Fundador']['foto'] = $x['Fundador']['foto'];
 			}
 
 			if ($this->Fundador->save($this->request->data)) {

@@ -29,7 +29,7 @@ class Fundador extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Fundador']['foto']['name'])) {
 	        $this->data['Fundador']['foto'] = $this->upload($this->data['Fundador']['foto']);
-	    } else {
+	    } else if (empty($this->data['Fundador']['foto'])) {
 	        $this->data['Fundador']['foto'] = '';
 	    }
 	}

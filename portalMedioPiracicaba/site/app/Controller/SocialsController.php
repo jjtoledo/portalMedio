@@ -109,6 +109,9 @@ class SocialsController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Social']['delete'] == '1') {
 				$this->request->data['Social']['foto'] = '';
+			} else if ($this->request->data['Social']['foto']['name'] == '') {
+				$x = $this->Social->findById($id);
+				$this->request->data['Social']['foto'] = $x['Social']['foto'];
 			}
 
 			if ($this->Social->save($this->request->data)) {

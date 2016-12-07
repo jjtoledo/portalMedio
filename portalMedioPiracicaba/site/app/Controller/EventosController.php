@@ -108,6 +108,9 @@ class EventosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Evento']['delete'] == '1') {
 				$this->request->data['Evento']['foto_anuncio'] = '';
+			} else if ($this->request->data['Evento']['foto_anuncio']['name'] == '') {
+				$x = $this->Evento->findById($id);
+				$this->request->data['Evento']['foto_anuncio'] = $x['Evento']['foto_anuncio'];
 			}
 
 			if ($this->Evento->save($this->request->data)) {

@@ -29,7 +29,7 @@ class Patrimonio extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Patrimonio']['foto']['name'])) {
 	        $this->data['Patrimonio']['foto'] = $this->upload($this->data['Patrimonio']['foto']);
-	    } else {
+	    } else if (empty($this->data['Patrimonio']['foto'])) {
 	        $this->data['Patrimonio']['foto'] = '';
 	    }
 	}

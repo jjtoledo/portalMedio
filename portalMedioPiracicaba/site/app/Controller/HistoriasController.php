@@ -76,6 +76,9 @@ class HistoriasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Historia']['delete'] == '1') {
 				$this->request->data['Historia']['foto'] = '';
+			} else if ($this->request->data['Historia']['foto']['name'] == '') {
+				$x = $this->Historia->findById($id);
+				$this->request->data['Historia']['foto'] = $x['Historia']['foto'];
 			}
 
 			if ($this->Historia->save($this->request->data)) {

@@ -111,6 +111,9 @@ class EmpresasController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Empresa']['delete'] == '1') {
 				$this->request->data['Empresa']['foto_anuncio'] = '';
+			} else if ($this->request->data['Empresa']['foto_anuncio']['name'] == '') {
+				$x = $this->Empresa->findById($id);
+				$this->request->data['Empresa']['foto_anuncio'] = $x['Empresa']['foto_anuncio'];
 			}
 
 			if ($this->Empresa->save($this->request->data)) {

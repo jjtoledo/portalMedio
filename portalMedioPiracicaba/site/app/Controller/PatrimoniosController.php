@@ -109,6 +109,9 @@ class PatrimoniosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Patrimonio']['delete'] == '1') {
 				$this->request->data['Patrimonio']['foto'] = '';
+			} else if ($this->request->data['Patrimonio']['foto']['name'] == '') {
+				$x = $this->Patrimonio->findById($id);
+				$this->request->data['Patrimonio']['foto'] = $x['Patrimonio']['foto'];
 			}
 
 			if ($this->Patrimonio->save($this->request->data)) {

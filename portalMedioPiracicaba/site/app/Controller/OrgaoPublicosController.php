@@ -108,6 +108,9 @@ class OrgaoPublicosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['OrgaoPublico']['delete'] == '1') {
 				$this->request->data['OrgaoPublico']['foto_anuncio'] = '';
+			} else if ($this->request->data['OrgaoPublico']['foto_anuncio']['name'] == '') {
+				$x = $this->OrgaoPublico->findById($id);
+				$this->request->data['OrgaoPublico']['foto_anuncio'] = $x['OrgaoPublico']['foto_anuncio'];
 			}
 
 			if ($this->OrgaoPublico->save($this->request->data)) {

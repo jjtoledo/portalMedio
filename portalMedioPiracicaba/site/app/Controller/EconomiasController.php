@@ -105,9 +105,12 @@ public function afterFilter() {
 
 		$this->request->data['Economia']['cidade_id'] = $idCity;
 
-		if ($this->request->is(array('post', 'put'))) {
+		if ($this->request->is(array('post', 'put'))) {			
 			if ($this->request->data['Economia']['delete'] == '1') {
 				$this->request->data['Economia']['foto'] = '';
+			} else if ($this->request->data['Economia']['foto']['name'] == '') {
+				$x = $this->Economia->findById($id);
+				$this->request->data['Economia']['foto'] = $x['Economia']['foto'];
 			}
 
 			if ($this->Economia->save($this->request->data)) {

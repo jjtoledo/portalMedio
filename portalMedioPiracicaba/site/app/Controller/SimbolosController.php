@@ -111,6 +111,9 @@ class SimbolosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['Simbolo']['delete'] == '1') {
 				$this->request->data['Simbolo']['imagem'] = '';
+			} else if ($this->request->data['Simbolo']['imagem']['name'] == '') {
+				$x = $this->Simbolo->findById($id);
+				$this->request->data['Simbolo']['imagem'] = $x['Simbolo']['imagem'];
 			}
 
 			if ($this->Simbolo->save($this->request->data)) {

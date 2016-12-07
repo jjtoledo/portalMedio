@@ -108,6 +108,9 @@ class EspacoEventosController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['EspacoEvento']['delete'] == '1') {
 				$this->request->data['EspacoEvento']['foto_anuncio'] = '';
+			} else if ($this->request->data['EspacoEvento']['foto_anuncio']['name'] == '') {
+				$x = $this->EspacoEvento->findById($id);
+				$this->request->data['EspacoEvento']['foto_anuncio'] = $x['EspacoEvento']['foto_anuncio'];
 			}
 
 			if ($this->EspacoEvento->save($this->request->data)) {

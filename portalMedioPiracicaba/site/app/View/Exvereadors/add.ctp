@@ -36,7 +36,7 @@
 					<?php echo $this->Form->input('ano_fim', array('class' => 'form-control', 'label' => 'Ano Fim', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('nomes', array('class' => 'form-control', 'placeholder' => 'Nomes', 'required' => 'true'));?>
+					<?php echo $this->Tinymce->input('Exvereador.nomes', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>

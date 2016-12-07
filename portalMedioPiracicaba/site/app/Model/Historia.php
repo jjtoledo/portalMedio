@@ -29,7 +29,7 @@ class Historia extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Historia']['foto']['name'])) {
 	        $this->data['Historia']['foto'] = $this->upload($this->data['Historia']['foto']);
-	    } else {
+	    } else if (empty($this->data['Historia']['foto'])) {
 	        $this->data['Historia']['foto'] = '';
 	    }
 	}

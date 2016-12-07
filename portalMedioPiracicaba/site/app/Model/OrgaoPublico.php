@@ -51,7 +51,7 @@ class OrgaoPublico extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['OrgaoPublico']['foto_anuncio']['name'])) {
 	        $this->data['OrgaoPublico']['foto_anuncio'] = $this->upload($this->data['OrgaoPublico']['foto_anuncio']);
-	    } else {
+	    } else if (empty($this->data['OrgaoPublico']['foto_anuncio'])) {
 	        $this->data['OrgaoPublico']['foto_anuncio'] = '';
 	    }
 	}

@@ -53,7 +53,7 @@
 					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'label' => 'Descrição'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('enredeco', array('class' => 'form-control', 'placeholder' => 'Enredeço', 'label' => 'Enredeco'));?>
+					<?php echo $this->Form->input('endereco', array('class' => 'form-control', 'placeholder' => 'Endereço', 'label' => 'Endereço'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('telefone1', array('class' => 'form-control', 'label' => 'Telefone 1'));?>

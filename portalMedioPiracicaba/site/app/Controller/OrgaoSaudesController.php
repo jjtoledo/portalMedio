@@ -131,6 +131,9 @@ class OrgaoSaudesController extends AppController {
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->request->data['OrgaoSaude']['delete'] == '1') {
 				$this->request->data['OrgaoSaude']['foto_anuncio'] = '';
+			} else if ($this->request->data['OrgaoSaude']['foto_anuncio']['name'] == '') {
+				$x = $this->OrgaoSaude->findById($id);
+				$this->request->data['OrgaoSaude']['foto_anuncio'] = $x['OrgaoSaude']['foto_anuncio'];
 			}
 
 			if ($this->OrgaoSaude->save($this->request->data)) {
