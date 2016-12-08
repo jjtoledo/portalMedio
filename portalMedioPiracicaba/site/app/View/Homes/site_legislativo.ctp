@@ -75,35 +75,37 @@
 		  	</div>
 	  	</div>
 	  	
-	  	<div class="col-md-12 text-center">
-				<?php echo '<h1 class="noticiasHome">'.$camara['Camara']['nome'].'</h1>'?>			
-				<hr>
-			</div>
+	  	<?php if (!empty($camara)) { ?>	  	
+		  	<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">'.$camara['Camara']['nome'].'</h1>'?>			
+					<hr>
+				</div>
 
-			<div class="col-md-12 text-justify">
-				<?php
-					if (!empty($camara['FotoCamara'])) {
-						echo '<div class="col-md-3 noticia_foto">';
-						echo $this->Html->image(end($camara['FotoCamara'])['foto'], array('width' => '100%')); 
-					  echo '</div>';
-					}
-				  echo '<div class="noticiaCorpo">';
-						echo '<p><b>Endereço: </b>' . $camara['Camara']['endereco'] . '&nbsp;&nbsp;&nbsp;<b>Telefone:</b> ' .$camara['Camara']['telefone1'] .'</p>';
-						echo $camara['Camara']['descricao'];
-					echo '</div>';
+				<div class="col-md-12 text-justify">
+					<?php
+						if (!empty($camara['FotoCamara'])) {
+							echo '<div class="col-md-3 noticia_foto">';
+							echo $this->Html->image(end($camara['FotoCamara'])['foto'], array('width' => '100%')); 
+						  echo '</div>';
+						}
+					  echo '<div class="noticiaCorpo">';
+							echo '<p><b>Endereço: </b>' . $camara['Camara']['endereco'] . '&nbsp;&nbsp;&nbsp;<b>Telefone:</b> ' .$camara['Camara']['telefone1'] .'</p>';
+							echo $camara['Camara']['descricao'];
+						echo '</div>';
 
-					if (!empty($camara['Denominacao'])) {
-						echo '<br><p><b>Denominações anteriores: </b>';
-						for ($i=0; $i < count($camara['Denominacao']); $i++) { 
-							if ($i == count($camara['Denominacao'])-1) {
-								echo $camara['Denominacao'][$i]['denominacao'] . '.';
-							} else {
-								echo $camara['Denominacao'][$i]['denominacao'] . ', ';
+						if (!empty($camara['Denominacao'])) {
+							echo '<br><p><b>Denominações anteriores: </b>';
+							for ($i=0; $i < count($camara['Denominacao']); $i++) { 
+								if ($i == count($camara['Denominacao'])-1) {
+									echo $camara['Denominacao'][$i]['denominacao'] . '.';
+								} else {
+									echo $camara['Denominacao'][$i]['denominacao'] . ', ';
+								}
 							}
 						}
-					}
-				?>
-			</div>			
+					?>
+				</div>			
+			<?php } ?>
 	  </div>
 	</main>
 
@@ -123,7 +125,7 @@
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
 			    					} else {
-			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '65%', 'height' => '100%')).'</div>';
+			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '72%', 'height' => '100%')).'</div>';
 			      				}
 			      				
 			      				if ($p['Politico']['presidente'] != 0) {
@@ -176,7 +178,7 @@
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
 			    					} else {
-			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '75%', 'height' => '100%')).'</div>';
+			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '72%', 'height' => '100%')).'</div>';
 			      				}
 			      				echo '<div class="col-md-12"><br><b>'
 			    						.$p['Politico']['nome'].'</b><br><br>';
@@ -232,6 +234,104 @@
 								echo '</div>';
 			      	} ?>	
 						</div>
+					</div>					
+				</div>
+			</div>
+		</section>
+	<?php } ?>
+
+	<?php if (!empty($presidentes)) { ?>
+		<section style="background-color: #e6e6e6">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 text-center">
+							<?php echo '<h1 class="noticiasHome">Presidentes da Câmara ao longo dos anos</h1><br><hr style="margin-top:0">' ?>			
+						</div>
+
+						<div class="col-md-12">
+							<?php foreach ($presidentes as $p) { 
+								echo '<div class="col-md-2" style="margin-top:15px">';
+									echo $this->Html->image($p['PresidenteCamara']['foto'], array('width' => '100%', 'height' => '100%'));
+									echo '<p>'.$p['PresidenteCamara']['descricao'].'</p>';
+								echo '</div>';
+			      	} ?>	
+						</div>
+					</div>					
+				</div>
+			</div>
+		</section>
+	<?php } ?>
+
+	<?php if (!empty($cidade['Exvereador'])) { ?>
+		<section style="background-color: #fff">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 text-center">
+							<?php echo '<h1 class="noticiasHome">Vereadores ao longo dos anos</h1><br><hr style="margin-top:0">' ?>			
+						</div>
+
+						<div class="col-md-12">
+							<?php $t=intval(count($cidade['Exvereador'])); 
+								if ($t <= 3) {
+									foreach ($cidade['Exvereador'] as $p) { 
+										echo '<div class="col-md-4">';
+											echo '<div class="col-md-12" style="margin-top:15px">';
+												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
+												echo '<p>'.$p['nomes'].'</p>';
+											echo '</div>';
+										echo '</div>';
+									}
+								} else { ?>
+									<div class="col-md-4">
+									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
+										if ($i < intval($t/3)+1) {
+											echo '<div class="col-md-12" style="margin-top:15px">';
+												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
+												echo '<p>'.$p['nomes'].'</p>';
+											echo '</div>';				
+											$i++;								
+										}
+					      	}
+
+					      	for ($j=$i-1; $j >= 0; $j--) { 
+					      		array_shift($cidade['Exvereador']);
+					      	}
+
+					      	?>
+					      	</div>
+
+					      	<div class="col-md-4">
+									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
+										if ($i < intval($t/3)) {
+											echo '<div class="col-md-12" style="margin-top:15px">';
+												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
+												echo '<p>'.$p['nomes'].'</p>';
+											echo '</div>';				
+											$i++;								
+										}
+					      	}
+
+					      	for ($j=$i-1; $j >= 0; $j--) { 
+					      		array_shift($cidade['Exvereador']);
+					      	}
+					      	
+					      	?>
+					      	</div>
+
+					      	<div class="col-md-4">
+									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
+										echo '<div class="col-md-12" style="margin-top:15px">';
+											echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
+											echo '<p>'.$p['nomes'].'</p>';
+										echo '</div>';				
+					      	}					      	
+					      	?>
+					      	</div>
+					    <?php
+					      }
+				      ?>
 					</div>					
 				</div>
 			</div>
