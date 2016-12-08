@@ -311,6 +311,7 @@ class HomesController extends AppController {
 				'Politico.tipo' => 2
 			),
 			'order' => array(
+				'Politico.presidente' => 'DESC',
 				'Politico.id' => 'DESC'
 			)
  		);
@@ -327,8 +328,22 @@ class HomesController extends AppController {
 		$this->set('camara', $camara);	 	
 
 		$this->loadModel('Comissao');
-		$options = array('conditions' => array('Comissao.cidade_id' => $id));
+		$options = array(
+			'conditions' => array(
+				'Comissao.cidade_id' => $id,
+				'Comissao.id !=' => 6
+			)
+		);
 		$this->set('comissaos', $this->Comissao->find('all', $options));
+
+		$this->loadModel('PresidenteCamara');
+		$options = array(
+			'conditions' => array(
+				'PresidenteCamara.cidade_id' => $id
+			)
+ 		);
+ 		$presidentes = $this->PresidenteCamara->find('all', $options);
+		$this->set('presidentes', $presidentes);	 	
 	}
 
 	public function site_judiciario($id = null) {
