@@ -189,7 +189,7 @@
 		<?php if(!empty($cidade['Distrito'])) { ?>
 			<section style="background-color: #fff">
 				<div class="container">
-					<div class="col-md-8 col-md-offset-2 cresce" style="margin-bottom: 50px; margin-top: 50px">
+					<div class="col-md-8 col-md-offset-2 cresce" style="margin-bottom: 50px">
 				  	<div class="row">
 					  	<p class="linkNormal">Relação de distritos e povoados</p>
 				  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	

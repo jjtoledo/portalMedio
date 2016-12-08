@@ -115,21 +115,12 @@ class PresidenteCamarasController extends AppController {
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->PresidenteCamara->save($this->request->data)) {
-				$this->Session->setFlash(__('The Presidente has been saved.'), 'default', array('class' => 'alert alert-success'));
+				$this->Session->setFlash(__('The Foto has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCam));
 			} else {
-				$this->Session->setFlash(__('The Presidente could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+				$this->Session->setFlash(__('The Foto could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
-		} else {
-			$options = array('conditions' => array('PresidenteCamara.' . $this->PresidenteCamara->primaryKey => $id));
-			$this->request->data = $this->PresidenteCamara->find('first', $options);
-		}
-		
-		$this->loadModel('Cidade');
-		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCam));
-		$this->set('cidade', $this->Cidade->find('first', $options));
-
-		$this->set('id', $id);
+		} 
 	}
 
 /**

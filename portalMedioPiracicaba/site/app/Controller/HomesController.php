@@ -303,6 +303,32 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Poder Legislativ');
 		$this->common($id);
 		$this->set('active', 'legislativo');
+
+		$this->loadModel('Politico');
+		$options = array(
+			'conditions' => array(
+				'Politico.cidade_id' => $id,
+				'Politico.tipo' => 2
+			),
+			'order' => array(
+				'Politico.id' => 'DESC'
+			)
+ 		);
+ 		$vereadores = $this->Politico->find('all', $options);
+		$this->set('vereadores', $vereadores);	 	
+		
+		$this->loadModel('Camara');
+		$options = array(
+			'conditions' => array(
+				'Camara.cidade_id' => $id
+			)
+ 		);
+ 		$camara = $this->Camara->find('first', $options);
+		$this->set('camara', $camara);	 	
+
+		$this->loadModel('Comissao');
+		$options = array('conditions' => array('Comissao.cidade_id' => $id));
+		$this->set('comissaos', $this->Comissao->find('all', $options));
 	}
 
 	public function site_judiciario($id = null) {
