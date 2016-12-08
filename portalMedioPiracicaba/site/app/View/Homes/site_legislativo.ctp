@@ -75,9 +75,168 @@
 		  	</div>
 	  	</div>
 	  	
-			
+	  	<div class="col-md-12 text-center">
+				<?php echo '<h1 class="noticiasHome">'.$camara['Camara']['nome'].'</h1>'?>			
+				<hr>
+			</div>
+
+			<div class="col-md-12 text-justify">
+				<?php
+					if (!empty($camara['FotoCamara'])) {
+						echo '<div class="col-md-3 noticia_foto">';
+						echo $this->Html->image(end($camara['FotoCamara'])['foto'], array('width' => '100%')); 
+					  echo '</div>';
+					}
+				  echo '<div class="noticiaCorpo">';
+						echo '<p><b>Endereço: </b>' . $camara['Camara']['endereco'] . '&nbsp;&nbsp;&nbsp;<b>Telefone:</b> ' .$camara['Camara']['telefone1'] .'</p>';
+						echo $camara['Camara']['descricao'];
+					echo '</div>';
+
+					if (!empty($camara['Denominacao'])) {
+						echo '<br><p><b>Denominações anteriores: </b>';
+						for ($i=0; $i < count($camara['Denominacao']); $i++) { 
+							if ($i == count($camara['Denominacao'])-1) {
+								echo $camara['Denominacao'][$i]['denominacao'] . '.';
+							} else {
+								echo $camara['Denominacao'][$i]['denominacao'] . ', ';
+							}
+						}
+					}
+				?>
+			</div>			
 	  </div>
 	</main>
+
+	<?php if (!empty($vereadores)) { ?>
+		<section style="background-color: #e6e6e6">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-12 text-center">
+							<?php echo '<h1 class="noticiasHome">Mesa Diretora</h1><br><hr style="margin-top:0">' ?>			
+						</div>
+
+						<div class="col-md-12">
+							<?php foreach ($vereadores as $p) {
+								if ($p['Politico']['mesa_diretora'] != 0) {
+			    				echo '<div class="col-md-6" style="margin-top: 20px">';
+			    					if (!empty($p['FotoPolitico'])) {
+			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
+			    					} else {
+			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '65%', 'height' => '100%')).'</div>';
+			      				}
+			      				
+			      				if ($p['Politico']['presidente'] != 0) {
+			      					echo '<div class="col-md-12"><br><b>'
+			    						.$p['Politico']['nome'].' - Presidente</b><br><br>';	
+			      				} else {
+			      				echo '<div class="col-md-12"><br><b>'
+			    						.$p['Politico']['nome'].'</b><br><br>';
+			    					}
+			    						if (!empty($p['Mandato'])) {
+			    							echo '<b>Mandatos:</b><br>';
+			    							foreach ($p['Mandato'] as $mandato) {
+			    								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
+			    							}
+			    							echo '<br>';
+			    						} 
+											
+											/*$comissao = array();
+											foreach ($comissaos as $c) {
+												if ($c['Comissao']['id'] == $p['Politico']['comissao_id'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id1'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id2'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id3']) {
+													array_push($comissao, $c['Comissao']['nome']);
+												}
+											}
+											for ($i=0; $i < count($comissao); $i++) { 
+												if ($i == 0) {
+													echo '<b>Participa das Comissões:</b><br>'.$comissao[$i].'<br>';
+												} else {
+													echo $comissao[$i].'<br>';
+												}
+											}*/
+
+			    					echo '</div>';
+			  					echo '</div>'; 
+			  				}
+			      	} ?>	
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-12 text-center">
+							<?php echo '<h1 class="noticiasHome">Composição Restante</h1><br><hr style="margin-top:0">' ?>							
+						</div>
+
+						<div class="col-md-12">
+							<?php foreach ($vereadores as $p) {
+								if ($p['Politico']['mesa_diretora'] != 1) {
+			    				echo '<div class="col-md-6" style="margin-top: 20px">';
+			    					if (!empty($p['FotoPolitico'])) {
+			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
+			    					} else {
+			      					echo '<div class="col-md-12">'.$this->Html->image('politico-icon.png', array('width' => '75%', 'height' => '100%')).'</div>';
+			      				}
+			      				echo '<div class="col-md-12"><br><b>'
+			    						.$p['Politico']['nome'].'</b><br><br>';
+			    						if (!empty($p['Mandato'])) {
+			    							echo '<b>Mandatos:</b><br>';
+			    							foreach ($p['Mandato'] as $mandato) {
+			    								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
+			    							}
+			    							echo '<br>';
+			    						} 
+
+			    						/*$comissao = array();
+											foreach ($comissaos as $c) {
+												if ($c['Comissao']['id'] == $p['Politico']['comissao_id'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id1'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id2'] ||
+														$c['Comissao']['id'] == $p['Politico']['comissao_id3']) {
+													array_push($comissao, $c['Comissao']['nome']);
+												}
+											}
+											for ($i=0; $i < count($comissao); $i++) { 
+												if ($i == 0) {
+													echo '<b>Participa das Comissões:</b><br>'.$comissao[$i].'<br>';
+												} else {
+													echo $comissao[$i].'<br>';
+												}
+											}*/
+
+			    					echo '</div>';
+			  					echo '</div>'; 
+			  				}
+			      	} ?>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	<?php } ?>
+
+	<?php if (!empty($comissaos)) { ?>
+		<section style="background-color: #fff">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="col-md-12 text-center">
+							<?php echo '<h1 class="noticiasHome">Comissões Permantes</h1><br><hr style="margin-top:0">' ?>			
+						</div>
+
+						<div class="col-md-8 col-md-offset-2">
+							<?php foreach ($comissaos as $p) {
+								echo '<div class="col-md-12" style="margin-top:15px"><b>'.$p['Comissao']['nome'].'</b>';
+									echo '<p>'.$p['Comissao']['descricao'].'</p>';
+								echo '</div>';
+			      	} ?>	
+						</div>
+					</div>					
+				</div>
+			</div>
+		</section>
+	<?php } ?>
 
 	<?php echo $this->Element('footer'); ?>
   
