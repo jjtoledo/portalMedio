@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-10 cresce" style="margin-left: 8.7%">
+			<div class="col-md-10 col-md-offset-1 cresce">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -84,12 +84,28 @@
 			</div>
 
 			<script>
+			function geocodeAddress(geocoder, resultsMap) {
+			  var address = "<?php echo $cidade['Cidade']['nome'] ?>";
+			  geocoder.geocode({'address': address}, function(results, status) {
+			    if (status === google.maps.GeocoderStatus.OK) {
+			      resultsMap.setCenter(results[0].geometry.location);
+			      var marker = new google.maps.Marker({
+			        map: resultsMap,
+			        position: results[0].geometry.location
+			      });
+			    } else {
+			      alert('Geocode was not successful for the following reason: ' + status);
+			    }
+			  });
+			}
+
 			function myMap() {
-			  var mapCanvas = document.getElementById("map");
-			  var mapOptions = {
-			    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
-			  };
-			  var map = new google.maps.Map(mapCanvas, mapOptions);
+			  var map = new google.maps.Map(document.getElementById('map'), {
+			    zoom: 14,
+			    center: {lat: -34.397, lng: 150.644}
+			  });
+			  var geocoder = new google.maps.Geocoder();
+			  geocodeAddress(geocoder, map);
 			}
 			</script>
 

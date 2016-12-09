@@ -67,7 +67,7 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-10 cresce" style="margin-left: 8.7%">
+			<div class="col-md-10 col-md-offset-1 cresce">
 		  	<div class="row">
 			  	<p class="linkNormal">Saiba mais</p>
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
@@ -250,12 +250,28 @@
 						</div>
 
 						<div class="col-md-12">
-							<?php foreach ($presidentes as $p) { 
-								echo '<div class="col-md-2" style="margin-top:15px">';
-									echo $this->Html->image($p['PresidenteCamara']['foto'], array('width' => '100%', 'height' => '100%'));
-									echo '<p>'.$p['PresidenteCamara']['descricao'].'</p>';
+							<?php $count=0; $b=0; foreach ($presidentes as $p) {
+								if ($b == 6) {
+									$b = 0;
+									echo '</div>';
+								}
+
+								if ($count % 6 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
+		      			echo '<div class="col-md-2">';
+									echo '<div class="col-md-12" style="margin-top:15px">';
+										echo $this->Html->image($p['PresidenteCamara']['foto'], array('width' => '100%', 'height' => '100%'));
+										echo '<p>'.$p['PresidenteCamara']['descricao'].'</p>';
+									echo '</div>';
 								echo '</div>';
-			      	} ?>	
+
+      					$b++;
+		      			$count++;
+							}
+							echo '</div>';
+							?>
 						</div>
 					</div>					
 				</div>
@@ -273,65 +289,28 @@
 						</div>
 
 						<div class="col-md-12">
-							<?php $t=intval(count($cidade['Exvereador'])); 
-								if ($t <= 3) {
-									foreach ($cidade['Exvereador'] as $p) { 
-										echo '<div class="col-md-4">';
-											echo '<div class="col-md-12" style="margin-top:15px">';
-												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
-												echo '<p>'.$p['nomes'].'</p>';
-											echo '</div>';
-										echo '</div>';
-									}
-								} else { ?>
-									<div class="col-md-4">
-									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
-										if ($i < intval($t/3)+1) {
-											echo '<div class="col-md-12" style="margin-top:15px">';
-												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
-												echo '<p>'.$p['nomes'].'</p>';
-											echo '</div>';				
-											$i++;								
-										}
-					      	}
+							<?php $count=0; $b=0; foreach ($cidade['Exvereador'] as $p) { 
+								if ($b == 3) {
+									$b = 0;
+									echo '</div>';
+								}
 
-					      	for ($j=$i-1; $j >= 0; $j--) { 
-					      		array_shift($cidade['Exvereador']);
-					      	}
+								if ($count % 3 == 0) {	
+		      				echo '<div class="row">';
+		      			}
 
-					      	?>
-					      	</div>
+		      			echo '<div class="col-md-4">';
+									echo '<div class="col-md-12" style="margin-top:15px">';
+										echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
+										echo '<p>'.$p['nomes'].'</p>';
+									echo '</div>';
+								echo '</div>';
 
-					      	<div class="col-md-4">
-									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
-										if ($i < intval($t/3)) {
-											echo '<div class="col-md-12" style="margin-top:15px">';
-												echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
-												echo '<p>'.$p['nomes'].'</p>';
-											echo '</div>';				
-											$i++;								
-										}
-					      	}
-
-					      	for ($j=$i-1; $j >= 0; $j--) { 
-					      		array_shift($cidade['Exvereador']);
-					      	}
-					      	
-					      	?>
-					      	</div>
-
-					      	<div class="col-md-4">
-									<?php $i=0; foreach ($cidade['Exvereador'] as $p) { 
-										echo '<div class="col-md-12" style="margin-top:15px">';
-											echo '<p><b>'.$p['ano_inicio'].' - '.$p['ano_fim'].'</b></p>';
-											echo '<p>'.$p['nomes'].'</p>';
-										echo '</div>';				
-					      	}					      	
-					      	?>
-					      	</div>
-					    <?php
-					      }
-				      ?>
+      					$b++;
+		      			$count++;
+							}
+								echo '</div>';
+							?>							
 					</div>					
 				</div>
 			</div>
