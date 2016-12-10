@@ -74,12 +74,6 @@ class HistoriasController extends AppController {
 		$this->request->data['Historia']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Historia']['delete'] == '1') {
-				$this->request->data['Historia']['foto'] = '';
-			} else if ($this->request->data['Historia']['foto']['name'] == '') {
-				$x = $this->Historia->findById($id);
-				$this->request->data['Historia']['foto'] = $x['Historia']['foto'];
-			}
 
 			if ($this->Historia->save($this->request->data)) {
 				$this->Session->setFlash(__('The historia has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -93,10 +87,51 @@ class HistoriasController extends AppController {
 			$this->request->data = $this->Historia->find('first', $options);
 		}
 
-		$this->set('id', $idCity);
+		$this->set('id', $id);
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+	}
+
+/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null, $idCity = null) {
+		if ($idCity == null) {
+			$this->redirect(array('action' => 'add', $id));
+		}
+		if (!$this->Historia->exists($id)) {
+			throw new NotFoundException(__('Invalid Historia'));
+		}
+		$options = array('conditions' => array('Historia.' . $this->Historia->primaryKey => $id));
+		$this->set('historia', $this->Historia->find('first', $options));
+
+		$this->loadModel('Cidade');
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('id', $id);	
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Historia->id = $id;
+		if (!$this->Historia->exists()) {
+			throw new NotFoundException(__('Invalid Historia'));
+		}
+		
+		$this->Historia->updateAll(array('foto'=>null),array('Historia.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

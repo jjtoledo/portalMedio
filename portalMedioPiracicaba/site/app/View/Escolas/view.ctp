@@ -103,6 +103,7 @@
 						<td>
 							<?php echo $this->Html->image($escola['Escola']['foto_anuncio'], array('height' => '50%')); ?>
 							&nbsp;
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $escola['Escola']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 						</td>
 					</tr>
 				</tbody>

@@ -64,8 +64,8 @@ class Escola extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Escola']['foto_anuncio']['name'])) {
 	        $this->data['Escola']['foto_anuncio'] = $this->upload($this->data['Escola']['foto_anuncio']);
-	    } else if (empty($this->data['Escola']['foto_anuncio'])) {
-	        $this->data['Escola']['foto_anuncio'] = '';
+	    } else {
+	    	unset($this->data['Escola']['foto_anuncio']);
 	    }
 	}
 

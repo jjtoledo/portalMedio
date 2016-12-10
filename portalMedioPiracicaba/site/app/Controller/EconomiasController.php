@@ -106,13 +106,6 @@ public function afterFilter() {
 		$this->request->data['Economia']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {			
-			if ($this->request->data['Economia']['delete'] == '1') {
-				$this->request->data['Economia']['foto'] = '';
-			} else if ($this->request->data['Economia']['foto']['name'] == '') {
-				$x = $this->Economia->findById($id);
-				$this->request->data['Economia']['foto'] = $x['Economia']['foto'];
-			}
-
 			if ($this->Economia->save($this->request->data)) {
 				$this->Session->setFlash(__('The Economia has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
@@ -150,5 +143,22 @@ public function afterFilter() {
 			$this->Session->setFlash(__('The Economia could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+	/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Economia->id = $id;
+		if (!$this->Economia->exists()) {
+			throw new NotFoundException(__('Invalid Economia'));
+		}
+		
+		$this->Economia->updateAll(array('foto'=>null),array('Economia.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

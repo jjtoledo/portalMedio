@@ -106,13 +106,6 @@ class OrgaoPublicosController extends AppController {
 		$this->request->data['OrgaoPublico']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['OrgaoPublico']['delete'] == '1') {
-				$this->request->data['OrgaoPublico']['foto_anuncio'] = '';
-			} else if ($this->request->data['OrgaoPublico']['foto_anuncio']['name'] == '') {
-				$x = $this->OrgaoPublico->findById($id);
-				$this->request->data['OrgaoPublico']['foto_anuncio'] = $x['OrgaoPublico']['foto_anuncio'];
-			}
-
 			if ($this->OrgaoPublico->save($this->request->data)) {
 				$this->Session->setFlash(__('The OrgaoPublico has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
@@ -150,5 +143,22 @@ class OrgaoPublicosController extends AppController {
 			$this->Session->setFlash(__('The OrgaoPublico could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->OrgaoPublico->id = $id;
+		if (!$this->OrgaoPublico->exists()) {
+			throw new NotFoundException(__('Invalid OrgaoPublico'));
+		}
+		
+		$this->OrgaoPublico->updateAll(array('foto_anuncio'=>null),array('OrgaoPublico.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

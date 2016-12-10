@@ -106,13 +106,6 @@ class EventosController extends AppController {
 		$this->request->data['Evento']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Evento']['delete'] == '1') {
-				$this->request->data['Evento']['foto_anuncio'] = '';
-			} else if ($this->request->data['Evento']['foto_anuncio']['name'] == '') {
-				$x = $this->Evento->findById($id);
-				$this->request->data['Evento']['foto_anuncio'] = $x['Evento']['foto_anuncio'];
-			}
-
 			if ($this->Evento->save($this->request->data)) {
 				$this->Session->setFlash(__('The evento has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
@@ -151,5 +144,22 @@ class EventosController extends AppController {
 			$this->Session->setFlash(__('The evento could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Evento->id = $id;
+		if (!$this->Evento->exists()) {
+			throw new NotFoundException(__('Invalid Evento'));
+		}
+		
+		$this->Evento->updateAll(array('foto_anuncio'=>null),array('Evento.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

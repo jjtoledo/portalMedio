@@ -56,6 +56,7 @@
 							<td>
 								<?php echo $this->Html->image($economia['Economia']['foto'], array('height' => '50%')); ?>
 								&nbsp;
+								<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $economia['Economia']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 							</td>
 					</tr>
 				</tbody>

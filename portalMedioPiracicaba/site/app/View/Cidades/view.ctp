@@ -91,7 +91,7 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;História'), array('controller' => 'historias', 'action' => 'add', $cidade['Historia']['id'], $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;História'), array('controller' => 'historias', 'action' => 'view', $cidade['Historia']['id'], $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
 
@@ -327,7 +327,7 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Prefeitura'), array('controller' => 'prefeituras', 'action' => 'add', $cidade['Prefeitura']['id'], $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp;&nbsp;Prefeitura'), array('controller' => 'prefeituras', 'action' => 'view', $cidade['Prefeitura']['id'], $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>
 		</div>
 	</div>

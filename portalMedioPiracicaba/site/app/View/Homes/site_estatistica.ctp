@@ -224,18 +224,25 @@
 		      		?>
 				    	<div class="col-md-3 col-sm-6 divNoticia">
 				    		<div class="noticia agenda">
-				    			<?php 
-				    				echo '<a class="noticia_foto" href="#'./*$rios[$count]['Rio']['link'].*/'" escape="false">';
+				    			<?php 				    				
 				    				if ($rios[$count]['FotoRio'] != null) {
-				    					echo $this->Html->image($rios[$count]['FotoRio']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
+				    					echo $this->Html->link(
+												 $this->Html->image($rios[$count]['FotoRio']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%')),
+												 '../img/'.$rios[$count]['FotoRio']['0']['foto'],
+												 array('escapeTitle' => false, 'title' => $rios[$count]['Rio']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+											);
+											echo '<h3 class="text-center menor">'.$rios[$count]['Rio']['nome'].'</h3>';
 				    				} else {
 				    					echo '<div class="config-padding col-md-12 text-center">';
-				    					echo $this->Html->image('rio-icon.gif', array('width' => '50%', 'height' => '50%'));
+				    					echo $this->Html->link(
+												 $this->Html->image('rio-icon.gif', array('width' => '50%', 'height' => '50%')),
+												 '../img/'.'rio-icon.gif',
+												 array('escapeTitle' => false, 'title' => $rios[$count]['Rio']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+											);
 				    					echo '<hr class="config-margin-hr">';
+				    					echo '<h3 class="text-center menor">'.$rios[$count]['Rio']['nome'].'</h3>';
 				    					echo '</div>';
 				    				}
-				    					echo '<h3 class="text-center menor">'.$rios[$count]['Rio']['nome'].'</h3>';
-				    				echo '</a>';
 				    			?>	
 				    		</div><br>
 				    	</div>

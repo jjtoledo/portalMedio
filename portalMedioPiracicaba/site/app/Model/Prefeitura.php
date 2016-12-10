@@ -29,8 +29,8 @@ class Prefeitura extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Prefeitura']['foto']['name'])) {
 	        $this->data['Prefeitura']['foto'] = $this->upload($this->data['Prefeitura']['foto']);
-	    } else if (empty($this->data['Prefeitura']['foto'])) {
-	        $this->data['Prefeitura']['foto'] = '';
+	    } else {
+	    	unset($this->data['Prefeitura']['foto']);
 	    }
 	}
 

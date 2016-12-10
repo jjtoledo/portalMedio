@@ -29,8 +29,8 @@ class Simbolo extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Simbolo']['imagem']['name'])) {
 	        $this->data['Simbolo']['imagem'] = $this->upload($this->data['Simbolo']['imagem']);
-	    } else if (empty($this->data['Simbolo']['imagem'])) {
-	        $this->data['Simbolo']['imagem'] = '';
+	    } else {
+	    	unset($this->data['Simbolo']['imagem']);
 	    }
 	}
 

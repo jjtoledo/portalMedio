@@ -107,12 +107,6 @@ class FundadorsController extends AppController {
 		$this->request->data['Fundador']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Fundador']['delete'] == '1') {
-				$this->request->data['Fundador']['foto'] = '';
-			} else if ($this->request->data['Fundador']['foto']['name'] == '') {
-				$x = $this->Fundador->findById($id);
-				$this->request->data['Fundador']['foto'] = $x['Fundador']['foto'];
-			}
 
 			if ($this->Fundador->save($this->request->data)) {
 				$this->Session->setFlash(__('The fundador has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -151,5 +145,22 @@ class FundadorsController extends AppController {
 			$this->Session->setFlash(__('The fundador could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Fundador->id = $id;
+		if (!$this->Fundador->exists()) {
+			throw new NotFoundException(__('Invalid Fundador'));
+		}
+		
+		$this->Fundador->updateAll(array('foto'=>null),array('Fundador.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

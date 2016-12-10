@@ -29,8 +29,8 @@ class Economia extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Economia']['foto']['name'])) {
 	        $this->data['Economia']['foto'] = $this->upload($this->data['Economia']['foto']);
-	    } else if (empty($this->data['Economia']['foto'])) {
-	        $this->data['Economia']['foto'] = '';
+	    } else {
+	    	unset($this->data['Economia']['foto']);
 	    }
 	}
 

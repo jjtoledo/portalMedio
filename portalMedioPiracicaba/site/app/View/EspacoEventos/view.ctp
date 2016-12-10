@@ -79,6 +79,7 @@
 							<td>
 								<?php echo $this->Html->link($espacoEvento['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $espacoEvento['Cidade']['id'])); ?>
 								&nbsp;
+								<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $espacoEvento['EspacoEvento']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 							</td>
 					</tr>
 				</tbody>

@@ -106,12 +106,6 @@ class EspacoEventosController extends AppController {
 		$this->request->data['EspacoEvento']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['EspacoEvento']['delete'] == '1') {
-				$this->request->data['EspacoEvento']['foto_anuncio'] = '';
-			} else if ($this->request->data['EspacoEvento']['foto_anuncio']['name'] == '') {
-				$x = $this->EspacoEvento->findById($id);
-				$this->request->data['EspacoEvento']['foto_anuncio'] = $x['EspacoEvento']['foto_anuncio'];
-			}
 
 			if ($this->EspacoEvento->save($this->request->data)) {
 				$this->Session->setFlash(__('The EspacoEvento has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -150,5 +144,22 @@ class EspacoEventosController extends AppController {
 			$this->Session->setFlash(__('The EspacoEvento could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->EspacoEvento->id = $id;
+		if (!$this->EspacoEvento->exists()) {
+			throw new NotFoundException(__('Invalid EspacoEvento'));
+		}
+		
+		$this->EspacoEvento->updateAll(array('foto_anuncio'=>null),array('EspacoEvento.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

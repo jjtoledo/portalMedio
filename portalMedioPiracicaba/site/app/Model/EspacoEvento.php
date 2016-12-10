@@ -51,8 +51,8 @@ class EspacoEvento extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['EspacoEvento']['foto_anuncio']['name'])) {
 	        $this->data['EspacoEvento']['foto_anuncio'] = $this->upload($this->data['EspacoEvento']['foto_anuncio']);
-	    } else if (empty($this->data['EspacoEvento']['foto_anuncio'])) {
-	        $this->data['EspacoEvento']['foto_anuncio'] = '';
+	    } else {
+	    	unset($this->data['EspacoEvento']['foto_anuncio']);
 	    }
 	}
 

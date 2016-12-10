@@ -116,29 +116,41 @@
 			  	<div class="col-md-4 col-sm-6 divNoticia center">
 		    		<div class="noticia agenda top">
 		    			<?php 
-		    				if (empty($cidade['Evento'])) {
+		    				if (empty($eventos)) {
 		    					echo '<div class="config-padding col-md-12 text-center">';
 		    					echo $this->Html->image('evento.png', array('width' => '35%', 'height' => '45%'));
 		    					echo '<hr class="config-margin-hr">';
 		    					echo '</div>';
 		    					echo '<h3 class="text-center menor">Oops..</h3>';
 		    					echo '<p class="text-center" style="font-size:18px; color: #51A8B1">Ainda não temos eventos</p>';
+		    				} else if ($eventos['0']['Evento']['foto_anuncio'] != null) {
+		    					echo $this->Html->link(
+										 $this->Html->image($eventos['0']['Evento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
+										 '../img/'.$eventos['0']['Evento']['foto_anuncio'],
+										 array('escapeTitle' => false, 'title' => $eventos['0']['Evento']['titulo'].' - '.$eventos['0']['Evento']['data'].' - '.$eventos['0']['Evento']['horario'].' - '.$eventos['0']['Evento']['local'].' - '.$cidade['Evento']['0']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+									);
+									echo '<h3 class="text-center menor">'.$eventos['0']['Evento']['titulo'].'</h3>';
+		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos['0']['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';
+		    				} else if ($eventos['0']['FotoEvento'] != null) {
+		    					echo $this->Html->link(
+										 $this->Html->image($eventos['0']['FotoEvento']['0']['foto'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
+										 '../img/'.$eventos['0']['FotoEvento']['0']['foto'],
+										 array('escapeTitle' => false, 'title' => $eventos['0']['Evento']['titulo'].' - '.$eventos['0']['Evento']['data'].' - '.$eventos['0']['Evento']['horario'].' - '.$eventos['0']['Evento']['local'].' - '.$eventos['0']['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+									);
+									echo '<h3 class="text-center menor">'.$eventos['0']['Evento']['titulo'].'</h3>';
+		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos['0']['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';
 		    				} else {
-		    					echo '<a class="noticia_foto" href="../site_evento/'.$id.'/'.$cidade['Evento']['0']['id'].'" escape="false">';
-			    				if ($eventos['0']['Evento']['foto_anuncio'] != null) {
-			    					echo $this->Html->image($eventos['0']['Evento']['foto_anuncio'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
-			    				} else if ($eventos['0']['FotoEvento'] != null) {
-			    					echo $this->Html->image($eventos['0']['FotoEvento']['0']['foto'], array('class' => 'hiding_event', 'width' => '100%', 'height' => '70%'));
-			    				} else {
-			    					echo '<div class="config-padding col-md-12 text-center">';
-			    					echo $this->Html->image('evento.png', array('width' => '40%', 'height' => '50%'));
-			    					echo '<hr class="config-margin-hr">';
-			    					echo '</div>';
-			    				}
-			    					echo '<h3 class="text-center menor">'.$cidade['Evento']['0']['titulo'].'</h3>';
-			    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$cidade['Evento']['0']['data']. ' - ' .$cidade['Evento']['0']['horario'].'</p>';
-			    				echo '</a>';
-			    			}
+		    					echo '<div class="config-padding col-md-12 text-center">';
+		    					echo $this->Html->link(
+										 $this->Html->image('evento.png', array('class' => 'class_img hiding_event', 'width' => '40%', 'height' => '50%')),
+										 '../img/'.'evento.png',
+										 array('escapeTitle' => false, 'title' => $eventos['0']['Evento']['titulo'].' - '.$eventos['0']['Evento']['data'].' - '.$eventos['0']['Evento']['horario'].' - '.$eventos['0']['Evento']['local'].' - '.$eventos['0']['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+									);
+		    					echo '<hr class="config-margin-hr">';
+		    					echo '<h3 class="text-center menor">'.$eventos['0']['Evento']['titulo'].'</h3>';
+		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos['0']['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';
+		    					echo '</div>';
+		    				}
 		    			?>	
 		    		</div><br>
 		    		<?php 

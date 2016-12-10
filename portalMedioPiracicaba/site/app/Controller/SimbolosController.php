@@ -109,12 +109,6 @@ class SimbolosController extends AppController {
 		$this->request->data['Simbolo']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Simbolo']['delete'] == '1') {
-				$this->request->data['Simbolo']['imagem'] = '';
-			} else if ($this->request->data['Simbolo']['imagem']['name'] == '') {
-				$x = $this->Simbolo->findById($id);
-				$this->request->data['Simbolo']['imagem'] = $x['Simbolo']['imagem'];
-			}
 
 			if ($this->Simbolo->save($this->request->data)) {
 				$this->Session->setFlash(__('The Simbolo has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -153,5 +147,22 @@ class SimbolosController extends AppController {
 			$this->Session->setFlash(__('The Simbolo could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Simbolo->id = $id;
+		if (!$this->Simbolo->exists()) {
+			throw new NotFoundException(__('Invalid Simbolo'));
+		}
+		
+		$this->Simbolo->updateAll(array('imagem'=>null),array('Simbolo.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

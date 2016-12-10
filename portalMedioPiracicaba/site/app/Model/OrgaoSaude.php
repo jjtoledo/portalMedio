@@ -51,8 +51,8 @@ class OrgaoSaude extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['OrgaoSaude']['foto_anuncio']['name'])) {
 	        $this->data['OrgaoSaude']['foto_anuncio'] = $this->upload($this->data['OrgaoSaude']['foto_anuncio']);
-	    } else if (empty($this->data['OrgaoSaude']['foto_anuncio'])) {
-	        $this->data['OrgaoSaude']['foto_anuncio'] = '';
+	    } else {
+	    	unset($this->data['OrgaoSaude']['foto_anuncio']);
 	    }
 	}
 

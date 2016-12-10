@@ -20,6 +20,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;'.__('Detalhes História'), array('action' => 'view', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>												
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;'.__('Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $id), array('escape' => false)); ?> </li>												
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Cidades'), array('controller' => 'cidades', 'action' => 'index'), array('escape' => false)); ?> </li>
 							</ul>
@@ -53,13 +54,6 @@
 						echo "Sem foto";
 					}	?>						
 					</p>
-				</div>
-				<div class="form-group">
-					<label>Excluir foto?</label>
-					<?php $options = array('0' => 'Não', '1' => 'Sim');
-						$attributes = array('legend' => false, 'separator' => '&nbsp;&nbsp;&nbsp;', 'value' => '0');
-						echo $this->Form->radio('delete', $options, $attributes); 
-					?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

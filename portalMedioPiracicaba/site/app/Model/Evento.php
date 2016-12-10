@@ -50,8 +50,8 @@ class Evento extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Evento']['foto_anuncio']['name'])) {
 	        $this->data['Evento']['foto_anuncio'] = $this->upload($this->data['Evento']['foto_anuncio']);
-	    } else if (empty($this->data['Evento']['foto_anuncio'])) {
-	        $this->data['Evento']['foto_anuncio'] = '';
+	    } else {
+	    	unset($this->data['Evento']['foto_anuncio']);
 	    }
 	}
 

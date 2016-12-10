@@ -216,13 +216,6 @@ class EscolasController extends AppController {
 		$this->set('tipo', $tipo);
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Escola']['delete'] == '1') {
-				$this->request->data['Escola']['foto_anuncio'] = '';
-			} else if ($this->request->data['Escola']['foto_anuncio']['name'] == '') {
-				$x = $this->Escola->findById($id);
-				$this->request->data['Escola']['foto_anuncio'] = $x['Escola']['foto_anuncio'];
-			}
-
 			if ($this->Escola->save($this->request->data)) {
 				$this->Session->setFlash(__('The escola has been saved.'), 'default', array('class' => 'alert alert-success'));
 				if ($tipo < 3 || $tipo > 4) {
@@ -273,5 +266,22 @@ class EscolasController extends AppController {
 		} else {
 			return $this->redirect(array('action' => 'index_fac', $idCity));
 		}
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Escola->id = $id;
+		if (!$this->Escola->exists()) {
+			throw new NotFoundException(__('Invalid Escola'));
+		}
+		
+		$this->Escola->updateAll(array('foto_anuncio'=>null),array('Escola.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

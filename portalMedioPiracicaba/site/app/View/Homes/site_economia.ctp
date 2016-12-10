@@ -172,9 +172,17 @@
 
 	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
 	      				if ($cidade['Empresa'][$count]['foto_anuncio'] != null) {
-	      					echo '<div class="col-md-6">'.$this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';	      					
+	      					echo '<div class="col-md-6">'.$this->Html->link(
+										 $this->Html->image($cidade['Empresa'][$count]['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
+										 '../img/'.$cidade['Empresa'][$count]['foto_anuncio'],
+										 array('escapeTitle' => false, 'title' => $cidade['Empresa'][$count]['nome'].' - '.$cidade['Empresa'][$count]['historico'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+									).'</div>';	      					
 	      				} else {
-	      					echo '<div class="col-md-6 text-center">'.$this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')).'</div>';
+	      					echo '<div class="col-md-6 text-center">'.$this->Html->link(
+										 $this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')),
+										 '../img/'.'espaco_evento.png',
+										 array('escapeTitle' => false, 'title' => $cidade['Empresa'][$count]['nome'].' - '.$cidade['Empresa'][$count]['historico'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+									).'</div>';
 	      				}
 		      				echo '<div class="col-md-6"><b>'
 		    						.$cidade['Empresa'][$count]['nome'].'</b><br><br>'

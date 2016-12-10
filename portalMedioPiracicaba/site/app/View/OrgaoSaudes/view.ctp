@@ -86,6 +86,7 @@
 							<td>
 								<?php echo $this->Html->image($orgaoSaude['OrgaoSaude']['foto_anuncio'], array('height' => '50%')); ?>
 								&nbsp;
+								<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $orgaoSaude['OrgaoSaude']['id'], $orgaoSaude['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 							</td>
 					</tr>
 				</tbody>

@@ -129,12 +129,6 @@ class OrgaoSaudesController extends AppController {
 		$this->request->data['OrgaoSaude']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['OrgaoSaude']['delete'] == '1') {
-				$this->request->data['OrgaoSaude']['foto_anuncio'] = '';
-			} else if ($this->request->data['OrgaoSaude']['foto_anuncio']['name'] == '') {
-				$x = $this->OrgaoSaude->findById($id);
-				$this->request->data['OrgaoSaude']['foto_anuncio'] = $x['OrgaoSaude']['foto_anuncio'];
-			}
 
 			if ($this->OrgaoSaude->save($this->request->data)) {
 				$this->Session->setFlash(__('The OrgaoSaude has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -173,5 +167,22 @@ class OrgaoSaudesController extends AppController {
 			$this->Session->setFlash(__('The OrgaoSaude could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->OrgaoSaude->id = $id;
+		if (!$this->OrgaoSaude->exists()) {
+			throw new NotFoundException(__('Invalid OrgaoSaude'));
+		}
+		
+		$this->OrgaoSaude->updateAll(array('foto_anuncio'=>null),array('OrgaoSaude.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }

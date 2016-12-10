@@ -29,8 +29,8 @@ class Social extends AppModel {
 		//debug($this->data);
 		if(!empty($this->data['Social']['foto']['name'])) {
 	        $this->data['Social']['foto'] = $this->upload($this->data['Social']['foto']);
-	    } else if (empty($this->data['Social']['foto'])) {
-	        $this->data['Social']['foto'] = '';
+	    } else {
+	    	unset($this->data['Social']['foto']);
 	    }
 	}
 

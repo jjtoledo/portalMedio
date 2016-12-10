@@ -74,12 +74,6 @@ class PrefeiturasController extends AppController {
 		$this->request->data['Prefeitura']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Prefeitura']['delete'] == '1') {
-				$this->request->data['Prefeitura']['foto'] = '';
-			} else if ($this->request->data['Prefeitura']['foto']['name'] == '') {
-				$x = $this->Prefeitura->findById($id);
-				$this->request->data['Prefeitura']['foto'] = $x['Prefeitura']['foto'];
-			}
 
 			if ($this->Prefeitura->save($this->request->data)) {
 				$this->Session->setFlash(__('The prefeitura has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -93,10 +87,51 @@ class PrefeiturasController extends AppController {
 			$this->request->data = $this->Prefeitura->find('first', $options);
 		}
 
-		$this->set('id', $idCity);
+		$this->set('id', $id);
 
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+	}
+
+	/**
+ * view method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view($id = null, $idCity = null) {
+		if ($idCity == null) {
+			$this->redirect(array('action' => 'add', $id));
+		}
+		if (!$this->Prefeitura->exists($id)) {
+			throw new NotFoundException(__('Invalid Prefeitura'));
+		}
+		$options = array('conditions' => array('Prefeitura.' . $this->Prefeitura->primaryKey => $id));
+		$this->set('prefeitura', $this->Prefeitura->find('first', $options));
+
+		$this->loadModel('Cidade');
+		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
+		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('id', $id);	
+	}
+
+		/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Prefeitura->id = $id;
+		if (!$this->Prefeitura->exists()) {
+			throw new NotFoundException(__('Invalid Prefeitura'));
+		}
+		
+		$this->Prefeitura->updateAll(array('foto'=>null),array('Prefeitura.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }
