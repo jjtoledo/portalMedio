@@ -51,7 +51,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Empresa', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Empresa', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
@@ -82,12 +82,6 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto_anuncio', array('type' => 'file', 'label' => 'Foto Anúncio'));?>
-					<p><?php if ($this->data['Empresa']['foto_anuncio'] != null) {
-						echo $this->data['Empresa']['foto_anuncio'];
-					} else {
-						echo "Sem foto";
-					}	?>						
-					</p>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

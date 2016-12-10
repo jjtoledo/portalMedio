@@ -102,6 +102,7 @@ class EmpresasController extends AppController {
  * @return void
  */
 	public function edit($id = null, $idCity = null) {
+		$this->Empresa->id = $id;
 		if (!$this->Empresa->exists($id)) {
 			throw new NotFoundException(__('Invalid Empresa'));
 		}
@@ -109,13 +110,7 @@ class EmpresasController extends AppController {
 		$this->request->data['Empresa']['cidade_id'] = $idCity;
 
 		if ($this->request->is(array('post', 'put'))) {
-			if ($this->request->data['Empresa']['delete'] == '1') {
-				$this->request->data['Empresa']['foto_anuncio'] = '';
-			} else if ($this->request->data['Empresa']['foto_anuncio']['name'] == '') {
-				$x = $this->Empresa->findById($id);
-				$this->request->data['Empresa']['foto_anuncio'] = $x['Empresa']['foto_anuncio'];
-			}
-
+			$this->Empresa->create();
 			if ($this->Empresa->save($this->request->data)) {
 				$this->Session->setFlash(__('The Empresa has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index', $idCity));
@@ -153,5 +148,22 @@ class EmpresasController extends AppController {
 			$this->Session->setFlash(__('The Empresa could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
+	}
+
+	/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Empresa->id = $id;
+		if (!$this->Empresa->exists()) {
+			throw new NotFoundException(__('Invalid Empresa'));
+		}
+		
+		$this->Empresa->updateAll(array('foto_anuncio'=>null),array('Empresa.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
 	}
 }
