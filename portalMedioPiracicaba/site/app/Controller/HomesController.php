@@ -142,10 +142,29 @@ class HomesController extends AppController {
 		$this->set('active', 'mapas');
 	}
 
-	public function site_fotos($id = null) {
+	public function site_fotos($id = null, $tipo = null) {
 		$this->set('title_for_layout', 'Fotos');
 		$this->common($id);
 		$this->set('active', 'fotos');
+
+		/*Carregamento das fotos */
+		if ($tipo == null) {
+			$tipo = 2;
+		}
+
+		$this->loadModel('Foto');
+		$options = array(
+			'order' => array(
+				'Foto.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Foto.tipo' => $tipo,
+				'Foto.cidade_id' => $id
+			),
+			'limit' => 24
+		);
+		$this->set('fotos', $this->Foto->find('all', $options));
+		$this->set('tipo', $tipo);
 	}
 
 	public function site_turismo($id = null) {

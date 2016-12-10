@@ -209,6 +209,15 @@ img.foto {
   color: #51A8B1;
 }
 
+li.foto_tab > a {
+  font-size: 20px;
+  color: #FF6C3B;
+}
+
+li.active.foto_tab > a {
+  color: #FF6C3B;
+}
+
 .linkNormal {
   font-size: 20px;
   transition: 0.5s;
