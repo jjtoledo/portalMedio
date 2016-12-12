@@ -3,23 +3,8 @@
 
 <script type="text/javascript">
 	jQuery(function($){
-		$("#EmpresaTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#EmpresaTelefone2").mask("(99)99999-9999",{autoclear: false});  	
-
 		$("#EmpresaHorarioIni").mask("99:99",{autoclear: false});  	
 		$("#EmpresaHorarioFim").mask("99:99",{autoclear: false}); 
-	 
-		$('#EmpresaTelefone1').blur(function() {
-		  if ($('#EmpresaTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#EmpresaTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});
-
-		$('#EmpresaTelefone2').blur(function() {
-		  if ($("#EmpresaTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#EmpresaTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
   });
 </script>
 

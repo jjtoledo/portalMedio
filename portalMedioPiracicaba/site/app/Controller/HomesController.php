@@ -167,6 +167,24 @@ class HomesController extends AppController {
 		$this->set('tipo', $tipo);
 	}
 
+	public function site_videos($id = null) {
+		$this->set('title_for_layout', 'Vídeos');
+		$this->common($id);
+		$this->set('active', 'videos');
+
+		$this->loadModel('Video');
+		$options = array(
+			'order' => array(
+				'Video.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Video.cidade_id' => $id
+			),
+			'limit' => 24
+		);
+		$this->set('videos', $this->Video->find('all', $options));
+	}
+
 	public function site_turismo($id = null) {
 		$this->set('title_for_layout', 'Turismo');
 		$cidade = $this->common($id);

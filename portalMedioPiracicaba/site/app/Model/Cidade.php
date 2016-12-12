@@ -416,6 +416,13 @@ class Cidade extends AppModel {
 			'conditions' => '',
 			'fields' => '',
 			'order' => ''
+		),
+		'Video' => array(
+			'className' => 'Video',
+			'foreignKey' => 'cidade_id',
+			'conditions' => '',
+			'fields' => '',
+			'order' => ''
 		)
 	);
 

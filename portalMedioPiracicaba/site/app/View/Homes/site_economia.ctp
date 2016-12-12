@@ -115,16 +115,16 @@
 							<?php 
 							$receita = $cidade['Receita'];
 							foreach ($receita as $r) { 
-								$fpm        = str_replace(",", ".", str_replace(".", "", substr($r['fpm'], 3)));
-								$royalties  = str_replace(",", ".", str_replace(".", "", substr($r['royalties'], 3)));
-								$itr        = str_replace(",", ".", str_replace(".", "", substr($r['itr'], 3)));
-								$cide       = str_replace(",", ".", str_replace(".", "", substr($r['cide'], 3)));
-								$fundeb     = str_replace(",", ".", str_replace(".", "", substr($r['fundeb'], 3)));
-								$lei_kandir = str_replace(",", ".", str_replace(".", "", substr($r['lei_kandir'], 3)));
-								$fex        = str_replace(",", ".", str_replace(".", "", substr($r['fex'], 3)));
-								$afm_afe    = str_replace(",", ".", str_replace(".", "", substr($r['afm_afe'], 3)));
-								$iss        = str_replace(",", ".", str_replace(".", "", substr($r['iss'], 3)));
-								$irrf       = str_replace(",", ".", str_replace(".", "", substr($r['irrf'], 3)));
+								$fpm        = str_replace(",", "", substr($r['fpm'], 3));
+								$royalties  = str_replace(",", "", substr($r['royalties'], 3));
+								$itr        = str_replace(",", "", substr($r['itr'], 3));
+								$cide       = str_replace(",", "", substr($r['cide'], 3));
+								$fundeb     = str_replace(",", "", substr($r['fundeb'], 3));
+								$lei_kandir = str_replace(",", "", substr($r['lei_kandir'], 3));
+								$fex        = str_replace(",", "", substr($r['fex'], 3));
+								$afm_afe    = str_replace(",", "", substr($r['afm_afe'], 3));
+								$iss        = str_replace(",", "", substr($r['iss'], 3));
+								$irrf       = str_replace(",", "", substr($r['irrf'], 3));
 								
 								$outras = $fpm + $royalties + $itr + $cide + $fundeb + $lei_kandir + $fex + $afm_afe + $iss + $irrf; 
 								$outras = number_format($outras, 2, ',', '.');

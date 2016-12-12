@@ -1,18 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-		$("#CamaraTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-	 
-		$('#CamaraTelefone1').blur(function() {
-		  if ($('#CamaraTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#CamaraTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
-  });
-</script>
-
 <div class="container camaras form">
 
 	<div class="row">

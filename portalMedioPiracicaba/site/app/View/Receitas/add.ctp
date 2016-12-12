@@ -1,20 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script>
-	
-$(document).ready(function(){
-  var total = document.getElementById("ReceitaTotal");
-  var icms = document.getElementById("ReceitaIcms");
-  var outras = document.getElementById("ReceitaOutras");
-	
-	$("#ReceitaTotal").focus(function(){
-    total.value = parseInt(icms.value) + parseInt(outras.value);
-	});
-});
-
-</script>
-
 <div class="container receitas form">
 
 	<div class="row">

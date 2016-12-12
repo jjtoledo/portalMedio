@@ -1,25 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-		$("#OrgaoSaudeTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#OrgaoSaudeTelefone2").mask("(99)99999-9999",{autoclear: false});  	
-	 
-		$('#OrgaoSaudeTelefone1').blur(function() {
-		  if ($('#OrgaoSaudeTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#OrgaoSaudeTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});
-
-		$('#OrgaoSaudeTelefone2').blur(function() {
-		  if ($("#OrgaoSaudeTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#OrgaoSaudeTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
-  });
-</script>
-
 <div class="container orgaoSaudes form">
 
 	<div class="row">

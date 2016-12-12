@@ -1,25 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-		$("#PrestadorTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#PrestadorTelefone2").mask("(99)99999-9999",{autoclear: false});  	
-	 
-		$('#PrestadorTelefone1').blur(function() {
-		  if ($('#PrestadorTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#PrestadorTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});
-
-		$('#PrestadorTelefone2').blur(function() {
-		  if ($("#PrestadorTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#PrestadorTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
-  });
-</script>
-
 <div class="container prestadors form">
 
 	<div class="row">

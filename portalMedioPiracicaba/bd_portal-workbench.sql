@@ -102,6 +102,20 @@ CREATE TABLE IF NOT EXISTS `portalmediopir`.`exvereadors` (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
 
+CREATE TABLE IF NOT EXISTS `portalmediopir`.`videos` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `link` varchar(255) not NULL,
+  `cidade_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`, `cidade_id`),
+  INDEX `fk_videos_cidades1_idx` (`cidade_id` ASC),
+  CONSTRAINT `fk_videos_cidades1`
+    FOREIGN KEY (`cidade_id`)
+    REFERENCES `portalmediopir`.`cidades` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
 CREATE TABLE IF NOT EXISTS `portalmediopir`.`bairros` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(120) NOT NULL,

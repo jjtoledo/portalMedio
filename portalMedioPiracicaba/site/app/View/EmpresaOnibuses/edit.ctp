@@ -1,25 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-		$("#EmpresaOnibusTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#EmpresaOnibusTelefone2").mask("(99)99999-9999",{autoclear: false});  	
-	 
-		$('#EmpresaOnibusTelefone1').blur(function() {
-		  if ($('#EmpresaOnibusTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#EmpresaOnibusTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});
-
-		$('#EmpresaOnibusTelefone2').blur(function() {
-		  if ($("#EmpresaOnibusTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#EmpresaOnibusTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
-  });
-</script>
-
 <div class="container empresaOnibuss form">
 
 	<div class="row">

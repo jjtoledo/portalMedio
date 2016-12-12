@@ -1,13 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-	   $("#ForumTelefone1").mask("(99)9999-9999");
-	   $("#ForumTelefone2").mask("(99)9999-9999");
-	});
-</script>
-
 <div class="container forums form">
 
 	<div class="row">

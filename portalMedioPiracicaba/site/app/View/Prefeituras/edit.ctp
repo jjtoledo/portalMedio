@@ -1,25 +1,6 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<script type="text/javascript">
-	jQuery(function($){
-		$("#PrefeituraTelefone1").mask("(99)99999-9999",{autoclear: false});  	
-		$("#PrefeituraTelefone2").mask("(99)99999-9999",{autoclear: false});  	
-	 
-		$('#PrefeituraTelefone1').blur(function() {
-		  if ($('#PrefeituraTelefone1').val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#PrefeituraTelefone1").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});
-
-		$('#PrefeituraTelefone2').blur(function() {
-		  if ($("#PrefeituraTelefone2").val().endsWith('_') && $(this).val().search('_') == 13) {
-		  	$("#PrefeituraTelefone2").unmask().mask("(99)9999-9999",{autoclear: false});
-		  }
-		});	  
-  });
-</script>
-
 <div class="container populacaos form">
 
 	<div class="row">

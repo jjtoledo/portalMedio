@@ -147,6 +147,19 @@
 
 	<div class="row" style="margin-bottom: 20px">
 		<div class="col-md-12">
+			<h3><?php echo __('Vídeos da cidade'); ?></h3>
+			<hr style="border-bottom: 1px solid #ddd">
+		</div>
+
+		<div class="col-md-3 menu">			
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar vídeos'), array('controller' => 'videos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 20px">
+		<div class="col-md-12">
 			<h3><?php echo __('Lazer e Turismo'); ?></h3>
 			<hr style="border-bottom: 1px solid #ddd">
 		</div>
