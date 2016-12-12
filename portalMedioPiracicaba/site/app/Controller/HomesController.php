@@ -428,6 +428,156 @@ class HomesController extends AppController {
 		}		
 	}
 
+	public function site_atrativos($id = null) {		
+		$this->set('title_for_layout', 'Atrativos');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('AtrativoTuristico');
+		$options = array(
+			'conditions' => array(
+				'AtrativoTuristico.cidade_id' => $id
+			)
+		);
+		$this->set('atrativos', $this->AtrativoTuristico->find('all', $options));
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'AtrativoTuristico.nome LIKE' => $search
+				)
+			);
+
+			$atrativos = $this->AtrativoTuristico->find('all', $options);
+			$this->set('atrativos', $atrativos);	
+		}
+	}
+
+	public function site_agenda($id = null) {		
+		$this->set('title_for_layout', 'Eventos');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('Evento');
+
+		if ($id != null) {
+			$options = array(
+				'conditions' => array(
+					'Evento.cidade_id' => $id
+				),
+				'order' => array(
+					'Evento.id' => 'DESC'
+				)
+			);
+		} else {
+			$options = array(
+				'order' => array(
+					'Evento.id' => 'DESC'
+				),
+				'limit' => 40
+			);
+		}
+
+		$this->set('eventos', $this->Evento->find('all', $options));
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'OR' => array(
+						'Evento.titulo LIKE' => $search,
+						'Evento.local LIKE' => $search,
+					)
+				),
+				'order' => array(
+					'Evento.id' => 'DESC'
+				)
+			);
+
+			$eventos = $this->Evento->find('all', $options);
+			$this->set('eventos', $eventos);	
+		}
+	}
+
+	public function site_orgaos_publicos($id = null) {		
+		$this->set('title_for_layout', 'Órgãos Públicos');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('OrgaoPublico');
+		$options = array(
+			'conditions' => array(
+				'OrgaoPublico.cidade_id' => $id
+			)
+		);
+		$this->set('orgaos', $this->OrgaoPublico->find('all', $options));
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'OrgaoPublico.nome LIKE' => $search
+				)
+			);
+
+			$orgaos = $this->OrgaoPublico->find('all', $options);
+			$this->set('orgaos', $orgaos);	
+		}
+	}
+
+	public function site_espacos_eventos($id = null) {		
+		$this->set('title_for_layout', 'Espaços Eventos');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id
+			)
+		);
+		$this->set('espacos', $this->EspacoEvento->find('all', $options));	
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'EspacoEvento.nome LIKE' => $search
+				)
+			);
+
+			$espacos = $this->EspacoEvento->find('all', $options);
+			$this->set('espacos', $espacos);	
+		}
+	}
+
+	public function site_patrimonios($id = null) {		
+		$this->set('title_for_layout', 'Patrimônios');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('Patrimonio');
+		$options = array(
+			'conditions' => array(
+				'Patrimonio.cidade_id' => $id
+			)
+		);
+		$this->set('patrimonios', $this->Patrimonio->find('all', $options));	
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'Patrimonio.nome LIKE' => $search
+				)
+			);
+
+			$patrimonios = $this->Patrimonio->find('all', $options);
+			$this->set('patrimonios', $patrimonios);	
+		}
+	}
+
 /** 
  * Métodos site **********************************************************************************************************
  * listar todas as notícias com base no tipo
@@ -505,7 +655,7 @@ class HomesController extends AppController {
 			'order' => array(
 				'Noticia.id' => 'DESC'
 			),
-			'limit' => 5
+			'limit' => 10
 		);
 
 		$noticias = $this->Noticia->find('all', $options);

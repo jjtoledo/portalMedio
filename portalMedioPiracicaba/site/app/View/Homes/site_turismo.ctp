@@ -88,7 +88,7 @@
 		      	<?php $count = 0; 
 		      			for ($i=0; $i < 4; $i++) { 		      				
 		      				if (count($atrativos) == $count) {
-		      					$count = 0;
+		      					break;
 		      				}
 		      		?>
 				    	<div class="col-md-3 col-sm-6 divNoticia">
@@ -105,7 +105,7 @@
 				    					echo '<div class="config-padding col-md-12 text-center">';echo $this->Html->link(
 												 $this->Html->image('turismo.png', array('width' => '45%', 'height' => '60%')),
 												 '../img/'.'turismo.png',
-												 array('escapeTitle' => false, 'title' => $cidade['Patrimonio'][$count]['nome'].' - '.$cidade['Patrimonio'][$count]['ano'].' - '.$cidade['Patrimonio'][$count]['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+												 array('escapeTitle' => false, 'title' => $atrativos[$count]['AtrativoTuristico']['nome'].' - '.$atrativos[$count]['AtrativoTuristico']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 											);
 				    					echo '<hr style="margin-top: 30px">';
 				    					echo '<h3 class="text-center menor margin">'.$atrativos[$count]['AtrativoTuristico']['nome'].'</h3>';
@@ -131,7 +131,7 @@
 		      	<?php $count = 0; 
 		      			for ($i=0; $i < 4; $i++) { 		      				
 		      				if (count($cidade['Patrimonio']) == $count) {
-		      					$count = 0;
+		      					break;
 		      				}
 		      		?>
 				    	<div class="col-md-3 col-sm-6 divNoticia">
@@ -176,7 +176,7 @@
 		      	<?php $count = 0; 
 		      			for ($i=0; $i < 4; $i++) { 		      				
 		      				if (count($eventos) == $count) {
-		      					$count = 0;
+		      					break;
 		      				}
 		      		?>
 				    	<div class="col-md-3 col-sm-6 divNoticia">

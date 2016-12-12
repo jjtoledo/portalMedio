@@ -157,7 +157,7 @@
 		    			if (empty($cidade['Evento'])) {
 	    					echo '';
 	    				} else {
-		    				echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_eventos', $id), array('class' => 'linkNormal', 'escape' => false));
+		    				echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_agenda', $id), array('class' => 'linkNormal', 'escape' => false));
 		    			}
 		    		?>
 		    	</div>

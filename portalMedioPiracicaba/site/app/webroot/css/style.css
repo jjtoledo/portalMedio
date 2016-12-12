@@ -182,6 +182,11 @@ span.escola:hover {
   margin-top: 20px;
 }
 
+.limpar {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
 #pLogo {
   padding: 10px;
   width: 80px;
