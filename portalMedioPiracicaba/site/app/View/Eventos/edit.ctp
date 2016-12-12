@@ -46,7 +46,7 @@ jQuery(function($){
 					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Título', 'label' => 'Título', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'label' => 'Descrição', 'required' => 'true'));?>
+					<?php echo $this->Tinymce->input('Evento.descricao', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('local', array('class' => 'form-control', 'placeholder' => 'Local', 'required' => 'true'));?>
