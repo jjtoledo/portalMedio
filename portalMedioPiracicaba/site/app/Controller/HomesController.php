@@ -472,6 +472,32 @@ class HomesController extends AppController {
 		}
 	}
 
+	public function site_rios($id = null) {		
+		$this->set('title_for_layout', 'Rios');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('Rio');
+		$options = array(
+			'conditions' => array(
+				'Rio.cidade_id' => $id
+			)
+		);
+		$this->set('rios', $this->Rio->find('all', $options));
+
+		if(isset($this->params['url']['search'])){  
+			$search = "%" . $this->params['url']['search'] . "%";
+			$options = array(
+				'conditions' => array(
+					'Rio.nome LIKE' => $search
+				)
+			);
+
+			$rios = $this->Rio->find('all', $options);
+			$this->set('rios', $rios);	
+		}
+	}
+
 	public function site_agenda($id = null) {		
 		$this->set('title_for_layout', 'Eventos');
 		$this->common($id);
