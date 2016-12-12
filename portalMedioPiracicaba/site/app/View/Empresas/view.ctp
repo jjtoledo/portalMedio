@@ -76,7 +76,7 @@
 					<tr>
 							<th><?php echo __('Foto Anúncio'); ?></th>
 							<td>
-								<?php echo $this->Html->image($empresa['Empresa']['foto_anuncio'], array('height' => '50%')); ?>
+								<?php echo $this->Html->image($empresa['Empresa']['foto_anuncio'], array('width' => '50%')); ?>
 								&nbsp;
 								<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $empresa['Empresa']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 							</td>

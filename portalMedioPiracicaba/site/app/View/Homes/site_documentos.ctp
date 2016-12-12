@@ -95,7 +95,11 @@
 		      				echo '<div class="row">';
 		      			}
 	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
-		      				echo '<div class="col-md-4">'.$this->Html->image('docs.png', array('width' => '100%', 'height' => '100%')).'</div>';
+	      					if ($doc['foto_anuncio'] != null) {
+	      						echo '<div class="col-md-4">'.$this->Html->image($doc['foto_anuncio'], array('width' => '100%', 'height' => '100%')).'</div>';
+	      					} else {
+		      					echo '<div class="col-md-4">'.$this->Html->image('docs.png', array('width' => '100%', 'height' => '100%')).'</div>';
+		      				}
 		      				
 		      				echo '<div class="col-md-8"><b>'
 		    						.$doc['tipo_documento'].' '.$doc['nome'].'</b><br><br>';

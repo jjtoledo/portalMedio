@@ -28,7 +28,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 							<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Documento'), array('action' => 'view', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Documentoes'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Documentos'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Documento.id'), $cidade['Cidade']['id']), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Documento.id'))); ?></li>
 							</ul>
 						</div>
@@ -36,7 +36,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Documento', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Documento', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
@@ -67,6 +67,9 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('foto_anuncio', array('class' => '', 'type' => 'file', 'label' => 'Foto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>

@@ -82,7 +82,8 @@
 			<section class="subtitle-intro noticias agenda" style="background-color:#fff">
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Atrativos Turísticos&nbsp;&nbsp;<span class="glyphicon glyphicon-picture bigger"></span>', array('action' => 'site_atrativos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('Atrativos Turísticos&nbsp;&nbsp;<span class="glyphicon glyphicon-picture bigger"></span>', array('action' => 'site_atrativos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_atrativos', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>      
 		    	</div>
 		      <div class="row border">
 		      	<?php $count = 0; 
@@ -126,6 +127,7 @@
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
 		    		<?php echo $this->Html->link('Patrimônios Históricos e Culturais&nbsp;&nbsp;<span class="glyphicon glyphicon-globe bigger"></span>', array('action' => 'site_patrimonios', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_patrimonios', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>      
 		    	</div>
 		    	<div class="row border">
 		      	<?php $count = 0; 
@@ -171,6 +173,7 @@
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
 		    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_agenda', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>      
 		    	</div>
 		      <div class="row border">
 		      	<?php $count = 0; 

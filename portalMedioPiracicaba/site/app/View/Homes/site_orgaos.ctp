@@ -78,7 +78,8 @@
 			<?php if (!empty($cidade['OrgaoPublico'])) { ?>
 				<div class="container noticias responsive-large">
 					<div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Órgãos Públicos&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker bigger"></span>', array('action' => 'site_orgaos_publicos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('Órgãos Públicos&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker bigger"></span>', array('action' => 'site_orgaos_publicos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?> 
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_orgaos_publicos', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>     
 		    	</div>
 		      <div class="row border">
 		      	<?php $count = 0; 
@@ -126,6 +127,7 @@
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
 		    		<?php echo $this->Html->link('Espaços para Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-map-marker bigger"></span>', array('action' => 'site_espacos_eventos', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_espacos_eventos', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?> 
 		    	</div>
 		      <div class="row border">
 		      	<?php $count = 0; 

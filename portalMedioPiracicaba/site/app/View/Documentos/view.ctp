@@ -18,7 +18,7 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Documentoes'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Documentos'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Documento'), array('action' => 'edit', $id, $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
 								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Documento'), array('action' => 'delete', $id, $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
@@ -92,6 +92,14 @@
 							<td>
 								<?php echo $this->Html->link($documento['Cidade']['nome'], array('controller' => 'cidades', 'action' => 'view', $documento['Cidade']['id'])); ?>
 								&nbsp;
+							</td>
+					</tr>
+					<tr>
+							<th><?php echo __('Foto'); ?></th>
+							<td>
+								<?php echo $this->Html->image($documento['Documento']['foto_anuncio'], array('width' => '50%')); ?>
+								&nbsp;
+								<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete_foto', $documento['Documento']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete?')); ?>
 							</td>
 					</tr>
 				</tbody>

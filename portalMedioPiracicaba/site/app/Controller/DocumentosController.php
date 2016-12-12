@@ -145,4 +145,21 @@ class DocumentosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index', $idCity));
 	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function delete_foto($id = null, $idCity = null) {
+		$this->Documento->id = $id;
+		if (!$this->Documento->exists()) {
+			throw new NotFoundException(__('Invalid Documento'));
+		}
+		
+		$this->Documento->updateAll(array('foto_anuncio'=>null),array('Documento.id' => $id));
+		return $this->redirect(array('action' => 'view', $id, $idCity));
+	}
 }

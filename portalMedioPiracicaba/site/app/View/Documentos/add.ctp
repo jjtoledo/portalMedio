@@ -49,7 +49,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Documento', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Documento', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome do Local', 'required' => 'true'));?>
@@ -77,6 +77,9 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('foto_anuncio', array('class' => '', 'type' => 'file', 'label' => 'Foto'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Adicionar'), array('class' => 'btn btn-default')); ?>

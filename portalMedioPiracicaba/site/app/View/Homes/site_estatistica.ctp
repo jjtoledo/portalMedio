@@ -213,7 +213,8 @@
 			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Principaos Rios&nbsp;&nbsp;<span class="glyphicon glyphicon-tint bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo $this->Html->link('Principais Rios&nbsp;&nbsp;<span class="glyphicon glyphicon-tint bigger"></span>', array('action' => 'site_rios', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>     
+		    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_rios', $id), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?> 
 		    	</div>
 		      <div class="row border">
 		      	<?php $count = 0; 

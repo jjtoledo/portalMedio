@@ -183,7 +183,8 @@
   <section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
     <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
-    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>   
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>   
     	</div>
       <div class="row border">
       	<?php $count = 0; 
@@ -244,6 +245,7 @@
     <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Notícias Regionais&nbsp;&nbsp;<span class="glyphicon glyphicon-plus bigger"></span>', array('action' => 'site_noticias', 2), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_noticias', 2), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>
     	</div>
       <div class="row border">
       	<div class="col-lg-9">
@@ -307,6 +309,7 @@
     <div class="container noticias responsive-large">
       <div class="container-fluid text-center">
     		<?php echo $this->Html->link('Boas Notícias&nbsp;&nbsp;<span class="glyphicon glyphicon-leaf bigger"></span>', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_noticias', 3), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>
     	</div>
       <div class="row border">
 	    	<?php $count = 0; 

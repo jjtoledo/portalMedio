@@ -155,7 +155,7 @@
 			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
 		    <div class="container noticias responsive-large">
 		      <div class="container-fluid text-center">
-		    		<?php echo $this->Html->link('Principais Empresas', array('action' => 'site_empresas', $id), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+		    		<?php echo '<h1 class="noticiasHome more text-center">Principais Empresas</h1>'; ?>      
 		    	</div>
 		      <div class="row border">
 		      	<div class="col-md-12">

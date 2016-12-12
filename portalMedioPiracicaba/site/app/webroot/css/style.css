@@ -148,6 +148,10 @@ span.escola:hover {
   text-decoration: none;
 }
 
+.moreUnder {
+  font-size: 16px;
+}
+
 .cresce {
   background-color: #fbfbfb;
   box-shadow: 1px 1px 5px #ccc; padding: 20px;
