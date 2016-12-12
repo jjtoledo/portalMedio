@@ -85,16 +85,25 @@
 						<tbody>
 							<thead>
 								<tr>
-									<th>Nome</th>
+									<th>Órgão Assistencial</th>
 									<th>Funcionamento</th>
 									<th>Detalhes</th>
 								</tr>
 							</thead>
 						<?php foreach ($cidade['Social'] as $o) { ?>
 							<tr>
-								<td width="30%"><?php echo h($o['nome']); ?>&nbsp;</td>
-								<td width="20%"><?php if(!empty($o['horario_ini']) && !empty($o['horario_fim'])) { echo h($o['horario_ini'].' às '.$o['horario_fim']); } ?>&nbsp;</td>
-								<td width="50%"><?php echo h($o['descricao']); ?>&nbsp;</td>
+								<td width="15%">
+									<?php 
+										echo '<div class="thumbnail" style="margin-bottom:0">';
+											echo $this->Html->image($o['foto']);
+											echo '<div class="caption">';
+												echo '<h4>'.$o['nome'].'</h4>';
+											echo '</div>';
+										echo '</div>';										
+									?>&nbsp;
+								</td>
+								<td width="5%"><?php if(!empty($o['horario_ini']) && !empty($o['horario_fim'])) { echo h($o['horario_ini'].' às '.$o['horario_fim']); } ?>&nbsp;</td>
+								<td width="70%"><?php echo $o['descricao']; ?>&nbsp;</td>
 							</tr>
 						<?php	} ?>
 						</tbody>

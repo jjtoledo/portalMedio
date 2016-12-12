@@ -40,7 +40,7 @@
 					<?php echo $this->Form->input('nome', array('class' => 'form-control', 'placeholder' => 'Nome', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição'));?>
+					<?php echo $this->Tinymce->input('Social.descricao', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('horario_ini', array('class' => 'form-control', 'label' => 'Abre às:'));?>
