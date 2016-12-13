@@ -55,7 +55,7 @@
 					<tr>
 							<th><?php echo __('Imagem'); ?></th>
 							<td>
-								<?php echo $this->Html->image($mapa['Mapa']['foto'], array('height' => '50%')); ?>
+								<?php echo $this->Html->image($mapa['Mapa']['foto'], array('width' => '50%')); ?>
 								&nbsp;
 							</td>
 					</tr>

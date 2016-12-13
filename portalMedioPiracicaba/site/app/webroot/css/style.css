@@ -331,6 +331,10 @@ div#listCidades.row > div > a:hover {
   transition: all 0.5s ease 0s;
 }
 
+.noticia.mapa {
+  height: 250px;
+}
+
 .noticia.bigNoticia {
   height: 500px;
   margin-bottom: 50px;
@@ -576,6 +580,11 @@ div#listCidades.row > div > a:hover {
     padding-bottom: 20px;
   }
 
+  .noticia.mapa {
+    height: 215px;
+    padding-bottom: 0px;
+  }
+
   .noticia.bigNoticia {
     height: 430px;
   }
@@ -603,6 +612,13 @@ div#listCidades.row > div > a:hover {
     width: 80%;
     margin-left: 10%;
   } 
+
+  .noticia.mapa {
+    width: 100%;
+    margin-left: 0%;
+    height: 150px;
+    padding-bottom: 0px;
+  }
 
   .noticia.bigNoticia {
     height: 250px;
@@ -731,6 +747,13 @@ div#listCidades.row > div > a:hover {
   .noticia {
     width: 70%;
     margin-left: 15%;
+  }
+
+  .noticia.mapa {
+    width: 80%;
+    margin-left: 10%;
+    height: auto;
+    padding-bottom: 0px;
   }
 
   .noticia.prop {

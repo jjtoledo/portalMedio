@@ -140,6 +140,15 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Mapas');		
 		$this->common($id);
 		$this->set('active', 'mapas');
+
+		$this->loadModel('Mapa');
+		$options = array(
+			'conditions' => array(
+				'Mapa.cidade_id' => $id
+			)
+		);
+		$mapas = $this->Mapa->find('all', $options);
+		$this->set(compact('mapas'));	
 	}
 
 	public function site_fotos($id = null, $tipo = null) {

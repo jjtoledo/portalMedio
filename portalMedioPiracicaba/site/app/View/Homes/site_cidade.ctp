@@ -127,7 +127,7 @@
 		    					echo $this->Html->link(
 										 $this->Html->image($eventos['0']['Evento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
 										 '../img/'.$eventos['0']['Evento']['foto_anuncio'],
-										 array('escapeTitle' => false, 'title' => $eventos['0']['Evento']['titulo'].' - '.$eventos['0']['Evento']['data'].' - '.$eventos['0']['Evento']['horario'].' - '.$eventos['0']['Evento']['local'].' - '.$cidade['Evento']['0']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										 array('escapeTitle' => false, 'title' => $eventos['0']['Evento']['titulo'].' - '.$eventos['0']['Evento']['data'].' - '.$eventos['0']['Evento']['horario'].' - '.$eventos['0']['Evento']['local'].' - '.$eventos['0']['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									);
 									echo '<h3 class="text-center menor">'.$eventos['0']['Evento']['titulo'].'</h3>';
 		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos['0']['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';

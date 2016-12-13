@@ -38,9 +38,6 @@
 					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descrição', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('link', array('class' => 'form-control', 'placeholder' => 'Link'));?>
-				</div>
-				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('type' => 'file', 'label' => 'Foto'));?>
 				</div>
 				<div class="form-group">
