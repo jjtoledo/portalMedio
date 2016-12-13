@@ -31,13 +31,13 @@
 	}
 	echo '</div>';
 
-	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
+	/*echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'videos') {
 		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Vídeos', array('action' => 'site_videos', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
 		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Vídeos', array('action' => 'site_videos', $id), array('class' => 'listMenu', 'escape' => false));
 	}
-	echo '</div>';
+	echo '</div>';*/
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'turismo') {

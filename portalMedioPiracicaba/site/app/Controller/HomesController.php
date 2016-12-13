@@ -97,6 +97,15 @@ class HomesController extends AppController {
 
 		$this->set('results', $this->clima($cidades));
 		$this->set('moedas', $this->moeda());
+
+		$this->loadModel('Video');
+		$options = array(
+			'order' => array(
+				'Video.id' => 'DESC'
+			),
+			'limit' => 4
+		);
+		$this->set('videos', $this->Video->find('all', $options));
 	}
 
 /** 
