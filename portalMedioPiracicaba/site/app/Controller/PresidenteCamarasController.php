@@ -38,7 +38,8 @@ class PresidenteCamarasController extends AppController {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'PresidenteCamara.cidade_id' => $id
-			)
+			),
+			'limit' => 50
 		);
 		$this->set('presidenteCamaras', $this->Paginator->paginate());
 
