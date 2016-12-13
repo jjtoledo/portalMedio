@@ -152,6 +152,10 @@ span.escola:hover {
   font-size: 16px;
 }
 
+.more.tiny {
+  font-size: 22px;
+}
+
 .cresce {
   background-color: #fbfbfb;
   box-shadow: 1px 1px 5px #ccc; padding: 20px;

@@ -267,6 +267,45 @@ class Cidade extends AppModel {
 			'finderQuery' => '',
 			'counterQuery' => ''
 		),
+		'Forum' => array(
+			'className' => 'Forum',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Juiz' => array(
+			'className' => 'Juiz',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
+		'Promotor' => array(
+			'className' => 'Promotor',
+			'foreignKey' => 'cidade_id',
+			'dependent' => true,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
+		),
 		'Medico' => array(
 			'className' => 'Medico',
 			'foreignKey' => 'cidade_id',
