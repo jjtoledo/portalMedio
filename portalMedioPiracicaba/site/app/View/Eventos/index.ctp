@@ -22,7 +22,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo evento'), array('action' => 'add', $cidade['Cidade']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo evento'), array('action' => 'add', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -49,9 +49,9 @@
 						<td nowrap><?php echo h($evento['Evento']['data']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoEventos', 'action' => 'index', $evento['Evento']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $evento['Evento']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $evento['Evento']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $evento['Evento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $evento['Evento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $evento['Evento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $evento['Evento']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

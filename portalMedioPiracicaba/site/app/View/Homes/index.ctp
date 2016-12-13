@@ -180,66 +180,68 @@
     </div>
   </section>
 
-  <section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
-    <div class="container noticias responsive-large">
-      <div class="container-fluid text-center">
-    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>   
-    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>   
-    	</div>
-      <div class="row border">
-      	<?php $count = 0; 
-      			for ($i=0; $i < 4; $i++) { 
-      				if (count($eventos) == $count) {
-      					$count = 0;
-      				}
-      		?>
-		    	<div class="col-md-3 col-sm-6 divNoticia">
-		    		<div class="noticia agenda">
+  <?php if(!empty($eventos)): ?>
+	  <section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
+	    <div class="container noticias responsive-large">
+	      <div class="container-fluid text-center">
+	    		<?php echo $this->Html->link('Agenda&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar bigger"></span>', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>   
+	    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_agenda'), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>   
+	    	</div>
+	      <div class="row border">
+	      	<?php $count = 0; 
+	      			for ($i=0; $i < 4; $i++) { 
+	      				if (count($eventos) == $count) {
+	      					break;
+	      				}
+	      		?>
+			    	<div class="col-md-3 col-sm-6 divNoticia">
+			    		<div class="noticia agenda">
+			    			<?php 
+			    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
+			    					echo $this->Html->link(
+											 $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
+											 '../img/'.$eventos[$count]['Evento']['foto_anuncio'],
+											 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										);
+										echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+			    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
+			    				} else if ($eventos[$count]['FotoEvento'] != null) {
+			    					echo $this->Html->link(
+											 $this->Html->image($eventos[$count]['FotoEvento']['0']['foto'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
+											 '../img/'.$eventos[$count]['FotoEvento']['0']['foto'],
+											 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										);
+										echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+			    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
+			    				} else {
+			    					echo '<div class="config-padding col-md-12 text-center">';
+			    					echo $this->Html->link(
+											 $this->Html->image('evento.png', array('class' => 'class_img hiding_event', 'width' => '40%', 'height' => '50%')),
+											 '../img/'.'evento.png',
+											 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										);
+			    					echo '<hr class="config-margin-hr">';
+			    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
+			    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';
+			    					echo '</div>';
+			    				}
+			    			?>	
+			    		</div><br>
+			    	</div>
+		    	<?php $count++; } ?>
+					<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+		    		<div class="noticia prop large">
 		    			<?php 
-		    				if ($eventos[$count]['Evento']['foto_anuncio'] != null) {
-		    					echo $this->Html->link(
-										 $this->Html->image($eventos[$count]['Evento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
-										 '../img/'.$eventos[$count]['Evento']['foto_anuncio'],
-										 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
-									);
-									echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
-		    				} else if ($eventos[$count]['FotoEvento'] != null) {
-		    					echo $this->Html->link(
-										 $this->Html->image($eventos[$count]['FotoEvento']['0']['foto'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
-										 '../img/'.$eventos[$count]['FotoEvento']['0']['foto'],
-										 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
-									);
-									echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos[$count]['Evento']['horario'].'</p>';
-		    				} else {
-		    					echo '<div class="config-padding col-md-12 text-center">';
-		    					echo $this->Html->link(
-										 $this->Html->image('evento.png', array('class' => 'class_img hiding_event', 'width' => '40%', 'height' => '50%')),
-										 '../img/'.'evento.png',
-										 array('escapeTitle' => false, 'title' => $eventos[$count]['Evento']['titulo'].' - '.$eventos[$count]['Evento']['data'].' - '.$eventos[$count]['Evento']['horario'].' - '.$eventos[$count]['Evento']['local'].' - '.$eventos[$count]['Evento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
-									);
-		    					echo '<hr class="config-margin-hr">';
-		    					echo '<h3 class="text-center menor">'.$eventos[$count]['Evento']['titulo'].'</h3>';
-		    					echo '<p class="text-center menor_detalhe" style="color: #51A8B1">'.$eventos[$count]['Evento']['data']. ' - ' .$eventos['0']['Evento']['horario'].'</p>';
-		    					echo '</div>';
-		    				}
-		    			?>	
-		    		</div><br>
-		    	</div>
-	    	<?php $count++; } ?>
-				<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
-	    		<div class="noticia prop large">
-	    			<?php 
-		    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-		    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
-		    				echo '</a>'
-		    			?>	
-	    		</div>
-	    	</div>	
-	    </div>    	
-    </div>
-  </section>
+			    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
+			    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+			    				echo '</a>'
+			    			?>	
+		    		</div>
+		    	</div>	
+		    </div>    	
+	    </div>
+	  </section>
+	<?php endif; ?>
 
   <section class="subtitle-intro noticias">
     <div class="container noticias responsive-large">

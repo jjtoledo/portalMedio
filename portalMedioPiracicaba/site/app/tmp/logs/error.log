@@ -24291,3 +24291,35 @@ Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
 Stack Trace:
 #0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2016-12-13 02:06:51 Error: Fatal Error (4): syntax error, unexpected ''order'' (T_CONSTANT_ENCAPSED_STRING), expecting ')' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php, line 49]
+2016-12-13 02:06:51 Error: [FatalErrorException] syntax error, unexpected ''order'' (T_CONSTANT_ENCAPSED_STRING), expecting ')'
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 49)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 49, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 49, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-13 02:20:38 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 53994969 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Utility\Debugger.php, line 609]
+2016-12-13 02:20:38 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 53994969 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_contato
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 609)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 609, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 609, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2016-12-13 02:23:53 Error: [SocketException] mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_contato
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Email\MailTransport.php(51): MailTransport->_mail('contato@portalm...', 'teste', 'gsadgsa ufdhsua...', 'From: nome <ema...', NULL)
+#1 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Network\Email\CakeEmail.php(1173): MailTransport->send(Object(CakeEmail))
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\Controller\HomesController.php(440): CakeEmail->send('gsadgsa ufdhsua...')
+#3 [internal function]: HomesController->site_contato()
+#4 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(HomesController), Array)
+#5 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#6 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
+#7 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}

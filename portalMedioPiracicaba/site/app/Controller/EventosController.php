@@ -36,10 +36,11 @@ class EventosController extends AppController {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'Evento.cidade_id' => $id
+				'Evento.cidade_id' => $id,
+				'Evento.tipo' => $tipo
 			)
 		);
 		$this->set('eventos', $this->Paginator->paginate());
@@ -47,6 +48,8 @@ class EventosController extends AppController {
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -56,7 +59,7 @@ class EventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null, $idCity = null) {
+	public function view($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Evento->exists($id)) {
 			throw new NotFoundException(__('Invalid evento'));
 		}
@@ -67,7 +70,8 @@ class EventosController extends AppController {
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $idCity));
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
-		$this->set('id', $id);	
+		$this->set('id', $id);
+		$this->set('tipo', $tipo);	
 	}
 
 /**
@@ -75,14 +79,17 @@ class EventosController extends AppController {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null, $tipo = null) {
 		$this->request->data['Evento']['cidade_id'] = $id;
+		$this->request->data['Evento']['tipo'] = $tipo;
+
+		$this->set('tipo', $tipo);
 
 		if ($this->request->is('post')) {
 			$this->Evento->create();
 			if ($this->Evento->save($this->request->data)) {
 				$this->Session->setFlash(__('The evento has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
+				return $this->redirect(array('action' => 'index', $id, $tipo));
 			} else {
 				$this->Session->setFlash(__('The evento could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -100,17 +107,18 @@ class EventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idCity = null) {
+	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Evento->exists($id)) {
 			throw new NotFoundException(__('Invalid evento'));
 		}
 
 		$this->request->data['Evento']['cidade_id'] = $idCity;
+		$this->request->data['Evento']['tipo'] = $tipo;
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->Evento->save($this->request->data)) {
 				$this->Session->setFlash(__('The evento has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idCity));
+				return $this->redirect(array('action' => 'index', $idCity, $tipo));
 			} else {
 				$this->Session->setFlash(__('The evento could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -125,6 +133,7 @@ class EventosController extends AppController {
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
 		$this->set('id', $id);
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -134,7 +143,7 @@ class EventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idCity = null) {
+	public function delete($id = null, $idCity = null, $tipo = null) {
 		$this->Evento->id = $id;
 		if (!$this->Evento->exists()) {
 			throw new NotFoundException(__('Invalid evento'));
@@ -145,7 +154,7 @@ class EventosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The evento could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index', $idCity));
+		return $this->redirect(array('action' => 'index', $idCity, $tipo));
 	}
 
 		/**
@@ -155,13 +164,13 @@ class EventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete_foto($id = null, $idCity = null) {
+	public function delete_foto($id = null, $idCity = null, $tipo = null) {
 		$this->Evento->id = $id;
 		if (!$this->Evento->exists()) {
 			throw new NotFoundException(__('Invalid Evento'));
 		}
 		
 		$this->Evento->updateAll(array('foto_anuncio'=>null),array('Evento.id' => $id));
-		return $this->redirect(array('action' => 'view', $id, $idCity));
+		return $this->redirect(array('action' => 'view', $id, $idCity, $tipo));
 	}
 }

@@ -27,7 +27,7 @@
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('controller' => 'noticias', 'action' => 'index', 3), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index',2), array('escape' => false)); ?></li>
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>								
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->

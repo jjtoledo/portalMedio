@@ -15,7 +15,7 @@
 		<div class="col-md-6 col-md-offset-3">
 			<div class="panel panel-warning">
 			  <div class="panel-heading" style="padding: 20px">
-			    <h3 class="panel-title">Nos envie sugestões, críticas ou que quiser. Estamos sempre procurando melhorar!</h3>
+			    <h3 class="panel-title">Nos envie sugestões, críticas ou o que desejar. Estamos sempre procurando melhorar!</h3>
 			  </div>
 			  <div class="panel-body" style="padding: 30px">			
 		  		<?php echo $this->Form->create('Contato', array('role' => 'form')); ?>

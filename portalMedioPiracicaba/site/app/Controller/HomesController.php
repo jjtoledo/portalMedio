@@ -1,6 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 App::uses('HttpSocket', 'Network/Http');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Historias Controller
@@ -42,7 +43,12 @@ class HomesController extends AppController {
 
 		/* Agenda */
 		$this->loadModel('Evento');
-		$options = array('order' => 'Evento.id DESC');
+		$options = array(
+			'conditions' => array(
+				'Evento.tipo' => 1
+			),
+			'order' => 'Evento.id DESC'
+		);
 		$eventos = $this->Evento->find('all', $options);
 		$this->set(compact('eventos'));
 
@@ -427,31 +433,20 @@ class HomesController extends AppController {
 		$this->common($id);
 
 		if ($this->request->is('post')) {
-			$name = $this->data['Contato']['nome'];
-	        $from = $this->data['Contato']['email'];
-	        $subject = $this->data['Contato']['assunto'];
-	        $msg = $this->data['Contato']['mensagem'];
-	        
-	        $this->Email->delivery = 'smtp';
-	        $this->Email->sendAs = 'both'; // html, text, both
-	        $this->set('conteudo', $msg); // especifica variavel da mensagem para o template
-	        //$this->Email->layout = 'contact'; // views/elements/email/html/contact.ctp
-	        //$this->Email->template = 'contact';
-
-	        // set view variables as normal
-	        $this->set('from', $name);
-	        $this->set('msg', $msg);
-
-			$this->Email->to = 'contato@portalmediopiracicaba.com';
-			$this->Email->subject = $subject;
-			$this->Email->from = $name . '<' . $from .'>';
-
-			if ( $this->Email->send($msg) ) {
-			   $this->Session->setFlash('E-mail enviado');
+			$Email = new CakeEmail();
+			$Email->config('smtp');
+			$Email->replyTo(array($this->data['Contato']['email'] => $this->data['Contato']['nome']))
+				->sender(array($this->data['Contato']['email'] => $this->data['Contato']['nome']))
+			    ->to('contato@portalmediopiracicaba.com')
+			    ->subject($this->data['Contato']['assunto'])
+			    ->message($this->data['Contato']['mensagem']);
+			
+			if ($Email->send()) {
+				$this->Session->setFlash(__('E-mail enviado com sucesso! Em breve entraremos em contato.'), 'default', array('class' => 'contato alert alert-success'));
 			} else {
-			   $this->Session->setFlash('E-mail nao enviado');
-			}
-			$this->redirect('action', 'site_contato');
+				$this->Session->setFlash(__('E-mail não enviado, tente novamente mais tarde...'), 'default', array('class' => 'contato alert alert-danger'));
+			}			
+			$this->redirect(array('action' => 'site_contato'));
 		}		
 	}
 
@@ -888,7 +883,8 @@ class HomesController extends AppController {
 			$options = array(
 				'order' => 'Evento.id DESC',
 				'conditions' => array(
-					'Evento.cidade_id' => $id
+					'Evento.cidade_id' => $id,
+					'Evento.tipo' => 2
 				)
 			);
 			$eventos = $this->Evento->find('all', $options);

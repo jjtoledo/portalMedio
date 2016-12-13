@@ -70,7 +70,10 @@ body {
   animation: bounce 2s infinite;
 }
 
-
+div#flashMessage.contato.alert {
+  margin-top: 110px;
+  margin-bottom: -100px;
+}
 /***********************************************************************
 *  OPAQUE NAVBAR SECTION
 ***********************************************************************/
