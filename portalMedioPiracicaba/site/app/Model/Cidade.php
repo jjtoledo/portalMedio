@@ -453,6 +453,7 @@ class Cidade extends AppModel {
 			'className' => 'Exvereador',
 			'foreignKey' => 'cidade_id',
 			'conditions' => '',
+			'dependent'=> true,
 			'fields' => '',
 			'order' => ''
 		),
@@ -460,6 +461,7 @@ class Cidade extends AppModel {
 			'className' => 'Video',
 			'foreignKey' => 'cidade_id',
 			'conditions' => '',
+			'dependent'=> true,
 			'fields' => '',
 			'order' => ''
 		)

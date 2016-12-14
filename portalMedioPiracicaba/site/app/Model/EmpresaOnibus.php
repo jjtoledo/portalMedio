@@ -51,6 +51,7 @@ class EmpresaOnibus extends AppModel {
 			'foreignKey' => 'empresa_onibus_id',
 			'conditions' => '',
 			'fields' => '',
+			'dependent'=> true,
 			'order' => ''
 		)
 	);
