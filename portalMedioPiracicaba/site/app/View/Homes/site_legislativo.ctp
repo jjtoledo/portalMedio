@@ -136,7 +136,7 @@
 			    						.$p['Politico']['nome'].'</b><br><br>';
 			    					}
 			    						if (!empty($p['Mandato'])) {
-			    							echo '<b>Mandatos:</b><br>';
+			    							echo '<b>Mandato:</b><br>';
 			    							foreach ($p['Mandato'] as $mandato) {
 			    								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
 			    							}
@@ -183,7 +183,7 @@
 			      				echo '<div class="col-md-12"><br><b>'
 			    						.$p['Politico']['nome'].'</b><br><br>';
 			    						if (!empty($p['Mandato'])) {
-			    							echo '<b>Mandatos:</b><br>';
+			    							echo '<b>Mandato:</b><br>';
 			    							foreach ($p['Mandato'] as $mandato) {
 			    								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
 			    							}

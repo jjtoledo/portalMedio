@@ -17,6 +17,8 @@ class PresidenteCamarasController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
+	public $helpers = array('Tinymce');
+
 	public function afterFilter() {
         $this->autenticarAdmin();
     }
@@ -113,6 +115,7 @@ class PresidenteCamarasController extends AppController {
 		}
 
 		$this->request->data['PresidenteCamara']['cidade_id'] = $idCam;
+		$this->request->data['PresidenteCamara']['descricao'] = str_replace("\n", '<br>', $this->request->data['PresidenteCamara']['descricao']);
 
 		if ($this->request->is(array('post', 'put'))) {
 			if ($this->PresidenteCamara->save($this->request->data)) {

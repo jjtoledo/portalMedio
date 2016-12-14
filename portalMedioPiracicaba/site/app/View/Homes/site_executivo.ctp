@@ -133,7 +133,7 @@
       				echo '<div class="col-md-12 text-center" style="font-size:20px"><br><b>'
     						.$prefeito['0']['Politico']['nome'].'</b><br><br>';
     						if (!empty($prefeito['0']['Mandato'])) {
-    							echo '<b>Mandatos:</b><br>';
+    							echo '<b>Mandato:</b><br>';
     							foreach ($prefeito['0']['Mandato'] as $mandato) {
     								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
     							}
@@ -172,7 +172,7 @@
       				echo '<div class="col-md-6"><b>'
     						.$p['Politico']['nome'].'</b><br><br>';
     						if (!empty($p['Mandato'])) {
-    							echo '<b>Mandatos:</b><br>';
+    							echo '<b>Mandato:</b><br>';
     							foreach ($p['Mandato'] as $mandato) {
     								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
     							}

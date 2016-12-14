@@ -57,9 +57,7 @@
 
 	echo '<div class="col-lg-3 col-sm-6 col-xs-12">';
 	if ($active == 'transporte') {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Transporte', array('action' => 'site_transporte', $id), array('class' => 'listMenu active', 'escape' => false));
 	} else {
-		echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span> ' . 'Transporte', array('action' => 'site_transporte', $id), array('class' => 'listMenu', 'escape' => false));
 	}
 	echo '</div>';
 

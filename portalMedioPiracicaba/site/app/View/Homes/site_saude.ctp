@@ -80,7 +80,7 @@
 					<?php echo '<h1 class="noticiasHome">Órgãos de saúde</h1><br>' ?>			
 				</div>
 
-				<?php foreach ($tipos as $t) { ?>
+				<?php // foreach ($tipos as $t) { ?>
 					<div class="col-md-12 text-justify">
 		      	<!--<p class="linkNormal" style="margin-top: 20px"><?php echo $t['OrgaoSaude']['tipo'] ?></p>-->
 	  				<hr style="border-top: 1px solid #ddd; margin-top: 10px; margin-bottom: 15px; width: auto">	
@@ -125,10 +125,12 @@
 		      				$b++;
 		      				$count++;
 		      			//}		      			
-		      		}		      	
+		      		}
+		      		echo '</div>';		      	
 		      	?>						
 				</div>
-			<?php } } ?>
+			<?php //} 
+			} ?>
 	  </div>
 	</main>
 
