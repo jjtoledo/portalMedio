@@ -35,6 +35,7 @@ class EmpresaOnibus extends AppModel {
 			'className' => 'Horario',
 			'foreignKey' => 'empresa_onibus_id',
 			'conditions' => '',
+			'dependent'=> true,
 			'fields' => '',
 			'order' => ''
 		)
