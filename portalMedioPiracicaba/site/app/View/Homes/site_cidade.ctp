@@ -95,7 +95,7 @@
 		  		<hr style="border-top: 1px solid #ddd; margin-top: 40px; margin-bottom: 40px;">
 			  	<div class="col-md-5">
 			  		<?php
-			  		echo $this->Html->link('História&nbsp;&nbsp;<span class="glyphicon glyphicon-book"></span>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
+			  		echo $this->Html->link('Descrição&nbsp;&nbsp;<span class="glyphicon glyphicon-book"></span>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		echo '<hr class="config-margin-hr">';
 			  		if (empty($cidade['Cidade']['descricao'])) {
 			  			if (strlen($cidade['Historia']['historia']) > 1000) {

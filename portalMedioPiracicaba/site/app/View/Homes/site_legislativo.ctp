@@ -119,8 +119,20 @@
 						</div>
 
 						<div class="col-md-12">
-							<?php foreach ($vereadores as $p) {
+							<?php $count=0; $b=0; foreach ($vereadores as $p) {
+								if ($b == 2) {
+									$b = 0;
+									echo '</div>';
+								}
+
+								if ($count % 2 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
 								if ($p['Politico']['mesa_diretora'] != 0) {
+									$count++;
+									$b++;
+
 			    				echo '<div class="col-md-6" style="margin-top: 20px">';
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
@@ -141,29 +153,13 @@
 			    								echo $mandato['ano_inicio'].' - '.$mandato['ano_termino'].'<br>';
 			    							}
 			    							echo '<br>';
-			    						} 
-											
-											/*$comissao = array();
-											foreach ($comissaos as $c) {
-												if ($c['Comissao']['id'] == $p['Politico']['comissao_id'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id1'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id2'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id3']) {
-													array_push($comissao, $c['Comissao']['nome']);
-												}
-											}
-											for ($i=0; $i < count($comissao); $i++) { 
-												if ($i == 0) {
-													echo '<b>Participa das Comissões:</b><br>'.$comissao[$i].'<br>';
-												} else {
-													echo $comissao[$i].'<br>';
-												}
-											}*/
-
+			    						} 			
 			    					echo '</div>';
 			  					echo '</div>'; 
 			  				}
-			      	} ?>	
+			      	} 
+			      	echo '</div>'; 
+			      	?>	
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -172,8 +168,19 @@
 						</div>
 
 						<div class="col-md-12">
-							<?php foreach ($vereadores as $p) {
+							<?php $count=0; $b=0; foreach ($vereadores as $p) {
+								if ($b == 2) {
+									$b = 0;
+									echo '</div>';
+								}
+
+								if ($count % 2 == 0) {	
+		      				echo '<div class="row">';
+		      			}
+
 								if ($p['Politico']['mesa_diretora'] != 1) {
+									$count++;
+									$b++;
 			    				echo '<div class="col-md-6" style="margin-top: 20px">';
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
@@ -189,28 +196,11 @@
 			    							}
 			    							echo '<br>';
 			    						} 
-
-			    						/*$comissao = array();
-											foreach ($comissaos as $c) {
-												if ($c['Comissao']['id'] == $p['Politico']['comissao_id'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id1'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id2'] ||
-														$c['Comissao']['id'] == $p['Politico']['comissao_id3']) {
-													array_push($comissao, $c['Comissao']['nome']);
-												}
-											}
-											for ($i=0; $i < count($comissao); $i++) { 
-												if ($i == 0) {
-													echo '<b>Participa das Comissões:</b><br>'.$comissao[$i].'<br>';
-												} else {
-													echo $comissao[$i].'<br>';
-												}
-											}*/
-
-			    					echo '</div>';
+										echo '</div>';
 			  					echo '</div>'; 
-			  				}
-			      	} ?>	
+			  				}			  				
+			      	} echo '</div>'; 
+			      	?>	
 						</div>
 					</div>
 				</div>
