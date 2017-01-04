@@ -83,6 +83,14 @@
 						echo '<p><b>Temperatura Mínima: </b>' . $cidade['Estatistica']['temp_min'] . '°C</p>'; 
 					}
 
+					if (!empty($cidade['Estatistica']['lat'])) {
+						echo '<p><b>Latitude: </b>' . $cidade['Estatistica']['lat'] . '°C</p>'; 
+					}
+
+					if (!empty($cidade['Estatistica']['lng'])) {
+						echo '<p><b>Longitude: </b>' . $cidade['Estatistica']['lng'] . '°C</p>'; 
+					}
+
 					if (!empty($cidade['Estatistica']['vias'])){
 						echo '<b>Vias de Acesso: </b><br>'.$cidade['Estatistica']['vias'];
 					}

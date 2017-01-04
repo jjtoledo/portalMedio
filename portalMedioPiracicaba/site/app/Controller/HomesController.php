@@ -119,6 +119,18 @@ class HomesController extends AppController {
 	public function site_cidade($id = null) {		
 		$this->common($id, 'title');
 		$this->set('active', '');
+
+		$this->loadModel('Video');
+		$options = array(
+			'order' => array(
+				'Video.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Video.cidade_id' => $id
+			),
+			'limit' => 4
+		);
+		$this->set('videos', $this->Video->find('all', $options));
 	}
 
 	public function site_historia($id = null) {

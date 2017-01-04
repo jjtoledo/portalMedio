@@ -3,6 +3,17 @@
 	<div id="espaco">
 
 	</div>
+
+	<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+		<div class="noticia prop large" style="margin-top: 0; margin-bottom: 25px">
+			<?php 
+					$index = mt_rand(0,count($anuncios_large)-1);
+  				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+  				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+  				echo '</a>'
+  			?>	
+		</div>
+	</div>
   
 	<div class="row">
 	    <div class="col-md-12">

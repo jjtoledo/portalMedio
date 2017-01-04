@@ -77,6 +77,12 @@
 					<?php echo $this->Form->input('temp_min', array('class' => 'form-control', 'placeholder' => 'Temperatura Mínima', 'min' => -20, 'label' => 'Temperatura Mínima'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('lat', array('class' => 'form-control', 'placeholder' => 'Latitude', 'label' => 'Latitude'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('lng', array('class' => 'form-control', 'placeholder' => 'Longitude', 'label' => 'Longitude'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Tinymce->input('Estatistica.limitrofes', $options = array('label' => 'Municípios Limítrofes'), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">

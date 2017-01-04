@@ -230,6 +230,38 @@
     </div>
   </section>
 
+  <?php if (!empty($videos)) {
+		echo '<section id="scroll_foto" style="background-color: #f6f6f6">';
+			echo '<div class="container">';
+				echo '<div class="col-md-12 text-center">';
+					echo '<h1 class="noticiasHome">Vídeos</h1><br><hr style="margin-top:0">';
+				echo '</div>';
+
+				foreach ($videos as $v) {
+					$v['Video']['link'] = str_replace('width="560"', 'width="100%"', $v['Video']['link']); 
+					$v['Video']['link'] = str_replace('height="315"', 'height="280"', $v['Video']['link']); 
+					echo '<div class="col-sm-6 col-md-4">';
+					echo '<div class="thumbnail">';
+						echo $v['Video']['link'];
+						echo '<div class="caption">';
+							echo '<h4>'.$v['Video']['nome'].'</h4>';
+						echo '</div>';
+					echo '</div>';
+					echo '</div>';
+				}
+				echo '<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">';
+		  		echo '<div class="noticia prop large">';
+		  			$index = mt_rand(0,count($anuncios_quad)-1);
+	  				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+	  				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+	  				echo '</a>';
+		  		echo '</div>';
+		  	echo '</div>';
+			echo '</div>';
+		echo '</section>';		
+	}
+	?>
+
 	<?php echo $this->Element('footer'); ?>
   
 </div> 
