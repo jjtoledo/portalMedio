@@ -65,6 +65,8 @@
 	  </div>
 	</div>
 
+	<?php echo $this->Element('cria_menu'); ?>  
+
 	<main style="background-color: #fff">
 		<div class="container">
 			<div class="col-md-10 col-md-offset-1 cresce">

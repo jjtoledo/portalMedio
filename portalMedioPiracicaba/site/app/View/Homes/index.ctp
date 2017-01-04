@@ -1,76 +1,27 @@
-<?php echo $this->Element('navigation'); 
-			//debug($content);
+<?php 
+	echo $this->Element('navigation_secondary'); 
+ 	echo $this->Element('slideshow'); 
 ?>
-
-<div class="container-fluid">
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
-
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner resolucao" role="listbox">
-	  	<?php 
-  		if (!empty($fotos_aereas)) {
-  			$count = 0;
-  			$active = '';
-		  	foreach ($fotos_aereas as $foto) {
-  				if ($count == 0) {
-  					$active = 'active';
-  				} else {
-  					$active = '';
-  				}
-
-  				echo '<div class="item '.$active.'">';
-  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
-  				echo 	'<div class="carousel-caption">';
-	    		echo 		'<div class="arrow bounce"></div>';
-	    		echo 	'</div>';
-	    		echo '</div>';
-
-	    		$count++;
-		  	}
-  		} else if (!empty($fotos_atuais)) {
-  			$count = 0;
-  			$active = '';
-		  	foreach ($fotos_atuais as $foto) {
-  				if ($count == 0) {
-  					$active = 'active';
-  				} else {
-  					$active = '';
-  				}
-
-  				echo '<div class="item '.$active.'">';
-  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
-  				echo 	'<div class="carousel-caption">';
-	    		echo 		'<div class="arrow bounce"></div>';
-	    		echo 	'</div>';
-	    		echo '</div>';
-
-	    		$count++;
-	    	}
-  		} else {
-  		?>
-	    <div class="item active">
-	    	<?php echo $this->Html->image('img2.jpg', array('width' => '2000')) ?>	    	
-	    </div>
-
-	    <div class="item">
-	      <?php echo $this->Html->image('img3.jpg', array('width' => '2000')) ?>
-	    </div>
-
-	    <div class="item">
-	      <?php echo $this->Html->image('img4.jpg', array('width' => '2000')) ?>
-	    </div>
-
-	     <div class="item">
-	      <?php echo $this->Html->image('img5.jpg', array('width' => '2000')) ?>
-	    </div>
-	    <?php } ?>
-	  </div>
-	</div>
-</div> 
 
 <main>
 
-  <div class="container col-lg-8 col-lg-offset-2" id="cidades">
+	<body>
+		<div class="side-panel a">
+		 	<ul>
+		    	<li><a><span class="entypo-list"></span></a>
+		      		<ul>
+		        		<?php 
+				    		foreach ($cidades as $c):
+				    			echo '<li><a class="entypo-location" href="homes/site_cidade/' . $c['Cidade']['id'] . '" >' . $c['Cidade']['nome'] . '</a></li>';
+				    		endforeach;
+			    		?>
+		      		</ul>
+		    	</li>
+		  	</ul>
+		</div>
+	</body>
+
+  	<div class="container col-lg-8 col-lg-offset-2" id="cidades">
   	
   	<?php echo $this->Element('parceiros'); ?> 
     
@@ -115,8 +66,9 @@
       		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 divNoticia p">
 		    		<div class="noticia prop">
 		    			<?php 
-		    				echo '<a href="'.$anuncios_quad['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-		    				echo $this->Html->image($anuncios_quad['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    				$index = mt_rand(0,count($anuncios_quad)-1);
+		    				echo '<a href="'.$anuncios_quad[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+		    				echo $this->Html->image($anuncios_quad[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
 		    				echo '</a>'
 		    			?>
 		    		</div><br>
@@ -232,8 +184,9 @@
 					<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
 		    		<div class="noticia prop large">
 		    			<?php 
-			    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-			    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    					$index = mt_rand(0,count($anuncios_large)-1);
+			    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+			    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
 			    				echo '</a>'
 			    			?>	
 		    		</div>
@@ -273,8 +226,9 @@
       		<div class="col-lg-12 col-lg-offset-0 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 divNoticia p">
 		    		<div class="noticia prop">
 		    			<?php 
-		    				echo '<a href="'.$anuncios_quad['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-		    				echo $this->Html->image($anuncios_quad['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    				$index = mt_rand(0,count($anuncios_quad)-1);
+		    				echo '<a href="'.$anuncios_quad[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+		    				echo $this->Html->image($anuncios_quad[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
 		    				echo '</a>'
 		    			?>
 		    		</div><br>
@@ -335,8 +289,9 @@
 	    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
     		<div class="noticia prop large">
     			<?php 
-	    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-	    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+    					$index = mt_rand(0,count($anuncios_large)-1);
+	    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+	    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
 	    				echo '</a>'
 	    			?>	
     		</div>
@@ -365,8 +320,9 @@
 				}
 				echo '<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">';
 		  		echo '<div class="noticia prop large">';
-	  				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-	  				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		  			$index = mt_rand(0,count($anuncios_quad)-1);
+	  				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+	  				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
 	  				echo '</a>';
 		  		echo '</div>';
 		  	echo '</div>';

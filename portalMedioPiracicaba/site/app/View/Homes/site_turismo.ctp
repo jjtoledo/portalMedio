@@ -1,69 +1,11 @@
-<?php echo $this->Element('navigation'); 
-			//debug($content);
+<?php 
+	echo $this->Element('navigation_secondary'); 
+ 	echo $this->Element('slideshow'); 
 ?>
 
 <div class="container-fluid">
-	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 
-	  <!-- Wrapper for slides -->
-	  <div class="carousel-inner resolucao" role="listbox">
-	  	<?php 
-  		if (!empty($fotos_atuais)) {
-  			$count = 0;
-  			$active = '';
-		  	foreach ($fotos_atuais as $foto) {
-  				if ($count == 0) {
-  					$active = 'active';
-  				} else {
-  					$active = '';
-  				}
-
-  				echo '<div class="item '.$active.'">';
-  				echo 	$this->Html->image($foto['Foto']['foto'], array('width' => '2000'));
-	      	echo 	'<div class="carousel-caption">';
-	    		echo 		'<h1 class="welcome">Conheça locais de lazer e turismo em '.$cidade['Cidade']['nome'].'</h1>';
-	    		echo 		'<div class="arrow bounce"></div>';
-	    		echo 	'</div>';
-	    		echo '</div>';
-
-	    		$count++;
-		  	}
-  		} else {
-  		?>
-	    <div class="item active">
-	      <?php echo $this->Html->image('img2.jpg', array('width' => '2000')) ?>
-	      <div class="carousel-caption">
-	    		<?php echo '<h1 class="welcome">Conheça locais de lazer e turismo em '.$cidade['Cidade']['nome'].'</h1>'; ?>
-	    		<div class="arrow bounce"></div>
-	    	</div>
-	    </div>
-
-	    <div class="item">
-	      <?php echo $this->Html->image('img3.jpg', array('width' => '2000')) ?>
-	      <div class="carousel-caption">
-	    		<?php echo '<h1 class="welcome">Conheça locais de lazer e turismo em '.$cidade['Cidade']['nome'].'</h1>'; ?>
-	    		<div class="arrow bounce"></div>
-	    	</div>
-	    </div>
-
-	    <div class="item">
-	      <?php echo $this->Html->image('img4.jpg', array('width' => '2000')) ?>
-	      <div class="carousel-caption">
-	    		<?php echo '<h1 class="welcome">Conheça locais de lazer e turismo em '.$cidade['Cidade']['nome'].'</h1>'; ?>
-	    		<div class="arrow bounce"></div>
-	    	</div>
-	    </div>
-
-	     <div class="item">
-	      <?php echo $this->Html->image('img5.jpg', array('width' => '2000')) ?>
-	      <div class="carousel-caption">
-	    		<?php echo '<h1 class="welcome">Conheça locais de lazer e turismo em '.$cidade['Cidade']['nome'].'</h1>'; ?>
-	    		<div class="arrow bounce"></div>
-	    	</div>
-	    </div>
-	    <?php } ?>
-	  </div>
-	</div>
+	<?php echo $this->Element('cria_menu'); ?>  
 
 	<main style="background-color: #fff">
 		<div class="container">
@@ -221,10 +163,11 @@
 			    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
 		    		<div class="noticia prop large">
 		    			<?php 
-		    				echo '<a href="'.$anuncios_large['0']['Parceiro']['site'].'" target="_blank" escape="false">';
-		    				echo $this->Html->image($anuncios_large['0']['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
-		    				echo '</a>'
-		    			?>	
+    					$index = mt_rand(0,count($anuncios_large)-1);
+	    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+	    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+	    				echo '</a>'
+	    			?>	
 		    		</div>
 		    	</div>
 		    </div>

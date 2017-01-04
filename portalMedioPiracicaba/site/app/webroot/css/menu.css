@@ -1,0 +1,159 @@
+@import url(http://weloveiconfonts.com/api/?family=entypo);
+/* entypo */
+[class*="entypo-"]:before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  text-align: center;
+  font-family: 'entypo', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #483430;
+  background: #E36A5B;
+}
+
+.side-panel {
+  padding: 10px 0;
+  position: fixed;
+  z-index: 10;
+  top: 25%;
+  /*overflow-x: hidden;*/
+}
+/*.side-panel:nth-child(2n) {
+  background: #483430;
+}*/
+.side-panel ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.side-panel > ul > li:first-child {
+  border-top-right-radius: 3px;
+}
+.side-panel > ul > li:first-child a {
+  padding-top: 2px;
+}
+.side-panel > ul > li:last-child {
+  border-bottom-right-radius: 3px;
+}
+.side-panel > ul > li:last-child a {
+  padding-bottom: 2px;
+  color: white;
+  text-decoration: none;
+}
+.side-panel > ul ul {
+  width: 150px;
+  padding-left: 10px;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
+.side-panel > ul ul li:first-child {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-right-color: #efefef;
+}
+.side-panel > ul ul li:first-child:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #efefef;
+  border-right-color: inherit;
+}
+.side-panel > ul ul li:first-child:hover {
+  border-right-color: #fff;
+}
+.side-panel > ul ul li:last-child {
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.side-panel li {
+  position: relative;
+  background: rgba(81,168,177,0.97);
+}
+.side-panel li:hover {
+  background: #FF6C3B;
+
+}
+.side-panel li:hover > ul {
+  display: block;
+  height: 2px;
+}
+.side-panel a {
+  display: inline-block;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.a > ul {
+  width: 150px;
+  transform: translateX(-110px);
+}
+.a span[class*="entypo-"] {
+  display: inline-block;
+  position: relative;
+  left: 105px;
+  font-size: 1.8em;
+}
+.a .menu-item {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  display: block;
+  padding: 8px 13px;
+  color: #efefef;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  transform: translate(-100%, -50%) translateZ(0);
+  background: #483430;
+  border-radius: 3px;
+  border-right-color: #483430;
+  transition: all .3s ease-in-out;
+  z-index: -2;
+}
+.a .menu-item:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 100%;
+  margin-top: -5px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid #efefef;
+  border-right-color: inherit;
+}
+.a li:hover .menu-item {
+  transform: translate(10px, -50%);
+}
+.a > ul ul {
+  display: block;
+  opacity: 0;
+  transform: translate(-100%);
+  transition: all .3s ease-in-out;
+  z-index: -1;
+}
+.a > ul > li:first-child:hover .menu-item {
+  transform: translate(-100%, -50%);
+}
+.a li:hover ul {
+  opacity: 1;
+  transform: translate(0);
+  width: 235px;
+}
