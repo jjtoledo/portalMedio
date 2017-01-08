@@ -10,7 +10,7 @@
 		    <div class='search-box'>
 		    	<?php
 			    echo $this->Form->create('EspacoEvento', array('type' => 'get', 'class' => 'search-form'));
-			    echo $this->Form->input('search', array('label' => false, 'class' => 'form-control', 'placeholder' => 'Pesquise um espaço para evento...'));
+			    echo $this->Form->input('search', array('label' => false, 'class' => 'form-control', 'placeholder' => 'Pesquisar...'));
 			    echo $this->Form->button('<i class="glyphicon glyphicon-search"></i>', array('class'=>'btn btn-link search-btn btnTop'));			    
 			    echo $this->Form->end();			    
 			    ?>
@@ -24,7 +24,7 @@
 		if(isset($this->params['url']['search']) && $this->params['url']['search'] != '') {  
 			echo '<div class="row"><div class="col-md-3">';
 			if (isset($cidade)) {	
-				echo $this->Html->link('Limpar busca', array('action' => 'site_espacos_eventos', $cidade['Cidade']['id']), array('class'=>'btn btn-info limpar'));
+				echo $this->Html->link('Limpar busca', array('action' => 'site_espacos_eventos', $cidade['Cidade']['id'], $tipo), array('class'=>'btn btn-info limpar'));
 			} else {
 				echo $this->Html->link('Limpar busca', array('action' => 'site_espacos_eventos'), array('class'=>'btn btn-info limpar'));
 			}

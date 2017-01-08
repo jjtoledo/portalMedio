@@ -34,10 +34,11 @@ class EspacoEventosController extends AppController {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'EspacoEvento.cidade_id' => $id
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => $tipo
 			)
 		);
 		$this->set('espacoEventos', $this->Paginator->paginate());
@@ -45,6 +46,8 @@ class EspacoEventosController extends AppController {
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -54,7 +57,7 @@ class EspacoEventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null, $idCity = null) {
+	public function view($id = null, $idCity = null, $tipo = null) {
 		if (!$this->EspacoEvento->exists($id)) {
 			throw new NotFoundException(__('Invalid EspacoEvento'));
 		}
@@ -66,6 +69,7 @@ class EspacoEventosController extends AppController {
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
 		$this->set('id', $id);	
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -73,14 +77,15 @@ class EspacoEventosController extends AppController {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null, $tipo = null) {
 		$this->request->data['EspacoEvento']['cidade_id'] = $id;
+		$this->request->data['EspacoEvento']['tipo'] = $tipo;
 
 		if ($this->request->is('post')) {
 			$this->EspacoEvento->create();
 			if ($this->EspacoEvento->save($this->request->data)) {
 				$this->Session->setFlash(__('The EspacoEvento has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
+				return $this->redirect(array('action' => 'index', $id, $tipo));
 			} else {
 				$this->Session->setFlash(__('The EspacoEvento could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -89,6 +94,7 @@ class EspacoEventosController extends AppController {
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -98,7 +104,7 @@ class EspacoEventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idCity = null) {
+	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->EspacoEvento->exists($id)) {
 			throw new NotFoundException(__('Invalid EspacoEvento'));
 		}
@@ -109,7 +115,7 @@ class EspacoEventosController extends AppController {
 
 			if ($this->EspacoEvento->save($this->request->data)) {
 				$this->Session->setFlash(__('The EspacoEvento has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idCity));
+				return $this->redirect(array('action' => 'index', $idCity, $tipo));
 			} else {
 				$this->Session->setFlash(__('The EspacoEvento could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -123,6 +129,7 @@ class EspacoEventosController extends AppController {
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
 		$this->set('id', $id);
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -132,7 +139,7 @@ class EspacoEventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idCity = null) {
+	public function delete($id = null, $idCity = null, $tipo = null) {
 		$this->EspacoEvento->id = $id;
 		if (!$this->EspacoEvento->exists()) {
 			throw new NotFoundException(__('Invalid EspacoEvento'));
@@ -143,7 +150,7 @@ class EspacoEventosController extends AppController {
 		} else {
 			$this->Session->setFlash(__('The EspacoEvento could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index', $idCity));
+		return $this->redirect(array('action' => 'index', $idCity, $tipo));
 	}
 
 		/**
@@ -153,13 +160,13 @@ class EspacoEventosController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete_foto($id = null, $idCity = null) {
+	public function delete_foto($id = null, $idCity = null, $tipo = null) {
 		$this->EspacoEvento->id = $id;
 		if (!$this->EspacoEvento->exists()) {
 			throw new NotFoundException(__('Invalid EspacoEvento'));
 		}
 		
 		$this->EspacoEvento->updateAll(array('foto_anuncio'=>null),array('EspacoEvento.id' => $id));
-		return $this->redirect(array('action' => 'view', $id, $idCity));
+		return $this->redirect(array('action' => 'view', $id, $idCity, $tipo));
 	}
 }

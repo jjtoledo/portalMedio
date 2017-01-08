@@ -297,6 +297,9 @@
 	      <div class="row border">
 		    	<?php $count = 0; 
 	      			for ($i=0; $i < count($resumos); $i++) { 
+	      				if ($count == 4) {
+	      					break;
+	      				}
 	      		?>
 			    	<div class="col-md-3 col-sm-6 divNoticia">
 			    		<div class="noticia agenda boas">
@@ -334,6 +337,9 @@
 	      <div class="row border">
 		    	<?php $count = 0; 
 	      			for ($i=0; $i < count($horoscopo); $i++) { 
+	      				if ($count == 4) {
+	      					break;
+	      				}
 	      		?>
 			    	<div class="col-md-3 col-sm-6 divNoticia">
 			    		<div class="noticia agenda boas">

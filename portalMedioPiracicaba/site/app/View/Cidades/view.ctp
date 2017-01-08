@@ -188,11 +188,56 @@
 			</div>			
 		</div>
 
+	</div>
+
+	<div class="row" style="margin-bottom: 20px">
+		<div class="col-md-12">
+			<h3><?php echo __('Onde Fica'); ?></h3>
+			<hr style="border-bottom: 1px solid #ddd">
+		</div>
+
 		<div class="col-md-3 menu">
 				<div class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Espaços para Eventos'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Órgãos Públicos'), array('controller' => 'orgaoPublicos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Espaços para Eventos'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Hotéis'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Restaurantes'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 3), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Bancos'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 4), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Sítios'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 5), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Farmácias'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 6), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
 	</div>
 
 	<div class="row" style="margin-bottom: 20px">
@@ -424,19 +469,6 @@
 		<div class="col-md-3 menu">
 				<div class="actions">
 					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar'), array('controller' => 'documentos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-				</div>			
-		</div>
-	</div>
-
-	<div class="row" style="margin-bottom: 20px">
-		<div class="col-md-12">
-			<h3><?php echo __('Órgãos Públicos'); ?></h3>
-			<hr style="border-bottom: 1px solid #ddd">
-		</div>
-
-		<div class="col-md-3 menu">
-				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Órgãos Públicos'), array('controller' => 'orgaoPublicos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
 	</div>

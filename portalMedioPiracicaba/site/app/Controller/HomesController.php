@@ -450,6 +450,60 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Órgãos Públicos');		
 		$this->common($id);
 		$this->set('active', 'orgaos');
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 1
+			)
+		);
+		$this->set('espacos', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 2
+			)
+		);
+		$this->set('hoteis', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 3
+			)
+		);
+		$this->set('restaurantes', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 4
+			)
+		);
+		$this->set('bancos', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 5
+			)
+		);
+		$this->set('sitios', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 6
+			)
+		);
+		$this->set('farmacias', $this->EspacoEvento->find('all', $options));
 	}
 
 	public function site_social($id = null) {
@@ -610,15 +664,18 @@ class HomesController extends AppController {
 		}
 	}
 
-	public function site_espacos_eventos($id = null) {		
+	public function site_espacos_eventos($id = null, $tipo = null) {		
 		$this->set('title_for_layout', 'Espaços Eventos');
 		$this->common($id);
 		$this->set('active', '');
 
+		$this->set('tipo', $tipo);
+
 		$this->loadModel('EspacoEvento');
 		$options = array(
 			'conditions' => array(
-				'EspacoEvento.cidade_id' => $id
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => $tipo
 			)
 		);
 		$this->set('espacos', $this->EspacoEvento->find('all', $options));	
@@ -627,7 +684,8 @@ class HomesController extends AppController {
 			$search = "%" . $this->params['url']['search'] . "%";
 			$options = array(
 				'conditions' => array(
-					'EspacoEvento.nome LIKE' => $search
+					'EspacoEvento.nome LIKE' => $search,
+					'EspacoEvento.tipo' => $tipo
 				)
 			);
 

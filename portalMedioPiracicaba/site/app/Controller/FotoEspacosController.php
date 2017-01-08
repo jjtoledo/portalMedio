@@ -34,7 +34,7 @@ public function afterFilter() {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
 				'FotoEspaco.espaco_evento_id' => $id
@@ -48,6 +48,8 @@ public function afterFilter() {
 		$this->loadModel('EspacoEvento');
 		$options = array('conditions' => array('EspacoEvento.' . $this->EspacoEvento->primaryKey => $id));
 		$this->set('espaco', $this->EspacoEvento->find('first', $options));
+
+		$this->set('tipo', $tipo);
 	}
 
 
