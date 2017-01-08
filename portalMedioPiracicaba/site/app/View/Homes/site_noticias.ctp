@@ -4,8 +4,12 @@
 	<div class='row'>
 	  <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1'>
 	  	<?php 
-	  	if ($tipo == 2) {
+	  	if ($tipo < 3) {
 	  		echo '<p class="marginTop noticiasHome more text-center">Confira as principais notícias da região</p>';
+	  	} else if ($tipo == 4) {
+	  		echo '<p class="marginTop noticiasHome more text-center">Confira os últimos resumos das novelas</p>';
+	  	} else if ($tipo == 5) {
+	  		echo '<p class="marginTop noticiasHome more text-center">Confira o horóscopo</p>';
 	  	} else {
 	  		echo '<p class="marginTop noticiasHome more text-center">Confira nossas boas notícias</p>';
 	  	}
@@ -14,7 +18,7 @@
 	    <div class='search-box'>
 	    	<?php
 		    echo $this->Form->create('Noticia', array('type' => 'get', 'class' => 'search-form'));
-		    echo $this->Form->input('search', array('label' => false, 'class' => 'form-control', 'placeholder' => 'Pesquise uma notícia...'));
+		    echo $this->Form->input('search', array('label' => false, 'class' => 'form-control', 'placeholder' => 'Pesquisar...'));
 		    echo $this->Form->button('<i class="glyphicon glyphicon-search"></i>', array('class'=>'btn btn-link search-btn btnTop'));
 		    echo $this->Form->end();
 		    ?>

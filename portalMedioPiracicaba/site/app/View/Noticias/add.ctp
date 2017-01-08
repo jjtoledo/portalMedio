@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Adicionar Notícia'); ?></h2>
+				<h2><?php echo __('Adicionar'); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,17 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); ?></li>
+								<li>
+									<?php 
+									 if ($tipo < 4) {
+										echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 } else if ($tipo == 4) {
+									 	echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Resumos'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 } else if ($tipo == 5) {
+									 	echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Horóscopo'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 }
+									?>										
+								</li>
 						</div>
 					</div>
 				</div>			

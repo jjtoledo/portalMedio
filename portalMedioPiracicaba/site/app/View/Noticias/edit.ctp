@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Editar Notícia'); ?></h2>
+				<h2><?php echo __('Editar'); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -20,8 +20,18 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;'.__('Detalhes Notícia'), array('action' => 'view', $id, $tipo), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>&nbsp;&nbsp;'.__('Detalhes'), array('action' => 'view', $id, $tipo), array('escape' => false)); ?> </li>
+								<li>
+									<?php 
+									 if ($tipo < 4) {
+										echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 } else if ($tipo == 5) {
+									 	echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Resumos'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 } else if ($tipo == 6) {
+									 	echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Horóscopo'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
+									 }
+									?>
+								</li>
 								<li><?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;'.__('Excluir'), array('action' => 'delete', $this->Form->value('Noticia.id'), $tipo), array('escape' => false), __('Tem certeza que deseja excluir # %s?', $this->Form->value('Noticia.id'))); ?></li>
 						</div>
 					</div>

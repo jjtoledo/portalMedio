@@ -18,9 +18,9 @@
 					<div class="panel-heading"><?php echo __('Actions'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar Notícia'), array('action' => 'edit', $id, $tipo), array('escape' => false)); ?> </li>
-								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir Notícia'), array('action' => 'delete', $id, $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Listar'), array('action' => 'index', $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Editar'), array('action' => 'edit', $id, $tipo), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Excluir'), array('action' => 'delete', $id, $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $id)); ?> </li>
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;Cidades'), array('controller' => 'cidades', 'action' => 'index'), array('escape' => false)); ?> </li>
 							</ul>
 						</div><!-- end body -->

@@ -25,18 +25,6 @@
   	
   	<?php echo $this->Element('parceiros'); ?> 
     
-    <h3 class="cidadesHome">Cidades</h3>
-    <div class="row" id="listCidades">
-    	<?php 
-    		foreach ($cidades as $c):
-    			echo '<div class="col-lg-4 col-sm-6 col-xs-12">';
-    			echo '<a href="homes/site_cidade/'.$c['Cidade']['id'].'">
-    							<span class="glyphicon glyphicon-map-marker"></span> ' . $c['Cidade']['nome'] . '
-    						</a><br>';
-    			echo '</div>';
-    		endforeach;
-    	?>
-    </div> 
   </div>
 
   <section class="subtitle-intro noticias">
@@ -298,6 +286,80 @@
     	</div>	
     </div>
   </section>
+
+  <?php if (!empty($resumos)) { ?>
+  	<section class="subtitle-intro noticias" style="background-color:#f6f6f6">
+	    <div class="container noticias responsive-large">
+	      <div class="container-fluid text-center">
+	    		<?php echo $this->Html->link('Resumos de Novelas&nbsp;&nbsp;<span class="glyphicon glyphicon-time bigger"></span>', array('action' => 'site_noticias', 4), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_noticias', 4), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>
+	    	</div>
+	      <div class="row border">
+		    	<?php $count = 0; 
+	      			for ($i=0; $i < count($resumos); $i++) { 
+	      		?>
+			    	<div class="col-md-3 col-sm-6 divNoticia">
+			    		<div class="noticia agenda boas">
+			    			<?php 
+			    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$resumos[$count]['Noticia']['id'].'/'.$resumos[$count]['Noticia']['tipo'].'" escape="false">';
+			    				echo $this->Html->image($resumos[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
+			    				echo '<p class="noticia_title">'.$resumos[$count]['Noticia']['titulo'].'</p>';
+			    				echo '</a>'
+			    			?>	
+			    		</div><br>
+			    	</div>
+		    	<?php $count++; } ?>
+		    </div>
+		    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+	    		<div class="noticia prop large">
+	    			<?php 
+	    					$index = mt_rand(0,count($anuncios_large)-1);
+		    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+		    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    				echo '</a>'
+		    			?>	
+	    		</div>
+	    	</div>	
+	    </div>
+	  </section>
+	<?php } ?>
+
+	<?php if (!empty($horoscopo)) { ?>
+  	<section class="subtitle-intro noticias" style="background-color:#e6e6e6">
+	    <div class="container noticias responsive-large">
+	      <div class="container-fluid text-center">
+	    		<?php echo $this->Html->link('Horóscopo&nbsp;&nbsp;<span class="glyphicon glyphicon-tags bigger"></span>', array('action' => 'site_noticias', 5), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_noticias', 5), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>
+	    	</div>
+	      <div class="row border">
+		    	<?php $count = 0; 
+	      			for ($i=0; $i < count($horoscopo); $i++) { 
+	      		?>
+			    	<div class="col-md-3 col-sm-6 divNoticia">
+			    		<div class="noticia agenda boas">
+			    			<?php 
+			    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$horoscopo[$count]['Noticia']['id'].'/'.$horoscopo[$count]['Noticia']['tipo'].'" escape="false">';
+			    				echo $this->Html->image($horoscopo[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
+			    				echo '<p class="noticia_title">'.$horoscopo[$count]['Noticia']['titulo'].'</p>';
+			    				echo '</a>'
+			    			?>	
+			    		</div><br>
+			    	</div>
+		    	<?php $count++; } ?>
+		    </div>
+		    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+	    		<div class="noticia prop large">
+	    			<?php 
+	    					$index = mt_rand(0,count($anuncios_large)-1);
+		    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+		    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    				echo '</a>'
+		    			?>	
+	    		</div>
+	    	</div>	
+	    </div>
+	  </section>
+	<?php } ?>
 
   <?php if (!empty($videos)) {
 		echo '<section id="scroll_foto" style="background-color: #f6f6f6">';

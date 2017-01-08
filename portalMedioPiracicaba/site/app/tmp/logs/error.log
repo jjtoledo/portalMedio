@@ -25172,3 +25172,94 @@ Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
 Stack Trace:
 #0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-01-07 22:37:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:42:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:43:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:44:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:45:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:46:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:51:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:52:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 22:54:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2017-01-07 23:50:27 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Noticias\index.ctp, line 188]
+2017-01-07 23:50:27 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /portalMedio/portalMedioPiracicaba/site/noticias/index/1
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 188)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 188, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 188, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

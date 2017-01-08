@@ -21,17 +21,25 @@
 		  echo '</div>';
 		  ?>
 		</div>
-		<div class="col-md-2 col-md-offset-1 col-xs-12 right jumbotron leiaTb">
-  			<h4 class="blue">Leia também</h4><hr>
-  			<?php
-  			foreach ($noticias as $n) {
-  				echo '<div class="col-md-12">';
-					echo 	$this->Html->link($this->Html->image($n['Noticia']['foto'], array('width' => '100%')), array('action' => 'site_noticia', $n['Noticia']['id'], $tipo), array('escape' => false)); 
-				  echo 	'<br><br><div>'. $n['Noticia']['titulo'] .'</div><br><br>';
-				  echo '</div>';
-  			}
-  			?>
-	  </div>
+		<?php if (!empty($noticias)) { ?>
+			<div class="col-md-2 col-md-offset-1 col-xs-12 right jumbotron leiaTb">
+	  			<h4 class="blue">Leia também</h4><hr>
+	  			<?php $count = 0;
+	  			foreach ($noticias as $n) {
+	  				if ($cout == 5) {
+	  					break;
+	  				}
+
+	  				echo '<div class="col-md-12">';
+						echo 	$this->Html->link($this->Html->image($n['Noticia']['foto'], array('width' => '100%')), array('action' => 'site_noticia', $n['Noticia']['id'], $tipo), array('escape' => false)); 
+					  echo 	'<br><br><div>'. $n['Noticia']['titulo'] .'</div><br><br>';
+					  echo '</div>';
+
+					  $count++;
+	  			}
+	  			?>
+		  </div>
+		<?php } ?>
 	</div>
 </div>
 

@@ -7,18 +7,6 @@
 
 	<?php echo $this->Element('cria_menu'); ?>  
 
-	<main style="background-color: #fff">
-		<div class="container">
-			<div class="col-md-10 col-md-offset-1 cresce">
-		  	<div class="row">
-			  	<p class="linkNormal">Saiba mais</p>
-		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
-		  		<?php echo $this->Element('menu_cidade'); ?>
-		  	</div>
-	  	</div>			
-	  </div>
-	</main>
-
 	<?php if (!empty($cidade['Forum']) || !empty($cidade['Juiz']) || !empty($cidade['Promotor'])): ?>
 		<section class="subtitle-intro noticias agenda" style="background-color:#e8e8e8">
 	    <div class="container noticias responsive-large">

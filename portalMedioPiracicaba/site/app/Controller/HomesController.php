@@ -75,6 +75,21 @@ class HomesController extends AppController {
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
 
+		/*Carregamento de resumos e horóscopo*/
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '4'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$resumos = $this->Noticia->find('all', $conditions);
+		$this->set(compact('resumos'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '5'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$horoscopo = $this->Noticia->find('all', $conditions);
+		$this->set(compact('horoscopo'));		
+
 		/*Carregamento dos parceiros e anúncios*/
 		$conditions = array(
 			'conditions' => array('Parceiro.tipo' => '1')

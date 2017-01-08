@@ -6,18 +6,6 @@
 <div class="container-fluid">
 	<?php echo $this->Element('cria_menu'); ?>  
 
-	<main style="background-color: #fff">
-		<div class="container">
-			<div class="col-md-10 col-md-offset-1 cresce">
-		  	<div class="row">
-			  	<p class="linkNormal">Saiba mais</p>
-		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
-		  		<?php echo $this->Element('menu_cidade'); ?>
-		  	</div>
-	  	</div>	  			
-	  </div>
-	</main>
-
 	<?php
 		echo '<section id="scroll_foto" style="background-color: #f6f6f6">';
 			echo '<div class="container">';

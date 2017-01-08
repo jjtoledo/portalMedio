@@ -17,8 +17,11 @@
 						case 3:
 							echo __('Boas Notícias'); 
 							break;
-						default:
-							# code...
+						case 4:
+							echo __('Resumo de Novelas'); 
+							break;
+						case 5:
+							echo __('Horóscopo'); 
 							break;
 					}
 					
@@ -37,7 +40,25 @@
 					<div class="panel-heading"><?php echo __('Ações'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova Notícia'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+							<?php 
+								switch ($tipo) {
+									case 1: ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova Notícia'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+									<?php break;
+									case 2: ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova Notícia'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+									<?php break;
+									case 3: ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Nova Notícia'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+									<?php break;
+									case 4: ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo Resumo'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+									<?php break;
+									case 5: ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo Horóscopo'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
+									<?php break;
+								}
+								?>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Cidades'), array('controller' => 'cidades', 'action' => 'index'), array('escape' => false)); ?></li>
 								<?php 
 									switch ($tipo) {
@@ -48,6 +69,12 @@
 											echo '<li>';
 												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
 											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
+											echo '</li>';
 											break;
 										case 2:
 											echo '<li>';
@@ -55,6 +82,12 @@
 											echo '</li>';
 											echo '<li>';
 												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
 											echo '</li>';
 											break;
 										case 3:
@@ -64,9 +97,41 @@
 											echo '<li>';
 												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
 											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
+											echo '</li>';
 											break;
-										default:
-											# code...
+										case 4:
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
+											echo '</li>';
+											break;
+										case 5:
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
+												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
+											echo '</li>';
+											echo '<li>';
 											break;
 									}
 								?>

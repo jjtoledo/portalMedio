@@ -9,14 +9,6 @@
 
 	<main style="background-color: #fff">
 		<div class="container">
-			<div class="col-md-10 col-md-offset-1 cresce">
-		  	<div class="row">
-			  	<p class="linkNormal">Saiba mais</p>
-		  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
-		  		<?php echo $this->Element('menu_cidade'); ?>
-		  	</div>
-	  	</div>
-	  	
 			<div class="col-md-12 text-center">
 				<?php echo '<h1 class="noticiasHome">História de ' . $cidade['Cidade']['nome'] .'</h1><br><hr style="margin-top:0">' ?>			
 			</div>
