@@ -55,6 +55,9 @@
 					<?php echo $this->Form->input('telefone1', array('class' => 'form-control', 'label' => 'Telefone'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Tinymce->input('Camara.secretaria', $options = array(), $tinyoptions = array(), $preset = null) ?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
 				</div>
 

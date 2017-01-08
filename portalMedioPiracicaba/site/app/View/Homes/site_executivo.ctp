@@ -37,6 +37,10 @@
 					  if (!empty($cidade['Prefeitura']['telefone2'])) {
 					  	echo '<p><b>Telefone: </b>' . $cidade['Prefeitura']['telefone2'] . '</p>';
 					  }
+
+					  if (!empty($cidade['Prefeitura']['secretarias'])) {
+					  	echo '<p><b>Secretarias: </b><br>' . $cidade['Prefeitura']['secretarias'] . '</p>';
+					  }
 					?>
 					</div>
 				</div>

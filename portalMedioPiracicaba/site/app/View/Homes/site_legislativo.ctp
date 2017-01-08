@@ -26,7 +26,11 @@
 					  echo '<div class="noticiaCorpo">';
 							echo '<p><b>Endereço: </b>' . $camara['Camara']['endereco'] . '&nbsp;&nbsp;&nbsp;<b>Telefone:</b> ' .$camara['Camara']['telefone1'] .'</p>';
 							echo $camara['Camara']['descricao'];
+							if (!empty($cidade['Camara']['secretarias'])) {
+						  	echo '<p><b>Secretarias: </b><br>' . $cidade['Camara']['secretarias'] . '</p>';
+						  }
 						echo '</div>';
+
 
 						if (!empty($camara['Denominacao'])) {
 							echo '<br><p><b>Denominações anteriores: </b>';
