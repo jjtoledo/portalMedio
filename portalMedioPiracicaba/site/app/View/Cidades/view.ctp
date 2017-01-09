@@ -109,12 +109,6 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Bairros'), array('controller' => 'bairros', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-				</div>			
-		</div>
-
-		<div class="col-md-3 menu">
-				<div class="actions">
 					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Denominações Anteriores'), array('controller' => 'denominacaos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
@@ -172,6 +166,31 @@
 		<div class="col-md-3 menu">			
 			<div class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Listar vídeos'), array('controller' => 'videos', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 20px">
+		<div class="col-md-12">
+			<h3><?php echo __('Esportes'); ?></h3>
+			<hr style="border-bottom: 1px solid #ddd">
+		</div>
+
+		<div class="col-md-3 menu">			
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Clubes Esportivos'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 7), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">			
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Clubes Recreativos'), array('controller' => 'espaco_eventos', 'action' => 'index', $cidade['Cidade']['id'], 8), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">			
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Eventos Esportivos'), array('controller' => 'eventos', 'action' => 'index', $cidade['Cidade']['id'], 3), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>			
 		</div>
 	</div>
@@ -353,7 +372,19 @@
 
 		<div class="col-md-3 menu">
 				<div class="actions">
-					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Dados Econômicos'), array('controller' => 'economias', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Dados Econômicos'), array('controller' => 'economias', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Estatísticas de Empresas'), array('controller' => 'economias', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Estatísticas de Empregos'), array('controller' => 'economias', 'action' => 'index', $cidade['Cidade']['id'], 3), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 				</div>			
 		</div>
 
@@ -534,6 +565,12 @@
 		<div class="col-md-12">
 			<h3><?php echo __('Endereços'); ?></h3>
 			<hr style="border-bottom: 1px solid #ddd">
+		</div>
+
+		<div class="col-md-3 menu">
+				<div class="actions">
+					<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Bairros'), array('controller' => 'bairros', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+				</div>			
 		</div>
 
 		<div class="col-md-3 menu">

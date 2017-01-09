@@ -6,7 +6,16 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Economia de: ' . $cidade['Cidade']['nome']); ?></h1>
+				<?php switch($tipo) { 
+					case 1: ?>
+						<h1><?php echo __('Economia de: ' . $cidade['Cidade']['nome']); ?></h1>
+						<?php break ?><?php
+					case 2: ?>
+						<h1><?php echo __('Estatísticas de empresas em: ' . $cidade['Cidade']['nome']); ?></h1>
+						<?php break ?><?php
+					case 3: ?>
+						<h1><?php echo __('Estatísticas de empregos em: ' . $cidade['Cidade']['nome']); ?></h1>
+						<?php break; } ?>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -22,7 +31,7 @@
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
 								<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>&nbsp&nbsp;Detalhes Cidade'), array('controller' => 'cidades', 'action' => 'view', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>													
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo registro'), array('action' => 'add', $cidade['Cidade']['id']), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo registro'), array('action' => 'add', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
@@ -42,9 +51,9 @@
 					<tr>
 						<td nowrap><?php echo h($economia['Economia']['subtitulo']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $economia['Economia']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $economia['Economia']['id'], $cidade['Cidade']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $economia['Economia']['id'], $cidade['Cidade']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $economia['Economia']['id'])); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $economia['Economia']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $economia['Economia']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $economia['Economia']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $economia['Economia']['id'])); ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

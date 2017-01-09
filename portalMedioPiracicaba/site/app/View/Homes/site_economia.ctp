@@ -9,20 +9,74 @@
 	<main style="background-color: #fff">
 		<div class="container">
 	  	
-			<?php if (!empty($cidade['Economia'])) { ?>
+			<?php if (!empty($economias)) { ?>
 				<div class="col-md-12 text-center">
 					<?php echo '<h1 class="noticiasHome">Economia de ' . $cidade['Cidade']['nome'] .'</h1><br><hr style="margin-top:0; margin-bottom: 10px">' ?>			
 				</div>
 
 				<div class="col-md-12 text-justify">
-					<?php foreach ($cidade['Economia'] as $economia) {
-						echo '<h3 class="linkNormal" style="margin-top:10px; padding-left:15px; color: #54A9B2">'.$economia['subtitulo'].'</h3>';
-						echo $economia['descricao'];
+					<?php foreach ($economias as $economia) {
+						echo '<div class="row" style="margin-bottom:30px">';
+							if (!empty($economia['Economia']['foto'])) {
+			    			echo '<div class="col-md-4 noticia_foto">';
+								echo $this->Html->image($economia['Economia']['foto'], array('width' => '100%')); 
+							  echo '</div>';
+							}
+							echo '<h3 class="linkNormal" style="margin-top:10px; padding-left:15px; color: #54A9B2">'.$economia['Economia']['subtitulo'].'</h3>';
+							echo $economia['Economia']['descricao'];
+						echo '</div>';
 					} ?>
 				</div>
 			<?php } ?>
 	  </div>
 	</main>
+
+	<?php if (!empty($est_empresas)) { ?>
+		<main style="background-color: #e6e6e6">
+			<div class="container">
+				<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">Estatísticas de empresas</h1><br><hr style="margin-top:0; margin-bottom: 10px">' ?>			
+				</div>
+				<div class="col-md-12 text-justify">
+					<?php foreach ($est_empresas as $economia) {
+						echo '<div class="row" style="margin-bottom:30px">';
+							if (!empty($economia['Economia']['foto'])) {
+			    			echo '<div class="col-md-4 noticia_foto">';
+								echo $this->Html->image($economia['Economia']['foto'], array('width' => '100%')); 
+							  echo '</div>';
+							}
+							echo '<h3 class="linkNormal" style="margin-top:10px; padding-left:15px; color: #54A9B2">'.$economia['Economia']['subtitulo'].'</h3>';
+							echo $economia['Economia']['descricao'];
+						echo '</div>';
+					} ?>
+				</div>
+			</div>
+		</main>
+	<?php } ?>
+
+	<?php if (!empty($est_empregos)) { ?>
+		<main style="background-color: #fff">
+			<div class="container">
+				<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">Estatísticas de empregos</h1><br><hr style="margin-top:0; margin-bottom: 10px">' ?>			
+				</div>
+
+				<div class="col-md-12 text-justify">
+					<?php foreach ($est_empregos as $economia) {
+						echo '<div class="row" style="margin-bottom:30px">';
+							if (!empty($economia['Economia']['foto'])) {
+			    			echo '<div class="col-md-4 noticia_foto">';
+								echo $this->Html->image($economia['Economia']['foto'], array('width' => '100%')); 
+							  echo '</div>';
+							}
+							echo '<h3 class="linkNormal" style="margin-top:10px; padding-left:15px; color: #54A9B2">'.$economia['Economia']['subtitulo'].'</h3>';
+							echo $economia['Economia']['descricao'];
+						echo '</div>';
+					} ?>
+				</div>
+			</div>
+		</main>
+	<?php } ?>
 
 	<?php 
 		if (!empty($cidade['Receita'])) { ?>
@@ -137,7 +191,7 @@
 	      				echo '</div>';
 	      		?>
 				    	
-			    	<?php $count++; $b++; if($count == 20) { break; } } ?>	
+			    	<?php $count++; $b++; if($count == 20) { break; } } echo '</div>'; ?>	
 			    	</div>					
 			    </div>
 		    </div>

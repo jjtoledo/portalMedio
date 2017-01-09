@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-  	<title>
-  		<?php echo $title_for_layout; ?>
-  	</title>
+    <title>
+      <?php echo $title_for_layout; ?>
+    </title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +13,14 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  	
+    
   <?php
     echo $this->Html->meta('icon');
     echo $this->fetch('meta');
     echo $this->fetch('css');
     echo $this->fetch('script');   
     echo $this->Html->css('bootstrap.css');
+    echo $this->Html->css('modal.css');
     echo $this->Html->css('menu.css');
     echo $this->Html->css('style.css');   
     echo $this->Html->css('parceiros.css'); 
@@ -28,8 +29,6 @@
     echo $this->Html->css('clima.css'); 
     echo $this->Html->css('lightbox');
     echo $this->Html->css('carousel.css');
-
-
   ?>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -39,14 +38,14 @@
     <![endif]-->
 
     <style type="text/css">
-    	body{ padding: 0px 0px; }
+      body{ padding: 0px 0px; }
     </style>
   </head>
 
   <body>
 
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $this->fetch('content'); ?>
+      <?php echo $this->Session->flash(); ?>
+      <?php echo $this->fetch('content'); ?>
   
   </body>
 </html>
@@ -57,4 +56,5 @@
   echo $this->Html->script('container-fluid.js');
   echo $this->Html->script('jquery.maskedinput.js');
   echo $this->Html->script('endless_scroll_min.js');
+  echo $this->Html->script('modal-anuncio.js');
   echo $this->Html->script('carousel.js');

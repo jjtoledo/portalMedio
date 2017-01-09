@@ -26,6 +26,12 @@
 						case 6:
 							echo "<h2>Farmácias de " . $cidade['Cidade']['nome'] . "</h2>";
 							break;
+						case 7:
+							echo "<h2>Clubes esportivos de " . $cidade['Cidade']['nome'] . "</h2>";
+							break;
+						case 8:
+							echo "<h2>Clubes recreativos de " . $cidade['Cidade']['nome'] . "</h2>";
+							break;
 					}
 				
 				?>
@@ -68,7 +74,11 @@
 						<td nowrap><?php echo h($espacoEvento['EspacoEvento']['telefone1']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($espacoEvento['EspacoEvento']['site']); ?>&nbsp;</td>
 						<td class="actions">
-							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoEspacos', 'action' => 'index', $espacoEvento['EspacoEvento']['id'], $tipo), array('escape' => false)); ?>
+							<?php 
+								if ($tipo < 6) {
+									echo $this->Html->link(__('<span class="glyphicon glyphicon-camera"></span>'), array('controller' => 'fotoEspacos', 'action' => 'index', $espacoEvento['EspacoEvento']['id'], $tipo), array('escape' => false)); 
+								}
+							?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $espacoEvento['EspacoEvento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $espacoEvento['EspacoEvento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?>
 							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $espacoEvento['EspacoEvento']['id'], $cidade['Cidade']['id'], $tipo), array('escape' => false), __('Are you sure you want to delete # %s?', $espacoEvento['EspacoEvento']['id'])); ?>

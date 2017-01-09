@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Adicionar registro econômico'); ?></h1>
+				<h1><?php echo __('Adicionar'); ?></h1>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,7 @@
 					<div class="panel-heading"><?php echo __('Actions'); ?></div>
 						<div class="panel-body">
 							<ul class="nav nav-pills nav-stacked">
-								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $cidade['Cidade']['id']), array('escape' => false)); ?> </li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-menu-left"></span>&nbsp;&nbsp;'.__('Voltar'), array('action' => 'index', $cidade['Cidade']['id'], $tipo), array('escape' => false)); ?> </li>
 							</ul>
 						</div>
 					</div>
@@ -33,7 +33,7 @@
 					<?php echo $this->Form->input('subtitulo', array('class' => 'form-control', 'placeholder' => 'Subtitulo'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('descricao', array('class' => 'form-control', 'placeholder' => 'Descricao'));?>
+					<?php echo $this->Tinymce->input('Economia.descricao', $options = array(), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('type' => 'file', 'placeholder' => 'Foto'));?>

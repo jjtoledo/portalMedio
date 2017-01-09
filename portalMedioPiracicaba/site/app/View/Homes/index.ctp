@@ -5,16 +5,31 @@
 
 <main>
 
+	<div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+  		<div class="modal-dialog modal-lg" id="dialog">
+    		<div class="modal-content" id="content">
+    			<button id="botao-fechar" type="button" class="close" data-dismiss="modal">&times;</button>
+      			<?php 
+	      			$index = mt_rand(0,count($anuncios_quad)-1);		  						
+	  					echo '<div><a target="_blank" href="http://'.$anuncios_quad[$index]['Parceiro']['site'].'">';			
+	  					echo $this->Html->image($anuncios_quad[$index]['Parceiro']['foto'], array('class' => 'img-modal img-responsive'));
+							echo '</a></div>';
+      			?>
+    		</div>
+  		</div>
+	</div>
+
 	<body>
-		<div class="side-panel a">
+		<div class="side-panel d">
 		 	<ul>
-		    	<li><a><span class="entypo-list"></span></a>
-		      		<ul>
+		    	<li><a><span class="entypo-list">Cidades</span></a>
+		      		<ul><div id="scroll">
 		        		<?php 
 				    		foreach ($cidades as $c):
 				    			echo '<li><a class="entypo-location" href="homes/site_cidade/' . $c['Cidade']['id'] . '" >' . $c['Cidade']['nome'] . '</a></li>';
 				    		endforeach;
 			    		?>
+			    		</div>
 		      		</ul>
 		    	</li>
 		  	</ul>
@@ -347,6 +362,46 @@
 			    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$horoscopo[$count]['Noticia']['id'].'/'.$horoscopo[$count]['Noticia']['tipo'].'" escape="false">';
 			    				echo $this->Html->image($horoscopo[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
 			    				echo '<p class="noticia_title">'.$horoscopo[$count]['Noticia']['titulo'].'</p>';
+			    				echo '</a>'
+			    			?>	
+			    		</div><br>
+			    	</div>
+		    	<?php $count++; } ?>
+		    </div>
+		    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia">
+	    		<div class="noticia prop large">
+	    			<?php 
+	    					$index = mt_rand(0,count($anuncios_large)-1);
+		    				echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+		    				echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+		    				echo '</a>'
+		    			?>	
+	    		</div>
+	    	</div>	
+	    </div>
+	  </section>
+	<?php } ?>
+
+	<?php if (!empty($esporte)) { ?>
+  	<section class="subtitle-intro noticias" style="background-color:#e6e6e6">
+	    <div class="container noticias responsive-large">
+	      <div class="container-fluid text-center">
+	    		<?php echo $this->Html->link('Notícias de Esporte&nbsp;&nbsp;<span class="glyphicon glyphicon-flag bigger"></span>', array('action' => 'site_noticias', 6), array('escape' => false, 'class' => 'noticiasHome more text-center')); ?>      
+    		<?php echo $this->Html->link('<br>(Clique acima para ver mais)', array('action' => 'site_noticias', 6), array('escape' => false, 'class' => 'noticiasHome more moreUnder text-center')); ?>
+	    	</div>
+	      <div class="row border">
+		    	<?php $count = 0; 
+	      			for ($i=0; $i < count($esporte); $i++) { 
+	      				if ($count == 4) {
+	      					break;
+	      				}
+	      		?>
+			    	<div class="col-md-3 col-sm-6 divNoticia">
+			    		<div class="noticia agenda boas">
+			    			<?php 
+			    				echo '<a class="noticia_foto" href="homes/site_noticia/'.$esporte[$count]['Noticia']['id'].'/'.$esporte[$count]['Noticia']['tipo'].'" escape="false">';
+			    				echo $this->Html->image($esporte[$count]['Noticia']['foto'], array('width' => '100%', 'height' => '70%'));
+			    				echo '<p class="noticia_title">'.$esporte[$count]['Noticia']['titulo'].'</p>';
 			    				echo '</a>'
 			    			?>	
 			    		</div><br>

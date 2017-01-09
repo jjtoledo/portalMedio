@@ -17,7 +17,9 @@ class EconomiasController extends AppController {
  */
 	public $components = array('Paginator', 'Flash', 'Session');
 
-public function afterFilter() {
+	public $helpers = array('Tinymce');
+
+	public function afterFilter() {
         $this->autenticarAdmin();
     }
 
@@ -34,10 +36,11 @@ public function afterFilter() {
  *
  * @return void
  */
-	public function index($id = null) {
+	public function index($id = null, $tipo = null) {
 		$this->Paginator->settings = array(
 			'conditions' => array(
-				'Economia.cidade_id' => $id
+				'Economia.cidade_id' => $id,
+				'Economia.tipo' => $tipo
 			)
 		);
 		$this->set('economias', $this->Paginator->paginate());
@@ -45,6 +48,8 @@ public function afterFilter() {
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -54,7 +59,7 @@ public function afterFilter() {
  * @param string $id
  * @return void
  */
-	public function view($id = null, $idCity = null) {
+	public function view($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Economia->exists($id)) {
 			throw new NotFoundException(__('Invalid Economia'));
 		}
@@ -66,6 +71,7 @@ public function afterFilter() {
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
 		$this->set('id', $id);	
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -73,14 +79,15 @@ public function afterFilter() {
  *
  * @return void
  */
-	public function add($id = null) {
+	public function add($id = null, $tipo = null) {
 		$this->request->data['Economia']['cidade_id'] = $id;
+		$this->request->data['Economia']['tipo'] = $tipo;
 
 		if ($this->request->is('post')) {
 			$this->Economia->create();
 			if ($this->Economia->save($this->request->data)) {
 				$this->Session->setFlash(__('The Economia has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $id));
+				return $this->redirect(array('action' => 'index', $id, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Economia could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -89,6 +96,8 @@ public function afterFilter() {
 		$this->loadModel('Cidade');
 		$options = array('conditions' => array('Cidade.' . $this->Cidade->primaryKey => $id));
 		$this->set('cidade', $this->Cidade->find('first', $options));
+
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -98,7 +107,7 @@ public function afterFilter() {
  * @param string $id
  * @return void
  */
-	public function edit($id = null, $idCity = null) {
+	public function edit($id = null, $idCity = null, $tipo = null) {
 		if (!$this->Economia->exists($id)) {
 			throw new NotFoundException(__('Invalid Economia'));
 		}
@@ -108,7 +117,7 @@ public function afterFilter() {
 		if ($this->request->is(array('post', 'put'))) {			
 			if ($this->Economia->save($this->request->data)) {
 				$this->Session->setFlash(__('The Economia has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index', $idCity));
+				return $this->redirect(array('action' => 'index', $idCity, $tipo));
 			} else {
 				$this->Session->setFlash(__('The Economia could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 			}
@@ -122,6 +131,7 @@ public function afterFilter() {
 		$this->set('cidade', $this->Cidade->find('first', $options));
 
 		$this->set('id', $id);
+		$this->set('tipo', $tipo);
 	}
 
 /**
@@ -131,7 +141,7 @@ public function afterFilter() {
  * @param string $id
  * @return void
  */
-	public function delete($id = null, $idCity = null) {
+	public function delete($id = null, $idCity = null, $tipo = null) {
 		$this->Economia->id = $id;
 		if (!$this->Economia->exists()) {
 			throw new NotFoundException(__('Invalid Economia'));
@@ -142,7 +152,7 @@ public function afterFilter() {
 		} else {
 			$this->Session->setFlash(__('The Economia could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
-		return $this->redirect(array('action' => 'index', $idCity));
+		return $this->redirect(array('action' => 'index', $idCity, $tipo));
 	}
 
 	/**
@@ -152,13 +162,13 @@ public function afterFilter() {
  * @param string $id
  * @return void
  */
-	public function delete_foto($id = null, $idCity = null) {
+	public function delete_foto($id = null, $idCity = null, $tipo = null) {
 		$this->Economia->id = $id;
 		if (!$this->Economia->exists()) {
 			throw new NotFoundException(__('Invalid Economia'));
 		}
 		
 		$this->Economia->updateAll(array('foto'=>null),array('Economia.id' => $id));
-		return $this->redirect(array('action' => 'view', $id, $idCity));
+		return $this->redirect(array('action' => 'view', $id, $idCity, $tipo));
 	}
 }

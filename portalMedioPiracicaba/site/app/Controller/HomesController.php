@@ -53,11 +53,11 @@ class HomesController extends AppController {
 		$this->set(compact('eventos'));
 
 		/*Carregamento das notícias*/
+		$this->loadModel('Noticia');
 		$conditions = array(
 			'conditions' => array('Noticia.tipo' => '1'),
 			'order' => array('Noticia.id' => 'DESC')
 			);
-		$this->loadModel('Noticia');
 		$noticias_gerais = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_gerais'));
 
@@ -75,7 +75,7 @@ class HomesController extends AppController {
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
 
-		/*Carregamento de resumos e horóscopo*/
+		/*Carregamento de resumos, horóscopo e notícias esportivas*/
 		$conditions = array(
 			'conditions' => array('Noticia.tipo' => '4'),
 			'order' => array('Noticia.id' => 'DESC')
@@ -88,13 +88,20 @@ class HomesController extends AppController {
 			'order' => array('Noticia.id' => 'DESC')
 			);
 		$horoscopo = $this->Noticia->find('all', $conditions);
-		$this->set(compact('horoscopo'));		
+		$this->set(compact('horoscopo'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '6'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$esporte = $this->Noticia->find('all', $conditions);
+		$this->set(compact('esporte'));
 
 		/*Carregamento dos parceiros e anúncios*/
+		$this->loadModel('Parceiro');
 		$conditions = array(
 			'conditions' => array('Parceiro.tipo' => '1')
 			);
-		$this->loadModel('Parceiro');
 		$parceiros = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('parceiros'));
 
@@ -354,6 +361,31 @@ class HomesController extends AppController {
 		$this->set('title_for_layout', 'Economia');		
 		$this->common($id);
 		$this->set('active', 'economia');
+
+		$this->loadModel('Economia');
+		$options = array(
+			'conditions' => array(
+				'Economia.cidade_id' => $id,
+				'Economia.tipo' => 1
+			)
+ 		);
+		$this->set('economias', $this->Economia->find('all', $options));
+
+		$options = array(
+			'conditions' => array(
+				'Economia.cidade_id' => $id,
+				'Economia.tipo' => 2
+			)
+ 		);
+		$this->set('est_empresas', $this->Economia->find('all', $options));
+
+		$options = array(
+			'conditions' => array(
+				'Economia.cidade_id' => $id,
+				'Economia.tipo' => 3
+			)
+ 		);
+		$this->set('est_empregos', $this->Economia->find('all', $options));
 	}
 
 	public function site_saude($id = null) {
@@ -640,7 +672,7 @@ class HomesController extends AppController {
 		}
 	}
 
-	public function site_agenda($id = null) {		
+	public function site_agenda($id = null, $tipo = null) {		
 		$this->set('title_for_layout', 'Eventos');
 		$this->common($id);
 		$this->set('active', '');
@@ -648,16 +680,33 @@ class HomesController extends AppController {
 		$this->loadModel('Evento');
 
 		if ($id != null) {
+			if ($tipo != null) {
+				$this->set('tipo', $tipo);
+				$options = array(
+					'conditions' => array(
+						'Evento.cidade_id' => $id,
+						'Evento.tipo' => $tipo
+					),
+					'order' => array(
+						'Evento.id' => 'DESC'
+					)
+				);
+			} else {				
+				$options = array(
+					'conditions' => array(
+						'Evento.cidade_id' => $id,
+						'Evento.tipo !=' => 3
+					),
+					'order' => array(
+						'Evento.id' => 'DESC'
+					)
+				);
+			}
+		} else {			
 			$options = array(
 				'conditions' => array(
-					'Evento.cidade_id' => $id
+					'Evento.tipo !=' => 3
 				),
-				'order' => array(
-					'Evento.id' => 'DESC'
-				)
-			);
-		} else {
-			$options = array(
 				'order' => array(
 					'Evento.id' => 'DESC'
 				),
@@ -669,17 +718,32 @@ class HomesController extends AppController {
 
 		if(isset($this->params['url']['search'])){  
 			$search = "%" . $this->params['url']['search'] . "%";
-			$options = array(
-				'conditions' => array(
-					'OR' => array(
-						'Evento.titulo LIKE' => $search,
-						'Evento.local LIKE' => $search,
+			if ($tipo != null) {
+				$options = array(
+					'conditions' => array(
+						'Evento.tipo' => $tipo,
+						'OR' => array(
+							'Evento.titulo LIKE' => $search,
+							'Evento.local LIKE' => $search,
+						)
+					),
+					'order' => array(
+						'Evento.id' => 'DESC'
 					)
-				),
-				'order' => array(
-					'Evento.id' => 'DESC'
-				)
-			);
+				);
+			} else {
+				$options = array(
+					'conditions' => array(
+						'OR' => array(
+							'Evento.titulo LIKE' => $search,
+							'Evento.local LIKE' => $search,
+						)
+					),
+					'order' => array(
+						'Evento.id' => 'DESC'
+					)
+				);
+			}
 
 			$eventos = $this->Evento->find('all', $options);
 			$this->set('eventos', $eventos);	
@@ -742,6 +806,38 @@ class HomesController extends AppController {
 		}
 	}
 
+	public function site_esportes($id = null) {		
+		$this->set('title_for_layout', 'Esportes');
+		$this->common($id);
+		$this->set('active', '');
+
+		$this->loadModel('EspacoEvento');
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 7
+			)
+		);
+		$this->set('clube_esportivo', $this->EspacoEvento->find('all', $options));
+
+		$options = array(
+			'conditions' => array(
+				'EspacoEvento.cidade_id' => $id,
+				'EspacoEvento.tipo' => 8
+			)
+		);
+		$this->set('clube_recreativo', $this->EspacoEvento->find('all', $options));
+
+		$this->loadModel('Evento');
+		$options = array(
+			'conditions' => array(
+				'Evento.cidade_id' => $id,
+				'Evento.tipo' => 3
+			)
+		);
+		$this->set('eventos', $this->Evento->find('all', $options));
+	}
+
 	public function site_patrimonios($id = null) {		
 		$this->set('title_for_layout', 'Patrimônios');
 		$this->common($id);
@@ -778,6 +874,7 @@ class HomesController extends AppController {
 
 	public function site_noticias($tipo = null) {
 		$this->set('title_for_layout', 'Notícias');
+		$this->common();
 
 		$this->loadModel('Noticia');
 		$options = array(
@@ -824,6 +921,14 @@ class HomesController extends AppController {
 	public function site_noticia($id = null, $tipo = null) {
 		$this->set('title_for_layout', 'Notícia');
 
+		/*Carregamento dos parceiros e anúncios*/
+		$this->loadModel('Parceiro');
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '3')
+			);
+		$anuncios_large = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('anuncios_large'));
+
 		$this->loadModel('Noticia');
 		if (!$this->Noticia->exists($id)) {
 			throw new NotFoundException(__('Invalid Noticia'));
@@ -835,7 +940,7 @@ class HomesController extends AppController {
 		$this->set('tipo', $tipo);	
 
 		$this->loadModel('Cidade');
-		$this->set('cidade', $this->Cidade->find('all'));
+		$this->set('cidades', $this->Cidade->find('all'));
 
 		$options = array(
 			'conditions' => array(
@@ -933,10 +1038,10 @@ class HomesController extends AppController {
 		$this->loadModel('Cidade');
 
 		/*Carregamento dos parceiros e anúncios*/
+		$this->loadModel('Parceiro');
 		$conditions = array(
 			'conditions' => array('Parceiro.tipo' => '1')
 			);
-		$this->loadModel('Parceiro');
 		$parceiros = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('parceiros'));
 
@@ -967,6 +1072,28 @@ class HomesController extends AppController {
 			);
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
+
+		/*Carregamento de resumos, horóscopo e notícias esportivas*/
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '4'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$resumos = $this->Noticia->find('all', $conditions);
+		$this->set(compact('resumos'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '5'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$horoscopo = $this->Noticia->find('all', $conditions);
+		$this->set(compact('horoscopo'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '6'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$esporte = $this->Noticia->find('all', $conditions);
+		$this->set(compact('esporte'));
 
 		$options = array('order' => 'Cidade.nome');
 		$cidades = $this->Cidade->find('all', $options);

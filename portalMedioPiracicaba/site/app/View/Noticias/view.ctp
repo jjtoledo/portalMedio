@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Detalhes Notícia'); ?></h2>
+				<h2><?php echo __('Detalhes'); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -41,7 +41,7 @@
 					<tr>
 							<th><?php echo __('Descricao'); ?></th>
 							<td>
-								<?php echo h($noticia['Noticia']['descricao']); ?>
+								<?php echo ($noticia['Noticia']['descricao']); ?>
 								&nbsp;
 							</td>
 					</tr>
@@ -52,6 +52,50 @@
 								&nbsp;
 							</td>
 					</tr>
+					<?php if ($tipo == 4 || $tipo == 6): ?>
+						<tr>
+								<th><?php echo __('Descricao'); ?></th>
+								<td>
+									<?php echo ($noticia['Noticia']['descricao1']); ?>
+									&nbsp;
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo __('Foto'); ?></th>
+								<td>
+									<?php echo h($noticia['Noticia']['foto1']); ?>
+									&nbsp;
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo __('Descricao'); ?></th>
+								<td>
+									<?php echo ($noticia['Noticia']['descricao2']); ?>
+									&nbsp;
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo __('Foto'); ?></th>
+								<td>
+									<?php echo h($noticia['Noticia']['foto2']); ?>
+									&nbsp;
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo __('Descricao'); ?></th>
+								<td>
+									<?php echo ($noticia['Noticia']['descricao3']); ?>
+									&nbsp;
+								</td>
+						</tr>
+						<tr>
+								<th><?php echo __('Foto'); ?></th>
+								<td>
+									<?php echo h($noticia['Noticia']['foto3']); ?>
+									&nbsp;
+								</td>
+						</tr>
+					<?php endif; ?>
 					<tr>
 							<th><?php echo __('Link'); ?></th>
 							<td>

@@ -2,16 +2,29 @@
 
 <div class="container-fluid text-center">
 	<div class='row'>
+		<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 divNoticia marginTop">
+			<div class="noticia prop large" style="margin-top: 0; margin-bottom: 25px">
+				<?php 
+						$index = mt_rand(0,count($anuncios_large)-1);
+						echo '<a href="'.$anuncios_large[$index]['Parceiro']['site'].'" target="_blank" escape="false">';
+						echo $this->Html->image($anuncios_large[$index]['Parceiro']['foto'], array('width' => '100%', 'height' => '100%'));
+						echo '</a>'
+					?>	
+			</div>
+		</div>
+
 	  <div class='col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1'>
 	  	<?php 
 	  	if ($tipo < 3) {
-	  		echo '<p class="marginTop noticiasHome more text-center">Confira as principais notícias da região</p>';
+	  		echo '<p class="noticiasHome more text-center">Confira as principais notícias da região</p>';
 	  	} else if ($tipo == 4) {
-	  		echo '<p class="marginTop noticiasHome more text-center">Confira os últimos resumos das novelas</p>';
+	  		echo '<p class="noticiasHome more text-center">Confira os últimos resumos das novelas</p>';
 	  	} else if ($tipo == 5) {
-	  		echo '<p class="marginTop noticiasHome more text-center">Confira o horóscopo</p>';
+	  		echo '<p class="noticiasHome more text-center">Confira o horóscopo</p>';
+	  	} else if ($tipo == 6) {
+	  		echo '<p class="noticiasHome more text-center">Confira notícias sobre esporte</p>';
 	  	} else {
-	  		echo '<p class="marginTop noticiasHome more text-center">Confira nossas boas notícias</p>';
+	  		echo '<p class="noticiasHome more text-center">Confira nossas boas notícias</p>';
 	  	}
 	  	?>
 	  	

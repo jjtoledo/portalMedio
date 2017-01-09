@@ -22,7 +22,7 @@
 							<ul class="nav nav-pills nav-stacked">
 								<li>
 									<?php 
-									 if ($tipo < 4) {
+									 if ($tipo < 4 || $tipo > 5) {
 										echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Notícias'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
 									 } else if ($tipo == 4) {
 									 	echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Listar Resumos'), array('action' => 'index', $tipo), array('escape' => false)); 				 	
@@ -42,11 +42,31 @@
 					<?php echo $this->Form->input('titulo', array('class' => 'form-control', 'placeholder' => 'Título', 'label' => 'Título', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Tinymce->input('Noticia.descricao', $options = array(), $tinyoptions = array(), $preset = null) ?>
+					<?php echo $this->Tinymce->input('Noticia.descricao', $options = array('label' => 'Descrição'), $tinyoptions = array(), $preset = null) ?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('class' => 'form', 'label' => 'Foto', 'type' => 'file'));?>
 				</div>
+				<?php if ($tipo == 4 || $tipo == 6): ?>
+					<div class="form-group">
+						<?php echo $this->Tinymce->input('Noticia.descricao1', $options = array('label' => 'Descrição 2'), $tinyoptions = array(), $preset = null) ?>
+					</div>
+					<div class="form-group">
+						<?php echo $this->Form->input('foto1', array('class' => 'form', 'label' => 'Foto 2', 'type' => 'file'));?>
+					</div>
+					<div class="form-group">
+						<?php echo $this->Tinymce->input('Noticia.descricao2', $options = array('label' => 'Descrição 3'), $tinyoptions = array(), $preset = null) ?>
+					</div>
+					<div class="form-group">
+						<?php echo $this->Form->input('foto2', array('class' => 'form', 'label' => 'Foto 3', 'type' => 'file'));?>
+					</div>
+					<div class="form-group">
+						<?php echo $this->Tinymce->input('Noticia.descricao3', $options = array('label' => 'Descrição 4'), $tinyoptions = array(), $preset = null) ?>
+					</div>
+					<div class="form-group">
+						<?php echo $this->Form->input('foto3', array('class' => 'form', 'label' => 'Foto 4', 'type' => 'file'));?>
+					</div>				
+				<?php endif; ?>
 				<div class="form-group">
 					<?php echo $this->Form->input('link', array('class' => 'form-control', 'placeholder' => 'Link'));?>
 				</div>

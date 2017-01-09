@@ -52,19 +52,19 @@
 		<section style="background-color: #e6e6e6">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="col-md-12 text-center">
 							<?php echo '<h1 class="noticiasHome">Mesa Diretora</h1><br><hr style="margin-top:0">' ?>			
 						</div>
 
 						<div class="col-md-12">
 							<?php $count=0; $b=0; foreach ($vereadores as $p) {
-								if ($b == 2) {
+								if ($b == 4) {
 									$b = 0;
 									echo '</div>';
 								}
 
-								if ($count % 2 == 0) {	
+								if ($count % 4 == 0) {	
 		      				echo '<div class="row">';
 		      			}
 
@@ -72,7 +72,7 @@
 									$count++;
 									$b++;
 
-			    				echo '<div class="col-md-6" style="margin-top: 20px">';
+			    				echo '<div class="col-md-3" style="margin-top: 20px">';
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
 			    					} else {
@@ -101,26 +101,26 @@
 			      	?>	
 						</div>
 					</div>
-					<div class="col-md-6">
+					<div class="col-md-12">
 						<div class="col-md-12 text-center">
 							<?php echo '<h1 class="noticiasHome">Composição Restante</h1><br><hr style="margin-top:0">' ?>							
 						</div>
 
 						<div class="col-md-12">
 							<?php $count=0; $b=0; foreach ($vereadores as $p) {
-								if ($b == 2) {
+								if ($b == 4) {
 									$b = 0;
 									echo '</div>';
 								}
 
-								if ($count % 2 == 0) {	
+								if ($count % 4 == 0) {	
 		      				echo '<div class="row">';
 		      			}
 
 								if ($p['Politico']['mesa_diretora'] != 1) {
 									$count++;
 									$b++;
-			    				echo '<div class="col-md-6" style="margin-top: 20px">';
+			    				echo '<div class="col-md-3" style="margin-top: 20px">';
 			    					if (!empty($p['FotoPolitico'])) {
 			    						echo '<div class="col-md-12">'.$this->Html->image(end($p['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
 			    					} else {

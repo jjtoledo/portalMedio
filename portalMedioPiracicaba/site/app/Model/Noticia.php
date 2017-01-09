@@ -7,11 +7,28 @@ App::uses('AppModel', 'Model');
 class Noticia extends AppModel {
 	public function beforeSave($options = array())
 	{
-		debug($this->data['Noticia']['foto']);
 	    if(!empty($this->data['Noticia']['foto']['name'])) {
 	        $this->data['Noticia']['foto'] = $this->upload($this->data['Noticia']['foto']);
 	    } else {
 	        unset($this->data['Noticia']['foto']);
+	    }
+
+	    if(!empty($this->data['Noticia']['foto1']['name'])) {
+	        $this->data['Noticia']['foto1'] = $this->upload($this->data['Noticia']['foto1']);
+	    } else {
+	        unset($this->data['Noticia']['foto1']);
+	    }
+
+	    if(!empty($this->data['Noticia']['foto2']['name'])) {
+	        $this->data['Noticia']['foto2'] = $this->upload($this->data['Noticia']['foto2']);
+	    } else {
+	        unset($this->data['Noticia']['foto2']);
+	    }
+
+	    if(!empty($this->data['Noticia']['foto3']['name'])) {
+	        $this->data['Noticia']['foto3'] = $this->upload($this->data['Noticia']['foto3']);
+	    } else {
+	        unset($this->data['Noticia']['foto3']);
 	    }
 	}
 

@@ -9,6 +9,8 @@
 	echo '<li>' . $this->Html->link('Educação', array('action' => 'site_educacao', $id), array('class' => 'entypo-graduation-cap', 'escape' => false)) . '</li>';
 	
 	echo '<li>' . $this->Html->link('Endereços', array('action' => 'site_enderecos', $id), array('class' => 'entypo-address', 'escape' => false)) . '</li>';
+
+	echo '<li>' . $this->Html->link('Esportes', array('action' => 'site_esportes', $id), array('class' => 'entypo-flag', 'escape' => false)) . '</li>';
 	
 	echo '<li>' . $this->Html->link('Fotos', array('action' => 'site_fotos', $id), array('class' => 'entypo-picture', 'escape' => false)) . '</li>';
 	

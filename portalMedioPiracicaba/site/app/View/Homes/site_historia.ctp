@@ -88,29 +88,6 @@
 			</section>
 		<?php } ?>
 
-		<?php if(!empty($cidade['Bairro'])) { ?>
-			<section style="background-color: #fff">
-				<div class="container">
-					<div class="col-md-8 col-md-offset-2 cresce" style="margin-bottom: 50px">
-				  	<div class="row">
-					  	<p class="linkNormal">Bairros</p>
-				  		<hr style="border-top: 1px solid #ddd; margin-top: 15px; margin-bottom: 40px; width: auto">	
-				    	<?php 
-				    		$bairro = $cidade['Bairro'];
-				    		foreach ($bairro as $b):
-				    			echo '<div class="col-lg-4 col-sm-6 col-xs-12">';
-				    			echo '<a href="#" class="listMenu">
-				    							<span class="glyphicon glyphicon-map-marker"></span> ' . $b['nome'] . '
-				    						</a><br>';
-				    			echo '</div>';
-				    		endforeach;
-				    	?>
-				    </div> 
-				  </div>
-				</div>
-			</section>
-		<?php } ?>
-
 		<?php 
 		if (!empty($cidade['Simbolo'])) { ?>
 			<section style="background-color: #e6e6e6">
@@ -163,27 +140,20 @@
 		    	<div class="col-md-12">;
 		    	<?php $count = 0; $b = 0; 
 		    		foreach ($personagens as $c):
-		    			if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-	      			
-	      			if ($count % 2 == 0) {	
-	      				echo '<div class="row">';
-	      			}
-		    			
-		    			echo '<div class="col-md-6" style="margin-bottom: 50px">';
-			    			if (!empty($c['Pessoa']['foto'])) {
-				    			echo '<div class="col-md-5 noticia_foto">';
-									echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
-								  echo '</div>';
-			    				echo '<div class="col-md-7 text-justify">';
-			    			} else {
-			    				echo '<div class="col-md-12 text-justify">';
-			    			}
-			    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
-			    			echo $c['Pessoa']['detalhes'];
-								echo '</div>';	
+	      			echo '<div class="row">';
+			    			echo '<div class="col-md-12" style="margin-bottom: 50px">';
+				    			if (!empty($c['Pessoa']['foto'])) {
+					    			echo '<div class="col-md-4 noticia_foto">';
+										echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
+									  echo '</div>';
+				    				echo '<div class="col-md-8 text-justify">';
+				    			} else {
+				    				echo '<div class="col-md-12 text-justify">';
+				    			}
+				    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
+				    			echo $c['Pessoa']['detalhes'];
+									echo '</div>';	
+								echo '</div>';
 							echo '</div>';
 							$b++;
 		      		$count++;	    			
@@ -205,27 +175,20 @@
 		    	<div class="col-md-12">;
 		    	<?php $count = 0; $b = 0; 
 		    		foreach ($personalidades as $c):
-		    			if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-	      			
-	      			if ($count % 2 == 0) {	
-	      				echo '<div class="row">';
-	      			}
-		    			
-		    			echo '<div class="col-md-6" style="margin-bottom: 50px">';
-			    			if (!empty($c['Pessoa']['foto'])) {
-				    			echo '<div class="col-md-5 noticia_foto">';
-									echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
-								  echo '</div>';
-			    				echo '<div class="col-md-7 text-justify">';
-			    			} else {
-			    				echo '<div class="col-md-12 text-justify">';
-			    			}
-			    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
-			    			echo $c['Pessoa']['detalhes'];
-								echo '</div>';	
+	      			echo '<div class="row">';
+			    			echo '<div class="col-md-12" style="margin-bottom: 50px">';
+				    			if (!empty($c['Pessoa']['foto'])) {
+					    			echo '<div class="col-md-4 noticia_foto">';
+										echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
+									  echo '</div>';
+				    				echo '<div class="col-md-8 text-justify">';
+				    			} else {
+				    				echo '<div class="col-md-12 text-justify">';
+				    			}
+				    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
+				    			echo $c['Pessoa']['detalhes'];
+									echo '</div>';	
+								echo '</div>';
 							echo '</div>';
 							$b++;
 		      		$count++;	    			
@@ -247,27 +210,20 @@
 		    	<div class="col-md-12">;
 		    	<?php $count = 0; $b = 0; 
 		    		foreach ($curiosidades as $c):
-		    			if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-	      			
-	      			if ($count % 2 == 0) {	
-	      				echo '<div class="row">';
-	      			}
-		    			
-		    			echo '<div class="col-md-6" style="margin-bottom: 50px">';
-			    			if (!empty($c['Pessoa']['foto'])) {
-				    			echo '<div class="col-md-5 noticia_foto">';
-									echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
-								  echo '</div>';
-			    				echo '<div class="col-md-7 text-justify">';
-			    			} else {
-			    				echo '<div class="col-md-12 text-justify">';
-			    			}
-			    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
-			    			echo $c['Pessoa']['detalhes'];
-								echo '</div>';	
+	      			echo '<div class="row">';
+			    			echo '<div class="col-md-12" style="margin-bottom: 50px">';
+				    			if (!empty($c['Pessoa']['foto'])) {
+					    			echo '<div class="col-md-4 noticia_foto">';
+										echo $this->Html->image($c['Pessoa']['foto'], array('width' => '100%')); 
+									  echo '</div>';
+				    				echo '<div class="col-md-8 text-justify">';
+				    			} else {
+				    				echo '<div class="col-md-12 text-justify">';
+				    			}
+				    			echo '<p class="linkNormal">'.$c['Pessoa']['titulo'].'</p>';
+				    			echo $c['Pessoa']['detalhes'];
+									echo '</div>';	
+								echo '</div>';
 							echo '</div>';
 							$b++;
 		      		$count++;	    			

@@ -25,7 +25,11 @@
 		if(isset($this->params['url']['search']) && $this->params['url']['search'] != '') {  
 			echo '<div class="row"><div class="col-md-3">';
 			if (isset($cidade)) {	
-				echo $this->Html->link('Limpar busca', array('action' => 'site_agenda', $cidade['Cidade']['id']), array('class'=>'btn btn-info limpar'));
+				if (isset($tipo)) {					
+					echo $this->Html->link('Limpar busca', array('action' => 'site_agenda', $cidade['Cidade']['id'], $tipo), array('class'=>'btn btn-info limpar'));
+				} else {
+					echo $this->Html->link('Limpar busca', array('action' => 'site_agenda', $cidade['Cidade']['id']), array('class'=>'btn btn-info limpar'));
+				}
 			} else {
 				echo $this->Html->link('Limpar busca', array('action' => 'site_agenda'), array('class'=>'btn btn-info limpar'));
 			}
