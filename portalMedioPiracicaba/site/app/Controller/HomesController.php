@@ -148,6 +148,24 @@ class HomesController extends AppController {
 		$this->set('videos', $this->Video->find('all', $options));
 	}
 
+	public function site_cultura($id = null) {
+		$this->set('title_for_layout', 'Cultura');
+		$this->common($id);
+		$this->set('active', 'cultura');
+
+		$this->loadModel('Pessoa');
+		$options = array(
+			'order' => array(
+				'Pessoa.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Pessoa.cidade_id' => $id,
+				'Pessoa.tipo' => 1
+			)
+		);
+		$this->set('artistas', $this->Pessoa->find('all', $options));
+	}
+
 	public function site_historia($id = null) {
 		$this->set('title_for_layout', 'História');
 		$this->common($id);
@@ -161,6 +179,40 @@ class HomesController extends AppController {
  		);
 		$distritos = $this->Distrito->find('all', $options);
 		$this->set('distritos', $distritos);
+
+		$this->loadModel('Pessoa');
+		$options = array(
+			'order' => array(
+				'Pessoa.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Pessoa.cidade_id' => $id,
+				'Pessoa.tipo' => 2
+			)
+		);
+		$this->set('personagens', $this->Pessoa->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Pessoa.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Pessoa.cidade_id' => $id,
+				'Pessoa.tipo' => 3
+			)
+		);
+		$this->set('personalidades', $this->Pessoa->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Pessoa.id' => 'DESC'
+			),
+			'conditions' => array(
+				'Pessoa.cidade_id' => $id,
+				'Pessoa.tipo' => 4
+			)
+		);
+		$this->set('curiosidades', $this->Pessoa->find('all', $options));
 	}
 
 	public function site_estatistica($id = null) {
@@ -469,7 +521,6 @@ class HomesController extends AppController {
 		);
 		$this->set('hoteis', $this->EspacoEvento->find('all', $options));
 
-		$this->loadModel('EspacoEvento');
 		$options = array(
 			'conditions' => array(
 				'EspacoEvento.cidade_id' => $id,
@@ -478,7 +529,6 @@ class HomesController extends AppController {
 		);
 		$this->set('restaurantes', $this->EspacoEvento->find('all', $options));
 
-		$this->loadModel('EspacoEvento');
 		$options = array(
 			'conditions' => array(
 				'EspacoEvento.cidade_id' => $id,
@@ -487,7 +537,6 @@ class HomesController extends AppController {
 		);
 		$this->set('bancos', $this->EspacoEvento->find('all', $options));
 
-		$this->loadModel('EspacoEvento');
 		$options = array(
 			'conditions' => array(
 				'EspacoEvento.cidade_id' => $id,
@@ -496,7 +545,6 @@ class HomesController extends AppController {
 		);
 		$this->set('sitios', $this->EspacoEvento->find('all', $options));
 
-		$this->loadModel('EspacoEvento');
 		$options = array(
 			'conditions' => array(
 				'EspacoEvento.cidade_id' => $id,

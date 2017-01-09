@@ -1,5 +1,7 @@
 <?php 
 
+	echo '<li>' . $this->Html->link('Cultura', array('action' => 'site_cultura', $id), array('class' => 'entypo-music', 'escape' => false)) . '</li>';
+
 	echo '<li>' . $this->Html->link('Dados Estatísticos', array('action' => 'site_estatistica', $id), array('class' => 'entypo-chart-line', 'escape' => false)) . '</li>';
 	
 	echo '<li>' . $this->Html->link('Economia', array('action' => 'site_economia', $id), array('class' => 'entypo-chart-bar', 'escape' => false)) . '</li>';

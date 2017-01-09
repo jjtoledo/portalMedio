@@ -62,6 +62,9 @@
 					<?php echo $this->Form->input('telefone2', array('class' => 'form-control', 'label' => 'Telefone 2'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Tinymce->input('Prefeitura.secretarias', $options = array(), $tinyoptions = array(), $preset = null) ?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('foto', array('class' => 'form-', 'label' => 'Foto', 'type' => 'file'));?>
 				</div>
 				<div class="form-group">
