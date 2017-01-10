@@ -75,7 +75,7 @@ class HomesController extends AppController {
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
 
-		/*Carregamento de resumos, horóscopo e notícias esportivas*/
+		/*Carregamento de resumos, horóscopo, notícias esportivas e dicas de saúde e doméstica*/
 		$conditions = array(
 			'conditions' => array('Noticia.tipo' => '4'),
 			'order' => array('Noticia.id' => 'DESC')
@@ -96,6 +96,20 @@ class HomesController extends AppController {
 			);
 		$esporte = $this->Noticia->find('all', $conditions);
 		$this->set(compact('esporte'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '7'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$dicaSaude = $this->Noticia->find('all', $conditions);
+		$this->set(compact('dicaSaude'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '8'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$dicaDomestica = $this->Noticia->find('all', $conditions);
+		$this->set(compact('dicaDomestica'));
 
 		/*Carregamento dos parceiros e anúncios*/
 		$this->loadModel('Parceiro');
@@ -1073,7 +1087,7 @@ class HomesController extends AppController {
 		$noticias_boas = $this->Noticia->find('all', $conditions);
 		$this->set(compact('noticias_boas'));
 
-		/*Carregamento de resumos, horóscopo e notícias esportivas*/
+		/*Carregamento de resumos, horóscopo, notícias esportivas e dicas de saúde e doméstica*/
 		$conditions = array(
 			'conditions' => array('Noticia.tipo' => '4'),
 			'order' => array('Noticia.id' => 'DESC')
@@ -1094,6 +1108,20 @@ class HomesController extends AppController {
 			);
 		$esporte = $this->Noticia->find('all', $conditions);
 		$this->set(compact('esporte'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '7'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$dicaSaude = $this->Noticia->find('all', $conditions);
+		$this->set(compact('dicaSaude'));
+
+		$conditions = array(
+			'conditions' => array('Noticia.tipo' => '8'),
+			'order' => array('Noticia.id' => 'DESC')
+			);
+		$dicaDomestica = $this->Noticia->find('all', $conditions);
+		$this->set(compact('dicaDomestica'));
 
 		$options = array('order' => 'Cidade.nome');
 		$cidades = $this->Cidade->find('all', $options);

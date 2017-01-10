@@ -23,6 +23,10 @@
 	  		echo '<p class="noticiasHome more text-center">Confira o horóscopo</p>';
 	  	} else if ($tipo == 6) {
 	  		echo '<p class="noticiasHome more text-center">Confira notícias sobre esporte</p>';
+	  	} else if ($tipo == 7) {
+	  		echo '<p class="noticiasHome more text-center">Confira dicas de saúde</p>';
+	  	} else if ($tipo == 8) {
+	  		echo '<p class="noticiasHome more text-center">Confira dicas domésticas</p>';
 	  	} else {
 	  		echo '<p class="noticiasHome more text-center">Confira nossas boas notícias</p>';
 	  	}
