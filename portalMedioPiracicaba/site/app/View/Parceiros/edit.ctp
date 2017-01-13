@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Editar: ' . $parceiro['Parceiro']['site']); ?></h2>
+				<h2><?php echo __('Editar'); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Parceiro', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Parceiro', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
@@ -38,7 +38,7 @@
 					<?php echo $this->Form->input('site', array('class' => 'form-control', 'placeholder' => 'Site', 'required' => 'true'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('foto', array('class' => 'form-control', 'label' => 'Foto'));?>
+					<?php echo $this->Form->input('foto', array('class' => 'form', 'label' => 'Foto', 'type' => 'file'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
