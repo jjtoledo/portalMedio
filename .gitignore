@@ -40,35 +40,30 @@ $RECYCLE.BIN/
 .Trashes
 .VolumeIcon.icns
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_atrativo_turisticos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_atrativo_turisticos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_empresa_onibuses
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_cidades
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_escolas
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_denominacaos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_distritos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_espaco_eventos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_estatisticas
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_fundadors
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_historias
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_leis
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_list
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_orgao_publicos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_patrimonios
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_politicos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_populacaos
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_prestadors
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_receitas
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_rios
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_saudes
-portalMedioPiracicaba/site/app/tmp/cache/models/myapp_cake_model_default_portal_medio_simbolos
-portalMedioPiracicaba/site/app/tmp/cache/persistent/myapp_cake_core_cake_pt-br
-portalMedioPiracicaba/site/app/tmp/cache/persistent/myapp_cake_core_default_pt-br
-portalMedioPiracicaba/site/app/tmp/cache/persistent/myapp_cake_core_file_map
-portalMedioPiracicaba/site/app/tmp/cache/persistent/myapp_cake_core_method_cache
+# User specific & automatically generated files #
+#################################################
+#/app/Config/database.php
+/app/tmp
+/lib/Cake/Console/Templates/skel/tmp/
+/plugins
+/vendors
+/build
+/dist
+/tags
+*.mo
+
+# IDE and editor specific files #
+#################################
+/nbproject
+.idea
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
