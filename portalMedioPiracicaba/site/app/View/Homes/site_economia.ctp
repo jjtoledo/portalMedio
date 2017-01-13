@@ -139,6 +139,69 @@
 		<?php } ?>
 
 	<?php 
+		if (!empty($cidade['Despesa'])) { ?>
+			<section style="background-color: #fff" id="receitas">
+				<div class="container">
+					<div class="col-md-12 text-center">
+						<?php echo '<h1 class="noticiasHome">Despesas Municipais</h1><br><hr style="margin-top:0">' ?>			
+					</div>
+
+					<div class="col-md-12">
+						<table cellpadding="0" cellspacing="0" class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th nowrap><?php echo 'Ano' ?></th>
+									<th nowrap><?php echo 'Gabinete do Prefeito' ?></th>
+									<th nowrap><?php echo 'Ouvidoria Municipal' ?></th>
+									<th nowrap><?php echo 'Procuradoria Jurídica' ?></th>
+									<th nowrap><?php echo 'Secretaria da Educação' ?></th>
+									<th nowrap><?php echo 'Outras *' ?></th>
+									<th nowrap><?php echo 'Total' ?></th>
+								</tr>
+							</thead>
+							<tbody>
+							<?php 
+							$despesas = $cidade['Despesa'];
+							foreach ($despesas as $r) { 								
+								$outras = $r['desp4'] + $r['desp5'] + $r['desp6'] + $r['desp7'] + $r['desp8']
+												 + $r['desp9'] + $r['desp10'] + $r['desp11'] + $r['desp18'] + $r['desp13']
+												 + $r['desp14'] + $r['desp15'] + $r['desp16'] + $r['desp17']; 
+								$outras = number_format($outras, 2, ',', '.');
+								$outras = 'R$ ' . $outras; 
+
+								$r['desp1'] = 'R$ '. number_format($r['desp1'], 2, ',', '.');
+								$r['desp2'] = 'R$ '. number_format($r['desp2'], 2, ',', '.');
+								$r['desp3'] = 'R$ '. number_format($r['desp3'], 2, ',', '.');
+								$r['desp12'] = 'R$ '. number_format($r['desp12'], 2, ',', '.');
+
+								if (substr($r['total'], 0, 2) != 'R$') {
+									$r['total'] = 'R$ '. number_format($r['total'], 2, ',', '.');
+								}
+							?>
+								<tr>
+									<td nowrap><?php echo h($r['ano']); ?>&nbsp;</td>
+									<td nowrap><?php echo h($r['desp1']); ?>&nbsp;</td>
+									<td nowrap><?php echo h($r['desp2']); ?>&nbsp;</td>
+									<td nowrap><?php echo h($r['desp3']); ?>&nbsp;</td>
+									<td nowrap><?php echo h($r['desp12']); ?>&nbsp;</td>
+									<td nowrap><?php echo h($outras); ?>&nbsp;</td>
+									<td nowrap><?php echo h($r['total']); ?>&nbsp;</td>
+								</tr>
+							<?php 
+							} ?>
+							</tbody>
+						</table>
+						<b><i style="font-size: 12px">
+							* Outras = Secretarias municipais - Des. Econ. Cienc. Tec. Inov. Turismo, Audit. Int. Controladoria,
+							Agric. e Abastecimento, Saúde/Fundo Municipal, Fazenda, Ação Social, Administração, Desenv. Urbano,
+							Esporte e Lazer, Governo, Meio Ambiente, Obras, Planejamento e Ordem Pública.
+						</i></b>
+					</div>
+			  </div>
+			</section>
+		<?php } ?>
+
+	<?php 
 		if (!empty($cidade['Empresa'])) { ?>
 			<section class="subtitle-intro noticias agenda" style="background-color:#e6e6e6">
 		    <div class="container noticias responsive-large">

@@ -1,12 +1,12 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<div class="container receitas form">
+<div class="container despesas form">
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Adicionar receitas em ' . $cidade['Cidade']['nome']); ?></h2>
+				<h2><?php echo __('Adicionar despesas em ' . $cidade['Cidade']['nome']); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -27,7 +27,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Receita', array('role' => 'form', 'type' => 'file')); ?>
+			<?php echo $this->Form->create('Despesa', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('excel', array('type' => 'file', 'placeholder' => 'Rua', 'label' => 'Excel', 'required' => 'true'));?>

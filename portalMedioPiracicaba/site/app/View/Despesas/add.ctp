@@ -1,12 +1,12 @@
 <?php echo $this->Element('navigation_admin'); ?>
 <?php echo $this->Element('modal_sair'); ?>
 
-<div class="container receitas form">
+<div class="container despesas form">
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h2><?php echo __('Adicionar receita em ' . $cidade['Cidade']['nome']); ?></h2>
+				<h2><?php echo __('Adicionar despesa em ' . $cidade['Cidade']['nome']); ?></h2>
 			</div>
 		</div>
 	</div>
@@ -27,53 +27,65 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Receita', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Despesa', array('role' => 'form')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('ano', array('class' => 'form-control', 'placeholder' => 'Ano', 'min' => 0));?>
 				</div>
 				
 				<div class="form-group">
-					<?php echo $this->Form->input('icms', array('class' => 'form-control', 'placeholder' => 'ICMS', 'label' => 'ICMS'));?>
+					<?php echo $this->Form->input('desp1', array('class' => 'form-control', 'label' => 'Despesa 1'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('ipi', array('class' => 'form-control', 'placeholder' => 'IPI', 'label' => 'IPI'));?>
+					<?php echo $this->Form->input('desp2', array('class' => 'form-control', 'label' => 'Despesa 2'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('ipva', array('class' => 'form-control', 'placeholder' => 'IPVA', 'label' => 'IPVA'));?>
+					<?php echo $this->Form->input('desp3', array('class' => 'form-control', 'label' => 'Despesa 3'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('fpm', array('class' => 'form-control', 'placeholder' => 'FPM', 'label' => 'FPM'));?>
+					<?php echo $this->Form->input('desp4', array('class' => 'form-control', 'label' => 'Despesa 4'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('royalties', array('class' => 'form-control', 'placeholder' => 'Royalties', 'label' => 'Royalties'));?>
+					<?php echo $this->Form->input('desp5', array('class' => 'form-control', 'label' => 'Despesa 5'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('itr', array('class' => 'form-control', 'placeholder' => 'ITR', 'label' => 'ITR'));?>
+					<?php echo $this->Form->input('desp6', array('class' => 'form-control', 'label' => 'Despesa 6'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('cide', array('class' => 'form-control', 'placeholder' => 'CIDE', 'label' => 'CIDE'));?>
+					<?php echo $this->Form->input('desp7', array('class' => 'form-control', 'label' => 'Despesa 7'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('fundeb', array('class' => 'form-control', 'placeholder' => 'Fundeb', 'label' => 'Fundeb'));?>
+					<?php echo $this->Form->input('desp8', array('class' => 'form-control', 'label' => 'Despesa 8'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('lei_kandir', array('class' => 'form-control', 'placeholder' => 'Lei Kandir', 'label' => 'Lei Kandir'));?>
+					<?php echo $this->Form->input('desp9', array('class' => 'form-control', 'label' => 'Despesa 9'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('fex', array('class' => 'form-control', 'placeholder' => 'FEX', 'label' => 'FEX'));?>
+					<?php echo $this->Form->input('desp10', array('class' => 'form-control', 'label' => 'Despesa 10'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('afm_afe', array('class' => 'form-control', 'placeholder' => 'AFM/AFE', 'label' => 'AFM/AFE'));?>
+					<?php echo $this->Form->input('desp11', array('class' => 'form-control', 'label' => 'Despesa 11'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('iptu', array('class' => 'form-control', 'placeholder' => 'IPTU', 'label' => 'IPTU'));?>
+					<?php echo $this->Form->input('desp12', array('class' => 'form-control', 'label' => 'Despesa 12'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('iss', array('class' => 'form-control', 'placeholder' => 'ISS', 'label' => 'ISS'));?>
+					<?php echo $this->Form->input('desp13', array('class' => 'form-control', 'label' => 'Despesa 13'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('irrf', array('class' => 'form-control', 'placeholder' => 'IRRF Rend. Trabalho', 'label' => 'IRRF Rend. Trabalho'));?>
+					<?php echo $this->Form->input('desp14', array('class' => 'form-control', 'label' => 'Despesa 14'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('desp15', array('class' => 'form-control', 'label' => 'Despesa 15'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('desp16', array('class' => 'form-control', 'label' => 'Despesa 16'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('desp17', array('class' => 'form-control', 'label' => 'Despesa 17'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('desp18', array('class' => 'form-control', 'label' => 'Despesa 18'));?>
 				</div>
 
 				<div class="form-group">

@@ -392,6 +392,12 @@
 			<div class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Receitas Municipais'), array('controller' => 'receitas', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 			</div>
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Despesas Municipais'), array('controller' => 'despesas', 'action' => 'index', $cidade['Cidade']['id']), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>
 		</div>	
 
 		<div class="col-md-3 menu">

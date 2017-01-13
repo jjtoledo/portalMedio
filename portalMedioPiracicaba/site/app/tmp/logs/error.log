@@ -25814,3 +25814,43 @@ Stack Trace:
 #11 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Routing\Dispatcher.php(167): Dispatcher->_invoke(Object(HomesController), Object(CakeRequest))
 #12 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
+2017-01-13 20:12:35 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 37830723 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\View\View.php, line 974]
+2017-01-13 20:12:35 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 37830723 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_economia/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-13 20:13:33 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 37831626 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\View\View.php, line 974]
+2017-01-13 20:13:33 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 37831626 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_economia/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-13 20:19:52 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_economia.ctp, line 197]
+2017-01-13 20:19:52 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_economia/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 197)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 197, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 197, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2017-01-13 20:20:11 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 37822141 bytes) in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\View\View.php, line 974]
+2017-01-13 20:20:11 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 37822141 bytes)
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_economia/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'C:\\wamp\\www\\por...', 974, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
