@@ -131,6 +131,12 @@ class HomesController extends AppController {
 		$anuncios_large = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('anuncios_large'));
 
+		$conditions = array(
+			'conditions' => array('Parceiro.tipo' => '4')
+			);
+		$tela_cheia = $this->Parceiro->find('all', $conditions);
+		$this->set(compact('tela_cheia'));
+
 		$this->set('results', $this->clima($cidades));
 		$this->set('moedas', $this->moeda());
 

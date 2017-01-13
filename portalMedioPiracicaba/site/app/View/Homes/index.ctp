@@ -10,9 +10,9 @@
     		<div class="modal-content" id="content">
     			<button id="botao-fechar" type="button" class="close" data-dismiss="modal">&times;</button>
       			<?php 
-	      			$index = mt_rand(0,count($anuncios_quad)-1);		  						
-	  					echo '<div><a target="_blank" href="http://'.$anuncios_quad[$index]['Parceiro']['site'].'">';			
-	  					echo $this->Html->image($anuncios_quad[$index]['Parceiro']['foto'], array('class' => 'img-modal img-responsive'));
+	      			$index = mt_rand(0,count($tela_cheia)-1);		  						
+	  					echo '<div><a target="_blank" href="http://'.$tela_cheia[$index]['Parceiro']['site'].'">';			
+	  					echo $this->Html->image($tela_cheia[$index]['Parceiro']['foto'], array('class' => 'img-modal img-responsive'));
 							echo '</a></div>';
       			?>
     		</div>

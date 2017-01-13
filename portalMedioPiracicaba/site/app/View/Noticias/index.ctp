@@ -52,193 +52,92 @@
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('Novo'), array('action' => 'add', $tipo), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('Cidades'), array('controller' => 'cidades', 'action' => 'index'), array('escape' => false)); ?></li>
 								<?php 
-									switch ($tipo) {
-										case 1:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 2:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 3:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 4:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 5:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											break;
-										case 6:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 7:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('action' => 'index', 8), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
-										case 8:
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('action' => 'index', 1), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('action' => 'index', 2), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('action' => 'index', 3), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('action' => 'index', 6), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('action' => 'index', 7), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novelas'), array('action' => 'index', 4), array('escape' => false));
-											echo '</li>';
-											echo '<li>';
-												echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('action' => 'index', 5), array('escape' => false));
-											echo '</li>';
-											break;
+									if ($tipo == 1) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('controller' => 'noticias', 'action' => 'index', 1), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('controller' => 'noticias', 'action' => 'index', 1), array('escape' => false));
+										echo '</li>';
 									}
-								?>
+
+									if ($tipo == 2) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('controller' => 'noticias', 'action' => 'index', 2), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('controller' => 'noticias', 'action' => 'index', 2), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 3) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('controller' => 'noticias', 'action' => 'index', 3), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('controller' => 'noticias', 'action' => 'index', 3), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 4) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novela'), array('controller' => 'noticias', 'action' => 'index', 4), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novela'), array('controller' => 'noticias', 'action' => 'index', 4), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 5) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('controller' => 'noticias', 'action' => 'index', 5), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('controller' => 'noticias', 'action' => 'index', 5), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 6) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('controller' => 'noticias', 'action' => 'index', 6), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('controller' => 'noticias', 'action' => 'index', 6), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 7) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('controller' => 'noticias', 'action' => 'index', 7), array('escape'=>false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('controller' => 'noticias', 'action' => 'index', 7), array('escape'=>false));
+										echo '</li>';
+									}
+
+									if ($tipo == 8) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis 
+										Domésticas'), array('controller' => 'noticias', 'action' => 'index', 8), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis 
+										Domésticas'), array('controller' => 'noticias', 'action' => 'index', 8), array('escape' => false));
+										echo '</li>';
+									} ?>
+
+									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false)); ?></li>
+									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index',2), array('escape' => false)); ?></li>
+									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>
+									<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-fullscreen"></span>&nbsp;&nbsp;'.__('Anúncios Tela Cheia'), array('controller' => 'parceiros', 'action' => 'index',4), array('escape' => false)); ?></li>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->

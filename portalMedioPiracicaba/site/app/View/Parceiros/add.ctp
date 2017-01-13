@@ -10,8 +10,10 @@
 						<h2><?php echo __('Adicionar Parceiro'); ?></h2>
 				<?php	} else if ($tipo == 2) { ?>
 						<h2><?php echo __('Adicionar Anúncio Quadrado'); ?></h2>
-				<?php	} else { ?>
+				<?php	} else if ($tipo == 3) { ?>
 						<h2><?php echo __('Adicionar Anúncio Largo'); ?></h2>						
+				<?php } else if ($tipo == 4) { ?>
+						<h2><?php echo __('Adicionar Anúncio Tela Cheia'); ?></h2>						
 				<?php }
 				?>	
 			</div>
@@ -31,8 +33,10 @@
 										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false)); ?></li>										
 								<?php	} else if ($tipo == 2) { ?>
 										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index',2), array('escape' => false)); ?></li>
-								<?php	} else { ?>
+								<?php	} else if ($tipo == 3) { ?>
 										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>
+								<?php } else if ($tipo == 4) { ?>
+										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-fullscreen"></span>&nbsp;&nbsp;'.__('Anúncios Tela Cheia'), array('controller' => 'parceiros', 'action' => 'index',4), array('escape' => false)); ?></li>
 								<?php }
 								?>		
 							</ul>

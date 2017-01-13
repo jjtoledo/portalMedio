@@ -10,8 +10,10 @@
 						<h2><?php echo __('Parceiros'); ?></h2>
 				<?php	} else if ($tipo == 2) { ?>
 						<h2><?php echo __('Anúncios Quadrados'); ?></h2>
-				<?php	}	else { ?>
+				<?php	}	else if ($tipo == 3) { ?>
 						<h2><?php echo __('Anúncios Largos'); ?></h2>
+				<?php	}	else if ($tipo == 4) { ?>
+						<h2><?php echo __('Anúncios Tela Cheia'); ?></h2>
 				<?php	}
 				?>			
 			</div>
@@ -33,17 +35,51 @@
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-tasks"></span>&nbsp;&nbsp;'.__('Notícias Gerais'), array('controller' => 'noticias', 'action' => 'index', 1), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-book"></span>&nbsp;&nbsp;'.__('Notícias Regionais'), array('controller' => 'noticias', 'action' => 'index', 2), array('escape' => false)); ?></li>
 								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-bookmark"></span>&nbsp;&nbsp;'.__('Boas Notícias'), array('controller' => 'noticias', 'action' => 'index', 3), array('escape' => false)); ?></li>
-								<?php if ($tipo == 1) { ?>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index',2), array('escape' => false)); ?></li>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>
-								<?php	} else if ($tipo == 2) { ?>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false)); ?></li>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index',3), array('escape' => false)); ?></li>
-								<?php	} else {  ?>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false)); ?></li>
-										<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index',2), array('escape' => false)); ?></li>
-								<?php	} 
-								?>								
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;'.__('Resumo de Novela'), array('controller' => 'noticias', 'action' => 'index', 4), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;'.__('Horóscopo'), array('controller' => 'noticias', 'action' => 'index', 5), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-flag"></span>&nbsp;&nbsp;'.__('Notícias Esportivas'), array('controller' => 'noticias', 'action' => 'index', 6), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;&nbsp;'.__('Dicas de Saúde'), array('controller' => 'noticias', 'action' => 'index', 7), array('escape' => false)); ?></li>
+								<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;'.__('Dicas Úteis Domésticas'), array('controller' => 'noticias', 'action' => 'index', 8), array('escape' => false)); ?></li>
+								<?php
+									if ($tipo == 1) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-usd"></span>&nbsp;&nbsp;'.__('Parceiros'), array('controller' => 'parceiros', 'action' => 'index',1), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 2) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index', 2), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-euro"></span>&nbsp;&nbsp;'.__('Anúncios Quadrados'), array('controller' => 'parceiros', 'action' => 'index', 2), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 3) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index', 3), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-gbp"></span>&nbsp;&nbsp;'.__('Anúncios Largos'), array('controller' => 'parceiros', 'action' => 'index', 3), array('escape' => false));
+										echo '</li>';
+									}
+
+									if ($tipo == 4) {
+										echo '<li class="active">';
+											echo $this->Html->link('<span class="glyphicon glyphicon-fullscreen"></span>&nbsp;&nbsp;'.__('Anúncios Tela Cheia'), array('controller' => 'parceiros', 'action' => 'index', 4), array('escape' => false));
+										echo '</li>';
+									} else {
+										echo '<li>';
+											echo $this->Html->link('<span class="glyphicon glyphicon-fullscreen"></span>&nbsp;&nbsp;'.__('Anúncios Tela Cheia'), array('controller' => 'parceiros', 'action' => 'index', 4), array('escape' => false));
+										echo '</li>';
+									} ?>
 							</ul>
 						</div><!-- end body -->
 				</div><!-- end panel -->
