@@ -16,6 +16,9 @@ class HomesController extends AppController {
 	public function index() {
 		$this->set('title_for_layout', 'Home');
 
+		$this->set('results', $this->clima($cidades));
+		$this->set('moedas', $this->moeda());
+
 		$this->loadModel('Cidade');
 		$options = array('order' => 'Cidade.nome');
 		$cidades = $this->Cidade->find('all', $options);
@@ -137,9 +140,7 @@ class HomesController extends AppController {
 		$tela_cheia = $this->Parceiro->find('all', $conditions);
 		$this->set(compact('tela_cheia'));
 
-		$this->set('results', $this->clima($cidades));
-		$this->set('moedas', $this->moeda());
-
+		/*Carregamento de vídeos*/
 		$this->loadModel('Video');
 		$options = array(
 			'order' => array(
@@ -489,6 +490,28 @@ class HomesController extends AppController {
 
 		$this->set('prefeitos', $prefeitos);	
 		$this->set('prefeito', $prefeito);	
+
+		/*Carregamento de eleições*/
+		$this->loadModel('Eleicao');
+		$options = array(
+			'order' => array(
+				'Eleicao.ano' => 'DESC'				
+			),
+			'conditions' => array(
+				'Eleicao.tipo' => 1
+			)
+		);
+		$this->set('elei_mun', $this->Eleicao->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Eleicao.ano' => 'DESC'
+			),
+			'conditions' => array(
+				'Eleicao.tipo' => 2
+			)
+		);
+		$this->set('elei_nac', $this->Eleicao->find('all', $options));
 	}
 
 	public function site_legislativo($id = null) {
@@ -536,6 +559,28 @@ class HomesController extends AppController {
  		);
  		$presidentes = $this->PresidenteCamara->find('all', $options);
 		$this->set('presidentes', $presidentes);	 	
+
+		/*Carregamento de eleições*/
+		$this->loadModel('Eleicao');
+		$options = array(
+			'order' => array(
+				'Eleicao.ano' => 'DESC'				
+			),
+			'conditions' => array(
+				'Eleicao.tipo' => 1
+			)
+		);
+		$this->set('elei_mun', $this->Eleicao->find('all', $options));
+
+		$options = array(
+			'order' => array(
+				'Eleicao.ano' => 'DESC'
+			),
+			'conditions' => array(
+				'Eleicao.tipo' => 2
+			)
+		);
+		$this->set('elei_nac', $this->Eleicao->find('all', $options));
 	}
 
 	public function site_judiciario($id = null) {

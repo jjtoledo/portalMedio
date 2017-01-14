@@ -441,6 +441,25 @@
 
 	<div class="row" style="margin-bottom: 20px">
 		<div class="col-md-12">
+			<h3><?php echo __('Eleições'); ?></h3>
+			<hr style="border-bottom: 1px solid #ddd">
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Municipais'), array('controller' => 'eleicaos', 'action' => 'index', $cidade['Cidade']['id'], 1), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+
+		<div class="col-md-3 menu">
+			<div class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Nacionais'), array('controller' => 'eleicaos', 'action' => 'index', $cidade['Cidade']['id'], 2), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+			</div>			
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 20px">
+		<div class="col-md-12">
 			<h3><?php echo __('Poder Executivo'); ?></h3>
 			<hr style="border-bottom: 1px solid #ddd">
 		</div>

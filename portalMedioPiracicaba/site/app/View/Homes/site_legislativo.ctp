@@ -246,6 +246,46 @@
 		</section>
 	<?php } ?>
 
+	<?php if (!empty($elei_mun)) { ?>
+		<section style="background-color: #e6e6e6">
+			<div class="container">
+				<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">Resultados de Eleições Municipais</h1><br><hr style="margin-top:0">' ?>			
+				</div>
+
+				<div class="col-md-12 text-justify" style="margin-bottom: 50px">
+					<?php
+						foreach ($elei_mun as $e) {
+							echo '<div class="col-md-2" style="margin-bottom:10px">';
+								echo $this->Html->link($e['Eleicao']['ano'], '../files/'.$e['Eleicao']['excel'], array('target' => '_blank', 'class' => 'linkNormal blue'));
+							echo '</div>';
+						}
+	      	?>	
+				</div>
+			</div>
+		</section>
+	<?php } ?>
+
+	<?php if (!empty($elei_nac)) { ?>
+		<section style="background-color: #fff">
+			<div class="container">
+				<div class="col-md-12 text-center">
+					<?php echo '<h1 class="noticiasHome">Resultados de Eleições Nacionais</h1><br><hr style="margin-top:0">' ?>			
+				</div>
+
+				<div class="col-md-12 text-justify" style="margin-bottom: 50px">
+					<?php
+						foreach ($elei_nac as $e) {
+							echo '<div class="col-md-2" style="margin-bottom:10px">';
+								echo $this->Html->link($e['Eleicao']['ano'], '../files/'.$e['Eleicao']['excel'], array('target' => '_blank', 'class' => 'linkNormal blue'));
+							echo '</div>';
+						}
+	      	?>	
+				</div>
+			</div>
+		</section>
+	<?php } ?>
+
 	<?php echo $this->Element('footer'); ?>
   
 </div> 

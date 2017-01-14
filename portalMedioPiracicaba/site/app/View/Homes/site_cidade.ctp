@@ -36,8 +36,16 @@
 			  		echo $this->Html->link('<br>Leia mais >>>', array('action' => 'site_historia', $id), array('class' => 'linkNormal', 'escape' => false));
 			  		?>
 			  	</div>
+			  	<?php 
+	    			if (empty($cidade['Evento'])) {
+    					echo '';
+    				} else {
+	    				echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_agenda', $id), array('class' => 'linkNormal paddingLeft', 'escape' => false));
+	    			}
+			  		echo '<br><br>';
+			    ?>
 			  	<div class="col-md-4 col-sm-6 divNoticia center">
-		    		<div class="noticia agenda top">
+		    		<div class="noticia agenda top">		    			
 		    			<?php 
 		    				if (empty($eventos)) {
 		    					echo '<div class="config-padding col-md-12 text-center">';
@@ -75,14 +83,7 @@
 		    					echo '</div>';
 		    				}
 		    			?>	
-		    		</div><br>
-		    		<?php 
-		    			if (empty($cidade['Evento'])) {
-	    					echo '';
-	    				} else {
-		    				echo $this->Html->link('Eventos&nbsp;&nbsp;<span class="glyphicon glyphicon-calendar"></span>', array('action' => 'site_agenda', $id), array('class' => 'linkNormal', 'escape' => false));
-		    			}
-		    		?>
+		    		</div>
 		    	</div>
 		    	<div class="col-md-3 noRight">
 		    		<?php

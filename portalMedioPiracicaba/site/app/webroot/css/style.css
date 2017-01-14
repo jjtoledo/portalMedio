@@ -225,6 +225,10 @@ img.foto {
   color: #51A8B1;
 }
 
+.linkNormal.blue {
+  color: #51A8B1; 
+}
+
 li.foto_tab > a {
   font-size: 20px;
   color: #FF6C3B;
@@ -426,7 +430,7 @@ div#listCidades.row > div > a:hover {
 .noticiasMain.lessTop {
   margin-top: 50px;
 }
-
+  
 .noticiaCorpo {
   padding-left: 15px;
   padding-right: 15px;
@@ -514,6 +518,15 @@ div#listCidades.row > div > a:hover {
 
 .config-padding {
   padding-top: 15px;
+}
+
+.config-margin-hr {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.paddingLeft {
+  padding-left: 15px;
 }
 
 .menor {
