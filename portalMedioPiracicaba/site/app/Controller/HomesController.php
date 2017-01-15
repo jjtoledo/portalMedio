@@ -16,13 +16,13 @@ class HomesController extends AppController {
 	public function index() {
 		$this->set('title_for_layout', 'Home');
 
-		$this->set('results', $this->clima($cidades));
-		$this->set('moedas', $this->moeda());
-
 		$this->loadModel('Cidade');
 		$options = array('order' => 'Cidade.nome');
 		$cidades = $this->Cidade->find('all', $options);
 		$this->set(compact('cidades'));
+
+		$this->set('results', $this->clima($cidades));
+		$this->set('moedas', $this->moeda());
 
 		/*Carregamento das fotos antigas e atuais */
 		$this->loadModel('Foto');
