@@ -14,31 +14,24 @@
 				</div>
 				<div class="col-md-12 text-justify">
 					<?php $count = 0; $b = 0;
-	      			for ($i=0; $i < count($clube_esportivo); $i++) { 		      				
-	      				
-	      				if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-		      			if ($count % 2 == 0) {	
-		      				echo '<div class="row">';
-		      			}
-
-	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
+      			for ($i=0; $i < count($clube_esportivo); $i++) { 		      				
+      				
+	      			echo '<div class="row">';   			
+	      				echo '<div class="col-md-12" style="margin-bottom: 50px">';
 	      				if ($clube_esportivo[$count]['EspacoEvento']['foto_anuncio'] != null) {
-	      					echo '<div class="col-md-6">'.$this->Html->link(
+	      					echo '<div class="col-md-4">'.$this->Html->link(
 										 $this->Html->image($clube_esportivo[$count]['EspacoEvento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
 										 '../img/'.$clube_esportivo[$count]['EspacoEvento']['foto_anuncio'],
 										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_esportivo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';	      					
 	      				} else {
-	      					echo '<div class="col-md-6 text-center">'.$this->Html->link(
+	      					echo '<div class="col-md-4 text-center">'.$this->Html->link(
 										 $this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')),
 										 '../img/'.'espaco_evento.png',
 										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_esportivo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';
 	      				}
-		      				echo '<div class="col-md-6"><b>'
+		      				echo '<div class="col-md-8"><b>'
 		    						.$clube_esportivo[$count]['EspacoEvento']['nome'].'</b><br><br>';
 		    						if ($clube_esportivo[$count]['EspacoEvento']['telefone1'] != '') {
 		    							echo 'Telefone principal: '.$clube_esportivo[$count]['EspacoEvento']['telefone1'].'<br>';
@@ -52,11 +45,15 @@
 		    						if ($clube_esportivo[$count]['EspacoEvento']['localizacao'] != '') {
 		    							echo 'Endereço: '.$clube_esportivo[$count]['EspacoEvento']['localizacao'].'<br>';
 		    						}
+		    						if ($clube_esportivo[$count]['EspacoEvento']['descricao'] != '') {
+		    							echo 'Descrição: '.$clube_esportivo[$count]['EspacoEvento']['descricao'].'<br>';
+		    						}
 		    					echo '</div>';
 	      				echo '</div>';
+	      			echo '</div>';
 	      		?>
 				    	
-			    	<?php $count++; $b++; if($count == 20) { break; } } echo '</div>'; ?>	
+			    	<?php $count++; $b++; if($count == 20) { break; } } ?>	
 				</div>
 			</div>
 		</main>
@@ -73,29 +70,22 @@
 					<?php $count = 0; $b = 0;
 	      			for ($i=0; $i < count($clube_recreativo); $i++) { 		      				
 	      				
-	      				if ($b == 2) {	
-		      				$b = 0;	      				
-		      				echo '</div>';
-		      			}
-		      			if ($count % 2 == 0) {	
-		      				echo '<div class="row">';
-		      			}
-
-	      				echo '<div class="col-md-6" style="margin-bottom: 50px">';
+      				echo '<div class="row">';
+	      				echo '<div class="col-md-12" style="margin-bottom: 50px">';
 	      				if ($clube_recreativo[$count]['EspacoEvento']['foto_anuncio'] != null) {
-	      					echo '<div class="col-md-6">'.$this->Html->link(
+	      					echo '<div class="col-md-4">'.$this->Html->link(
 										 $this->Html->image($clube_recreativo[$count]['EspacoEvento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
 										 '../img/'.$clube_recreativo[$count]['EspacoEvento']['foto_anuncio'],
 										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_recreativo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';	      					
 	      				} else {
-	      					echo '<div class="col-md-6 text-center">'.$this->Html->link(
+	      					echo '<div class="col-md-4 text-center">'.$this->Html->link(
 										 $this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')),
 										 '../img/'.'espaco_evento.png',
 										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_recreativo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';
 	      				}
-		      				echo '<div class="col-md-6"><b>'
+		      				echo '<div class="col-md-8"><b>'
 		    						.$clube_recreativo[$count]['EspacoEvento']['nome'].'</b><br><br>';
 		    						if ($clube_recreativo[$count]['EspacoEvento']['telefone1'] != '') {
 		    							echo 'Telefone principal: '.$clube_recreativo[$count]['EspacoEvento']['telefone1'].'<br>';
@@ -109,8 +99,12 @@
 		    						if ($clube_recreativo[$count]['EspacoEvento']['localizacao'] != '') {
 		    							echo 'Endereço: '.$clube_recreativo[$count]['EspacoEvento']['localizacao'].'<br>';
 		    						}
+		    						if ($clube_recreativo[$count]['EspacoEvento']['descricao'] != '') {
+		    							echo 'Descrição: '.$clube_recreativo[$count]['EspacoEvento']['descricao'].'<br>';
+		    						}
 		    					echo '</div>';
 	      				echo '</div>';
+	      			echo '</div>';
 	      		?>
 				    	
 			    	<?php $count++; $b++; if($count == 20) { break; } } echo '</div>'; ?>	
