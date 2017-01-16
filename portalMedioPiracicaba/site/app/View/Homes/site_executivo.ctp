@@ -7,7 +7,7 @@
 
 	<?php echo $this->Element('cria_menu'); ?>  
 
-	<?php if (!empty($cidade['Prefeitura'])) { ?>
+	<?php if (!is_null(($cidade['Prefeitura']))) { ?>
 		<section style="background-color: #e8e8e8">
 			<div class="container">
 				<div class="col-md-12 text-center">

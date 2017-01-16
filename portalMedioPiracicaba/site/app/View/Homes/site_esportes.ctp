@@ -29,13 +29,13 @@
 	      					echo '<div class="col-md-6">'.$this->Html->link(
 										 $this->Html->image($clube_esportivo[$count]['EspacoEvento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
 										 '../img/'.$clube_esportivo[$count]['EspacoEvento']['foto_anuncio'],
-										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_esportivo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';	      					
 	      				} else {
 	      					echo '<div class="col-md-6 text-center">'.$this->Html->link(
 										 $this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')),
 										 '../img/'.'espaco_evento.png',
-										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										 array('escapeTitle' => false, 'title' => $clube_esportivo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_esportivo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';
 	      				}
 		      				echo '<div class="col-md-6"><b>'
@@ -86,13 +86,13 @@
 	      					echo '<div class="col-md-6">'.$this->Html->link(
 										 $this->Html->image($clube_recreativo[$count]['EspacoEvento']['foto_anuncio'], array('class' => 'class_img hiding_event', 'width' => '100%', 'height' => '70%')),
 										 '../img/'.$clube_recreativo[$count]['EspacoEvento']['foto_anuncio'],
-										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_recreativo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';	      					
 	      				} else {
 	      					echo '<div class="col-md-6 text-center">'.$this->Html->link(
 										 $this->Html->image('espaco_evento.png', array('width' => '80%', 'height' => '100%')),
 										 '../img/'.'espaco_evento.png',
-										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
+										 array('escapeTitle' => false, 'title' => $clube_recreativo[$count]['EspacoEvento']['nome'] . ' - ' . $clube_recreativo[$count]['EspacoEvento']['descricao'], 'data-lightbox'=> 'roadtrip', 'class' => 'class_url')
 									).'</div>';
 	      				}
 		      				echo '<div class="col-md-6"><b>'
