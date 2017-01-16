@@ -110,6 +110,67 @@
 						<?php echo $this->Form->select('comissao_id3', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
 					</div>
 				</div>
+
+				<div id="btn3" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao4" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id4', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
+				<div id="btn4" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao5" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id5', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
+				<div id="btn5" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao6" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id6', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
+				<div id="btn6" hidden="true">
+					<div class="form-group">
+						<button type="button" class="btn btn-info btn-xs">
+						  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Mais Comissão
+						</button>
+					</div>
+				</div>
+
+				<div id="comissao7" hidden="true">
+					<div class="form-group">
+						<label>Faz parte de outra Comissão?</label>
+						<?php echo $this->Form->select('comissao_id7', $comissaos, array('class' => 'form-control', 'label' => 'Faz parte de outra Comissão?', 'empty' => array('6' => 'Não')));?>
+					</div>
+				</div>
+
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Salvar'), array('class' => 'btn btn-default')); ?>
 				</div>
@@ -128,13 +189,25 @@
 	var comissao1    = document.getElementById('comissao1');
 	var comissao2    = document.getElementById('comissao2');
 	var comissao3    = document.getElementById('comissao3');
+	var comissao4    = document.getElementById('comissao4');
+	var comissao5    = document.getElementById('comissao5');
+	var comissao6    = document.getElementById('comissao6');
+	var comissao7    = document.getElementById('comissao7');
 	var comissao_id  = document.getElementById('PoliticoComissaoId');
 	var comissao_id1 = document.getElementById('PoliticoComissaoId1');
 	var comissao_id2 = document.getElementById('PoliticoComissaoId2');
 	var comissao_id3 = document.getElementById('PoliticoComissaoId3');
+	var comissao_id4 = document.getElementById('PoliticoComissaoId4');
+	var comissao_id5 = document.getElementById('PoliticoComissaoId5');
+	var comissao_id6 = document.getElementById('PoliticoComissaoId6');
+	var comissao_id7 = document.getElementById('PoliticoComissaoId7');
  	var btn          = document.getElementById('btn');
  	var btn1         = document.getElementById('btn1');
  	var btn2         = document.getElementById('btn2');
+ 	var btn3         = document.getElementById('btn3');
+ 	var btn4         = document.getElementById('btn4');
+ 	var btn5         = document.getElementById('btn5');
+ 	var btn6         = document.getElementById('btn6');
 
 	if (<?php echo $tipo ?> == 2) {
 		mesa.removeAttribute('hidden');			
@@ -167,7 +240,32 @@
 
 	if (comissao_id3.options[comissao_id3.selectedIndex].value != 6) {
 		btn2.setAttribute('hidden', 'true');
+		btn3.removeAttribute('hidden');
 		comissao3.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id4.options[comissao_id4.selectedIndex].value != 6) {
+		btn3.setAttribute('hidden', 'true');
+		btn4.removeAttribute('hidden');
+		comissao4.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id5.options[comissao_id5.selectedIndex].value != 6) {
+		btn4.setAttribute('hidden', 'true');
+		btn5.removeAttribute('hidden');
+		comissao5.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id6.options[comissao_id6.selectedIndex].value != 6) {
+		btn5.setAttribute('hidden', 'true');
+		btn6.removeAttribute('hidden');
+		comissao6.removeAttribute('hidden');		
+	} 
+
+	if (comissao_id7.options[comissao_id7.selectedIndex].value != 6) {
+		btn6.setAttribute('hidden', 'true');
+		btn7.removeAttribute('hidden');
+		comissao7.removeAttribute('hidden');		
 	} 
 
 	comissao_id.addEventListener("change", function() {
@@ -207,5 +305,57 @@
 	btn2.addEventListener("click", function() {
 		btn2.setAttribute('hidden', 'true');		
 		comissao3.removeAttribute('hidden');	
+	});
+
+	comissao_id3.addEventListener("change", function() {
+		if (comissao_id3.options[comissao_id3.selectedIndex].value != 6) {
+			btn3.removeAttribute('hidden');			
+		} else {			
+			btn3.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn3.addEventListener("click", function() {
+		btn3.setAttribute('hidden', 'true');		
+		comissao4.removeAttribute('hidden');	
+	});
+
+	comissao_id4.addEventListener("change", function() {
+		if (comissao_id4.options[comissao_id4.selectedIndex].value != 6) {
+			btn4.removeAttribute('hidden');			
+		} else {			
+			btn4.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn4.addEventListener("click", function() {
+		btn4.setAttribute('hidden', 'true');		
+		comissao5.removeAttribute('hidden');	
+	});
+
+	comissao_id5.addEventListener("change", function() {
+		if (comissao_id5.options[comissao_id5.selectedIndex].value != 6) {
+			btn5.removeAttribute('hidden');			
+		} else {			
+			btn5.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn5.addEventListener("click", function() {
+		btn5.setAttribute('hidden', 'true');		
+		comissao6.removeAttribute('hidden');	
+	});
+
+	comissao_id6.addEventListener("change", function() {
+		if (comissao_id6.options[comissao_id6.selectedIndex].value != 6) {
+			btn6.removeAttribute('hidden');			
+		} else {			
+			btn6.setAttribute('hidden', 'true');
+		}
+	});
+
+	btn6.addEventListener("click", function() {
+		btn6.setAttribute('hidden', 'true');		
+		comissao7.removeAttribute('hidden');	
 	});
 </script>
