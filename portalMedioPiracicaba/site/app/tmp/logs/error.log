@@ -26108,3 +26108,13 @@ Request URL: /portalMedio/portalMedioPiracicaba/site/css/bootstrap.css.map
 Stack Trace:
 #0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2017-01-23 00:44:47 Error: Fatal Error (4): syntax error, unexpected end of file in [C:\wamp\www\portalMedio\portalMedioPiracicaba\site\app\View\Homes\site_legislativo.ctp, line 312]
+2017-01-23 00:44:47 Error: [FatalErrorException] syntax error, unexpected end of file
+Request URL: /portalMedio/portalMedioPiracicaba/site/homes/site_legislativo/8
+Stack Trace:
+#0 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Error\ErrorHandler.php(213): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 312)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 312, Array)
+#2 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(933): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'C:\\wamp\\www\\por...', 312, Array)
+#3 C:\wamp\www\portalMedio\portalMedioPiracicaba\site\lib\Cake\Core\App.php(906): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}

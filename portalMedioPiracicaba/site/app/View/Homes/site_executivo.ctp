@@ -57,7 +57,7 @@
 
 				<div class="col-md-6 col-md-offset-3 text-justify">
 					<?php
-						echo '<div class="col-md-12" style="margin-bottom: 50px">';
+						echo '<div class="col-md-6 col-md-offset-3" style="margin-bottom: 50px">';
     					if (!empty($prefeito['0']['FotoPolitico'])) {
     						echo '<div class="col-md-12">'.$this->Html->image(end($prefeito['0']['FotoPolitico'])['foto'], array('width' => '100%', 'height' => '100%')).'</div>';
     					} else {

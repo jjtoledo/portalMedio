@@ -58,7 +58,32 @@
 						</div>
 
 						<div class="col-md-12">
-							<?php $count=0; $b=0; foreach ($vereadores as $p) {
+							<?php $mesa = array(); foreach ($vereadores as $p) {
+									if ($p['Politico']['mesa_diretora'] != 0) {
+										if ($p['Politico']['presidente'] != 0) {
+											array_push($mesa, $p);
+										} else if (strpos($p['Politico']['nome'], 'Vice')) {
+											array_push($mesa, $p);
+										}
+									}
+								}
+
+								foreach ($vereadores as $p) {
+									if ($p['Politico']['mesa_diretora'] != 0) {
+										if (strpos($p['Politico']['nome'], 'Primeiro')) {
+											array_push($mesa, $p);
+										}
+									}
+								}
+
+								foreach ($vereadores as $p) {
+									if ($p['Politico']['mesa_diretora'] != 0) {
+										if (strpos($p['Politico']['nome'], 'Segundo')) {
+											array_push($mesa, $p);
+										}
+									}
+								} ?>
+							<?php $count=0; $b=0; foreach ($mesa as $p) {
 								if ($b == 4) {
 									$b = 0;
 									echo '</div>';
@@ -68,9 +93,10 @@
 		      				echo '<div class="row">';
 		      			}
 
+		      			
 								if ($p['Politico']['mesa_diretora'] != 0) {
 									$count++;
-									$b++;
+									$b++;									
 
 			    				echo '<div class="col-md-3" style="margin-top: 20px">';
 			    					if (!empty($p['FotoPolitico'])) {
